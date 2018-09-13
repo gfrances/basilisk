@@ -1,14 +1,9 @@
 
-# Tarski - The Planning Problem Definition Module [![Build Status](https://travis-ci.com/aig-upf/tarski.svg?branch=master)](https://travis-ci.com/aig-upf/tarski)
-
-## What is Tarski
+# Concept Base Heuristics
 
 
-### Supported Languages
-At the moment, Tarski supports the following modeling languages:
-* PDDL
-* Functional STRIPS
 
+## Development Notes
 
 
 ## Installation and Usage
@@ -16,10 +11,6 @@ At the moment, Tarski supports the following modeling languages:
     python3 setup.py install
 
 ### Software Requirements
-Tarski requires Python >= 3.5.
+* Pyperplan
 
 
-
-## Modules
-
-* Description Logic (`tarski.dl`)
