@@ -63,7 +63,7 @@ class StateSpaceInfo:
     def _debug_print(self):
         print (self.states)
 
-def full_state_space_search(planning_task, max_exp=4):
+def full_state_space_search(planning_task, max_exp=10000):
 
     # create obj to track state space
     state_space = StateSpaceInfo()

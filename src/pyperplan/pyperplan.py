@@ -134,7 +134,7 @@ def _ground(problem):
     return task
 
 
-def _search(task, search, heuristic, use_preferred_ops=False):
+def _search(task, search, heuristic, search_name, max_nodes=10000, use_preferred_ops=False):
     logging.info('Search start: {0}'.format(task.name))
     if heuristic:
         if use_preferred_ops:
@@ -142,7 +142,11 @@ def _search(task, search, heuristic, use_preferred_ops=False):
         else:
             solution = search(task, heuristic)
     else:
-        solution = search(task)
+        if search_name == "full":
+            search(task, max_nodes)
+            solution  ="FULL_SEARCH_EXIT"
+        else:
+            solution = search(task)
     logging.info('Search end: {0}'.format(task.name))
     return solution
 
@@ -154,8 +158,8 @@ def _write_solution(solution, filename):
             print(op.name, file=file)
 
 
-def search_plan(domain_file, problem_file, search, heuristic_class,
-                use_preferred_ops=False):
+def search_plan(domain_file, problem_file, search, heuristic_class, search_name,
+                use_preferred_ops=False, max_nodes=10000):
     """
     Parses the given input files to a specific planner task and then tries to
     find a solution using the specified  search algorithm and heuristics.
@@ -172,13 +176,17 @@ def search_plan(domain_file, problem_file, search, heuristic_class,
     problem = _parse(domain_file, problem_file)
     task = _ground(problem)
     heuristic = None
+
     if not heuristic_class is None:
         heuristic = heuristic_class(task)
     search_start_time = time.clock()
-    if use_preferred_ops and isinstance(heuristic, heuristics.hFFHeuristic):
-        solution = _search(task, search, heuristic, use_preferred_ops=True)
+
+    if search_name == "full":
+        solution = _search(task, search, heuristic, search_name, max_nodes = max_nodes)
+    elif use_preferred_ops and isinstance(heuristic, heuristics.hFFHeuristic):
+        solution = _search(task, search, heuristic, search_name, use_preferred_ops=True)
     else:
-        solution = _search(task, search, heuristic)
+        solution = _search(task, search, heuristic, search_name)
     logging.info('Wall-clock search time: {0:.2}'.format(time.clock() -
                                                          search_start_time))
     return solution
@@ -223,8 +231,10 @@ if __name__ == '__main__':
     argparser.add_argument('-s', '--search', choices=SEARCHES.keys(),
         help='Select a search algorithm from {0}'.format(search_names),
         default='bfs')
+    argparser.add_argument('-n', '--max-nodes',
+        help='Maximum number of nodes expanded',
+        default='10000')
     args = argparser.parse_args()
-
     logging.basicConfig(level=getattr(logging, args.loglevel.upper()),
                     format='%(asctime)s %(levelname)-8s %(message)s',
                     stream=sys.stdout)
@@ -253,10 +263,16 @@ if __name__ == '__main__':
                                           else None))
     use_preferred_ops = (args.heuristic == 'hffpo')
     solution = search_plan(args.domain, args.problem, search, heuristic,
-                           use_preferred_ops=use_preferred_ops)
+                           args.search,
+                           use_preferred_ops=use_preferred_ops,
+                           max_nodes=int(args.max_nodes))
+
 
     if solution is None:
         logging.warning('No solution could be found')
+    elif solution is "FULL_SEARCH_EXIT":
+        logging.warning('Full search finished.')
+        sys.exit()
     else:
         solution_file = args.problem + '.soln'
         logging.info('Plan length: %s' % len(solution))
