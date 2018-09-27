@@ -1,5 +1,5 @@
 
-# Concept Base Heuristics
+# Concept Based Heuristics
 
 
 
@@ -12,5 +12,3 @@
 
 ### Software Requirements
 * Pyperplan
-
-
