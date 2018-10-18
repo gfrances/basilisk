@@ -11,4 +11,3 @@
     python3 setup.py install
 
 ### Software Requirements
-* Pyperplan
