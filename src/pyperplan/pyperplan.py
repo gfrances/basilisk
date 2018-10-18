@@ -271,7 +271,7 @@ if __name__ == '__main__':
     if solution is None:
         logging.warning('No solution could be found')
     elif solution is "FULL_SEARCH_EXIT":
-        logging.warning('Full search finished.')
+        logging.info('Full search is complete.')
         sys.exit()
     else:
         solution_file = args.problem + '.soln'
