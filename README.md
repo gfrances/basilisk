@@ -11,3 +11,5 @@
     python3 setup.py install
 
 ### Software Requirements
+
+* Python 3.6+
