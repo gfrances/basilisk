@@ -1,6 +1,4 @@
 
-import pyperplan  
+import pyperplan
 
 # The rest should be easy :-)
-
-

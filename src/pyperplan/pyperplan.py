@@ -231,7 +231,7 @@ if __name__ == '__main__':
     argparser.add_argument('-s', '--search', choices=SEARCHES.keys(),
         help='Select a search algorithm from {0}'.format(search_names),
         default='bfs')
-    argparser.add_argument('-n', '--max-nodes',
+    argparser.add_argument('--max-nodes',
         help='Maximum number of nodes expanded',
         default='10000')
     args = argparser.parse_args()
