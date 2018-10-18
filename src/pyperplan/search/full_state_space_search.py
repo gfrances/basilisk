@@ -20,7 +20,9 @@ Implements a complete search until a given limit of expansions.
 '''
 
 from collections import deque
-import logging, sys
+import json
+import logging
+
 
 from . import searchspace
 
@@ -90,8 +92,9 @@ class StateSpaceInfo:
                 new_entry["atoms"] = atoms
                 output.append(new_entry)
 
-        for i in output:
-            print (i)
+        with open('state_space.json', 'w') as outfile:
+            json.dump(output, outfile)
+
 
 def full_state_space_search(planning_task, max_exp=10000):
 
