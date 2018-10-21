@@ -1,4 +1,17 @@
 
+
+runs
+logs
+terms
+*.cnf
+*.cnf.txt
+
+build
+dist
+*.egg-info
+
+
+
 # Object code
 *.slo
 *.lo

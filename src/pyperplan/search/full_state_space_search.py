@@ -93,6 +93,8 @@ class StateSpaceInfo:
                 output.append(new_entry)
 
         with open('state_space.json', 'w') as outfile:
+            import os
+            print(os.getcwd())
             logging.info("Writing state space on \'state_space.json\'.")
             json.dump(output, outfile)
 
