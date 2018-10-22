@@ -107,6 +107,7 @@ def full_state_space_search(planning_task, max_exp=10000):
     # set storing the explored nodes, used for duplicate detection
 
     closed = set()
+    node_id = 0
     while queue:
         iteration += 1
         logging.debug("breadth_first_search: Iteration %d, #unexplored=%d"
@@ -125,20 +126,22 @@ def full_state_space_search(planning_task, max_exp=10000):
         else:
             closed.add(node.state)
 
+        node_id += 1
+
         # exploring the node or if it is a goal node extracting the plan
         if is_goal:
             goals += 1
             logging.info("Goal found. Number of goal states found: %d" % goals)
-        if iteration >= max_exp:
+        if node_id >= max_exp:
             logging.info("Maximum number of expansions reached. Exiting the search.")
             logging.info("Total number of goal states: %d" % goals)
-            logging.info("%d Nodes expanded" % iteration)
+            logging.info("%d Nodes expanded" % node_id)
             return state_space.convert_to_json()
         for operator, successor_state in planning_task.get_successor_states(node.state):
             queue.append(searchspace.make_child_node(node, operator,
                                                      successor_state))
     logging.info("No operators left.")
-    logging.info("%d Nodes expanded" % iteration)
+    logging.info("%d Nodes expanded" % node_id)
     logging.info("Total number of goal states: %d" % goals)
 
     return state_space.convert_to_json()
