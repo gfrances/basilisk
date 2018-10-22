@@ -25,3 +25,6 @@ for an example. Currently we can invoke the configuration `prob01` of the experi
 ### Software Requirements
 
 * Python 3.6+
+* pip or pip3
+* setuptools
+* python-dev
