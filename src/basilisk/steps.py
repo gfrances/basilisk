@@ -4,7 +4,8 @@ import sys
 from . import EXPDATA_DIR, PYPERPLAN_DIR
 from sltp.driver import Step, InvalidConfigParameter, check_int_parameter
 from sltp.util.command import execute
-from sltp.util.naming import compute_instance_tag, compute_experiment_tag, compute_sample_filename
+from sltp.util.naming import compute_instance_tag, compute_experiment_tag, compute_sample_filename, \
+    compute_info_filename
 
 
 def compute_sample_filenames(experiment_dir, instances, **_):
@@ -57,3 +58,28 @@ class PyperplanStep(Step):
 
     def get_step_runner(self):
         return _run_pyperplan
+
+
+class HeuristicWeightsComputation(Step):
+    """  """
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def get_required_attributes(self):
+        return ["experiment_dir", "lp_max_weight"]
+
+    def process_config(self, config):
+        config["lp_filename"] = compute_info_filename(config, "problem.lp")
+        config["state_heuristic_filename"] = compute_info_filename(config, "state-heuristic-values.txt")
+
+        return config
+
+    def get_required_data(self):
+        return []
+
+    def description(self):
+        return "Computation of the weights of a desceding heuristic"
+
+    def get_step_runner(self):
+        from . import runner
+        return runner.run

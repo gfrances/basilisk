@@ -1,9 +1,8 @@
 import os
 
 from basilisk import BENCHMARK_DIR
-from basilisk.steps import PyperplanStep
-from sltp.driver import Experiment, generate_pipeline_from_list, ConceptGenerationStep, \
-    FeatureMatrixGenerationStep, HeuristicWeightsComputation
+from basilisk.steps import PyperplanStep, HeuristicWeightsComputation
+from sltp.driver import Experiment, generate_pipeline_from_list, ConceptGenerationStep, FeatureMatrixGenerationStep
 from sltp.learn_actions import OptimizationPolicy
 
 

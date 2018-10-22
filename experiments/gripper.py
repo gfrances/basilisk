@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import sys
 
-from basilisk import PYPERPLAN_BENCHMARK_DIR
+from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
 
 from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
@@ -12,14 +12,15 @@ from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, 
 def experiment(experiment_name=None):
     domain = "domain.pddl"
     domain_dir = "gripper-m"
-    benchmark_dir = PYPERPLAN_BENCHMARK_DIR
-    domain_dir = "gripper"
+    benchmark_dir = BENCHMARK_DIR
+    # benchmark_dir = PYPERPLAN_BENCHMARK_DIR
+    # domain_dir = "gripper"
 
     prob01 = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
-        # instances="prob01.pddl",
-        instances="task01.pddl",
+        instances="prob01.pddl",
+        # instances="task01.pddl",
         num_states=300, num_sampled_states=None, random_seed=12,
         max_concept_size=10, max_concept_grammar_iterations=3,
         concept_generator=None, parameter_generator=add_domain_parameters,
