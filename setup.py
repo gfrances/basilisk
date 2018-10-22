@@ -22,7 +22,7 @@ def main():
         description='basilisk: The concept-based potential heuristic learner from Basel',
         long_description=long_description,
         url='https://github.com/aibasel/concept-based-heuristics',
-        author='Augusto Correa and Cedric Geissmann and Florian Pommerening and Guillem Francès',
+        author='Augusto B. Corrêa and Cedric Geissmann and Florian Pommerening and Guillem Francès',
         author_email='-',
 
         keywords='planning logic STRIPS heuristic',
@@ -51,8 +51,8 @@ def main():
 
         # Git dependencies - egg names need to match whatever written in install_requires
         dependency_links=[
-            'git+ssh://git@github.com/aig-upf/tarski.git@cb92626051e79dca0439acd6b76a877adf30d497#egg=tarski-0.1.0',
-            'git+ssh://git@github.com/aig-upf/features-generalized-planning.git@heuristics#egg=sltp-0.1.0',
+            'git+https://github.com/aig-upf/tarski.git@cb92626051e79dca0439acd6b76a877adf30d497#egg=tarski-0.1.0',
+            'git+https://github.com/aig-upf/features-generalized-planning.git@heuristics#egg=sltp-0.1.0',
         ],
 
         extras_require={
