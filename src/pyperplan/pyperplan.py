@@ -25,6 +25,7 @@ import re
 import logging
 import subprocess
 import time
+import json
 from operator import attrgetter
 
 try:
@@ -143,8 +144,7 @@ def _search(task, search, heuristic, search_name, max_nodes=10000, use_preferred
             solution = search(task, heuristic)
     else:
         if search_name == "full":
-            search(task, max_nodes)
-            solution  ="FULL_SEARCH_EXIT"
+            solution = search(task, max_nodes)
         else:
             solution = search(task)
     logging.info('Search end: {0}'.format(task.name))
@@ -232,8 +232,11 @@ if __name__ == '__main__':
         help='Select a search algorithm from {0}'.format(search_names),
         default='bfs')
     argparser.add_argument('--max-nodes',
-        help='Maximum number of nodes expanded',
-        default='10000')
+                           help='Maximum number of nodes expanded',
+                           default='10000')
+    argparser.add_argument('--state-space-output',
+                           help='File name to output the state space explored.',
+                           default='state_space.json')
     args = argparser.parse_args()
     logging.basicConfig(level=getattr(logging, args.loglevel.upper()),
                     format='%(asctime)s %(levelname)-8s %(message)s',
@@ -267,12 +270,14 @@ if __name__ == '__main__':
                            use_preferred_ops=use_preferred_ops,
                            max_nodes=int(args.max_nodes))
 
+    if args.search == "full":
+        with open(args.state_space_output, 'w') as outfile:
+            logging.info("Writing state space on \'" + args.state_space_output + "'.")
+            json.dump(solution, outfile)
+        sys.exit()
 
     if solution is None:
         logging.warning('No solution could be found')
-    elif solution is "FULL_SEARCH_EXIT":
-        logging.info('Full search is complete.')
-        sys.exit()
     else:
         solution_file = args.problem + '.soln'
         logging.info('Plan length: %s' % len(solution))

@@ -20,7 +20,6 @@ Implements a complete search until a given limit of expansions.
 '''
 
 from collections import deque
-import json
 import logging
 
 
@@ -79,7 +78,7 @@ class StateSpaceInfo:
         return new_atom
 
 
-    def convert_and_output(self):
+    def convert_to_json(self):
         output = []
         for state in self.states:
             state_id, parents, is_goal = self.states[state]
@@ -91,12 +90,7 @@ class StateSpaceInfo:
                 new_entry["goal"] = is_goal
                 new_entry["atoms"] = atoms
                 output.append(new_entry)
-
-        with open('state_space.json', 'w') as outfile:
-            import os
-            print(os.getcwd())
-            logging.info("Writing state space on \'state_space.json\'.")
-            json.dump(output, outfile)
+        return output
 
 
 def full_state_space_search(planning_task, max_exp=10000):
@@ -139,8 +133,7 @@ def full_state_space_search(planning_task, max_exp=10000):
             logging.info("Maximum number of expansions reached. Exiting the search.")
             logging.info("Total number of goal states: %d" % goals)
             logging.info("%d Nodes expanded" % iteration)
-            state_space.convert_and_output()
-            return None
+            return state_space.convert_to_json()
         for operator, successor_state in planning_task.get_successor_states(node.state):
             queue.append(searchspace.make_child_node(node, operator,
                                                      successor_state))
@@ -148,6 +141,4 @@ def full_state_space_search(planning_task, max_exp=10000):
     logging.info("%d Nodes expanded" % iteration)
     logging.info("Total number of goal states: %d" % goals)
 
-    state_space.convert_and_output()
-
-    return None
+    return state_space.convert_to_json()
