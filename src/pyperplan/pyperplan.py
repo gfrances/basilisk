@@ -271,9 +271,12 @@ if __name__ == '__main__':
                            max_nodes=int(args.max_nodes))
 
     if args.search == "full":
+        logging.info("Writing state space on \'" + args.state_space_output + "'.")
         with open(args.state_space_output, 'w') as outfile:
-            logging.info("Writing state space on \'" + args.state_space_output + "'.")
-            json.dump(solution, outfile)
+            # Print one json-encoded object per line
+            for line in solution:
+                print(json.dumps(line), file=outfile)
+            # json.dump(solution, outfile)
         sys.exit()
 
     if solution is None:

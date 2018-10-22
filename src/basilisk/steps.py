@@ -19,9 +19,8 @@ def _run_pyperplan(config, data, rng):
     for i, o in zip(config.instances, config.sample_files):
         # params = '-i {} --domain {} --driver {} --disable-static-analysis --options="max_expansions={},width.max={}"'\
         #     .format(i, config.domain, config.driver, config.num_states, w)
-        max_expansions = "full"  # config.num_states
-        params = '-s {} {} {}'.format(max_expansions, config.domain, i)
-        execute(command=[sys.executable, "pyperplan.py"] + params.split(' '), stdout=o, cwd=PYPERPLAN_DIR)
+        params = '-s full --state-space-output {} --max-nodes {} {} {}'.format(o, config.num_states, config.domain, i)
+        execute(command=[sys.executable, "pyperplan.py"] + params.split(' '), cwd=PYPERPLAN_DIR)
     return dict()
 
 
