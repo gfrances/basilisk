@@ -10,7 +10,7 @@ build
 dist
 *.egg-info
 
-
+*~
 
 # Object code
 *.slo
@@ -80,3 +80,6 @@ alltests.bat
 
 # setup internals
 build/
+
+# ignore pycharm configs
+.idea
