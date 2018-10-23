@@ -91,10 +91,6 @@ def generate_experiment(domain_dir, domain, **kwargs):
         # Set a random seed for reproducibility (default: 1)
         random_seed=1,
 
-        # The number of features and actions for the SAT encoding
-        encoding_k=10,
-        encoding_m=10,
-
         # The M parameter of the LP formulation (?)
         lp_max_weight=10,
 
