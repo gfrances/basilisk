@@ -24,7 +24,15 @@ for an example. Currently we can invoke the configuration `prob01` of the experi
 
 ### Software Requirements
 
-* Python 3.6+
-* pip or pip3
-* setuptools
-* python-dev
+* CPLEX (Python API)
+  To install the Python API for CPLEX, go to the directory `/path/to/cplex/python` and run
+
+	```bash
+     python3 setup.py install
+	 ```
+
+* Python 3.6+ with the following dependencies
+  - pip or pip3
+  - setuptools
+  - python-dev
+  - numpy
