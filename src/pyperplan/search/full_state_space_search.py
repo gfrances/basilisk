@@ -50,7 +50,7 @@ class StateSpaceInfo:
     def add_state(self, state, parent, is_goal):
         # corner case for initial state
         if parent is None:
-            self.states[state] = (self.global_id, [], is_goal)
+            self.states[state] = (self.global_id, [0], is_goal)
             self.global_id += 1
             return
         if state in list(self.states.keys()):
@@ -80,6 +80,7 @@ class StateSpaceInfo:
 
     def convert_to_json(self):
         output = []
+        print (self.states)
         for state in self.states:
             state_id, parents, is_goal = self.states[state]
             atoms = [self.parse_atom(atom) for atom in state]
