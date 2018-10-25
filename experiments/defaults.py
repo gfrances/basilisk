@@ -1,7 +1,7 @@
 import os
 
 from basilisk import BENCHMARK_DIR
-from basilisk.steps import PyperplanStep, HeuristicWeightsComputation
+from basilisk.steps import PyperplanStep, HeuristicWeightsComputation, HeuristicTestingComputation
 from sltp.driver import Experiment, generate_pipeline_from_list, ConceptGenerationStep, FeatureMatrixGenerationStep
 from sltp.learn_actions import OptimizationPolicy
 
@@ -11,6 +11,7 @@ heuristic_pipeline = [
     ConceptGenerationStep,
     FeatureMatrixGenerationStep,
     HeuristicWeightsComputation,
+    HeuristicTestingComputation,
 ]
 
 
@@ -23,7 +24,9 @@ def generate_experiment(domain_dir, domain, **kwargs):
     instances = kwargs["instances"] if isinstance(kwargs["instances"], (list, tuple)) else [kwargs["instances"]]
     benchmark_dir = kwargs.get("benchmark_dir", BENCHMARK_DIR)
     kwargs["domain"] = os.path.join(benchmark_dir, domain_dir, domain)
+    kwargs["test_domain"] = os.path.join(benchmark_dir, domain_dir, kwargs["test_domain"])
     kwargs["instances"] = [os.path.join(benchmark_dir, domain_dir, i) for i in instances]
+    kwargs["test_instances"] = [os.path.join(benchmark_dir, domain_dir, i) for i in kwargs["test_instances"]]
 
     defaults = dict(
         # Location of the FS planner, used to do the state space sampling

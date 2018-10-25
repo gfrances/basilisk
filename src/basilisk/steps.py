@@ -54,7 +54,7 @@ class PyperplanStep(Step):
         return config
 
     def description(self):
-        return "Sampling of the state space"
+        return "Sampling of the state space with Pyperplan"
 
     def get_step_runner(self):
         return _run_pyperplan
@@ -83,3 +83,30 @@ class HeuristicWeightsComputation(Step):
     def get_step_runner(self):
         from . import runner
         return runner.run
+
+
+class HeuristicTestingComputation(Step):
+    """  """
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+    def get_required_attributes(self):
+        return ["experiment_dir", "test_instances", "test_domain"]
+
+    def process_config(self, config):
+        if not os.path.isfile(config["test_domain"]):
+            raise InvalidConfigParameter('"test_domain" must be the path to an existing domain file')
+        if any(not os.path.isfile(i) for i in config["test_instances"]):
+            raise InvalidConfigParameter('"test_instances" must point to existing files')
+
+        return config
+
+    def get_required_data(self):
+        return ["learned_heuristic", "features"]
+
+    def description(self):
+        return "Testing of the heuristic in unseen instances"
+
+    def get_step_runner(self):
+        from . import tester
+        return tester.run

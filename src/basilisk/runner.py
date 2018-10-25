@@ -158,13 +158,14 @@ def report(problem, transitions, feature_names, features_per_state, goal_states,
 
     wvar_names = ((i, get_weight_var(i)) for i in range(0, len(feature_names)))
     feature_weights = ((i, wname, problem.solution.get_values(wname)) for i, wname in wvar_names)
-    nonzero_features = [(i, var, val) for i, var, val in feature_weights if val != 0]
-    print(("Heuristic:\n\t{}".format("\n\t".join("{} · {}".format(val, feature_names[i]) for i, _, val in nonzero_features))))
+    nonzero_features = [(i, val) for i, var, val in feature_weights if val != 0]
+    print("Heuristic found making use of {} features:".format(len(nonzero_features)))
+    print(("\t{}".format("\n\t".join("{} · {}".format(val, feature_names[i]) for i, val in nonzero_features))))
 
     def heuristic_function(s_):
         state_values = features_per_state[s_]
         h = 0
-        for i, _, fweight in nonzero_features:
+        for i, fweight in nonzero_features:
             h += fweight * state_values[i]
         return h
 
@@ -173,23 +174,24 @@ def report(problem, transitions, feature_names, features_per_state, goal_states,
         for s in sorted_state_ids:
             print("h({}) = {}".format(s, heuristic_function(s)), file=file)
 
-    print("Weight Variables:")
+    # print("Weight Variables:")
     # print("\n".join("{}: {}".format(var, val) for var, val in var_vals))
 
-    print("Y Variables:")
-    y_variables = [get_y_var(t[0], t[1]) for t in transitions if t[0] not in goal_states]
-    for i in y_variables:
-        print(i, '=', str(int(round(problem.solution.get_values(i)))) + ', ', end=' ')
-    print()
+    # print("Y Variables:")
+    # y_variables = [get_y_var(t[0], t[1]) for t in transitions if t[0] not in goal_states]
+    # for i in y_variables:
+    #     print(i, '=', str(int(round(problem.solution.get_values(i)))) + ', ', end=' ')
+    # print()
 
-    print("X+- Variables:")
-    for f in range(0, len(feature_names)):
-        print(f, str(
-            (problem.solution.get_values('xplus_' + str(f)), problem.solution.get_values('xminus_' + str(f)))) + ', ',
-              end=" ")
+    # print("X+- Variables:")
+    # for f in range(0, len(feature_names)):
+    #     print(f, str(
+    #         (problem.solution.get_values('xplus_' + str(f)), problem.solution.get_values('xminus_' + str(f)))) + ', ',
+    #           end=" ")
 
     # Run hill-climbing and make sure we find a goal
     hill_climbing("s0", adj_list, heuristic_function, goal_states)
+    return nonzero_features
 
 
 def run(config, data, rng):
@@ -223,4 +225,9 @@ def run(config, data, rng):
     problem.solve()
     print("Solution value  = ", problem.solution.get_objective_value())
 
-    report(problem, transitions, feature_names, features_per_state, goal_states, adj_list, config)
+    heuristic = report(problem, transitions, feature_names, features_per_state, goal_states, adj_list, config)
+
+    # Return those values that we want to be persisted between different steps
+    return dict(
+        learned_heuristic=heuristic,
+    )

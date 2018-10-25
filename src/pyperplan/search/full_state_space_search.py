@@ -15,15 +15,16 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>
 #
 
-'''
+"""
 Implements a complete search until a given limit of expansions.
-'''
+"""
 
 from collections import deque
 import logging
 
 
 from . import searchspace
+
 
 class StateSpaceInfo:
     """
@@ -77,10 +78,9 @@ class StateSpaceInfo:
         new_atom = action+"(" + (",".join(split[1:])) + ")"
         return new_atom
 
-
     def convert_to_json(self):
         output = []
-        print (self.states)
+        # print(self.states)
         for state in self.states:
             state_id, parents, is_goal = self.states[state]
             atoms = [self.parse_atom(atom) for atom in state]

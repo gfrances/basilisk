@@ -1,3 +1,4 @@
+import logging
 import sys
 
 
@@ -28,7 +29,43 @@ def hill_climbing(s0, adjacencies, heuristic, goal_states):
             sys.stderr.flush()
             raise RuntimeError("Your model doesn't work")
 
-
     assert s in goal_states
-    print("\nGenius: ")
+    print("\nHill Climbing on the training instance succeeds with the following state path: ")
     print(", ".join(plan))
+
+
+def create_pyperplan_hill_climbing_with_embedded_heuristic(heuristic):
+    # This will import from pyperplan's search dir. A bit hacky. We might prefer to pass searchspace as a parameter
+    # for something a bit cleaner
+    from search import searchspace
+    def pyperplan_hill_climbing(task):
+        # assert False
+
+        current = searchspace.make_root_node(task.initial_state)
+        current_h = heuristic(current.state)
+
+        while not task.goal_reached(current.state):
+
+            improvement_found = False
+            successors = task.get_successor_states(current.state)
+
+            if not successors:
+                logging.error("State without successors found: {}".format(current.state))
+                return None
+
+            for operator, succ in successors:
+                h_succ = heuristic(succ)
+                if h_succ < current_h:
+                    current = searchspace.make_child_node(current, operator, succ)
+                    improvement_found = True
+                    break
+
+            if not improvement_found:
+                logging.error("Heuristic local minimum found on state {}".format(current.state))
+                return None
+
+        logging.info("Goal found")
+        return current.extract_solution()
+
+    return pyperplan_hill_climbing
+
