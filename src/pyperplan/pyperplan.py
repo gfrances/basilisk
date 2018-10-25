@@ -23,6 +23,7 @@ import sys
 import os
 import re
 import logging
+import math
 import subprocess
 import time
 import json
@@ -53,6 +54,7 @@ SEARCHES = {
 
 NUMBER = re.compile(r'\d+')
 
+INFINITY = math.inf
 
 def get_heuristics():
     """
@@ -135,7 +137,7 @@ def _ground(problem):
     return task
 
 
-def _search(task, search, heuristic, search_name, max_nodes=10000, use_preferred_ops=False):
+def _search(task, search, heuristic, search_name, max_nodes=INFINITY, use_preferred_ops=False):
     logging.info('Search start: {0}'.format(task.name))
     if heuristic:
         if use_preferred_ops:
@@ -159,7 +161,7 @@ def _write_solution(solution, filename):
 
 
 def search_plan(domain_file, problem_file, search, heuristic_class, search_name,
-                use_preferred_ops=False, max_nodes=10000):
+                use_preferred_ops=False, max_nodes=INFINITY):
     """
     Parses the given input files to a specific planner task and then tries to
     find a solution using the specified  search algorithm and heuristics.
@@ -233,12 +235,13 @@ def parse_args(argv):
         default='bfs')
     argparser.add_argument('--max-nodes',
                            help='Maximum number of nodes expanded',
-                           default='10000')
+                           default='INFINITY')
     argparser.add_argument('--state-space-output',
                            help='File name to output the state space explored.',
                            default='state_space.json')
     args = argparser.parse_args(argv)
-
+    if args.max_nodes == "INFINITY":
+        args.max_nodes = INFINITY
     hffpo_searches = ['gbf', 'wastar', 'ehs']
     if args.heuristic == 'hffpo' and args.search not in hffpo_searches:
         print('ERROR: hffpo can currently only be used with %s\n' %
@@ -276,7 +279,7 @@ def main(args):
     solution = search_plan(args.domain, args.problem, search, heuristic,
                            args.search,
                            use_preferred_ops=use_preferred_ops,
-                           max_nodes=int(args.max_nodes))
+                           max_nodes=float(args.max_nodes))
 
     if args.search == "full":
         logging.info("Writing state space on \'" + args.state_space_output + "'.")

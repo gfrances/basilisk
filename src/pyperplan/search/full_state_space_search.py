@@ -94,7 +94,7 @@ class StateSpaceInfo:
         return output
 
 
-def full_state_space_search(planning_task, max_exp=10000):
+def full_state_space_search(planning_task, max_exp):
 
     # create obj to track state space
     state_space = StateSpaceInfo()
