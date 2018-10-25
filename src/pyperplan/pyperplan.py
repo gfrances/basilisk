@@ -182,7 +182,7 @@ def search_plan(domain_file, problem_file, search, heuristic_class, search_name,
     search_start_time = time.clock()
 
     if search_name == "full":
-        solution = _search(task, search, heuristic, search_name, max_nodes = max_nodes)
+        solution = _search(task, search, heuristic, search_name, max_nodes=max_nodes)
     elif use_preferred_ops and isinstance(heuristic, heuristics.hFFHeuristic):
         solution = _search(task, search, heuristic, search_name, use_preferred_ops=True)
     else:
@@ -208,7 +208,7 @@ def validate_solution(domain_file, problem_file, solution_file):
     return exitcode == 0
 
 
-if __name__ == '__main__':
+def parse_args(argv):
     # Commandline parsing
     log_levels = ['debug', 'info', 'warning', 'error']
 
@@ -237,10 +237,7 @@ if __name__ == '__main__':
     argparser.add_argument('--state-space-output',
                            help='File name to output the state space explored.',
                            default='state_space.json')
-    args = argparser.parse_args()
-    logging.basicConfig(level=getattr(logging, args.loglevel.upper()),
-                    format='%(asctime)s %(levelname)-8s %(message)s',
-                    stream=sys.stdout)
+    args = argparser.parse_args(argv)
 
     hffpo_searches = ['gbf', 'wastar', 'ehs']
     if args.heuristic == 'hffpo' and args.search not in hffpo_searches:
@@ -249,13 +246,24 @@ if __name__ == '__main__':
         argparser.print_help()
         exit(2)
 
+    return args
+
+
+def setup_logging(args):
+    logging.basicConfig(level=getattr(logging, args.loglevel.upper()),
+                        format='%(asctime)s %(levelname)-8s %(message)s',
+                        stream=sys.stdout)
+
+
+def main(args):
+    setup_logging(args)
     args.problem = os.path.abspath(args.problem)
     if args.domain is None:
         args.domain = find_domain(args.problem)
     else:
         args.domain = os.path.abspath(args.domain)
 
-    search = SEARCHES[args.search]
+    search = args.forced_search if hasattr(args, "forced_search") else SEARCHES[args.search]
     heuristic = HEURISTICS[args.heuristic]
 
     if args.search in ['bfs', 'ids', 'sat', 'full']:
@@ -286,3 +294,7 @@ if __name__ == '__main__':
         logging.info('Plan length: %s' % len(solution))
         _write_solution(solution, solution_file)
         validate_solution(args.domain, args.problem, solution_file)
+
+
+if __name__ == '__main__':
+    main(parse_args(sys.argv[1:]))
