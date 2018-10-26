@@ -41,6 +41,7 @@ class StateSpaceInfo:
     def __init__(self):
         self.states = dict()
         self.global_id = 0
+        self.goals = []
 
     """
     Add a state to the state space information
@@ -51,20 +52,28 @@ class StateSpaceInfo:
     def add_state(self, state, parent, is_goal):
         # corner case for initial state
         if parent is None:
-            self.states[state] = (self.global_id, [0], is_goal)
+            self.states[state] = (self.global_id, [0], is_goal, (not is_goal))
             self.global_id += 1
             return
         if state in list(self.states.keys()):
-            state_id, parents_list, is_goal = self.states[state]
+            state_id, parents_list, is_goal, unsolvable = self.states[state]
             parents_list.append(self.get_id(parent.state))
-            self.states[state] = (state_id, parents_list, is_goal)
+            self.states[state] = (state_id, parents_list, is_goal, unsolvable)
         else:
-            self.states[state] = (self.global_id, [self.get_id(parent.state)], is_goal)
+            self.states[state] = (self.global_id, [self.get_id(parent.state)], is_goal, (not is_goal))
             self.global_id += 1
 
+        if is_goal:
+            self.goals.append(self.get_id(state))
+
     def get_id(self, state):
-        state_id, _, _ = self.states[state]
+        state_id, _, _, _ = self.states[state]
         return state_id
+
+    def get_state_from_id(self, id):
+        for s in self.states:
+            if self.states[s][0] == id:
+                return s
 
     def _debug_print(self):
         for i in self.states:
@@ -79,20 +88,41 @@ class StateSpaceInfo:
         return new_atom
 
     def convert_to_json(self):
+        self.update_unsolvable_nodes()
         output = []
         # print(self.states)
         for state in self.states:
-            state_id, parents, is_goal = self.states[state]
+            state_id, parents, is_goal, unsolvable = self.states[state]
             atoms = [self.parse_atom(atom) for atom in state]
             for parent in parents:
                 new_entry = dict()
                 new_entry["id"] = state_id
                 new_entry["parent"] = parent
                 new_entry["goal"] = is_goal
+                new_entry["unsolvable"] = unsolvable
                 new_entry["atoms"] = atoms
                 output.append(new_entry)
         return output
 
+    def update_unsolvable_nodes(self):
+        '''
+        Check which nodes are actually unsolvable or not using a backward search from the goal
+        '''
+        while (len(self.goals) > 0):
+            node = self.goals.pop(0)
+            state = self.get_state_from_id(node)
+            state_id, parents, _, _ = self.states[state]
+            for parent in parents:
+                parent_state = self.get_state_from_id(parent)
+                parent_id, predecessors, is_goal, unsolvable = self.states[parent_state]
+                if not unsolvable:
+                    # it means that it is already in the list or it was already
+                    # expanded backwards
+                    continue
+                else:
+                    unsolvable = False
+                    self.goals.append(parent_id)
+                    self.states[parent_state] = (parent_id, predecessors, is_goal, unsolvable)
 
 def full_state_space_search(planning_task, max_exp):
 
