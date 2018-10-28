@@ -67,7 +67,6 @@ def populate_weight_constraints(problem, transitions, features, goal_states, max
         sum_delta_f = 0
 
         # Add w_f*([f]^s - [f]^s') to every feature
-
         for f, (start_f, final_f) in enumerate(zip(features_start, features_final)):
             w_name = get_weight_var(f)
             delta_f = start_f - final_f
@@ -98,6 +97,38 @@ def populate_weight_constraints(problem, transitions, features, goal_states, max
             lin_expr = cplex.SparsePair(ind=names, val=coefficients),
             name= constraint_name)
 #    problem.linear_constraints.set_coefficients(coefficients)
+
+
+def populate_dead_end_constraints(problem, transitions, goal_states, dead_ends):
+    for transition_i, transition in enumerate(transitions, 1):
+        '''
+        We are doing almost the same thing as the weight constraints here.
+        Maybe we can save some work if we merge both functions?
+        '''
+        coefficients = []
+        names = []
+        start_node = transition[0]
+        final_node = transition[1]
+
+        if start_node not in dead_ends:
+            continue
+
+        constraint_name = "d_" + start_node + "_" + final_node
+        features_start = features[start_node]
+        features_final = features[final_node]
+        sum_delta_f = 0
+
+        for f, (start_f, final_f) in enumerate(zip(features_start, features_final)):
+            w_name = get_weight_var(f)
+            delta_f = start_f - final_f
+            coefficients.append(delta_f)
+            names.append(w_name)
+
+        problem.linear_constraint.add(
+            lin_expr = cplex.SparsePair(ind=names, val=coefficients),
+            sense = "L",
+            rhs = 0,
+            name= constraint_name)
 
 
 # Populate constraints (4b) in the draft
@@ -201,6 +232,8 @@ def run(config, data, rng):
     features_per_state, num_features = read_features_file(config.feature_matrix_filename)
     goal_states = read_goal_states(config.goal_states_filename)
     feature_complexity, feature_names = read_complexity_file(config.feature_info_filename)
+    dead_ends = read_unsolvable_states(None) # TODO add file name
+
     logging.info("Read {} transitions, {} features, {} goal states".
                  format(len(transitions), len(goal_states), num_features))
 
@@ -213,6 +246,8 @@ def run(config, data, rng):
     populate_obj_function(problem, num_features, max_weight, transitions, feature_complexity, goal_states)
     print("Populating weight constraints")
     populate_weight_constraints(problem, transitions, features_per_state, goal_states, max_weight)
+    print("Populating dead-end constraints")
+    populate_dead_end_constraints(problem, transitions, goal_states, dead_ends)
     print("Populating y-constraints")
     populate_y_constraints(problem, adj_list, goal_states)
     print("Populating M_w-constraints")

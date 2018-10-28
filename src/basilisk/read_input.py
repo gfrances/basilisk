@@ -59,3 +59,11 @@ def read_complexity_file(path):
             names.append(' '.join(splitted[:-1]))
             feature_complexity.append(int(splitted[-1]))
     return feature_complexity, names
+
+
+def read_unsolvable_states(path):
+    '''
+    TODO: implement this function to return a set
+    with the index of all dead end states
+    '''
+    return set()
