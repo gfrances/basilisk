@@ -54,7 +54,6 @@ def populate_weight_constraints(problem, transitions, features, goal_states, max
 
         coefficients = []
         names = []
-        # if transition_i % 50 == 0:
         start_node = transition[0]
         final_node = transition[1]
 
@@ -73,21 +72,6 @@ def populate_weight_constraints(problem, transitions, features, goal_states, max
             sum_delta_f += abs(delta_f)
             coefficients.append(delta_f)
             names.append(w_name)
-            # coefficients.append((constraint_name, w_name, delta_f))
-            # problem.linear_constraints.set_coefficients(constraint_name, w_name, delta_f)
-
-
-        # Apparently we do not need M_1 anymore
-        ## Compute and add -M_1*y_s_s' + (M_1-1)
-        ## m1 = 1 + max_weight * sum_delta_f
-        ## problem.linear_constraints.set_coefficients(constraint_name, get_y_var(start_node, final_node), -1*m1)
-        ## problem.linear_constraints.set_coefficients(constraint_name, "dummy", m1)
-        ## coefficients.append((constraint_name, get_y_var(start_node, final_node), -1 * m1))
-        ## coefficients.append((constraint_name, "dummy", m1))
-
-        # Set right hand side and type of inequality
-        # problem.linear_constraints.set_rhs(constraint_name, 1)
-        # problem.linear_constraints.set_senses(constraint_name, "G")  # G = greater than
 
         problem.indicator_constraints.add(
             indvar = get_y_var(start_node, final_node),
@@ -96,7 +80,6 @@ def populate_weight_constraints(problem, transitions, features, goal_states, max
             sense = "G",
             lin_expr = cplex.SparsePair(ind=names, val=coefficients),
             name= constraint_name)
-#    problem.linear_constraints.set_coefficients(coefficients)
 
 
 def populate_dead_end_constraints(problem, transitions, goal_states, dead_ends):
@@ -156,8 +139,6 @@ def populate_max_weight_constraints(problem, num_features, max_weight):
         # x_+ constraint
         xplus_name = 'c_xplus_' + str(f)
         problem.linear_constraints.add(names=[xplus_name])
-        # problem.linear_constraints.set_coefficients(xplus_name, w_name, -1)
-        # problem.linear_constraints.set_coefficients(xplus_name, 'xplus_'+str(f), max_weight)
         coefficients.append((xplus_name, w_name, -1))
         coefficients.append((xplus_name, 'xplus_' + str(f), max_weight))
         problem.linear_constraints.set_rhs(xplus_name, 0)
@@ -166,8 +147,6 @@ def populate_max_weight_constraints(problem, num_features, max_weight):
         # x_- constraint
         xminus_name = 'c_xminus_' + str(f)
         problem.linear_constraints.add(names=[xminus_name])
-        # problem.linear_constraints.set_coefficients(xminus_name, w_name, 1)
-        # problem.linear_constraints.set_coefficients(xminus_name, 'xminus_'+str(f), max_weight)
         coefficients.append((xminus_name, w_name, 1))
         coefficients.append((xminus_name, 'xminus_' + str(f), max_weight))
         problem.linear_constraints.set_rhs(xminus_name, 0)
@@ -176,8 +155,6 @@ def populate_max_weight_constraints(problem, num_features, max_weight):
         # w_f <= max_weight constraint
         c_max_weight_name = "c_max_w_" + w_name
         problem.linear_constraints.add(names=[c_max_weight_name])
-        # problem.linear_constraints.set_coefficients(c_max_weight_name, w_name, 1)
-        # problem.linear_constraints.set_coefficients(c_max_weight_name, "dummy", -1*max_weight)
         coefficients.append((c_max_weight_name, w_name, 1))
         coefficients.append((c_max_weight_name, "dummy", -1 * max_weight))
         problem.linear_constraints.set_rhs(c_max_weight_name, 0)
@@ -237,32 +214,41 @@ def run(config, data, rng):
     logging.info("Read {} transitions, {} features, {} goal states".
                  format(len(transitions), len(goal_states), num_features))
 
-    print("Populating model")
+    logging.info("Populating model")
     problem = cplex.Cplex()
-    # set problem as a minimization problem
     problem.objective.set_sense(problem.objective.sense.minimize)
 
-    print("Populating objective function")
+    logging.info("Populating objective function")
     populate_obj_function(problem, num_features, max_weight, transitions, feature_complexity, goal_states)
-    print("Populating weight constraints")
+    logging.info("Populating weight constraints")
     populate_weight_constraints(problem, transitions, features_per_state, goal_states, max_weight)
-    print("Populating dead-end constraints")
+    logging.info("Populating dead-end constraints")
     populate_dead_end_constraints(problem, transitions, goal_states, dead_ends)
-    print("Populating y-constraints")
+    logging.info("Populating y-constraints")
     populate_y_constraints(problem, adj_list, goal_states)
-    print("Populating M_w-constraints")
+    logging.info("Populating M_w-constraints")
     populate_max_weight_constraints(problem, num_features, max_weight)
 
-    print("Writing file...")
+    logging.info("Writing file...")
     problem.write(config.lp_filename)
 
-    print("Solving MIP...")
+    logging.info("Solving MIP...")
     problem.solve()
-    print("Solution value  = ", problem.solution.get_objective_value())
+    if problem.solution.is_primal_feasible() and problem.solution.is_dual_feasible():
+        print ("Optimal solution found.")
+        print ("Solution value  = {}".format(problem.solution.get_objective_value()))
+        heuristic = report(problem, transitions, feature_names, features_per_state, goal_states, adj_list, config)
 
-    heuristic = report(problem, transitions, feature_names, features_per_state, goal_states, adj_list, config)
+        # Return those values that we want to be persisted between different steps
+        return dict(
+            learned_heuristic=heuristic,
+        )
+    elif problem.solution.is_primal_feasible():
+        print ("Problem is unbounded")
+    elif problem.solution.is_dual_feasible():
+        logging.info("Problem is unsolvable")
+    else:
+        logging.info("Problem was not solved. Unknown reason.")
 
-    # Return those values that we want to be persisted between different steps
-    return dict(
-        learned_heuristic=heuristic,
-    )
+    # How should we proceed if it has no solution?
+    sys.exit(1)
