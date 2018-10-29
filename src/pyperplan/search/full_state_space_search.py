@@ -124,6 +124,7 @@ class StateSpaceInfo:
                     self.goals.append(parent_id)
                     self.states[parent_state] = (parent_id, predecessors, is_goal, unsolvable)
 
+
 def full_state_space_search(planning_task, max_exp):
 
     # create obj to track state space

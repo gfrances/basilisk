@@ -29,7 +29,7 @@ def read_features_file(path):
     return features_per_state, num_features
 
 
-def read_goal_states(path):
+def read_state_set(path):
     goal_states = []
     try:
         f = open(path, 'r')
@@ -59,11 +59,3 @@ def read_complexity_file(path):
             names.append(' '.join(splitted[:-1]))
             feature_complexity.append(int(splitted[-1]))
     return feature_complexity, names
-
-
-def read_unsolvable_states(path):
-    '''
-    TODO: implement this function to return a set
-    with the index of all dead end states
-    '''
-    return set()

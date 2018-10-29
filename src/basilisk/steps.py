@@ -60,13 +60,14 @@ class PyperplanStep(Step):
         return _run_pyperplan
 
 
-class HeuristicWeightsComputation(Step):
+class HeuristicWeightsLPComputation(Step):
     """  """
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
     def get_required_attributes(self):
-        return ["experiment_dir", "lp_max_weight"]
+        return ["experiment_dir", "lp_max_weight", "transitions_filename", "feature_matrix_filename",
+                "goal_states_filename", "feature_info_filename", "unsolvable_states_filename"]
 
     def process_config(self, config):
         config["lp_filename"] = compute_info_filename(config, "problem.lp")

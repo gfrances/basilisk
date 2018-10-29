@@ -2,6 +2,7 @@
 import logging
 
 import cplex
+from sltp.errors import CriticalPipelineError
 
 from .read_input import *
 
@@ -82,7 +83,7 @@ def populate_weight_constraints(problem, transitions, features, goal_states, max
             name= constraint_name)
 
 
-def populate_dead_end_constraints(problem, transitions, goal_states, dead_ends):
+def populate_dead_end_constraints(problem, transitions, goal_states, unsolvable_states):
     for transition_i, transition in enumerate(transitions, 1):
         '''
         We are doing almost the same thing as the weight constraints here.
@@ -93,7 +94,7 @@ def populate_dead_end_constraints(problem, transitions, goal_states, dead_ends):
         start_node = transition[0]
         final_node = transition[1]
 
-        if start_node not in dead_ends:
+        if start_node not in unsolvable_states:
             continue
 
         constraint_name = "d_" + start_node + "_" + final_node
@@ -108,10 +109,10 @@ def populate_dead_end_constraints(problem, transitions, goal_states, dead_ends):
             names.append(w_name)
 
         problem.linear_constraint.add(
-            lin_expr = cplex.SparsePair(ind=names, val=coefficients),
-            sense = "L",
-            rhs = 0,
-            name= constraint_name)
+            lin_expr=cplex.SparsePair(ind=names, val=coefficients),
+            sense="L",
+            rhs=0,
+            name=constraint_name)
 
 
 # Populate constraints (4b) in the draft
@@ -207,9 +208,9 @@ def run(config, data, rng):
 
     transitions, adj_list = read_transition_file(config.transitions_filename)
     features_per_state, num_features = read_features_file(config.feature_matrix_filename)
-    goal_states = read_goal_states(config.goal_states_filename)
+    goal_states = read_state_set(config.goal_states_filename)
+    unsolvable_states = read_state_set(config.unsolvable_states_filename)
     feature_complexity, feature_names = read_complexity_file(config.feature_info_filename)
-    dead_ends = read_unsolvable_states(None) # TODO add file name
 
     logging.info("Read {} transitions, {} features, {} goal states".
                  format(len(transitions), len(goal_states), num_features))
@@ -223,7 +224,7 @@ def run(config, data, rng):
     logging.info("Populating weight constraints")
     populate_weight_constraints(problem, transitions, features_per_state, goal_states, max_weight)
     logging.info("Populating dead-end constraints")
-    populate_dead_end_constraints(problem, transitions, goal_states, dead_ends)
+    populate_dead_end_constraints(problem, transitions, goal_states, unsolvable_states)
     logging.info("Populating y-constraints")
     populate_y_constraints(problem, adj_list, goal_states)
     logging.info("Populating M_w-constraints")
@@ -235,8 +236,8 @@ def run(config, data, rng):
     logging.info("Solving MIP...")
     problem.solve()
     if problem.solution.is_primal_feasible() and problem.solution.is_dual_feasible():
-        print ("Optimal solution found.")
-        print ("Solution value  = {}".format(problem.solution.get_objective_value()))
+        logging.info("Optimal solution found.")
+        logging.info("Solution value  = {}".format(problem.solution.get_objective_value()))
         heuristic = report(problem, transitions, feature_names, features_per_state, goal_states, adj_list, config)
 
         # Return those values that we want to be persisted between different steps
@@ -244,11 +245,10 @@ def run(config, data, rng):
             learned_heuristic=heuristic,
         )
     elif problem.solution.is_primal_feasible():
-        print ("Problem is unbounded")
+        logging.error("LP is unbounded")
     elif problem.solution.is_dual_feasible():
-        logging.info("Problem is unsolvable")
+        logging.error("LP is unsolvable")
     else:
-        logging.info("Problem was not solved. Unknown reason.")
+        logging.error("LP was not solved. Unknown reason.")
 
-    # How should we proceed if it has no solution?
-    sys.exit(1)
+    raise CriticalPipelineError("LP could not be solved")  # We'll add better error handling when necessary
