@@ -58,7 +58,7 @@ def generate_chosen_concepts(lang):
     c3 = ExistsConcept(gripper, rx)
     c4 = ExistsConcept(carry, c3)
 
-    concepts = [c1, c2, rx, c3, c4]
+    concepts = [c1, c2, c3, c4]
     return [], concepts, []  # atoms, concepts, roles
 
 
