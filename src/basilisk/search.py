@@ -57,6 +57,7 @@ def create_pyperplan_hill_climbing_with_embedded_heuristic(heuristic):
                 h_succ = heuristic(succ)
                 if h_succ < current_h:
                     current = searchspace.make_child_node(current, operator, succ)
+                    current_h = h_succ
                     improvement_found = True
                     break
 
