@@ -25,7 +25,9 @@ def experiment(experiment_name=None):
         # instances="task01.pddl",
         num_states=300, num_sampled_states=None, random_seed=12,
         max_concept_size=10, max_concept_grammar_iterations=3,
-        concept_generator=None, parameter_generator=add_domain_parameters,
+        # concept_generator=None,
+        concept_generator=generate_chosen_concepts,
+        parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,)
 
     parameters = {
@@ -56,7 +58,7 @@ def generate_chosen_concepts(lang):
     c3 = ExistsConcept(gripper, rx)
     c4 = ExistsConcept(carry, c3)
 
-    concepts = [c1, c2, c3, c4]
+    concepts = [c1, c2, rx, c3, c4]
     return [], concepts, []  # atoms, concepts, roles
 
 

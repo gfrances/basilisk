@@ -56,8 +56,8 @@ def run_pyperplan(pyperplan, domain, instance, heuristic_parameters, use_goal_de
 
     # Parse the domain & instance with Tarski
     problem, language, generic_constants, types = parse_pddl(domain, instance)
-    goal_denotation = compute_goal_denotation(problem, use_goal_denotation)
     static_atoms = compute_static_atoms(problem)
+    goal_denotation = compute_goal_denotation(problem, use_goal_denotation)
     processor = DenotationProcessor(language, goal_denotation)
     pyerplan_heuristic = create_heuristic(processor, static_atoms, heuristic_parameters)
 

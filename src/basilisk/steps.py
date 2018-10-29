@@ -1,9 +1,13 @@
+import json
 import os
 import sys
 
+from basilisk.tester import compute_static_atoms
+from sltp.features import parse_pddl
+
 from . import EXPDATA_DIR, PYPERPLAN_DIR
 from sltp.driver import Step, InvalidConfigParameter, check_int_parameter
-from sltp.util.command import execute
+from sltp.util.command import execute, read_file
 from sltp.util.naming import compute_instance_tag, compute_experiment_tag, compute_sample_filename, \
     compute_info_filename
 
@@ -22,6 +26,22 @@ def _run_pyperplan(config, data, rng):
         #     .format(i, config.domain, config.driver, config.num_states, w)
         params = '-s full --state-space-output {} --max-nodes {} {} {}'.format(o, config.num_states, config.domain, i)
         execute(command=[sys.executable, "pyperplan.py"] + params.split(' '), cwd=PYPERPLAN_DIR)
+
+        problem, _, _, _ = parse_pddl(config.domain, i)
+        static_atoms = compute_static_atoms(problem)
+
+        all_states = []
+        # read json output
+        for line in read_file(o):
+            state = json.loads(line)
+            assert all(len(static) > 0 for static in static_atoms)
+            state["atoms"] += ["{}({})".format(static[0], ','.join(static[1:])) for static in static_atoms]
+            all_states.append(state)
+
+        with open(o, "w") as f:
+            for s in all_states:
+                print(json.dumps(s), file=f)
+
     return dict()
 
 
