@@ -4,6 +4,7 @@ import sys
 
 from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
 
+from common import update_dict
 from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
     ForallConcept, EmptyConcept
@@ -23,15 +24,20 @@ def experiment(experiment_name=None):
         test_instances=["prob02.pddl"],
         test_domain=domain,
         # instances="task01.pddl",
-        num_states=300, num_sampled_states=None, random_seed=12,
+        num_states=300,  # num_sampled_states=None,  random_seed=12,
         max_concept_size=10, max_concept_grammar_iterations=3,
-        # concept_generator=None,
-        concept_generator=generate_chosen_concepts,
+        concept_generator=None,
+        # concept_generator=generate_chosen_concepts,
         parameter_generator=add_domain_parameters,
-        feature_namer=feature_namer,)
+        feature_namer=feature_namer,
+    )
+
+    several_rooms = update_dict(prob01,
+                                num_states=800, instances=["prob_3balls_3rooms_1rob.pddl"],)
 
     parameters = {
         "prob01": prob01,
+        "several_rooms": several_rooms,
     }.get(experiment_name or "test")
 
     return generate_experiment(domain_dir, domain, **parameters)
