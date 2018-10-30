@@ -50,7 +50,7 @@ def populate_obj_function(problem, num_features, max_weight, transitions, featur
 
 
 # Populate constraints (4a) in the draft
-def populate_weight_constraints(problem, transitions, features, goal_states, max_weight):
+def populate_weight_constraints(problem, transitions, features, goal_states,  unsolvable_states):
     for transition_i, transition in enumerate(transitions, 1):
 
         coefficients = []
@@ -58,7 +58,7 @@ def populate_weight_constraints(problem, transitions, features, goal_states, max
         start_node = transition[0]
         final_node = transition[1]
 
-        if start_node in goal_states:
+        if start_node in goal_states or start_node in unsolvable_states:
             continue
 
         constraint_name = "c_" + start_node + "_" + final_node
@@ -83,24 +83,21 @@ def populate_weight_constraints(problem, transitions, features, goal_states, max
             name= constraint_name)
 
 
-def populate_dead_end_constraints(problem, transitions, goal_states, unsolvable_states):
-    for transition_i, transition in enumerate(transitions, 1):
+def populate_dead_end_constraints(problem, transitions, features, goal_states, unsolvable_states):
+    for transition_i, (start_node, final_node) in enumerate(transitions, 1):
         '''
         We are doing almost the same thing as the weight constraints here.
         Maybe we can save some work if we merge both functions?
         '''
         coefficients = []
         names = []
-        start_node = transition[0]
-        final_node = transition[1]
 
-        if start_node not in unsolvable_states:
+        if start_node in unsolvable_states or final_node not in unsolvable_states:
             continue
 
         constraint_name = "d_" + start_node + "_" + final_node
         features_start = features[start_node]
         features_final = features[final_node]
-        sum_delta_f = 0
 
         for f, (start_f, final_f) in enumerate(zip(features_start, features_final)):
             w_name = get_weight_var(f)
@@ -108,17 +105,17 @@ def populate_dead_end_constraints(problem, transitions, goal_states, unsolvable_
             coefficients.append(delta_f)
             names.append(w_name)
 
-        problem.linear_constraint.add(
-            lin_expr=cplex.SparsePair(ind=names, val=coefficients),
-            sense="L",
-            rhs=0,
-            name=constraint_name)
+        problem.linear_constraints.add(
+            lin_expr=[cplex.SparsePair(ind=names, val=coefficients)],
+            senses=["L"],
+            rhs=[0],
+            names=[constraint_name])
 
 
 # Populate constraints (4b) in the draft
-def populate_y_constraints(problem, adj_list, goal_states):
+def populate_y_constraints(problem, adj_list, goal_states, unsolvable_states):
     for start in adj_list:
-        if start in goal_states:
+        if start in goal_states or not adj_list[start] or start in unsolvable_states:
             continue
         constraint_name = "c_y_" + start
         problem.linear_constraints.add(names=[constraint_name])
@@ -222,11 +219,11 @@ def run(config, data, rng):
     logging.info("Populating objective function")
     populate_obj_function(problem, num_features, max_weight, transitions, feature_complexity, goal_states)
     logging.info("Populating weight constraints")
-    populate_weight_constraints(problem, transitions, features_per_state, goal_states, max_weight)
+    populate_weight_constraints(problem, transitions, features_per_state, goal_states, unsolvable_states)
     logging.info("Populating dead-end constraints")
-    populate_dead_end_constraints(problem, transitions, goal_states, unsolvable_states)
+    populate_dead_end_constraints(problem, transitions, features_per_state, goal_states, unsolvable_states)
     logging.info("Populating y-constraints")
-    populate_y_constraints(problem, adj_list, goal_states)
+    populate_y_constraints(problem, adj_list, goal_states, unsolvable_states)
     logging.info("Populating M_w-constraints")
     populate_max_weight_constraints(problem, num_features, max_weight)
 

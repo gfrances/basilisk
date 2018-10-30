@@ -88,10 +88,10 @@ def create_heuristic(processor, static_atoms, heuristic_parameters):
         for feature, weight in heuristic_parameters:
             denotation = int(model.compute_feature_value(feature, 0))  # State ID needs to be 0!
             delta = weight * denotation
-            logging.info("\t\tFeature \"{}\": {} = {} * {}".format(feature, delta, weight, denotation))
+            # logging.info("\t\tFeature \"{}\": {} = {} * {}".format(feature, delta, weight, denotation))
             h += delta
 
-        logging.info("\th(s)={} for state {}".format(h, state))
+        # logging.info("\th(s)={} for state {}".format(h, state))
         return h
 
     return pyperplan_concept_based_heuristic

@@ -7,22 +7,25 @@ def hill_climbing(s0, adjacencies, heuristic, goal_states):
 
     # counts the number of loops (only for printing)
     s = s0
-    plan = [s]
+    plan = []
     while s not in goal_states:
 
         h_s = heuristic(s)
+        plan.append((s, h_s))
         improvement_found = False
         for succ in adjacencies[s]:
             h_succ = heuristic(succ)
             if h_succ < h_s:
                 s = succ
-                plan.append(s)
+                # plan.append(s)
                 improvement_found = True
                 break
 
         if not improvement_found:
             # Error!
             successor_values = [(succ, heuristic(succ)) for succ in adjacencies[s]]
+            logging.error("Error found while validating learnt heuristic: hill-climbings gets stuck in local minimum")
+            logging.error("Path so far was: {}".format(plan))
             print("", file=sys.stderr)
             print("h({})={}, but:".format(s, h_s), file=sys.stderr)
             print("\t" + "\n\t".join("h({})={}".format(succ, hsucc) for succ, hsucc in successor_values), file=sys.stderr)
@@ -31,7 +34,7 @@ def hill_climbing(s0, adjacencies, heuristic, goal_states):
 
     assert s in goal_states
     print("\nHill Climbing on the training instance succeeds with the following state path: ")
-    print(", ".join(plan))
+    print(", ".join("{} ({})".format(s, h) for s, h in plan))
 
 
 def create_pyperplan_hill_climbing_with_embedded_heuristic(heuristic):
@@ -53,16 +56,19 @@ def create_pyperplan_hill_climbing_with_embedded_heuristic(heuristic):
                 logging.error("State without successors found: {}".format(current.state))
                 return None
 
-            for operator, succ in successors:
-                h_succ = heuristic(succ)
-                if h_succ < current_h:
-                    current = searchspace.make_child_node(current, operator, succ)
-                    current_h = h_succ
-                    improvement_found = True
-                    break
+            # This implements steepest-ascent hill climbing.
+            # If we want to test in problems with very large branching factors, we might want to jump to
+            # an heuristic-improving child as soon as we find one.
+            succesor_h_values = [(heuristic(succ), succ, op) for op, succ in successors]
+            h_succ, succ, op = min(succesor_h_values, key=lambda x: x[0])
 
-            if not improvement_found:
-                logging.error("Heuristic local minimum found on state {}".format(current.state))
+            if h_succ < current_h:
+                current = searchspace.make_child_node(current, op, succ)
+                current_h = h_succ
+            else:
+                logging.error("Heuristic local minimum of {} found on state {}".format(current_h, current.state))
+                logging.error("Children nodes:")
+                print("\t" + "\n\t".join("h: {}, s: {}".format(h, s) for h, s, _ in succesor_h_values))
                 return None
 
         logging.info("Goal found")
