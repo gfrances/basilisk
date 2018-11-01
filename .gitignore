@@ -1,5 +1,6 @@
 
 
+*.soln
 runs
 logs
 terms
