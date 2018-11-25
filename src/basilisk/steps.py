@@ -31,6 +31,7 @@ def _run_pyperplan(config, data, rng):
         static_atoms = compute_static_atoms(problem)
 
         all_states = []
+        # Extend pyperplan output with the necessary static predicates:
         # read json output
         for line in read_file(o):
             state = json.loads(line)
