@@ -34,7 +34,7 @@ def populate_obj_function(problem, num_features, max_weight, transitions, featur
         problem.variables.add(names=[get_weight_var(f)],
                               obj=[0],
                               lb=[-1 * max_weight], ub=[max_weight],
-                              #                              types=[problem.variables.type.continuous])
+                              # types=[problem.variables.type.continuous])
                               types=[problem.variables.type.integer])
 
     # add binary to each transition
@@ -162,8 +162,12 @@ def populate_max_weight_constraints(problem, num_features, max_weight):
 
 def report(problem, transitions, feature_names, features_per_state, goal_states, adj_list, config):
 
+    # Cplex sometimes returns float values even if the variable is declared as an integer
+    # make_weight_integer = lambda x: int(round(x))
+    make_weight_integer = lambda x: x
+
     wvar_names = ((i, get_weight_var(i)) for i in range(0, len(feature_names)))
-    feature_weights = ((i, wname, problem.solution.get_values(wname)) for i, wname in wvar_names)
+    feature_weights = ((i, wname, make_weight_integer(problem.solution.get_values(wname))) for i, wname in wvar_names)
     nonzero_features = [(i, val) for i, var, val in feature_weights if val != 0]
     print("Heuristic found making use of {} features:".format(len(nonzero_features)))
     print(("\t{}".format("\n\t".join("{} · {}".format(val, feature_names[i]) for i, val in nonzero_features))))
