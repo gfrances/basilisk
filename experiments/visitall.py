@@ -19,26 +19,30 @@ def experiment(experiment_name=None):
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
         instances="problem02-half.pddl",
+        test_instances=["problem09-full.pddl"],
+        test_domain=domain,
         distance_feature_max_complexity=0,
         num_states=500, num_sampled_states=None, random_seed=12,
         max_concept_size=20, max_concept_grammar_iterations=3,
         concept_generator=None, parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,)
 
-    problem03full = dict(
+    problem03half = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
         instances="problem03-half.pddl",
-        distance_feature_max_complexity=10,
-        num_states=1000, num_sampled_states=None, random_seed=12,
-        max_concept_size=20, max_concept_grammar_iterations=3,
+        test_instances=["problem09-full.pddl"],
+        test_domain=domain,
+        #distance_feature_max_complexity=10,
+        num_states=100, num_sampled_states=None, random_seed=12,
+        max_concept_size=30, max_concept_grammar_iterations=3,
         concept_generator=None, parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,)
 
 
     parameters = {
         "problem02half": problem02half,
-        "problem03full": problem03full,
+        "problem03half": problem03half,
     }.get(experiment_name or "test")
 
     return generate_experiment(domain_dir, domain, **parameters)
