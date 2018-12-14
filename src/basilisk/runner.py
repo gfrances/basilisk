@@ -3,6 +3,7 @@ import logging
 
 import cplex
 from sltp.errors import CriticalPipelineError
+from sltp.returncodes import ExitCode
 
 from .read_input import *
 
@@ -242,9 +243,7 @@ def run(config, data, rng):
         heuristic = report(problem, transitions, feature_names, features_per_state, goal_states, adj_list, config)
 
         # Return those values that we want to be persisted between different steps
-        return dict(
-            learned_heuristic=heuristic,
-        )
+        return ExitCode.Success, dict(learned_heuristic=heuristic)
     elif problem.solution.is_primal_feasible():
         logging.error("LP is unbounded")
     elif problem.solution.is_dual_feasible():

@@ -2,8 +2,9 @@ import json
 import os
 import sys
 
-from basilisk.tester import compute_static_atoms
+from .tester import compute_static_atoms
 from sltp.features import parse_pddl
+from sltp.returncodes import ExitCode
 
 from . import EXPDATA_DIR, PYPERPLAN_DIR
 from sltp.driver import Step, InvalidConfigParameter, check_int_parameter
@@ -43,7 +44,7 @@ def _run_pyperplan(config, data, rng):
             for s in all_states:
                 print(json.dumps(s), file=f)
 
-    return dict()
+    return ExitCode.Success, dict()
 
 
 class PyperplanStep(Step):

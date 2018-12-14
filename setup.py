@@ -51,8 +51,8 @@ def main():
 
         # Git dependencies - egg names need to match whatever written in install_requires
         dependency_links=[
-            'git+https://github.com/aig-upf/tarski.git@cb92626051e79dca0439acd6b76a877adf30d497#egg=tarski-0.1.0',
-            'git+https://github.com/aig-upf/features-generalized-planning.git@heuristics#egg=sltp-0.1.0',
+            'git+https://github.com/aig-upf/tarski.git@73fcc8b#egg=tarski-0.1.0',
+            'git+https://github.com/aig-upf/features-generalized-planning.git@f7f3a43#egg=sltp-0.1.0',
         ],
 
         extras_require={
