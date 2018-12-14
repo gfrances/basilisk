@@ -100,11 +100,26 @@ def generate_experiment(domain_dir, domain, **kwargs):
         lp_max_weight=10,
 
         domain_dir=domain_dir,
+
+        # The selection strategy to be used when marking which transitions are considered as optimal.
+        # - "arbitrary" marks as optimal the transitions in one single path btw initial state
+        #  and (some) goal per instance, chosen arbitrarily.
+        # "- complete" marks the transitions between all optimal paths btw initial state and (some) goal.
+        optimal_selection_strategy="arbitrary",
+
+        # The max. number of states in the Flaw set when validating an incremental abstraction
+        batch_refinement_size=10,
+
+        # Whether to clean the (sub-) workspaces used to compute incremental abstractions after finishing.
+        clean_workspace=True,
+
+        # Reduce output to a minimum
+        quiet=False,
     )
 
     parameters = {**defaults, **kwargs}  # Copy defaults, overwrite with user-specified parameters
 
-    steps = generate_pipeline_from_list(elements=heuristic_pipeline, **parameters)
-    exp = Experiment(steps)
+    steps, parameters = generate_pipeline_from_list(elements=heuristic_pipeline, **parameters)
+    exp = Experiment(steps, parameters)
 
     return exp
