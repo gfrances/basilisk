@@ -3,21 +3,24 @@
 import sys
 
 from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
+from basilisk.incremental import IncrementalExperiment
 
-from common import update_dict
+from sltp.util.misc import update_dict
 from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
     ForallConcept, EmptyConcept
 
 
-def experiment(experiment_name=None):
+def experiment(experiment_name):
     domain = "domain.pddl"
     domain_dir = "gripper-m"
     benchmark_dir = BENCHMARK_DIR
     # benchmark_dir = PYPERPLAN_BENCHMARK_DIR
     # domain_dir = "gripper"
 
-    prob01 = dict(
+    experiments = dict()
+
+    experiments["prob01"] = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
         instances="prob01.pddl",
@@ -32,15 +35,49 @@ def experiment(experiment_name=None):
         feature_namer=feature_namer,
     )
 
-    several_rooms = update_dict(prob01,
-                                num_states=800, instances=["prob_3balls_3rooms_1rob.pddl"],)
+    experiments["several_rooms"] = update_dict(
+        experiments["prob01"],
+        num_states=800,
+        instances=["prob_3balls_3rooms_1rob.pddl"],
+    )
 
-    parameters = {
-        "prob01": prob01,
-        "several_rooms": several_rooms,
-    }.get(experiment_name or "test")
+    experiments["gripper_std_inc"] = dict(
+        # domain_dir="blocks-downward",
+        lp_max_weight=10,
+        experiment_class=IncrementalExperiment,
+        instances=["prob01.pddl", "prob02.pddl", "prob03.pddl"],
+        test_instances=["prob03.pddl", "prob04.pddl", "prob06.pddl"],
+        test_domain=domain,
+        # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
+        # in batches, so we can set them high enough.
+        num_states=500,
+        initial_sample_size=20,
+        max_concept_grammar_iterations=3,
+        initial_concept_bound=8, max_concept_bound=8, concept_bound_step=2,
+        batch_refinement_size=5,
+        # quiet=True,
+        clean_workspace=False,
+        # concept_generator=generate_chosen_concepts,
+        parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,
+    )
 
-    return generate_experiment(domain_dir, domain, **parameters)
+    experiments["gripper_gen_inc"] = update_dict(
+        experiments["gripper_std_inc"],
+        instances=["prob03.pddl", "prob_3balls_3rooms_1rob.pddl"],
+        test_instances=["prob_4balls_4rooms_1rob.pddl"],
+        initial_sample_size=50,
+        max_concept_grammar_iterations=3,
+        initial_concept_bound=8, max_concept_bound=8, concept_bound_step=2,
+        batch_refinement_size=5,
+        # quiet=True,
+    )
+
+    # Select the actual experiment parameters according to the command-line option
+    parameters = experiments[experiment_name]
+    parameters["domain_dir"] = parameters.get("domain_dir", domain_dir)
+    parameters["domain"] = parameters.get("domain", domain)
+    return generate_experiment(**parameters)
 
 
 def generate_chosen_concepts(lang):
@@ -93,7 +130,18 @@ def add_domain_parameters(language):
 def feature_namer(feature):
     s = str(feature)
     return {
-        "card[Exists(at,Not({roomb}))]": "nballs-A",
+        "card[free]": "nfree-grippers",
+        "bool[Exists(at-robby,{roomb})]": "robby-is-at-B",
+        "card[Exists(at,Exists(Inverse(at-robby),<universe>))]": "nballs-in-room-with-some-robot",
+        "card[And(Exists(gripper,Exists(at-robby,{roomb})),free)]": "nfree-grippers-at-B",
+        "card[Exists(at,{roomb})]": "nballs-at-B",
+        "card[Exists(at,Not({roomb}))]": "nballs-not-at-B",
+        "card[Exists(carry,<universe>)]": "nballs-carried",
+        "card[Exists(at-robby,{roomb})]": "nrobots-at-B",
+        "card[Exists(gripper,Exists(at-robby,{roomb}))]": "ngrippers-at-B",
+        "card[Exists(carry,Exists(gripper,Exists(at-robby,{roomb})))]": "nballs-carried-in-B",
+        "card[Exists(at,And(Forall(Inverse(at-robby),<empty>), Not({roomb})))]": "nballs-in-some-room-notB-without-any-robot",
+        # "": "",
     }.get(s, s)
 
 

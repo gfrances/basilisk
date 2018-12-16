@@ -4,7 +4,7 @@ import sys
 
 from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
 
-from common import update_dict
+from sltp.util.misc import update_dict
 from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
     ForallConcept, EmptyConcept

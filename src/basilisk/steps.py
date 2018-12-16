@@ -98,7 +98,7 @@ class HeuristicWeightsLPComputation(Step):
         return config
 
     def get_required_data(self):
-        return []
+        return ["features"]
 
     def description(self):
         return "Computation of the weights of a desceding heuristic"
@@ -125,7 +125,7 @@ class HeuristicTestingComputation(Step):
         return config
 
     def get_required_data(self):
-        return ["learned_heuristic", "features"]
+        return ["learned_heuristic"]
 
     def description(self):
         return "Testing of the heuristic in unseen instances"

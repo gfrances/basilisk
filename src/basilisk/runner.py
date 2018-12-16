@@ -6,19 +6,17 @@ from sltp.errors import CriticalPipelineError
 from sltp.returncodes import ExitCode
 
 from .read_input import *
-
-
-# Return the name of the weight variable given the feature
 from .search import hill_climbing
 from .utils import natural_sort
 
 
 def get_weight_var(f):
+    """ Return the name of the weight variable given the feature """
     return 'w_' + str(f)
 
 
-# Return the name of the binary aux variable given the transition
 def get_y_var(s, t):
+    """ Return the name of the binary aux variable given the transition """
     return 'y_' + s + '_' + t
 
 
@@ -51,7 +49,7 @@ def populate_obj_function(problem, num_features, max_weight, transitions, featur
 
 
 # Populate constraints (4a) in the draft
-def populate_weight_constraints(problem, transitions, features, goal_states,  unsolvable_states):
+def populate_weight_constraints(problem, transitions, features, goal_states, unsolvable_states):
     for transition_i, transition in enumerate(transitions, 1):
 
         coefficients = []
@@ -76,12 +74,12 @@ def populate_weight_constraints(problem, transitions, features, goal_states,  un
             names.append(w_name)
 
         problem.indicator_constraints.add(
-            indvar = get_y_var(start_node, final_node),
-            complemented = 0,
-            rhs = 1,
-            sense = "G",
-            lin_expr = cplex.SparsePair(ind=names, val=coefficients),
-            name= constraint_name)
+            indvar=get_y_var(start_node, final_node),
+            complemented=0,
+            rhs=1,
+            sense="G",
+            lin_expr=cplex.SparsePair(ind=names, val=coefficients),
+            name=constraint_name)
 
 
 def populate_dead_end_constraints(problem, transitions, features, goal_states, unsolvable_states):
@@ -161,29 +159,45 @@ def populate_max_weight_constraints(problem, num_features, max_weight):
     problem.linear_constraints.set_coefficients(coefficients)
 
 
-def report(problem, transitions, feature_names, features_per_state, goal_states, adj_list, config):
-
+def extract_heuristic_parameters_from_cplex_solution(problem, nfeatures):
+    """ Return a list of the tuples (i, w) that make up the potential heuristic, where i
+    is the index of the feature and w is the learnt weight """
     # Cplex sometimes returns float values even if the variable is declared as an integer
     # make_weight_integer = lambda x: int(round(x))
     make_weight_integer = lambda x: x
 
-    wvar_names = ((i, get_weight_var(i)) for i in range(0, len(feature_names)))
+    wvar_names = ((i, get_weight_var(i)) for i in range(0, nfeatures))
     feature_weights = ((i, wname, make_weight_integer(problem.solution.get_values(wname))) for i, wname in wvar_names)
     nonzero_features = [(i, val) for i, var, val in feature_weights if val != 0]
-    print("Heuristic found making use of {} features:".format(len(nonzero_features)))
-    print(("\t{}".format("\n\t".join("{} · {}".format(val, feature_names[i]) for i, val in nonzero_features))))
+    return nonzero_features
 
-    def heuristic_function(s_):
-        state_values = features_per_state[s_]
+
+def create_toy_heuristic(features_per_state, parameters):
+    """ Create a toy heuristic that works only with the feature values that we have already precomputed
+    This will be useful e.g. for validation and debugging purposes.
+    """
+
+    def heuristic_function(s):
+        state_values = features_per_state[s]
         h = 0
-        for i, fweight in nonzero_features:
-            h += fweight * state_values[i]
+        for ind, fweight in parameters:
+            h += fweight * state_values[ind]
         return h
+
+    return heuristic_function
+
+
+def report(parameters, heuristic, feature_names, feature_complexity, features_per_state, config):
+    print("Concept-based potential heuristic found with a total of {} features:".format(len(parameters)))
+    for i, val in parameters:
+        print("\t{weight} · {feature} [k={k}, id={id}]".format(weight=val,
+                                                               feature=config.feature_namer(feature_names[i]),
+                                                               k=feature_complexity[i], id=i))
 
     sorted_state_ids = natural_sort(features_per_state.keys())
     with open(config.state_heuristic_filename, "w") as file:
         for s in sorted_state_ids:
-            print("h({}) = {}".format(s, heuristic_function(s)), file=file)
+            print("h({}) = {}".format(s, heuristic(s)), file=file)
 
     # print("Weight Variables:")
     # print("\n".join("{}: {}".format(var, val) for var, val in var_vals))
@@ -200,9 +214,30 @@ def report(problem, transitions, feature_names, features_per_state, goal_states,
     #         (problem.solution.get_values('xplus_' + str(f)), problem.solution.get_values('xminus_' + str(f)))) + ', ',
     #           end=" ")
 
-    # Run hill-climbing and make sure we find a goal
-    hill_climbing("s0", adj_list, heuristic_function, goal_states)
-    return nonzero_features
+
+def create_potential_heuristic_from_parameters(features, parameters):
+    selected_features = [features[f_idx] for f_idx, _ in parameters]
+    selected_weights = [f_weight for _, f_weight in parameters]
+    return ConceptBasedPotentialHeuristic(list(zip(selected_features, selected_weights)))
+
+
+class ConceptBasedPotentialHeuristic:
+    def __init__(self, parameters):
+        self.parameters = parameters
+
+    def value(self, model):
+        h = 0
+        for feature, weight in self.parameters:
+            denotation = int(model.denotation(feature))
+            delta = weight * denotation
+            # logging.info("\t\tFeature \"{}\": {} = {} * {}".format(feature, delta, weight, denotation))
+            h += delta
+
+        # logging.info("\th(s)={} for state {}".format(h, state))
+        return h
+
+    def __str__(self):
+        return " + ".join("{}·{}".format(weight, feature) for feature, weight in self.parameters)
 
 
 def run(config, data, rng):
@@ -238,12 +273,21 @@ def run(config, data, rng):
     logging.info("Solving MIP...")
     problem.solve()
     if problem.solution.is_primal_feasible() and problem.solution.is_dual_feasible():
-        logging.info("Optimal solution found.")
-        logging.info("Solution value  = {}".format(problem.solution.get_objective_value()))
-        heuristic = report(problem, transitions, feature_names, features_per_state, goal_states, adj_list, config)
+        logging.info("Optimal solution found with value {}".format(problem.solution.get_objective_value()))
+
+        parameters = extract_heuristic_parameters_from_cplex_solution(problem, len(feature_names))
+        heuristic = create_toy_heuristic(features_per_state, parameters)
+
+        if config.validate_learnt_heuristic:
+            # Run hill-climbing and make sure we find a goal. This won't work if we only have a sample of the
+            # transition system, as in the incremental approach, since we might not have sampled a path to the goal.
+            hill_climbing("s0", heuristic, adj_list, goal_states)
+
+        report(parameters, heuristic, feature_names, feature_complexity, features_per_state, config)
 
         # Return those values that we want to be persisted between different steps
-        return ExitCode.Success, dict(learned_heuristic=heuristic)
+        return ExitCode.Success, dict(learned_heuristic=create_potential_heuristic_from_parameters(
+            data.features, parameters))
     elif problem.solution.is_primal_feasible():
         logging.error("LP is unbounded")
     elif problem.solution.is_dual_feasible():

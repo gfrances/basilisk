@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import logging
 import sys
 
 from models import FeatureModel
@@ -32,7 +33,7 @@ def compute_static_atoms(problem):
     return static_atoms
 
 
-def run_pyperplan(pyperplan, domain, instance, heuristic_parameters, parameter_generator):
+def run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator):
     # Let's fake a pyperplan command-line arguments object so that
     # we don't have to worry about default parameters. We use "gbf" but will override that next.
     args = pyperplan.parse_args([domain, instance])
@@ -41,7 +42,8 @@ def run_pyperplan(pyperplan, domain, instance, heuristic_parameters, parameter_g
     problem, model_factory = create_model_factory(domain, instance, parameter_generator)
 
     static_atoms = compute_static_atoms(problem)
-    pyerplan_heuristic = create_heuristic(model_factory, static_atoms, heuristic_parameters)
+
+    pyerplan_heuristic = create_pyperplan_heuristic(model_factory, static_atoms, heuristic)
 
     # And now we inject our desired search and heuristic functions
     args.forced_search = create_pyperplan_hill_climbing_with_embedded_heuristic(pyerplan_heuristic)
@@ -50,14 +52,14 @@ def run_pyperplan(pyperplan, domain, instance, heuristic_parameters, parameter_g
     pyperplan.main(args)
 
 
-def import_and_run_pyperplan(domain, instance, heuristic_parameters, parameter_generator):
+def import_and_run_pyperplan(domain, instance, heuristic, parameter_generator):
     sys.path.insert(0, PYPERPLAN_DIR)
     import pyperplan
-    run_pyperplan(pyperplan, domain, instance, heuristic_parameters, parameter_generator)
+    run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator)
     sys.path = sys.path[1:]
 
 
-def create_heuristic(model_factory, static_atoms, heuristic_parameters):
+def create_pyperplan_heuristic(model_factory, static_atoms, heuristic):
     """ Create a pyperplan-like concept-based heuristic with the given features and weights"""
     def pyperplan_concept_based_heuristic(state):
 
@@ -65,15 +67,7 @@ def create_heuristic(model_factory, static_atoms, heuristic_parameters):
         translated_with_statics = translated + list(static_atoms)
         model = FeatureModel(model_factory.create_model(translated_with_statics))
 
-        h = 0
-        for feature, weight in heuristic_parameters:
-            denotation = int(model.denotation(feature))
-            delta = weight * denotation
-            # logging.info("\t\tFeature \"{}\": {} = {} * {}".format(feature, delta, weight, denotation))
-            h += delta
-
-        # logging.info("\th(s)={} for state {}".format(h, state))
-        return h
+        return heuristic.value(model)
 
     return pyperplan_concept_based_heuristic
 
@@ -89,13 +83,9 @@ def translate_state(state):
 
 
 def run(config, data, rng):
-    learned_heuristic = data.learned_heuristic
-    selected_features = [data.features[f_idx] for f_idx, _ in learned_heuristic]
-    selected_weights = [f_weight for _, f_weight in learned_heuristic]
-    heuristic_parameters = list(zip(selected_features, selected_weights))
-
     for instance in config.test_instances:
-        import_and_run_pyperplan(config.test_domain, instance, heuristic_parameters, config.parameter_generator)
+        logging.info("Testing learnt heuristic on instance \"{}\"".format(instance))
+        import_and_run_pyperplan(config.test_domain, instance, data.learned_heuristic, config.parameter_generator)
 
     # Return those values that we want to be persisted between different steps
     return ExitCode.Success, dict()
