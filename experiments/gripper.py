@@ -46,7 +46,7 @@ def experiment(experiment_name):
         lp_max_weight=10,
         experiment_class=IncrementalExperiment,
         instances=["prob01.pddl", "prob02.pddl", "prob03.pddl"],
-        test_instances=["prob03.pddl", "prob04.pddl", "prob06.pddl"],
+        test_instances=["prob04.pddl", "prob05.pddl", "prob06.pddl"],
         test_domain=domain,
         # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
         # in batches, so we can set them high enough.
