@@ -295,4 +295,5 @@ def run(config, data, rng):
     else:
         logging.error("LP was not solved. Unknown reason.")
 
-    raise CriticalPipelineError("LP could not be solved")  # We'll add better error handling when necessary
+    return ExitCode.MaxsatModelUnsat, dict()
+    # raise CriticalPipelineError("LP could not be solved")  # We'll add better error handling when necessary

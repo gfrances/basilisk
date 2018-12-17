@@ -47,7 +47,7 @@ def full_learning(config, sample, rng):
         res, k, abstraction = try_to_compute_heuristic_in_range(config, working_sample, k, k_max, k_step)
         if res == ExitCode.NoAbstractionUnderComplexityBound:
             logging.error("No abstraction possible for given sample set under max. complexity {}".format(k_max))
-            return res
+            return res, dict()
 
         # Otherwise, we learnt an abstraction with max. complexity k. Let's refine the working sample set with it!
         logging.info("Abstraction with k={} found for sample set of size {} ".format(k, working_sample.num_states()))
