@@ -15,11 +15,11 @@ def experiment(experiment_name):
     domain = "domain.pddl"
     domain_dir = "gripper-m"
     benchmark_dir = BENCHMARK_DIR
-    # benchmark_dir = PYPERPLAN_BENCHMARK_DIR
-    # domain_dir = "gripper"
+    benchmark_dir = PYPERPLAN_BENCHMARK_DIR
+    domain_dir = "gripper"
 
     experiments = dict()
-
+    print (benchmark_dir)
     experiments["prob01"] = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
@@ -39,6 +39,28 @@ def experiment(experiment_name):
         experiments["prob01"],
         num_states=800,
         instances=["prob_3balls_3rooms_1rob.pddl"],
+    )
+
+    experiments["gripper_original"] = dict(
+        # domain_dir="blocks-downward",
+        benchmark_dir=benchmark_dir,
+        lp_max_weight=10,
+        experiment_class=IncrementalExperiment,
+        instances=["task01.pddl", "task02.pddl", "task03.pddl"],
+        test_instances=["task04.pddl", "task05.pddl", "task06.pddl"],
+        test_domain=domain,
+        # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
+        # in batches, so we can set them high enough.
+        num_states=500,
+        initial_sample_size=20,
+        max_concept_grammar_iterations=3,
+        initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
+        batch_refinement_size=5,
+        # quiet=True,
+        clean_workspace=False,
+        # concept_generator=generate_chosen_concepts,
+        parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,
     )
 
     experiments["gripper_std_inc"] = dict(
