@@ -1,6 +1,6 @@
 (define (problem strips-gripper-x-2)
    (:domain gripper-strips)
-   (:objects rooma roomb roomc roomd ball3 ball2 ball1 left1 right1 rob1 left2 right2 rob2)
+   (:objects rooma roomb roomc roomd ball4 ball3 ball2 ball1 left1 right1 rob1 left2 right2 rob2)
    (:init (room rooma)
           (room roomb)
           (room roomc)
