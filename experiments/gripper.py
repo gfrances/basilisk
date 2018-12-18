@@ -15,11 +15,8 @@ def experiment(experiment_name):
     domain = "domain.pddl"
     domain_dir = "gripper-m"
     benchmark_dir = BENCHMARK_DIR
-    benchmark_dir = PYPERPLAN_BENCHMARK_DIR
-    domain_dir = "gripper"
 
     experiments = dict()
-    print (benchmark_dir)
     experiments["prob01"] = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
@@ -41,9 +38,11 @@ def experiment(experiment_name):
         instances=["prob_3balls_3rooms_1rob.pddl"],
     )
 
+    # An experiment with the original gripper domain, 
+    # which has some spureous difficulties to generate the right concepts
     experiments["gripper_original"] = dict(
-        # domain_dir="blocks-downward",
-        benchmark_dir=benchmark_dir,
+        domain_dir="gripper",
+        benchmark_dir=PYPERPLAN_BENCHMARK_DIR,
         lp_max_weight=10,
         experiment_class=IncrementalExperiment,
         instances=["task01.pddl", "task02.pddl", "task03.pddl"],
