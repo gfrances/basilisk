@@ -2,6 +2,8 @@
 import logging
 
 import cplex
+import math
+import sys
 from sltp.errors import CriticalPipelineError
 from sltp.returncodes import ExitCode
 
@@ -33,8 +35,8 @@ def populate_obj_function(problem, num_features, max_weight, transitions, featur
         problem.variables.add(names=[get_weight_var(f)],
                               obj=[0],
                               lb=[-1 * max_weight], ub=[max_weight],
-                              # types=[problem.variables.type.continuous])
-                              types=[problem.variables.type.integer])
+                              types=[problem.variables.type.continuous])
+                              #types=[problem.variables.type.integer])
 
     # add binary to each transition
     for t in transitions:
@@ -271,6 +273,10 @@ def run(config, data, rng):
     problem.write(config.lp_filename)
 
     logging.info("Solving MIP...")
+
+    # To set the timelimit:
+    # problem.parameters.timelimit.set(100)
+
     problem.solve()
     if problem.solution.is_primal_feasible() and problem.solution.is_dual_feasible():
         logging.info("Optimal solution found with value {}".format(problem.solution.get_objective_value()))
@@ -281,7 +287,7 @@ def run(config, data, rng):
         if config.validate_learnt_heuristic:
             # Run hill-climbing and make sure we find a goal. This won't work if we only have a sample of the
             # transition system, as in the incremental approach, since we might not have sampled a path to the goal.
-            hill_climbing("s0", heuristic, adj_list, goal_states)
+            hill_climbing("s0", adj_list, heuristic, goal_states)
 
         report(parameters, heuristic, feature_names, feature_complexity, features_per_state, config)
 
