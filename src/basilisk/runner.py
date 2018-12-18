@@ -274,8 +274,11 @@ def run(config, data, rng):
 
     logging.info("Solving MIP...")
 
+    # Below, some ways to limit resources. This allows suboptimal solutions (or no solution).
     # To set the timelimit:
     # problem.parameters.timelimit.set(100)
+    # To set the limit of solutions found:
+    # problem.parameters.mip.limits.solutions.set(10)
 
     problem.solve()
     if problem.solution.is_primal_feasible() and problem.solution.is_dual_feasible():
@@ -295,11 +298,13 @@ def run(config, data, rng):
         return ExitCode.Success, dict(learned_heuristic=create_potential_heuristic_from_parameters(
             data.features, parameters))
     elif problem.solution.is_primal_feasible():
-        logging.error("LP is unbounded")
+        # TODO: if we limit the time or accept suboptimal solutions, we will
+        # fall in this case. Is it right? How can we avoid it?
+        logging.error("MIP is unbounded")
     elif problem.solution.is_dual_feasible():
-        logging.error("LP is unsolvable")
+        logging.error("MIP is unsolvable")
     else:
-        logging.error("LP was not solved. Unknown reason.")
+        logging.error("MIP was not solved. Unknown reason.")
 
     return ExitCode.MaxsatModelUnsat, dict()
-    # raise CriticalPipelineError("LP could not be solved")  # We'll add better error handling when necessary
+    # raise CriticalPipelineError("MIP could not be solved")  # We'll add better error handling when necessary
