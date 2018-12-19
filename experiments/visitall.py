@@ -3,6 +3,7 @@
 import sys
 
 from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
+from basilisk.incremental import IncrementalExperiment
 
 from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
@@ -39,10 +40,29 @@ def experiment(experiment_name=None):
         concept_generator=None, parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,)
 
+    # Incremental version
+    problem03half_incremental = dict(
+        benchmark_dir=BENCHMARK_DIR,
+        lp_max_weight=10,
+        experiment_class=IncrementalExperiment,
+        test_domain=domain,
+        instances="problem03-half.pddl",
+        test_instances=["problem09-full.pddl"],
+        num_states=500,
+        initial_sample_size=8,
+        max_concept_grammar_iterations=3,
+        initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
+        batch_refinement_size=5,
+        clean_workspace=False,
+        parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,
+    )
+
 
     parameters = {
         "problem02half": problem02half,
         "problem03half": problem03half,
+        "problem03half_incremental": problem03half_incremental,
     }.get(experiment_name or "test")
 
     return generate_experiment(domain_dir, domain, **parameters)
