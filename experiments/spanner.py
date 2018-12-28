@@ -18,22 +18,43 @@ def experiment(experiment_name=None):
     spanner_1 = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
-        # instances=["prob-3-3-3-1540903410.pddl"],  # TODO HC on the training instance doesn't work
-        # instances=["prob-3-3-3-1540903410.pddl", "prob-4-4-3-1540907456.pddl", "prob-4-3-3-1540907466.pddl"],  # TODO Doesn't work, fix this
-        instances=["prob-4-3-3-1540907466.pddl"],
-        test_instances=["prob-10-10-10-1540903568.pddl", "prob-15-10-8-1540913795.pddl"],
+        instances=["prob-3-3-3-1540903410.pddl"],
+        test_instances=["prob-4-4-3-1540907456.pddl",
+                        "prob-4-3-3-1540907466.pddl",
+                        "prob-10-10-10-1540903568.pddl",
+                        "prob-15-10-8-1540913795.pddl"],
         test_domain=domain,
-        # instances="task01.pddl",
-        num_states=300,  # num_sampled_states=None,  random_seed=12,
+        distance_feature_max_complexity=0,
+        num_states=300, num_sampled_states=None, random_seed=12,
         max_concept_size=10, max_concept_grammar_iterations=3,
         concept_generator=None,
-        # concept_generator=generate_chosen_concepts,
+        parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,
+    )
+
+    spanner_1_incremental = dict(
+        lp_max_weight=10,
+        benchmark_dir=benchmark_dir,
+        instances=["prob-3-3-3-1540903410.pddl"],
+        test_instances=["prob-4-4-3-1540907456.pddl",
+                        "prob-4-3-3-1540907466.pddl",
+                        "prob-10-10-10-1540903568.pddl",
+                        "prob-15-10-8-1540913795.pddl"],
+        test_domain=domain,
+        distance_feature_max_complexity=0,
+        num_states=100,
+        initial_sample_size=8,
+        max_concept_grammar_iterations=3,
+        initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
+        batch_refinement_size=5,
+        clean_workspace=False,
         parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,
     )
 
     parameters = {
         "spanner_1": spanner_1,
+        "spanner_1_incremental": spanner_1_incremental,
     }.get(experiment_name or "test")
 
     return generate_experiment(domain_dir, domain, **parameters)
