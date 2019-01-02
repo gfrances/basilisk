@@ -39,7 +39,15 @@ for an example. Currently we can invoke the configuration `prob01` of the experi
 
 
 ## Domains and Instances
-* Typed domains
-  In order to use new domains with types, the order of the types in the domain
-  file should be in decreasing order. In other words, it means that the
-  "supertypes" should be declared first. See the Spanner domains as an example.
+* Typed domains In order to use new domains with types, the order of the types
+  in the domain file should be in decreasing order. In other words, it means
+  that the "supertypes" should be declared first. See the Spanner domains as an
+  example.
+
+* Right now, we have the following domains:
+  - `blocks`: working
+  - `gripper`: (IPC version) working
+  - `gripper-m`: (modified version) working
+  - `spanner-ipc2011`: not working
+  - `spanner`: (our instances) working
+  - `visitall`: working
