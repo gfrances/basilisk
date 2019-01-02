@@ -8,6 +8,7 @@ def hill_climbing(s0, adjacencies, heuristic, goal_states):
     # counts the number of loops (only for printing)
     s = s0
     plan = []
+
     while s not in goal_states:
 
         h_s = heuristic(s)
@@ -47,7 +48,12 @@ def create_pyperplan_hill_climbing_with_embedded_heuristic(heuristic):
         current = searchspace.make_root_node(task.initial_state)
         current_h = heuristic(current.state)
 
+        iterations = 0
+
         while not task.goal_reached(current.state):
+            iterations += 1
+            if iterations % 1000 == 0:
+                logging.debug("Number of visited states in hill-climbing: {}".format(iterations))
 
             improvement_found = False
             successors = task.get_successor_states(current.state)
@@ -75,4 +81,3 @@ def create_pyperplan_hill_climbing_with_embedded_heuristic(heuristic):
         return current.extract_solution()
 
     return pyperplan_hill_climbing
-
