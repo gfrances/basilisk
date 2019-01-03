@@ -28,13 +28,25 @@ def experiment(experiment_name=None):
         concept_generator=None, parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,)
 
+    problem02full = dict(
+        lp_max_weight=10,
+        benchmark_dir=benchmark_dir,
+        instances=["problem02-full.pddl"], #, "problem03-full.pddl"],
+        test_instances=["problem04-full.pddl"],
+        test_domain=domain,
+        distance_feature_max_complexity=10,
+        num_states=500, num_sampled_states=None, random_seed=12,
+        max_concept_size=8, max_concept_grammar_iterations=3,
+        concept_generator=None, parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,)
+
     problem03half = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
         instances="problem03-half.pddl",
         test_instances=["problem09-full.pddl"],
         test_domain=domain,
-        #distance_feature_max_complexity=10,
+        distance_feature_max_complexity=10,
         num_states=500, num_sampled_states=None, random_seed=12,
         max_concept_size=8, max_concept_grammar_iterations=3,
         concept_generator=None, parameter_generator=add_domain_parameters,
@@ -61,6 +73,7 @@ def experiment(experiment_name=None):
 
     parameters = {
         "problem02half": problem02half,
+        "problem02full": problem02full,
         "problem03half": problem03half,
         "problem03half_incremental": problem03half_incremental,
     }.get(experiment_name or "test")
