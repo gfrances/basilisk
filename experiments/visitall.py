@@ -16,18 +16,6 @@ def experiment(experiment_name=None):
     benchmark_dir = BENCHMARK_DIR
     # domain_dir = "gripper"
 
-    problem02half = dict(
-        lp_max_weight=10,
-        benchmark_dir=benchmark_dir,
-        instances="problem02-half.pddl",
-        test_instances=["problem09-full.pddl"],
-        test_domain=domain,
-        distance_feature_max_complexity=0,
-        num_states=500, num_sampled_states=None, random_seed=12,
-        max_concept_size=20, max_concept_grammar_iterations=3,
-        concept_generator=None, parameter_generator=add_domain_parameters,
-        feature_namer=feature_namer,)
-
     problem02full = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
@@ -40,25 +28,25 @@ def experiment(experiment_name=None):
         concept_generator=None, parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,)
 
-    problem03half = dict(
+    problem03full = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
-        instances="problem03-half.pddl",
-        test_instances=["problem09-full.pddl"],
+        instances=["problem03-full.pddl"],
+        test_instances=["problem06-full.pddl"],
         test_domain=domain,
         distance_feature_max_complexity=10,
-        num_states=500, num_sampled_states=None, random_seed=12,
+        num_states=1000, num_sampled_states=None, random_seed=12,
         max_concept_size=8, max_concept_grammar_iterations=3,
         concept_generator=None, parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,)
 
     # Incremental version
-    problem03half_incremental = dict(
+    problem03full_incremental = dict(
         benchmark_dir=BENCHMARK_DIR,
         lp_max_weight=10,
         experiment_class=IncrementalExperiment,
         test_domain=domain,
-        instances="problem03-half.pddl",
+        instances="problem03-full.pddl",
         test_instances=["problem09-full.pddl"],
         num_states=500,
         initial_sample_size=8,
@@ -72,10 +60,9 @@ def experiment(experiment_name=None):
 
 
     parameters = {
-        "problem02half": problem02half,
         "problem02full": problem02full,
-        "problem03half": problem03half,
-        "problem03half_incremental": problem03half_incremental,
+        "problem03full": problem03full,
+        "problem03full_incremental": problem03full_incremental,
     }.get(experiment_name or "test")
 
     return generate_experiment(domain_dir, domain, **parameters)
