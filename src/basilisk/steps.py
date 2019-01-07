@@ -101,7 +101,7 @@ class HeuristicWeightsLPComputation(Step):
         return ["features"]
 
     def description(self):
-        return "Computation of the weights of a desceding heuristic"
+        return "Computation of the weights of a descending heuristic"
 
     def get_step_runner(self):
         from . import runner

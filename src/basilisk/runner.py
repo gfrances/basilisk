@@ -11,6 +11,8 @@ from .read_input import *
 from .search import hill_climbing
 from .utils import natural_sort
 
+problem = cplex.Cplex()
+logging.info("Creating persistent CPLEX object.")
 
 def get_weight_var(f):
     """ Return the name of the weight variable given the feature """
@@ -255,7 +257,7 @@ def run(config, data, rng):
                  format(len(transitions), len(goal_states), num_features))
 
     logging.info("Populating model")
-    problem = cplex.Cplex()
+
     problem.objective.set_sense(problem.objective.sense.minimize)
 
     logging.info("Populating objective function")
