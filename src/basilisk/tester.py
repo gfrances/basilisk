@@ -43,20 +43,23 @@ def run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator):
 
     static_atoms = compute_static_atoms(problem)
 
-    pyerplan_heuristic = create_pyperplan_heuristic(model_factory, static_atoms, heuristic)
+    pyperplan_heuristic = create_pyperplan_heuristic(model_factory, static_atoms, heuristic)
 
     # And now we inject our desired search and heuristic functions
-    args.forced_search = create_pyperplan_hill_climbing_with_embedded_heuristic(pyerplan_heuristic)
+    args.forced_search = create_pyperplan_hill_climbing_with_embedded_heuristic(pyperplan_heuristic)
 
     # And run pyperplan!
     pyperplan.main(args)
+
+    return (args.forced_search.path, args.forced_search.dead_end_succs)
 
 
 def import_and_run_pyperplan(domain, instance, heuristic, parameter_generator):
     sys.path.insert(0, PYPERPLAN_DIR)
     import pyperplan
-    run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator)
+    flaw = run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator)
     sys.path = sys.path[1:]
+    return flaw
 
 
 def create_pyperplan_heuristic(model_factory, static_atoms, heuristic):
@@ -66,7 +69,6 @@ def create_pyperplan_heuristic(model_factory, static_atoms, heuristic):
         translated = translate_state(state)
         translated_with_statics = translated + list(static_atoms)
         model = FeatureModel(model_factory.create_model(translated_with_statics))
-
         return heuristic.value(model)
 
     return pyperplan_concept_based_heuristic
@@ -85,7 +87,10 @@ def translate_state(state):
 def run(config, data, rng):
     for instance in config.test_instances:
         logging.info("Testing learnt heuristic on instance \"{}\"".format(instance))
-        import_and_run_pyperplan(config.test_domain, instance, data.learned_heuristic, config.parameter_generator)
+        flaw = import_and_run_pyperplan(config.test_domain, instance, data.learned_heuristic, config.parameter_generator)
 
     # Return those values that we want to be persisted between different steps
-    return ExitCode.Success, dict()
+    # Flaw is a pair (path, dead_end_succs) where:
+    # path : list of states, where each state is a list of atoms
+    # dead_end_succs: list of states, where each state is a list of atoms
+    return ExitCode.Success, {"flaws": flaw}

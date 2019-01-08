@@ -4,6 +4,7 @@ import sys
 
 from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
 from basilisk.incremental import IncrementalExperiment
+from basilisk.refinement import OnlineRefinementExperiment
 
 from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
@@ -27,6 +28,40 @@ def experiment(experiment_name=None):
         max_concept_size=8, max_concept_grammar_iterations=3,
         concept_generator=None, parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,)
+
+    problem02full_incremental = dict(
+        benchmark_dir=BENCHMARK_DIR,
+        lp_max_weight=10,
+        experiment_class=IncrementalExperiment,
+        test_domain=domain,
+        instances="problem02-full.pddl",
+        test_instances=["problem04-full.pddl"],
+        num_states=500,
+        initial_sample_size=8,
+        max_concept_grammar_iterations=3,
+        initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
+        batch_refinement_size=5,
+        clean_workspace=False,
+        parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,
+    )
+
+    problem02full_online = dict(
+        benchmark_dir=BENCHMARK_DIR,
+        lp_max_weight=10,
+        experiment_class=OnlineRefinementExperiment,
+        test_domain=domain,
+        instances="problem02-full.pddl",
+        test_instances=["problem04-full.pddl"],
+        num_states=500,
+        initial_sample_size=8,
+        max_concept_grammar_iterations=3,
+        initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
+        batch_refinement_size=5,
+        clean_workspace=False,
+        parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,
+    )
 
     problem03full = dict(
         lp_max_weight=10,
@@ -61,6 +96,8 @@ def experiment(experiment_name=None):
 
     parameters = {
         "problem02full": problem02full,
+        "problem02full_incremental": problem02full_incremental,
+        "problem02full_online": problem02full_online,
         "problem03full": problem03full,
         "problem03full_incremental": problem03full_incremental,
     }.get(experiment_name or "test")

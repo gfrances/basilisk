@@ -37,6 +37,13 @@ def hill_climbing(s0, adjacencies, heuristic, goal_states):
     print("\nHill Climbing on the training instance succeeds with the following state path: ")
     print(", ".join("{} ({})".format(s, h) for s, h in plan))
 
+def parse_atom(atom):
+    atom = atom.replace('(', '')
+    atom = atom.replace(')', '')
+    split = atom.split()
+    action = split[0]
+    new_atom = action+"(" + (",".join(split[1:])) + ")"
+    return new_atom
 
 def create_pyperplan_hill_climbing_with_embedded_heuristic(heuristic):
     # This will import from pyperplan's search dir. A bit hacky. We might prefer to pass searchspace as a parameter
@@ -50,6 +57,10 @@ def create_pyperplan_hill_climbing_with_embedded_heuristic(heuristic):
 
         iterations = 0
 
+        # Keep path and successor states of detected flaw
+        pyperplan_hill_climbing.path = []
+        pyperplan_hill_climbing.dead_end_succs = []
+
         while not task.goal_reached(current.state):
             iterations += 1
             if iterations % 1000 == 0:
@@ -57,6 +68,8 @@ def create_pyperplan_hill_climbing_with_embedded_heuristic(heuristic):
 
             improvement_found = False
             successors = task.get_successor_states(current.state)
+
+            pyperplan_hill_climbing.path.append([parse_atom(a) for a in current.state])
 
             if not successors:
                 logging.error("State without successors found: {}".format(current.state))
@@ -75,6 +88,9 @@ def create_pyperplan_hill_climbing_with_embedded_heuristic(heuristic):
                 logging.error("Heuristic local minimum of {} found on state {}".format(current_h, current.state))
                 logging.error("Children nodes:")
                 print("\t" + "\n\t".join("h: {}, s: {}".format(h, s) for h, s, _ in succesor_h_values))
+                for _, succ in successors:
+                    atoms = [parse_atom(atom) for atom in succ]
+                    pyperplan_hill_climbing.dead_end_succs.append(atoms)
                 return None
 
         logging.info("Goal found")
