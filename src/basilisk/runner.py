@@ -279,6 +279,8 @@ def run(config, data, rng):
     # problem.parameters.timelimit.set(100)
     # To set the limit of solutions found:
     # problem.parameters.mip.limits.solutions.set(10)
+    # To set high numerical precision on, turn on the following:
+    problem.parameters.emphasis.numerical.set(1)
 
     problem.solve()
     if problem.solution.is_primal_feasible() and problem.solution.is_dual_feasible():

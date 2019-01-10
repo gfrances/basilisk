@@ -20,8 +20,10 @@ def experiment(experiment_name):
     experiments["prob01"] = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
-        instances="prob01.pddl",
-        test_instances=["prob02.pddl"],
+        instances=["prob01.pddl", "prob02.pddl", "prob03.pddl"],
+        test_instances=["prob04.pddl",
+                        "prob05.pddl",
+                        "prob06.pddl"],
         test_domain=domain,
         # instances="task01.pddl",
         num_states=300,  # num_sampled_states=None,  random_seed=12,
@@ -38,7 +40,7 @@ def experiment(experiment_name):
         instances=["prob_3balls_3rooms_1rob.pddl"],
     )
 
-    # An experiment with the original gripper domain, 
+    # An experiment with the original gripper domain,
     # which has some spureous difficulties to generate the right concepts
     experiments["gripper_original"] = dict(
         domain_dir="gripper",
