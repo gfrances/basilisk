@@ -2,24 +2,14 @@
 import logging
 import sys
 
-from models import FeatureModel
+from sltp.models import FeatureModel
 from sltp.features import create_model_factory
 from sltp.returncodes import ExitCode
+from sltp.util.misc import state_as_atoms
 from tarski import fstrips
 
 from . import PYPERPLAN_DIR
 from .search import create_pyperplan_hill_climbing_with_embedded_heuristic
-
-
-def state_as_atoms(state):
-    """ Transform any state (i.e. interpretation) into a flat set of tuples,
-    one per ground atom that is true in the state """
-    atoms = set()
-    for signature, elems in state.list_all_extensions().items():
-        name = signature[0]
-        # We unwrap the tuples of Constants into tuples with their (string) names
-        atoms.update((name, ) + tuple(o.symbol for o in elem) for elem in elems)
-    return atoms
 
 
 def compute_static_atoms(problem):
