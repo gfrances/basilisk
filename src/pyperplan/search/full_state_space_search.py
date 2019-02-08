@@ -163,7 +163,7 @@ def full_state_space_search(planning_task, max_exp):
         # exploring the node or if it is a goal node extracting the plan
         if is_goal:
             goals += 1
-            logging.info("Goal found. Number of goal states found: %d" % goals)
+            logging.info("Goal found after %d expansions. Number of goal states found: %d" % (node_id, goals))
         if node_id >= max_exp:
             logging.info("Maximum number of expansions reached. Exiting the search.")
             logging.info("Total number of goal states: %d" % goals)

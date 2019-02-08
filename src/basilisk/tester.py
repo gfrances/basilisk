@@ -3,24 +3,10 @@ import logging
 import sys
 
 from sltp.models import FeatureModel
-from sltp.features import create_model_factory
+from sltp.features import create_model_factory, compute_static_atoms
 from sltp.returncodes import ExitCode
-from sltp.util.misc import state_as_atoms
-from tarski import fstrips
-
 from . import PYPERPLAN_DIR
 from .search import create_pyperplan_hill_climbing_with_embedded_heuristic
-
-
-def compute_static_atoms(problem):
-    init_atoms = state_as_atoms(problem.init)
-    index = fstrips.TaskIndex(problem.language.name, problem.name)
-    # Not sure the fstrips.TaskIndex code is too reliable... static detection seems to be buggy.
-    # Let's better do that ourselves with a basic fluent detection routine.
-    index.process_symbols(problem)
-    fluent_symbols = {x.head.symbol for x in index.fluent_symbols}
-    static_atoms = {a for a in init_atoms if a[0] not in fluent_symbols}
-    return static_atoms
 
 
 def run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator):
@@ -31,7 +17,7 @@ def run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator):
     # Parse the domain & instance and create a model generator
     problem, model_factory = create_model_factory(domain, instance, parameter_generator)
 
-    static_atoms = compute_static_atoms(problem)
+    static_atoms, _ = compute_static_atoms(problem)
 
     pyerplan_heuristic = create_pyperplan_heuristic(model_factory, static_atoms, heuristic)
 
