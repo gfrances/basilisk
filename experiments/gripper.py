@@ -30,7 +30,8 @@ def experiment(experiment_name):
         max_concept_size=10, max_concept_grammar_iterations=3,
         concept_generator=None,
         # concept_generator=generate_chosen_concepts,
-        parameter_generator=add_domain_parameters,
+        # parameter_generator=add_domain_parameters,
+        parameter_generator=None,
         feature_namer=feature_namer,
     )
 

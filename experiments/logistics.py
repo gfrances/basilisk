@@ -38,7 +38,7 @@ def experiment(experiment_name=None):
         test_instances=["task02.pddl",],
         test_domain=domain,
         distance_feature_max_complexity=0,
-        #num_states=100000,
+        num_states=20000,
         initial_sample_size=8,
         max_concept_grammar_iterations=3,
         initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
