@@ -10,7 +10,7 @@
 
 To install in development mode, issue the following command on the root directory of the project:
 
-    pip install -e . --process-dependency-links
+    pip install -e .
 
 This should install all the required dependencies.
 

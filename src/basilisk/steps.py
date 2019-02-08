@@ -28,8 +28,8 @@ def _run_pyperplan(config, data, rng):
         params = '-s full --state-space-output {} --max-nodes {} {} {}'.format(o, config.num_states, config.domain, i)
         execute(command=[sys.executable, "pyperplan.py"] + params.split(' '), cwd=PYPERPLAN_DIR)
 
-        problem, _, _, _ = parse_pddl(config.domain, i)
-        static_atoms = compute_static_atoms(problem)
+        problem, _, _ = parse_pddl(config.domain, i)
+        static_atoms, static_predicates = compute_static_atoms(problem)
 
         all_states = []
         # Extend pyperplan output with the necessary static predicates:

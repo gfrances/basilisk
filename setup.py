@@ -45,15 +45,10 @@ def main():
 
         install_requires=[
             'setuptools',
-            'sltp==0.1.0',
-            # "pip @ git+ssh://git@github.com/aig-upf/tarski.git@cb92626051e79dca0439acd6b76a877adf30d497"
+            "tarski @ git+ssh://git@github.com/aig-upf/tarski.git@6187518#egg=tarski-dev-0.1.0",
+            "sltp @ git+ssh://git@github.com/aig-upf/features-generalized-planning.git@c57f31d#egg=sltp-dev-0.1.0",
         ],
 
-        # Git dependencies - egg names need to match whatever written in install_requires
-        dependency_links=[
-            'git+https://github.com/aig-upf/tarski.git@73fcc8b#egg=tarski-0.1.0',
-            'git+https://github.com/aig-upf/features-generalized-planning.git@f7f3a43#egg=sltp-0.1.0',
-        ],
 
         extras_require={
             'dev': ['pytest', 'tox'],
