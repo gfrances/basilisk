@@ -10,10 +10,12 @@ from basilisk.steps import PyperplanStep, HeuristicWeightsLPComputation, Heurist
 from sltp.driver import Experiment, generate_pipeline_from_list, check_int_parameter, InvalidConfigParameter, load, \
     TransitionSamplingStep, run_and_check_output, SubprocessStepRunner, Bunch, save, ConceptGenerationStep, \
     FeatureMatrixGenerationStep
-from sltp.features import create_model_cache_from_samples
+from sltp.features import create_model_cache_from_samples, parse_all_instances, report_use_goal_denotation, \
+    compute_instance_information
 from sltp.returncodes import ExitCode
 from sltp.sampling import log_sampled_states
 from sltp.util.misc import update_dict
+from tarski.dl import compute_dl_vocabulary
 
 
 def initial_sample_selection(sample, config, rng):
@@ -34,8 +36,17 @@ def full_learning(config, sample, rng):
     working_sample_idxs, expanded_state_ids_shuffled = initial_sample_selection(sample, config, rng)
     working_sample = sample.resample(working_sample_idxs)
 
+    use_goal_denotation = report_use_goal_denotation(config.parameter_generator)
+
+    parsed_problems = parse_all_instances(config.domain, config.instances)
+    infos = [compute_instance_information(problem, use_goal_denotation) for problem, _, _ in parsed_problems]
+
+    # We assume all problems languages are the same and simply pick the first one
+    language = parsed_problems[0][0].language
+    vocabulary = compute_dl_vocabulary(language)
+
     # Note that the validator will validate wrt the full sample
-    _, _, _, model_cache = create_model_cache_from_samples(sample, config)
+    _, model_cache = create_model_cache_from_samples(vocabulary, sample, config.domain, config.parameter_generator, infos)
     validator = KnowledgeValidator(model_cache, sample, expanded_state_ids_shuffled)
 
     k, k_max, k_step = config.initial_concept_bound, config.max_concept_bound, config.concept_bound_step
