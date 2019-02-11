@@ -6,6 +6,7 @@ import math
 import sys
 from sltp.errors import CriticalPipelineError
 from sltp.returncodes import ExitCode
+from tarski.dl import EmpiricalBinaryConcept, ConceptCardinalityFeature
 
 from .read_input import *
 from .search import hill_climbing
@@ -225,7 +226,12 @@ def create_potential_heuristic_from_parameters(features, parameters):
 
 class ConceptBasedPotentialHeuristic:
     def __init__(self, parameters):
-        self.parameters = parameters
+        def transform(feature):
+            if isinstance(feature, EmpiricalBinaryConcept):
+                return ConceptCardinalityFeature(feature.c)
+            return feature
+
+        self.parameters = [(transform(feature), weight) for feature, weight in parameters]
 
     def value(self, model):
         h = 0

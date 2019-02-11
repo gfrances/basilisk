@@ -3,6 +3,7 @@
 import sys
 
 from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
+from basilisk.incremental import IncrementalExperiment
 
 from sltp.util.misc import update_dict
 from defaults import generate_experiment
@@ -32,15 +33,17 @@ def experiment(experiment_name=None):
     )
 
     spanner_1_incremental = dict(
+        experiment_class=IncrementalExperiment,
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
         instances=["prob-3-3-3-1540903410.pddl"],
+        # instances=["small.pddl"],
         test_instances=["prob-4-4-3-1540907456.pddl",
                         "prob-4-3-3-1540907466.pddl",
                         "prob-10-10-10-1540903568.pddl",
                         "prob-15-10-8-1540913795.pddl"],
         test_domain=domain,
-        distance_feature_max_complexity=10,
+        # distance_feature_max_complexity=10,
         num_states=100,
         initial_sample_size=8,
         max_concept_grammar_iterations=3,

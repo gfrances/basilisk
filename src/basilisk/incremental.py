@@ -159,7 +159,14 @@ class KnowledgeValidator:
             if is_alive(sid, sample) and not has_improving_successor(sid, h_s, self.sample, self.model_cache, heuristic):
                 flaws.add(sid)
 
-            # TODO - CHECK DEAD-END-AVOIDING
+            if sid in sample.unsolvable:
+                for p in sample.parents[sid]:
+                    # Any transition from a solvable to an unsolvable states needs to
+                    # provoke an increase in the heuristic value
+                    if p not in sample.unsolvable:
+                        h_p = heuristic.value(self.model_cache.get_feature_model(p))
+                        if h_s < h_p:
+                            flaws.add(p)
 
             if len(flaws) >= max_flaws:
                 break
@@ -208,9 +215,10 @@ class IncrementalExperiment(Experiment):
         # We ignore whatever specified in the command line and run the incremental algorithm
         self.hello(args)
 
-        # cannot run HC in the incremental approach, because we will sample the transition system
+        # In the incremental approach, we cannot run a hill-climbing on the training instances and expect to find a
+        # goal, because we have randomly sampled a few states only, and it is very unlikely that we will have sampled
+        # all states in some path to a goal.
         self.parameters['validate_learnt_heuristic'] = False
-        self.parameters['compute_unsolvable_states'] = False
 
         # 1. Extract and resample the whole training set
         initial_steps, config = generate_pipeline_from_list([PyperplanStep, TransitionSamplingStep], **self.parameters)
