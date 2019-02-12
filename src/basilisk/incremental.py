@@ -160,6 +160,8 @@ class KnowledgeValidator:
                 flaws.add(sid)
 
             if sid in sample.unsolvable:
+                if not sid in sample.parents:
+                    continue
                 for p in sample.parents[sid]:
                     # Any transition from a solvable to an unsolvable states needs to
                     # provoke an increase in the heuristic value
