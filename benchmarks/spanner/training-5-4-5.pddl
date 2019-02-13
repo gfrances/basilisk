@@ -2,8 +2,8 @@
  (:domain spanner)
  (:objects 
      bob - man
- spanner1 spanner2 spanner3 - spanner
-     nut1 nut2 nut3 - nut
+ spanner1 spanner2 spanner3 spanner4 spanner5 - spanner
+     nut1 nut2 nut3 nut4 - nut
      location1 location2 location3 location4 location5 - location
      shed gate - location
     )
@@ -15,12 +15,18 @@
     (useable spanner2)
     (at spanner3 location5)
     (useable spanner3)
+    (at spanner4 location5)
+    (useable spanner4)
+    (at spanner5 location1)
+    (useable spanner5)
     (loose nut1)
     (at nut1 gate)
     (loose nut2)
     (at nut2 gate)
     (loose nut3)
     (at nut3 gate)
+    (loose nut4)
+    (at nut4 gate)
     (link shed location1)
     (link location5 gate)
     (link location1 location2)
@@ -33,4 +39,5 @@
    (tightened nut1)
    (tightened nut2)
    (tightened nut3)
+   (tightened nut4)
 )))

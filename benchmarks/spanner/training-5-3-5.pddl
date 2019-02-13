@@ -2,19 +2,23 @@
  (:domain spanner)
  (:objects 
      bob - man
- spanner1 spanner2 spanner3 - spanner
+ spanner1 spanner2 spanner3 spanner4 spanner5 - spanner
      nut1 nut2 nut3 - nut
      location1 location2 location3 location4 location5 - location
      shed gate - location
     )
  (:init 
     (at bob shed)
-    (at spanner1 location4)
+    (at spanner1 location5)
     (useable spanner1)
-    (at spanner2 location2)
+    (at spanner2 location5)
     (useable spanner2)
     (at spanner3 location5)
     (useable spanner3)
+    (at spanner4 location4)
+    (useable spanner4)
+    (at spanner5 location3)
+    (useable spanner5)
     (loose nut1)
     (at nut1 gate)
     (loose nut2)
