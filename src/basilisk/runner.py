@@ -295,12 +295,12 @@ def run(config, data, rng):
         parameters = extract_heuristic_parameters_from_cplex_solution(problem, len(feature_names))
         heuristic = create_toy_heuristic(features_per_state, parameters)
 
+        report(parameters, heuristic, feature_names, feature_complexity, features_per_state, config)
+
         if config.validate_learnt_heuristic:
             # Run hill-climbing and make sure we find a goal. This won't work if we only have a sample of the
             # transition system, as in the incremental approach, since we might not have sampled a path to the goal.
             hill_climbing("s0", adj_list, heuristic, goal_states)
-
-        report(parameters, heuristic, feature_names, feature_complexity, features_per_state, config)
 
         # Return those values that we want to be persisted between different steps
         return ExitCode.Success, dict(learned_heuristic=create_potential_heuristic_from_parameters(
