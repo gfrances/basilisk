@@ -67,7 +67,7 @@ class PyperplanStep(Step):
 
         config["instance_tag"] = compute_instance_tag(**config)
         config["experiment_tag"] = compute_experiment_tag(**config)
-        config["experiment_dir"] = os.path.join(EXPDATA_DIR, config["experiment_tag"])
+        config["experiment_dir"] = os.path.join(EXPDATA_DIR, config["experiment_tag"][:64])
         config["sample_files"] = compute_sample_filenames(**config)
 
         # TODO This should prob be somewhere else:
