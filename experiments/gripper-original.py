@@ -13,58 +13,40 @@ from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, 
 
 def experiment(experiment_name):
     domain = "domain.pddl"
-    domain_dir = "gripper-m"
-    benchmark_dir = BENCHMARK_DIR
+    domain_dir = "gripper"
+    benchmark_dir = PYPERPLAN_BENCHMARK_DIR
 
     experiments = dict()
-    experiments["prob01"] = dict(
-        lp_max_weight=10,
-        benchmark_dir=benchmark_dir,
-        instances=['test01.pddl',
-                   'test02.pddl',
-                   'test03.pddl',
-                   'test04.pddl',
-                   'test05.pddl',
-                   'test06.pddl',
-                   "prob02.pddl",],
-        test_instances=["prob01.pddl",
-                        "prob03.pddl",
-                        "prob04.pddl",
-                        "prob05.pddl",
-                        "prob06.pddl"],
-        test_domain=domain,
-        # instances="task01.pddl",
-        num_states=5000,  # num_sampled_states=None,  random_seed=12,
-        max_concept_size=10, max_concept_grammar_iterations=3,
-        concept_generator=None,
-        # concept_generator=generate_chosen_concepts,
-        # parameter_generator=add_domain_parameters,
-        parameter_generator=None,
-        feature_namer=feature_namer,
-    )
 
-
-    experiments["gripper_std_inc"] = dict(
+    experiments["incremental"] = dict(
         lp_max_weight=10,
         experiment_class=IncrementalExperiment,
-        instances=['test01.pddl',
-                   'test02.pddl',
-                   'test03.pddl',
-                   'test04.pddl',
-                   'test05.pddl',
-                   'test06.pddl',
-                   'test07.pddl',],
-        test_instances=["prob01.pddl",
-                        "prob02.pddl",
-                        "prob03.pddl",
-                        "prob04.pddl",
-                        "prob05.pddl",
-                        "prob06.pddl"],
+        benchmark_dir=benchmark_dir,
+        instances=['task01.pddl',
+                   'task02.pddl',
+                   'task03.pddl',
+                   'task04.pddl',],
+        test_instances=['task05.pddl',
+                        'task06.pddl',
+                        'task07.pddl',
+                        'task08.pddl',
+                        'task09.pddl',
+                        'task10.pddl',
+                        'task11.pddl',
+                        'task12.pddl',
+                        'task13.pddl',
+                        'task14.pddl',
+                        'task15.pddl',
+                        'task16.pddl',
+                        'task17.pddl',
+                        'task18.pddl',
+                        'task19.pddl',
+                        'task20.pddl',],
         test_domain=domain,
         # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
         # in batches, so we can set them high enough.
-        num_states=5000,
-        initial_sample_size=20,
+        num_states=3000,
+        initial_sample_size=100,
         max_concept_grammar_iterations=3,
         initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
         batch_refinement_size=10,
