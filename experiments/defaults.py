@@ -4,7 +4,8 @@ from basilisk import BENCHMARK_DIR
 from basilisk.steps import PyperplanStep, HeuristicWeightsLPComputation, HeuristicTestingComputation
 from sltp.driver import Experiment, generate_pipeline_from_list, \
     ConceptGenerationStep, FeatureMatrixGenerationStep, \
-    TransitionSamplingStep  #, CPPFeatureGenerationStep
+    TransitionSamplingStep
+# from sltp.driver import CPPFeatureGenerationStep
 from sltp.learn_actions import OptimizationPolicy
 
 

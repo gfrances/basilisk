@@ -9,7 +9,7 @@
           (ball ball2)
           (ball ball1)
           (robot rob)
-          (at-robby rob rooma)
+          (at-robby rob roomc)
           (free left)
           (free right)
           (at ball4 roomc)

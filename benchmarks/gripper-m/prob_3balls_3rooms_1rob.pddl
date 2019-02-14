@@ -11,7 +11,7 @@
 
           (robot rob1)
 
-          (at-robby rob1 rooma)
+          (at-robby rob1 roomb)
 
           (free left1)
           (free right1)
