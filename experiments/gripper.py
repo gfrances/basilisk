@@ -45,15 +45,17 @@ def experiment(experiment_name):
 
 
     experiments["gripper_std_inc"] = dict(
-        lp_max_weight=10,
+        lp_max_weight=5,
         experiment_class=IncrementalExperiment,
-        instances=['test01.pddl',
+        instances=["prob03.pddl",
+            'test01.pddl',
                    'test02.pddl',
                    'test03.pddl',
                    'test04.pddl',
                    'test05.pddl',
                    'test06.pddl',
-                   'test07.pddl',],
+
+                   'prob_3balls_3rooms_1rob.pddl',],
         test_instances=["prob01.pddl",
                         "prob02.pddl",
                         "prob03.pddl",
@@ -63,13 +65,66 @@ def experiment(experiment_name):
         test_domain=domain,
         # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
         # in batches, so we can set them high enough.
-        num_states=5000,
-        initial_sample_size=20,
+        num_states=12000,
+        initial_sample_size=50,
         max_concept_grammar_iterations=3,
-        initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
+        initial_concept_bound=7, max_concept_bound=12, concept_bound_step=2,
         batch_refinement_size=10,
         clean_workspace=False,
+        parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,
+    )
+
+    experiments["original"] = dict(
+        lp_max_weight=10,
+        benchmark_dir=BENCHMARK_DIR,
+        instances=['prob01.pddl',
+                   'prob02.pddl',
+                   ],
+        test_instances=[
+                        "prob04.pddl",
+                        "prob05.pddl",
+                        "prob06.pddl"
+        ],
+        num_states=2000, max_width=[-1],
+        num_sampled_states=100,
+        test_domain=domain,
+        max_concept_size=10, max_concept_grammar_iterations=3,
+        concept_generator=None,
+        # parameter_generator=add_domain_parameters,
         parameter_generator=None,
+        feature_namer=feature_namer,
+    )
+
+    experiments["several_rooms"] = dict(
+        lp_max_weight=10,
+        benchmark_dir=BENCHMARK_DIR,
+        instances=["prob_3balls_3rooms_1rob.pddl"],
+        num_states=100000,
+        num_sampled_states=10000,
+        test_instances=["prob02.pddl"],
+        test_domain=domain,
+        # random_seed=12,
+        max_concept_size=10, max_concept_grammar_iterations=3,
+        concept_generator=None,
+        # concept_generator=generate_chosen_concepts,
+        parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,
+    )
+
+    experiments["2rooms"] = dict(
+        lp_max_weight=10,
+        benchmark_dir=BENCHMARK_DIR,
+        instances=["small.pddl"],
+        num_states=100000,
+        num_sampled_states=10000,
+        test_instances=["small-test.pddl"],
+        test_domain=domain,
+        # random_seed=12,
+        max_concept_size=10, max_concept_grammar_iterations=3,
+        concept_generator=None,
+        # concept_generator=generate_chosen_concepts,
+        parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,
     )
 
@@ -101,7 +156,7 @@ def generate_chosen_concepts(lang):
     c3 = ExistsConcept(gripper, rx)
     c4 = ExistsConcept(carry, c3)
 
-    concepts = [c1, c2, c3, c4]
+    concepts = [c1, c2, rx, c3, c4]
     return [], concepts, []  # atoms, concepts, roles
 
 
@@ -141,6 +196,9 @@ def feature_namer(feature):
         "card[Exists(gripper,Exists(at-robby,{roomb}))]": "ngrippers-at-B",
         "card[Exists(carry,Exists(gripper,Exists(at-robby,{roomb})))]": "nballs-carried-in-B",
         "card[Exists(at,And(Forall(Inverse(at-robby),<empty>), Not({roomb})))]": "nballs-in-some-room-notB-without-any-robot",
+        "card[Forall(at,And(Forall(Inverse(at-robby),<empty>),Not({roomb})))]": "nballs-either-held-or-in-a-room-!=B-with-no-robot",
+        "card[Forall(at,{roomb})]": "nballs-being-carried-or-in-B",
+        "card[Forall(carry,Exists(gripper,Exists(at-robby,{roomb})))]": "nballs-either-not-carried-or-in-room-B"
         # "": "",
     }.get(s, s)
 

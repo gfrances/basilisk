@@ -1,0 +1,46 @@
+Total (root+branch&cut) =    1.12 sec. (760.29 ticks)
+2019-02-14 18:15:48 INFO     Optimal solution found with value 19.0
+Concept-based potential heuristic found with a total of 6 features:
+	5 · card[<universe>] [k=0, id=0]
+	4 · nfree-grippers [k=1, id=3]
+	1 · robby-is-at-B [k=3, id=14]
+	-5 · nballs-at-B [k=3, id=15]
+	-1 · card[Equal(Inverse(at-robby),Inverse(at))] [k=5, id=38]
+	-3 · nballs-either-not-carried-or-in-room-B [k=7, id=159]
+
+WORKS ON TEST INSTANCES; 
+
+./gripper.py gripper_std_inc --all
+
+
+
+    experiments["gripper_std_inc"] = dict(
+        lp_max_weight=5,
+        experiment_class=IncrementalExperiment,
+        instances=["prob03.pddl",
+            'test01.pddl',
+                   'test02.pddl',
+                   'test03.pddl',
+                   'test04.pddl',
+                   'test05.pddl',
+                   'test06.pddl',
+
+                   'prob_3balls_3rooms_1rob.pddl',],
+        test_instances=["prob01.pddl",
+                        "prob02.pddl",
+                        "prob03.pddl",
+                        "prob04.pddl",
+                        "prob05.pddl",
+                        "prob06.pddl"],
+        test_domain=domain,
+        # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
+        # in batches, so we can set them high enough.
+        num_states=12000,
+        initial_sample_size=50,
+        max_concept_grammar_iterations=3,
+        initial_concept_bound=7, max_concept_bound=12, concept_bound_step=2,
+        batch_refinement_size=10,
+        clean_workspace=False,
+        parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,
+    )

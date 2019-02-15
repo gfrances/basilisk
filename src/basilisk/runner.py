@@ -166,8 +166,8 @@ def extract_heuristic_parameters_from_cplex_solution(problem, nfeatures):
     """ Return a list of the tuples (i, w) that make up the potential heuristic, where i
     is the index of the feature and w is the learnt weight """
     # Cplex sometimes returns float values even if the variable is declared as an integer
-    # make_weight_integer = lambda x: int(round(x))
-    make_weight_integer = lambda x: x
+    make_weight_integer = lambda x: int(round(x, 3))
+    # make_weight_integer = lambda x: x
 
     wvar_names = ((i, get_weight_var(i)) for i in range(0, nfeatures))
     feature_weights = ((i, wname, make_weight_integer(problem.solution.get_values(wname))) for i, wname in wvar_names)
@@ -286,7 +286,7 @@ def run(config, data, rng):
     # To set the limit of solutions found:
     # problem.parameters.mip.limits.solutions.set(10)
     # To set high numerical precision on, turn on the following:
-    problem.parameters.emphasis.numerical.set(1)
+    # problem.parameters.emphasis.numerical.set(1)
 
     problem.solve()
     if problem.solution.is_primal_feasible() and problem.solution.is_dual_feasible():
