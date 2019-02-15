@@ -29,7 +29,7 @@ def experiment(experiment_name=None):
         feature_namer=feature_namer,)
 
     problem03full = dict(
-        lp_max_weight=10,
+        lp_max_weight=2,
         benchmark_dir=benchmark_dir,
         instances=["problem02-full.pddl",
                    "problem03-full.pddl"],
@@ -51,7 +51,7 @@ def experiment(experiment_name=None):
     # Incremental version
     problem03full_incremental = dict(
         benchmark_dir=BENCHMARK_DIR,
-        lp_max_weight=10,
+        lp_max_weight=2,
         experiment_class=IncrementalExperiment,
         test_domain=domain,
         instances=['training01.pddl',
