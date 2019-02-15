@@ -9,18 +9,18 @@ def hill_climbing(s0, adjacencies, heuristic, goal_states):
     s = s0
     plan = []
 
+    # Steepest-ascent hill climbing for the training instance
     while s not in goal_states:
 
-        h_s = heuristic(s)
+        best_succ = heuristic(s)
+        next_state = s
         plan.append((s, h_s))
         improvement_found = False
         for succ in adjacencies[s]:
             h_succ = heuristic(succ)
-            if h_succ < h_s:
-                s = succ
-                # plan.append(s)
+            if h_succ < best_succ:
+                next_state = succ
                 improvement_found = True
-                break
 
         if not improvement_found:
             # Error!
@@ -32,6 +32,8 @@ def hill_climbing(s0, adjacencies, heuristic, goal_states):
             print("\t" + "\n\t".join("h({})={}".format(succ, hsucc) for succ, hsucc in successor_values), file=sys.stderr)
             sys.stderr.flush()
             raise RuntimeError("Your model doesn't work")
+        else:
+            s = next_state
 
     assert s in goal_states
     print("\nHill Climbing on the training instance succeeds with the following state path: ")
