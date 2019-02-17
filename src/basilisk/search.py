@@ -12,14 +12,15 @@ def hill_climbing(s0, adjacencies, heuristic, goal_states):
     # Steepest-ascent hill climbing for the training instance
     while s not in goal_states:
 
-        best_succ = heuristic(s)
+        h_best_succ = heuristic(s)
         next_state = s
-        plan.append((s, h_s))
+        plan.append((s, h_best_succ))
         improvement_found = False
         for succ in adjacencies[s]:
             h_succ = heuristic(succ)
-            if h_succ < best_succ:
+            if h_succ < h_best_succ:
                 next_state = succ
+                h_best_succ = h_succ
                 improvement_found = True
 
         if not improvement_found:
@@ -28,7 +29,7 @@ def hill_climbing(s0, adjacencies, heuristic, goal_states):
             logging.error("Error found while validating learnt heuristic: hill-climbings gets stuck in local minimum")
             logging.error("Path so far was: {}".format(plan))
             print("", file=sys.stderr)
-            print("h({})={}, but:".format(s, h_s), file=sys.stderr)
+            print("h({})={}, but:".format(s, h_best_succ), file=sys.stderr)
             print("\t" + "\n\t".join("h({})={}".format(succ, hsucc) for succ, hsucc in successor_values), file=sys.stderr)
             sys.stderr.flush()
             raise RuntimeError("Your model doesn't work")
