@@ -7,7 +7,7 @@ from basilisk.incremental import IncrementalExperiment
 
 from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, GoalRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
-    ForallConcept, EmptyConcept, EqualConcept, StarRole, NullaryAtom, Concept
+    ForallConcept, EmptyConcept, EqualConcept, StarRole, NullaryAtom, Concept, PrimitiveConcept
 
 
 def experiment(experiment_name=None):
@@ -65,17 +65,19 @@ def generate_chosen_concepts(lang):
     # card[Exists(carry,Exists(gripper,Exists(at-robby,{roomb})))] 7
 
     obj_t = lang.Object
+    block_t = lang.get('block')
 
-    #holding = NullaryAtom(lang.get("holding"))
+    handempty = NullaryAtom(lang.get("handempty"))
     on = PrimitiveRole(lang.get("on"))
     on_g = GoalRole(lang.get("on"))
-    ontable = Concept(lang.get("ontable"), 1)
-    clear = PrimitiveRole(lang.get("clear"))
-    block = PrimitiveRole(lang.get("block"))
+    ontable = PrimitiveConcept(lang.get("ontable"))
+    clear = PrimitiveConcept(lang.get("clear"))
+    block = PrimitiveConcept(lang.get("block"))
 
-    M_t = ExistsConcept(AndConcept(EqualConcept(on_g, on), ontable))
-    W = ForallConcept(on_g, ForallConcept(StarRole(on_g), EqualConcept(on_g, on)))
-    M_t_inv = AndConcept(NotConcept(W), NotConcept(ontable))
+    on_g_on = EqualConcept(on_g, on, block_t)
+    M_t = AndConcept(on_g_on, ontable, block_t)
+    W = ForallConcept(on_g, ForallConcept(StarRole(on_g), on_g_on))
+    M_t_inv = AndConcept(NotConcept(W, obj_t), NotConcept(ontable, obj_t), block_t)
 
     concepts = [M_t, W, M_t_inv]
     return [], concepts, []  # atoms, concepts, roles
