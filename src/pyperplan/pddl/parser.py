@@ -658,6 +658,8 @@ def parse_domain_def(iter):
         elif key.name == 'constants':
             const = parse_constants_stmt(next_iter)
             domain.constants = const
+        elif key.name == 'functions':
+            continue
         elif key.name == 'action':
             action = parse_action_stmt(next_iter)
             domain.actions.append(action)
