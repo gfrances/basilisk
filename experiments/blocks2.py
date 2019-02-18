@@ -74,10 +74,10 @@ def generate_chosen_concepts(lang):
     clear = PrimitiveConcept(lang.get("clear"))
     block = PrimitiveConcept(lang.get("block"))
 
-    on_g_on = EqualConcept(on_g, on, block_t)
-    M_t = AndConcept(on_g_on, ontable, block_t)
+    on_g_on = EqualConcept(on_g, on, 'block')
+    M_t = AndConcept(on_g_on, ontable, 'block')
     W = ForallConcept(on_g, ForallConcept(StarRole(on_g), on_g_on))
-    M_t_inv = AndConcept(NotConcept(W, obj_t), NotConcept(ontable, obj_t), block_t)
+    M_t_inv = AndConcept(NotConcept(W, obj_t), NotConcept(ontable, obj_t), 'block')
 
     concepts = [M_t, W, M_t_inv]
     return [], concepts, []  # atoms, concepts, roles
