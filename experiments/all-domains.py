@@ -12,6 +12,23 @@ from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
     ForallConcept, EmptyConcept
 
+domains = [
+'blocks',
+'depot',
+'freecell',
+'gripper',
+'miconic',
+'rovers',
+'satellite',
+'storage',
+'thoughtful-mco14-strips',
+'thoughtful-sat14-strips',
+'visitall-opt11-strips',
+'visitall-opt14-strips',
+'visitall-sat11-strips',
+'visitall-sat14-strips',
+]
+
 def experiment():
     benchmark_dir = DOWNWARD_BENCHMARKS_DIR
 
@@ -37,18 +54,18 @@ def experiment():
             lp_max_weight=5,
             experiment_class=IncrementalExperiment,
             benchmark_dir=benchmark_dir,
-            instances=[instances[0]],
-            test_instances=[instances[2]],
+            instances=[instances[1], instances[2]],
+            test_instances=[instances[1]],
             test_domain='domain.pddl',
             # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
             # in batches, so we can set them high enough.
-            num_states=12000,
+            num_states=2000,
             initial_sample_size=50,
             max_concept_grammar_iterations=3,
             initial_concept_bound=7, max_concept_bound=12, concept_bound_step=2,
             batch_refinement_size=10,
             clean_workspace=False,
-            parameter_generator=add_domain_parameters,
+            parameter_generator=None,
         )
 
         # Select the actual experiment parameters according to the command-line option
