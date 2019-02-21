@@ -24,7 +24,7 @@ def get_y_var(s, t):
 
 
 # Populate obj function and add all variables
-def populate_obj_function(problem, num_features, max_weight, transitions, feature_complexity, goal_states):
+def populate_obj_function_min_complexity(problem, num_features, max_weight, transitions, feature_complexity, goal_states):
     # Add variables that occur in the opt function
     for f in range(0, num_features):
         problem.variables.add(names=['xplus_' + str(f), 'xminus_' + str(f)],
@@ -50,6 +50,31 @@ def populate_obj_function(problem, num_features, max_weight, transitions, featur
 
     problem.variables.add(names=["dummy"], obj=[0], lb=[1], ub=[1], types=[problem.variables.type.integer])
 
+
+# Populate obj function
+def populate_obj_function_min_weighted_complexity(problem, num_features, max_weight, transitions, feature_complexity, goal_states):
+    # Add variables that occur in the opt function
+    for f in range(0, num_features):
+        problem.variables.add(names=['abs_w_' + str(f)],
+                              obj=[feature_complexity[f]],
+                              types=[problem.variables.type.binary])
+
+    # add weights
+    for f in range(0, num_features):
+        problem.variables.add(names=[get_weight_var(f)],
+                              obj=[0],
+                              types=[problem.variables.type.continuous])
+
+    # add binary to each transition
+    for t in transitions:
+        if t[0] in goal_states:
+            continue
+
+        problem.variables.add(names=[get_y_var(t[0], t[1])],
+                              obj=[0],
+                              types=[problem.variables.type.binary])
+
+    problem.variables.add(names=["dummy"], obj=[0], lb=[1], ub=[1], types=[problem.variables.type.integer])
 
 # Populate constraints (4a) in the draft
 def populate_weight_constraints(problem, transitions, features, goal_states, unsolvable_states):
@@ -161,6 +186,28 @@ def populate_max_weight_constraints(problem, num_features, max_weight):
         problem.linear_constraints.set_senses(c_max_weight_name, "L")
     problem.linear_constraints.set_coefficients(coefficients)
 
+def populate_absolute_value_weight_constraints(problem, num_features, max_weight):
+    coefficients = []
+    for f in range(0, num_features):
+        w_name = get_weight_var(f)
+
+        # x_+ constraint
+        xplus_name = 'c_abs_w_plus_' + str(f)
+        problem.linear_constraints.add(names=[xplus_name])
+        coefficients.append((xplus_name, w_name, -1))
+        coefficients.append((xplus_name, 'abs_w_' + str(f), 1))
+        problem.linear_constraints.set_rhs(xplus_name, 0)
+        problem.linear_constraints.set_senses(xplus_name, "G")
+
+        # x_- constraint
+        xminus_name = 'c_abs_w_minus_' + str(f)
+        problem.linear_constraints.add(names=[xminus_name])
+        coefficients.append((xminus_name, w_name, 1))
+        coefficients.append((xminus_name, 'abs_w_' + str(f), 1))
+        problem.linear_constraints.set_rhs(xminus_name, 0)
+        problem.linear_constraints.set_senses(xminus_name, "G")
+
+    problem.linear_constraints.set_coefficients(coefficients)
 
 def extract_heuristic_parameters_from_cplex_solution(problem, nfeatures):
     """ Return a list of the tuples (i, w) that make up the potential heuristic, where i
@@ -265,7 +312,9 @@ def run(config, data, rng):
     problem.objective.set_sense(problem.objective.sense.minimize)
 
     logging.info("Populating objective function")
-    populate_obj_function(problem, num_features, max_weight, transitions, feature_complexity, goal_states)
+
+    # See the code for options on obj function
+    populate_obj_function_min_weighted_complexity(problem, num_features, max_weight, transitions, feature_complexity, goal_states)
     logging.info("Populating weight constraints")
     populate_weight_constraints(problem, transitions, features_per_state, goal_states, unsolvable_states)
     logging.info("Populating dead-end constraints")
@@ -273,7 +322,9 @@ def run(config, data, rng):
     logging.info("Populating y-constraints")
     populate_y_constraints(problem, adj_list, goal_states, unsolvable_states)
     logging.info("Populating M_w-constraints")
-    populate_max_weight_constraints(problem, num_features, max_weight)
+
+    # This function requires the min weighted complexity obj function. Otherwise, use the max weight constraints
+    populate_absolute_value_weight_constraints(problem, num_features, max_weight)
 
     logging.info("Writing file...")
     problem.write(config.lp_filename)
