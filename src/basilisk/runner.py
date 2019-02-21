@@ -57,11 +57,14 @@ def populate_obj_function_min_weighted_complexity(problem, num_features, max_wei
     for f in range(0, num_features):
         problem.variables.add(names=['abs_w_' + str(f)],
                               obj=[feature_complexity[f]],
-                              types=[problem.variables.type.binary])
+                              lb=[0],
+                              ub=[1 * cplex.infinity],
+                              types=[problem.variables.type.continuous])
 
     # add weights
     for f in range(0, num_features):
         problem.variables.add(names=[get_weight_var(f)],
+                              lb=[-1 * cplex.infinity], ub=[cplex.infinity],
                               obj=[0],
                               types=[problem.variables.type.continuous])
 
@@ -213,11 +216,11 @@ def extract_heuristic_parameters_from_cplex_solution(problem, nfeatures):
     """ Return a list of the tuples (i, w) that make up the potential heuristic, where i
     is the index of the feature and w is the learnt weight """
     # Cplex sometimes returns float values even if the variable is declared as an integer
-    make_weight_integer = lambda x: int(round(x, 3))
-    # make_weight_integer = lambda x: x
+    make_weight_rounded = lambda x: round(x, 8)
+    #make_weight_rounded = lambda x: x
 
     wvar_names = ((i, get_weight_var(i)) for i in range(0, nfeatures))
-    feature_weights = ((i, wname, make_weight_integer(problem.solution.get_values(wname))) for i, wname in wvar_names)
+    feature_weights = ((i, wname, make_weight_rounded(problem.solution.get_values(wname))) for i, wname in wvar_names)
     nonzero_features = [(i, val) for i, var, val in feature_weights if val != 0]
     return nonzero_features
 
@@ -328,7 +331,8 @@ def run(config, data, rng):
 
     logging.info("Writing file...")
     problem.write(config.lp_filename)
-
+    logging.info("Total number of constraints in the MIP: %d", problem.linear_constraints.get_num() + problem.indicator_constraints.get_num())
+    logging.info("Total number of variables in the MIP: %d", problem.variables.get_num())
     logging.info("Solving MIP...")
 
     # Below, some ways to limit resources. This allows suboptimal solutions (or no solution).
