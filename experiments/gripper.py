@@ -2,13 +2,14 @@
 # -*- coding: utf-8 -*-
 import sys
 
-from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
+from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR, DOWNWARD_BENCHMARKS_DIR
 from basilisk.incremental import IncrementalExperiment
 
 from sltp.util.misc import update_dict
 from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
-    ForallConcept, EmptyConcept
+    ForallConcept, EmptyConcept, OrConcept, GoalRole, GoalConcept, PrimitiveConcept, NullaryAtom, StarRole, \
+    Concept, EqualConcept, InverseRole
 
 
 def experiment(experiment_name):
@@ -47,31 +48,34 @@ def experiment(experiment_name):
     experiments["gripper_std_inc"] = dict(
         lp_max_weight=5,
         experiment_class=IncrementalExperiment,
-        instances=["prob03.pddl",
-            'test01.pddl',
+        instances=['test01.pddl',
                    'test02.pddl',
                    'test03.pddl',
                    'test04.pddl',
                    'test05.pddl',
                    'test06.pddl',
-
-                   'prob_3balls_3rooms_1rob.pddl',],
+                   'prob03.pddl',
+                   'prob_3balls_3rooms_1rob.pddl'],
         test_instances=["prob01.pddl",
                         "prob02.pddl",
                         "prob03.pddl",
                         "prob04.pddl",
                         "prob05.pddl",
-                        "prob06.pddl"],
+                        "prob06.pddl",
+                        'prob_3balls_3rooms_1rob.pddl',
+                        "prob_4balls_4rooms_1rob.pddl",
+                        "prob_4balls_4rooms_2rob.pddl",
+                        "prob_10balls_4rooms_1rob.pddl",],
         test_domain=domain,
         # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
         # in batches, so we can set them high enough.
         num_states=12000,
-        initial_sample_size=50,
-        max_concept_grammar_iterations=3,
-        initial_concept_bound=7, max_concept_bound=12, concept_bound_step=2,
-        batch_refinement_size=10,
+        initial_sample_size=100,
+        max_concept_grammar_iterations=None,
+        initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
+        batch_refinement_size=50,
         clean_workspace=False,
-        parameter_generator=add_domain_parameters,
+        parameter_generator=None, #add_domain_parameters,
         feature_namer=feature_namer,
     )
 
@@ -89,7 +93,7 @@ def experiment(experiment_name):
         num_states=2000, max_width=[-1],
         num_sampled_states=100,
         test_domain=domain,
-        max_concept_size=10, max_concept_grammar_iterations=3,
+        max_concept_size=8, max_concept_grammar_iterations=3,
         concept_generator=None,
         # parameter_generator=add_domain_parameters,
         parameter_generator=None,
@@ -105,7 +109,7 @@ def experiment(experiment_name):
         test_instances=["prob02.pddl"],
         test_domain=domain,
         # random_seed=12,
-        max_concept_size=10, max_concept_grammar_iterations=3,
+        max_concept_size=8, max_concept_grammar_iterations=3,
         concept_generator=None,
         # concept_generator=generate_chosen_concepts,
         parameter_generator=add_domain_parameters,
@@ -150,6 +154,7 @@ def generate_chosen_concepts(lang):
     at_robby = PrimitiveRole(lang.get("at-robby"))
     gripper = PrimitiveRole(lang.get("gripper"))
     x_param = NominalConcept("roomb", obj_t)
+
     c1 = ExistsConcept(at, NotConcept(x_param, obj_t))
     c2 = ExistsConcept(carry, UniversalConcept("object"))
     rx = ExistsConcept(at_robby, x_param)
@@ -159,6 +164,34 @@ def generate_chosen_concepts(lang):
     concepts = [c1, c2, rx, c3, c4]
     return [], concepts, []  # atoms, concepts, roles
 
+def generate_chosen_concepts_without_nominal(lang):
+    """  """
+    # card[Exists(at,Not({roomb}))] 4    C1
+    # card[Exists(carry,<universe>)] 2   C2
+    # bool[Exists(at-robby,{roomb})] 3   RX
+    # card[Exists(gripper,Exists(at-robby,{roomb}))] 5   (intermediate)
+    # card[Exists(carry,Exists(gripper,Exists(at-robby,{roomb})))] 7
+
+    obj_t = lang.Object
+
+    universal = UniversalConcept("object")
+
+    at = PrimitiveRole(lang.get("at"))
+    at_g = GoalRole(lang.get("at"))
+    carry = PrimitiveRole(lang.get("carry"))
+    at_robby = PrimitiveRole(lang.get("at-robby"))
+    gripper = PrimitiveRole(lang.get("gripper"))
+    at_g_at = EqualConcept(at_g, at, 'object')
+
+
+    nominal_subst = ExistsConcept(InverseRole(at_g), universal)
+    g1 = ExistsConcept(at, NotConcept(nominal_subst, obj_t))
+    g2 = ExistsConcept(carry, UniversalConcept("object"))
+    g3 = ExistsConcept(carry, ExistsConcept(gripper, ExistsConcept(at_robby, nominal_subst)))
+    g4 = ExistsConcept(at_robby, AndConcept(NotConcept(nominal_subst, obj_t), ExistsConcept(InverseRole(at), universal), 'object'))
+
+    concepts = [nominal_subst, g1, g2, g3, g4]
+    return [], concepts, []  # atoms, concepts, roles
 
 def debug_weird_concept(lang):
     #  card[And(Forall(carry,<empty>), Forall(at-robby,{roomb}))]
