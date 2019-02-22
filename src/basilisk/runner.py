@@ -105,14 +105,13 @@ def populate_obj_function_min_weighted_complexity(problem, num_features, max_wei
 
     problem.variables.add(names=["dummy"], obj=[0], lb=[1], ub=[1], types=[problem.variables.type.integer])
 
+
 # Populate constraints (4a) in the draft
 def populate_weight_constraints(problem, transitions, features, goal_states, unsolvable_states):
-    for transition_i, transition in enumerate(transitions, 1):
+    for start_node, final_node in transitions:
 
         coefficients = []
         names = []
-        start_node = transition[0]
-        final_node = transition[1]
 
         if start_node in goal_states or start_node in unsolvable_states:
             continue
@@ -140,7 +139,7 @@ def populate_weight_constraints(problem, transitions, features, goal_states, uns
 
 
 def populate_dead_end_constraints(problem, transitions, features, goal_states, unsolvable_states):
-    for transition_i, (start_node, final_node) in enumerate(transitions, 1):
+    for start_node, final_node in transitions:
         '''
         We are doing almost the same thing as the weight constraints here.
         Maybe we can save some work if we merge both functions?
