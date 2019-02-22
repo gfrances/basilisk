@@ -1,3 +1,4 @@
+import itertools
 import logging
 import os
 import shutil
@@ -28,6 +29,7 @@ def initial_sample_selection(sample, config, rng):
     initial_size = min(len(expanded_state_ids_shuffled), config.initial_sample_size-len(sample.roots))
     working_sample_idxs = set(expanded_state_ids_shuffled[:initial_size])
     working_sample_idxs.update(sample.get_one_goal_per_instance())
+    working_sample_idxs.update(itertools.chain.from_iterable(sample.optimal_transitions))  # include all optimal tx
     working_sample_idxs.update(sample.roots)
     return working_sample_idxs, expanded_state_ids_shuffled
 
@@ -117,7 +119,8 @@ def try_to_compute_heuristic(config, sample, k):
     subconfig = setup_workspace(config, sample, k)
 
     steps, subconfig = generate_pipeline_from_list([
-        ConceptGenerationStep, FeatureMatrixGenerationStep,
+        ConceptGenerationStep,
+        FeatureMatrixGenerationStep,
         HeuristicWeightsLPComputation],
         **subconfig)
 
