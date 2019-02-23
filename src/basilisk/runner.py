@@ -48,7 +48,6 @@ def populate_obj_function_min_complexity(problem, num_features, max_weight, tran
                               obj=[0],
                               types=[problem.variables.type.binary])
 
-    problem.variables.add(names=["dummy"], obj=[0], lb=[1], ub=[1], types=[problem.variables.type.integer])
 
 # Populate obj function
 def populate_obj_function_max_nonselected_complexity(problem, num_features, max_weight, transitions, feature_complexity, goal_states):
@@ -107,7 +106,7 @@ def populate_obj_function_min_weighted_complexity(problem, num_features, max_wei
 
 
 # Populate constraints (4a) in the draft
-def populate_weight_constraints(problem, transitions, features, goal_states, unsolvable_states):
+def populate_weight_constraints(problem, transitions, features, goal_states, unsolvable_states, max_weight):
     for start_node, final_node in transitions:
 
         coefficients = []
@@ -129,13 +128,17 @@ def populate_weight_constraints(problem, transitions, features, goal_states, uns
             coefficients.append(delta_f)
             names.append(w_name)
 
-        problem.indicator_constraints.add(
-            indvar=get_y_var(start_node, final_node),
-            complemented=0,
-            rhs=1,
-            sense="G",
-            lin_expr=cplex.SparsePair(ind=names, val=coefficients),
-            name=constraint_name)
+        # Computes M
+        big_m = 1 + max_weight*sum_delta_f
+        # Add term -M*y_s_s'
+        names.append(get_y_var(start_node, final_node))
+        coefficients.append(-1*big_m)
+
+        problem.linear_constraints.add(
+            lin_expr=[cplex.SparsePair(ind=names, val=coefficients)],
+            senses=["G"],
+            rhs=[-1*big_m+1],
+            names=[constraint_name])
 
 
 def populate_dead_end_constraints(problem, transitions, features, goal_states, unsolvable_states):
@@ -209,8 +212,7 @@ def populate_max_weight_constraints(problem, num_features, max_weight):
         c_max_weight_name = "c_max_w_" + w_name
         problem.linear_constraints.add(names=[c_max_weight_name])
         coefficients.append((c_max_weight_name, w_name, 1))
-        coefficients.append((c_max_weight_name, "dummy", -1 * max_weight))
-        problem.linear_constraints.set_rhs(c_max_weight_name, 0)
+        problem.linear_constraints.set_rhs(c_max_weight_name, 1 * max_weight)
         problem.linear_constraints.set_senses(c_max_weight_name, "L")
     problem.linear_constraints.set_coefficients(coefficients)
 
@@ -255,9 +257,16 @@ def populate_absolute_value_weight_constraints(problem, num_features, max_weight
 def extract_heuristic_parameters_from_cplex_solution(problem, nfeatures):
     """ Return a list of the tuples (i, w) that make up the potential heuristic, where i
     is the index of the feature and w is the learnt weight """
-    # Cplex sometimes returns float values even if the variable is declared as an integer
-    make_weight_rounded = lambda x: round(x, 8)
-    #make_weight_rounded = lambda x: x
+    # Cplex sometimes returns float values even if the variable is declared as
+    # an integer, in particular when we use big-M instead of indicator
+    # constraints.
+    def make_weight_rounded(x):
+        rounded_number = round(x,8)
+        integer_number = int(round(x))
+        if math.isclose(rounded_number, integer_number, abs_tol=0.00000009):
+            return integer_number
+        else:
+            return rounded_number
 
     wvar_names = ((i, get_weight_var(i)) for i in range(0, nfeatures))
     feature_weights = ((i, wname, make_weight_rounded(problem.solution.get_values(wname))) for i, wname in wvar_names)
@@ -360,7 +369,7 @@ def run(config, data, rng):
     populate_obj_function_min_complexity(problem, num_features, max_weight, transitions, feature_complexity, goal_states)
     #populate_obj_function_max_nonselected_complexity(problem, num_features, max_weight, transitions, feature_complexity, goal_states)
     logging.info("Populating weight constraints")
-    populate_weight_constraints(problem, transitions, features_per_state, goal_states, unsolvable_states)
+    populate_weight_constraints(problem, transitions, features_per_state, goal_states, unsolvable_states, max_weight)
     logging.info("Populating dead-end constraints")
     populate_dead_end_constraints(problem, transitions, features_per_state, goal_states, unsolvable_states)
     logging.info("Populating y-constraints")
@@ -385,6 +394,7 @@ def run(config, data, rng):
     # problem.parameters.mip.limits.solutions.set(10)
     # To set high numerical precision on, turn on the following:
     # problem.parameters.emphasis.numerical.set(1)
+    problem.parameters.mip.strategy.probe.set(3)
 
     problem.solve()
     if problem.solution.is_primal_feasible() and problem.solution.is_dual_feasible():
