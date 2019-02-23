@@ -256,7 +256,13 @@ def extract_heuristic_parameters_from_cplex_solution(problem, nfeatures):
     """ Return a list of the tuples (i, w) that make up the potential heuristic, where i
     is the index of the feature and w is the learnt weight """
     # Cplex sometimes returns float values even if the variable is declared as an integer
-    make_weight_rounded = lambda x: round(x, 8)
+    def make_weight_rounded(x):
+        rounded_number = round(x,8)
+        integer_number = int(round(x))
+        if math.isclose(rounded_number, integer_number, abs_tol=0.00000009):
+            return integer_number
+        else:
+            return rounded_number
     #make_weight_rounded = lambda x: x
 
     wvar_names = ((i, get_weight_var(i)) for i in range(0, nfeatures))
