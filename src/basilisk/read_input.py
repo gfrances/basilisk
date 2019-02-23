@@ -32,13 +32,8 @@ def read_features_file(path):
 
 def read_state_set(path):
     goal_states = []
-    try:
-        f = open(path, 'r')
-    except IOError:
-        print("Could not read file:", path)
-        sys.exit()
 
-    with f:
+    with open(path, 'r') as f:
         for line in f.readlines():
             for state in line.split():
                 goal_states.append('s' + state)
@@ -48,15 +43,13 @@ def read_state_set(path):
 def read_complexity_file(path):
     feature_complexity = []
     names = []
-    try:
-        f = open(path, 'r')
-    except IOError:
-        print("Could not read file:", path)
-        sys.exit()
 
-    with f:
+    with open(path, 'r') as f:
         for line in f.readlines():
             splitted = line.split()
             names.append(' '.join(splitted[:-1]))
-            feature_complexity.append(int(splitted[-1]))
+            x = int(splitted[-1])
+            assert x >= 0
+            comp = max(1, x)  # Force complexity to be at least one, otherwise the LP selects the feature for free
+            feature_complexity.append(comp)
     return feature_complexity, names
