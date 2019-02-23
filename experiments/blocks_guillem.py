@@ -32,16 +32,16 @@ def experiment(experiment_name=None):
 
     exps["on_x_y_big"] = dict(
         instances=[
-            "inst_on_x_y_16.pddl",
+            "inst_on_x_y_10.pddl",
             "inst_on_x_y_14.pddl",
             "holding_a_b_unclear.pddl",
         ],
         test_domain=domain,
         test_instances=[
-            # "inst_on_x_y_10.pddl",
-            # "inst_on_x_y_11.pddl",
-            "instance_5_clear_x_2.pddl",
-            "instance_8_clear_x_0.pddl"
+            "inst_on_x_y_5.pddl",
+            "inst_on_x_y_6.pddl",
+            "inst_on_x_y_7.pddl",
+            "inst_on_x_y_7_2.pddl",
         ],
         lp_max_weight=5,
         num_states=2000, max_width=[-1],
