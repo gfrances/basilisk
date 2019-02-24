@@ -8,6 +8,17 @@ Concept-based potential heuristic found with a total of 6 features:
 	-1 · card[Equal(Inverse(at-robby),Inverse(at))] [k=5, id=38]
 	-3 · nballs-either-not-carried-or-in-room-B [k=7, id=159]
 
+
+** Note: concept  card[Equal(Inverse(at-robby),Inverse(at))] 
+denotes the number of empty locations (i.e. not the robot nor any ball is there),
++ the rest of objects (which will remain constant)
+
+
+
+
+5*m + 4*free-grippers + 1*robot-at-B - 5*balls-at-B - 1*empty-rooms -3*nballs-either-not-carried-or-in-room-B
+
+
 WORKS ON TEST INSTANCES; 
 
 ./gripper.py gripper_std_inc --all
@@ -44,3 +55,17 @@ WORKS ON TEST INSTANCES;
         parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,
     )
+
+
+
+BW complexity bound 12
+DL::Factory: iteration=0, #concepts=0, #concepts-in-last-layer=0
+DL::Factory: advance-step: #concepts-in-layer=5, #pruned-concepts=1
+DL::Factory: iteration=1, #concepts=5, #concepts-in-last-layer=5
+DL::Factory: advance-step: #concepts-in-layer=108, #pruned-concepts=118
+DL::Factory: iteration=2, #concepts=113, #concepts-in-last-layer=108
+DL::Factory: advance-step: #concepts-in-layer=4740, #pruned-concepts=15834
+DL::Factory: iteration=3, #concepts=4853, #concepts-in-last-layer=4740
+DL::Factory: advance-step: #concepts-in-layer=205680, #pruned-concepts=34142730
+DL::Factory: iteration=4, #concepts=210533, #concepts-in-last-layer=205680
+

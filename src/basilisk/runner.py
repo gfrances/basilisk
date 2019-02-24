@@ -401,7 +401,7 @@ def run(config, data, rng):
 
         report(parameters, heuristic, feature_names, feature_complexity, features_per_state, config)
 
-        if config.validate_learnt_heuristic:
+        if config.validate_learnt_heuristic and config.num_sampled_states is None:
             # Run hill-climbing and make sure we find a goal. This won't work if we only have a sample of the
             # transition system, as in the incremental approach, since we might not have sampled a path to the goal.
             hill_climbing("s0", adj_list, heuristic, goal_states)
