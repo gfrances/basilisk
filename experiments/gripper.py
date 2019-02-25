@@ -70,7 +70,7 @@ def experiment(experiment_name):
         # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
         # in batches, so we can set them high enough.
         num_states=12000,
-        initial_sample_size=100,
+        initial_sample_size=50,
         max_concept_grammar_iterations=None,
         initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
         batch_refinement_size=50,
@@ -125,7 +125,7 @@ def experiment(experiment_name):
         test_instances=["small-test.pddl"],
         test_domain=domain,
         # random_seed=12,
-        max_concept_size=10, max_concept_grammar_iterations=3,
+        max_concept_size=8, max_concept_grammar_iterations=3,
         concept_generator=None,
         # concept_generator=generate_chosen_concepts,
         parameter_generator=add_domain_parameters,
