@@ -1,0 +1,5 @@
+
+visitall: problem03full_incremental
+spanner: spanner_1_incremental
+miconic: miconic_1_incremental
+gripper: gripper_std_inc
