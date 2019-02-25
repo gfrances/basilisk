@@ -79,6 +79,36 @@ def experiment(experiment_name):
         feature_namer=feature_namer,
     )
 
+    experiments["guillem"] = dict(
+        lp_max_weight=10,
+        experiment_class=IncrementalExperiment,
+        instances=[
+            'prob_4balls_2rooms.pddl',
+            'prob_3balls_3rooms_1rob.pddl'],
+        test_instances=["prob01.pddl",
+                        "prob02.pddl",
+                        "prob03.pddl",
+                        "prob04.pddl",
+                        "prob05.pddl",
+                        "prob06.pddl",
+                        'prob_3balls_3rooms_1rob.pddl',
+                        "prob_4balls_4rooms_1rob.pddl",
+                        "prob_4balls_4rooms_2rob.pddl",
+                        "prob_10balls_4rooms_1rob.pddl",],
+        test_domain=domain,
+        # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
+        # in batches, so we can set them high enough.
+        num_states=12000,
+        initial_sample_size=20,
+        max_concept_grammar_iterations=None,
+        initial_concept_bound=8, max_concept_bound=10, concept_bound_step=2,
+        batch_refinement_size=10,
+        clean_workspace=False,
+        parameter_generator=None, #add_domain_parameters,
+        feature_namer=feature_namer,
+    )
+
+
     experiments["original"] = dict(
         lp_max_weight=10,
         benchmark_dir=BENCHMARK_DIR,
