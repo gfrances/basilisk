@@ -70,8 +70,8 @@ def experiment(experiment_name):
         # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
         # in batches, so we can set them high enough.
         num_states=12000,
-        initial_sample_size=50,
-        max_concept_grammar_iterations=None,
+        initial_sample_size=100,
+        max_concept_grammar_iterations=None, random_seed=19,
         initial_concept_bound=8, max_concept_bound=12, concept_bound_step=2,
         batch_refinement_size=50,
         clean_workspace=False,
