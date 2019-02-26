@@ -354,7 +354,7 @@ def run(config, data, rng):
     feature_complexity, feature_names = read_complexity_file(config.feature_info_filename)
 
     logging.info("Read {} transitions, {} features, {} goal states".
-                 format(len(transitions), len(goal_states), num_features))
+                 format(len(transitions), num_features, len(goal_states)))
 
     logging.info("Populating model")
     problem = cplex.Cplex()

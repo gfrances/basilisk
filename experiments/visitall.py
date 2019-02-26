@@ -4,10 +4,11 @@ import sys
 
 from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
 from basilisk.incremental import IncrementalExperiment
+from sltp.util.misc import update_dict
 
 from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
-    ForallConcept, EmptyConcept
+    ForallConcept, EmptyConcept, PrimitiveConcept, MinDistanceFeature, ConceptCardinalityFeature
 
 
 def experiment(experiment_name=None):
@@ -52,7 +53,10 @@ def experiment(experiment_name=None):
     problem03full_incremental = dict(
         benchmark_dir=BENCHMARK_DIR,
         lp_max_weight=5,
+<<<<<<< HEAD
         experiment_class=IncrementalExperiment,
+=======
+>>>>>>> e6d9d7670b56f941005bf29c4e12c6ed60378917
         test_domain=domain,
         instances=['training01.pddl',
                    'training02.pddl',
@@ -97,6 +101,8 @@ def experiment(experiment_name=None):
         parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,
     )
+
+    guillem = update_dict(problem03full_incremental, feature_generator=build_expected_features)
 
     visitall_incremental = dict(
         benchmark_dir=BENCHMARK_DIR,
@@ -153,6 +159,7 @@ def experiment(experiment_name=None):
         "problem02full": problem02full,
         "problem03full": problem03full,
         "problem03full_incremental": problem03full_incremental,
+        "guillem": guillem,
         "visitall_incremental": visitall_incremental,
     }.get(experiment_name or "test")
 
@@ -167,6 +174,18 @@ def feature_namer(feature):
     s = str(feature)
     return {
     }.get(s, s)
+
+
+def build_expected_features(lang):
+    obj_t = lang.Object
+
+    visited = PrimitiveConcept(lang.get("visited"))
+    unvisited = NotConcept(visited, obj_t)
+    return [
+        ConceptCardinalityFeature(unvisited),
+        ConceptCardinalityFeature(visited),
+        MinDistanceFeature(PrimitiveConcept(lang.get("at-robot")), PrimitiveRole(lang.get("connected")), unvisited),
+    ]
 
 
 if __name__ == "__main__":
