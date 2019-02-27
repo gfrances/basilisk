@@ -53,10 +53,7 @@ def experiment(experiment_name=None):
     problem03full_incremental = dict(
         benchmark_dir=BENCHMARK_DIR,
         lp_max_weight=5,
-<<<<<<< HEAD
         experiment_class=IncrementalExperiment,
-=======
->>>>>>> e6d9d7670b56f941005bf29c4e12c6ed60378917
         test_domain=domain,
         instances=['training01.pddl',
                    'training02.pddl',
