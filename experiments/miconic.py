@@ -66,6 +66,7 @@ def experiment(experiment_name=None):
         concept_generator=generate_chosen_concepts,
     )
 
+    # Experiment used in the paper
     miconic_1_incremental = dict(
         experiment_class=IncrementalExperiment,
         lp_max_weight=5,
@@ -85,12 +86,6 @@ def experiment(experiment_name=None):
             's3-1.pddl',
             's3-2.pddl',
             's3-3.pddl',
-            # 's3-4.pddl',
-            # 's4-0.pddl',
-            # 's4-1.pddl',
-            # 's4-2.pddl',
-            # 's4-3.pddl',
-            # 's4-4.pddl',
         ],
         test_instances=['s5-0.pddl',
                         's5-1.pddl',

@@ -44,7 +44,7 @@ def experiment(experiment_name):
         feature_namer=feature_namer,
     )
 
-
+    # Experiment used in the paper
     experiments["gripper_std_inc"] = dict(
         lp_max_weight=5,
         experiment_class=IncrementalExperiment,

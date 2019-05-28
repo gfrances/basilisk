@@ -30,7 +30,6 @@ def experiment(experiment_name=None):
                      'training-5-4-5.pddl',
                      'training-5-5-5.pddl',
                      'training-1-1-6.pddl',
-#                     'training-1-1-8.pddl',
                      'training-1-1-20.pddl',],
         test_instances=["prob-3-3-3-1540903410.pddl",
                         "prob-4-3-3-1540907466.pddl",
@@ -45,6 +44,7 @@ def experiment(experiment_name=None):
         feature_namer=feature_namer,
     )
 
+    # Experiment used in the paper
     spanner_1_incremental = dict(
         experiment_class=IncrementalExperiment,
         lp_max_weight=5,
@@ -60,7 +60,6 @@ def experiment(experiment_name=None):
                      'training-5-4-5.pddl',
                      'training-5-5-5.pddl',
                      'training-1-1-6.pddl',
-#                     'training-1-1-8.pddl',
                      'training-1-1-20.pddl',],
         test_instances=["prob-3-3-3-1540903410.pddl",
                         "prob-4-3-3-1540907466.pddl",

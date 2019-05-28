@@ -50,6 +50,7 @@ def experiment(experiment_name=None):
         feature_namer=feature_namer,)
 
     # Incremental version
+    # Experiment used in the paper
     problem03full_incremental = dict(
         benchmark_dir=BENCHMARK_DIR,
         lp_max_weight=5,
@@ -143,7 +144,7 @@ def experiment(experiment_name=None):
         ],
         num_states=35000,
         initial_sample_size=100,
-        distance_feature_max_complexity=10,
+        distance_feature_max_complexity=5,
         max_concept_grammar_iterations=3,
         initial_concept_bound=10, max_concept_bound=12, concept_bound_step=2,
         batch_refinement_size=10,
