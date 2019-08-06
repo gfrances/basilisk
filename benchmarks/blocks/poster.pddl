@@ -1,0 +1,6 @@
+(define (problem BLOCKS-POSTER)
+(:domain BLOCKS)
+(:objects R G B)
+(:init (ON R G) (ONTABLE B) (ONTABLE G) (CLEAR B) (CLEAR R) (HANDEMPTY))
+(:goal (AND (ON R G) (ON G B)))
+)
