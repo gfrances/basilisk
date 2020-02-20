@@ -2,12 +2,14 @@
 
 import argparse
 import logging
+import math
 import os
 import shutil
 import subprocess
 import sys
 import time
 
+from collections import defaultdict
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
@@ -24,6 +26,33 @@ def parse_arguments():
     args = parser.parse_args()
     return args
 
+def compute_h_star(exp_dir):
+    '''
+    Extracts h-star for every state sampled from the files in exp_dir
+    '''
+
+    INFINITY = math.inf
+    dist = defaultdict(lambda: INFINITY)
+    transitions = defaultdict(list)
+
+    with open(exp_dir + '/goal-states.dat') as goal_file:
+        # Read goal states
+        for line in goal_file:
+            goals = list(map(int, line.split()))
+    assert len(goals) > 0
+
+    with open(exp_dir + '/transition-matrix.dat') as goal_file:
+        for line in goal_file:
+            nodes = list(map(int, line.split()))
+            source = nodes[0]
+            dist[source] = INFINITY
+            for v in nodes[1:]:
+                transitions[source].append(v)
+
+    for g in goals:
+        dist[g] = 0
+
+    return dist
 
 if __name__ == '__main__':
     args = parse_arguments()
@@ -58,4 +87,5 @@ if __name__ == '__main__':
         logging.error('No experiment directory found!')
         sys.exit()
 
-    
+
+    h_star = compute_h_star(exp_dir)
