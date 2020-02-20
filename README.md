@@ -31,6 +31,9 @@ for an example. Currently we can invoke the configuration `prob01` of the experi
      python3 setup.py install
 	 ```
 
+  If you use a virtual environment, run the command above inside the virtual environment.
+
+
 * Python 3.6+ with the following dependencies
   - pip or pip3
   - setuptools
