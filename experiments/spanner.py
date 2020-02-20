@@ -38,7 +38,7 @@ def experiment(experiment_name=None):
                         "prob-15-10-8-1540913795.pddl"],
         test_domain=domain,
         num_states=12000, num_sampled_states=None,
-        max_concept_size=8, max_concept_grammar_iterations=None,
+        max_concept_size=1, max_concept_grammar_iterations=None,
         concept_generator=None,
         parameter_generator=None,
         feature_namer=feature_namer,
