@@ -36,7 +36,7 @@ def experiment(experiment_name):
         test_domain=domain,
         # instances="task01.pddl",
         num_states=5000,  # num_sampled_states=None,  random_seed=12,
-        max_concept_size=10, max_concept_grammar_iterations=3,
+        max_concept_size=2, max_concept_grammar_iterations=3,
         concept_generator=None,
         # concept_generator=generate_chosen_concepts,
         # parameter_generator=add_domain_parameters,
