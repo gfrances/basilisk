@@ -21,7 +21,7 @@ def _run_pyperplan(config, data, rng):
     # Run the planner on all the instances
 
     # config.num_states
-
+    print ("Using experiment directory %s" % config.experiment_dir)
     for i, o in zip(config.instances, config.sample_files):
         # params = '-i {} --domain {} --driver {} --disable-static-analysis --options="max_expansions={},width.max={}"'\
         #     .format(i, config.domain, config.driver, config.num_states, w)
