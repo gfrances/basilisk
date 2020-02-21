@@ -28,11 +28,11 @@ def parse_arguments():
     parser.add_argument('--debug', action='store_true', help='Set DEBUG flag.')
     parser.add_argument('--plot', action='store_true',
                         help='Plot learning histograms and curves.')
-    parser.add_argument('--epochs', default=5000,
+    parser.add_argument('--epochs', default=5000, type=int,
                         help='Number of the epochs for the NN training.')
-    parser.add_argument('--batch', default=250,
+    parser.add_argument('--batch', default=250, type=int,
                         help='Batch training size.')
-    parser.add_argument('--hidden-layers', default=2,
+    parser.add_argument('--hidden-layers', default=2, type=int,
                         help='Number of hidden layers.')
 
     args = parser.parse_args()
