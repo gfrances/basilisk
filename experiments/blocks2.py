@@ -25,12 +25,13 @@ def experiment(experiment_name=None):
         instances=['task01.pddl',
                    'task02.pddl',
                    'task03.pddl',
+                   'task04.pddl',
+                   'task05.pddl',
         ],
-        test_instances=['task04.pddl',
-                        'task05.pddl',
-                        'task06.pddl',
-                        'task07.pddl',
-                        'task08.pddl',
+        test_instances=[
+        'task06.pddl',
+        'task07.pddl',
+        'task08.pddl',
         ],
         test_domain=domain,
         # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
@@ -45,6 +46,29 @@ def experiment(experiment_name=None):
         concept_generator=generate_chosen_concepts,
         feature_namer=feature_namer,
     )
+
+    experiments['learn'] = dict(
+        lp_max_weight=10,
+        benchmark_dir=benchmark_dir,
+        instances=['task01.pddl',
+                   'task02.pddl',
+                   'task03.pddl',
+                   'task04.pddl',
+                   'task05.pddl',
+                   'task06.pddl',
+        ],
+        test_instances=[
+
+                        'task07.pddl',
+                        'task08.pddl',
+        ],
+        test_domain=domain,
+        distance_feature_max_complexity=5,
+        num_states=1000000, num_sampled_states=None, random_seed=12,
+        max_concept_size=10, max_concept_grammar_iterations=5,
+        concept_generator=None, parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,)
+
 
 
     parameters = experiments[experiment_name]

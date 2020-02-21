@@ -20,12 +20,25 @@ def experiment(experiment_name=None):
     problem02full = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
-        instances=["problem02-full.pddl"], #, "problem03-full.pddl"],
+        instances=["problem02-full.pddl"], #, ],
         test_instances=["problem04-full.pddl"],
         test_domain=domain,
-        distance_feature_max_complexity=10,
-        num_states=500, num_sampled_states=None, random_seed=12,
-        max_concept_size=8, max_concept_grammar_iterations=3,
+        distance_feature_max_complexity=5,
+        num_states=10000, num_sampled_states=None, random_seed=12,
+        max_concept_size=4, max_concept_grammar_iterations=3,
+        concept_generator=None, parameter_generator=add_domain_parameters,
+        feature_namer=feature_namer,)
+
+    learn = dict(
+        lp_max_weight=10,
+        benchmark_dir=benchmark_dir,
+        instances=["problem02-full.pddl",
+                   "problem03-full.pddl"],
+        test_instances=["problem04-full.pddl"],
+        test_domain=domain,
+        distance_feature_max_complexity=5,
+        num_states=1000000, num_sampled_states=None, random_seed=12,
+        max_concept_size=8, max_concept_grammar_iterations=5,
         concept_generator=None, parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,)
 
@@ -44,8 +57,8 @@ def experiment(experiment_name=None):
                         "problem11-full.pddl",],
         test_domain=domain,
         distance_feature_max_complexity=10,
-        num_states=1000, num_sampled_states=None, random_seed=12,
-        max_concept_size=8, max_concept_grammar_iterations=3,
+        num_states=100000, num_sampled_states=None, random_seed=12,
+        max_concept_size=4, max_concept_grammar_iterations=3,
         concept_generator=None, parameter_generator=add_domain_parameters,
         feature_namer=feature_namer,)
 
@@ -159,6 +172,7 @@ def experiment(experiment_name=None):
         "problem03full_incremental": problem03full_incremental,
         "guillem": guillem,
         "visitall_incremental": visitall_incremental,
+        "learn": learn,
     }.get(experiment_name or "test")
 
     return generate_experiment(domain_dir, domain, **parameters)
