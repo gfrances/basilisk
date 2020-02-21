@@ -8,7 +8,7 @@ from basilisk.incremental import IncrementalExperiment
 from sltp.util.misc import update_dict
 from defaults import generate_experiment
 from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
-    ForallConcept, EmptyConcept, OrConcept, GoalRole, GoalConcept, PrimitiveConcept, NullaryAtom, StarRole, \
+    ForallConcept, EmptyConcept, GoalRole, GoalConcept, PrimitiveConcept, NullaryAtom, StarRole, \
     Concept, EqualConcept, InverseRole
 
 
