@@ -3,6 +3,7 @@
 import argparse
 import logging
 import math
+import matplotlib.pyplot as plt
 import numpy as np
 import os
 import shutil
@@ -12,9 +13,9 @@ import time
 
 from collections import defaultdict
 from keras.models import Model, Sequential
-from keras.layers import Dense, Input, ReLU, LeakyReLU, Concatenate
+from keras.layers import Dense, Input, ReLU, ELU, LeakyReLU, Concatenate
 from keras.callbacks import EarlyStopping
-import matplotlib.pyplot as plt
+from sklearn.utils import class_weight
 
 
 def parse_arguments():
@@ -88,12 +89,14 @@ def train_nn(model, X, Y, epochs):
     Compile and train neural network
     """
     uv, uc = np.unique(Y, return_counts=True)
-    # class_weights = {v: (100./c) for v, c in zip(uv, uc)}
+    weights = class_weight.compute_class_weight('balanced',
+                                                      np.unique(Y), Y)
     logging.info('Compiling NN before training')
     model.compile(loss='mse', metrics=["mae"], optimizer='adam')
     logging.info('Training the NN....')
     history = model.fit(X, Y, epochs=epochs, batch_size=args.batch,
-                        callbacks=[EarlyStopping(monitor='loss', patience=20)],
+                        callbacks=[EarlyStopping(monitor='loss', patience=50)],
+                        class_weight = weights
                         )
     logging.info('Finished NN training.')
 
@@ -114,7 +117,7 @@ def create_nn(args, nf):
         hidden = LeakyReLU()(hidden)
         last_hidden = tmp
     hidden = Dense(1, kernel_regularizer="l1_l2")(hidden)
-    hidden = ReLU()(hidden)
+    hidden = ELU()(hidden)
     return Model(inputs=input_layer, outputs=hidden)
 
 
