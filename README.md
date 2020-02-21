@@ -35,10 +35,11 @@ for an example. Currently we can invoke the configuration `prob01` of the experi
 
 
 * Python 3.6+ with the following dependencies
-  - pip or pip3
-  - setuptools
-  - python-dev
-  - numpy
+  - `keras`
+  - `numpy`
+  - `pip` or `pip3`
+  - `python-dev`
+  - `setuptools`
 
 
 ## Domains and Instances
