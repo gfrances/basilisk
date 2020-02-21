@@ -50,7 +50,6 @@ def call_experiment(arguments):
         logging.info('Experiment finished.')
 
 
-
 def get_experiment_directory(arguments):
     """
     Obtain experiment directory where all data files are stored.
@@ -60,11 +59,10 @@ def get_experiment_directory(arguments):
         for line in f:
             if "Using experiment directory" in line:
                 directory = line.replace("Using experiment directory ",
-                                       '').replace('\n', '')
+                                         '').replace('\n', '')
                 logging.info('Experiment directory: "{}"'.format(directory))
                 break
     return directory
-
 
 
 def compute_h_star(exp_dir):
@@ -116,11 +114,13 @@ def write_feature_and_h_star_files(path, values, exp_dir):
         for node, value in values.items():
             df.write('{} {}\n'.format(node, value))
     logging.info('Writing feature matrix to "%s"' % (path + '/features.dat'))
-    shutil.copyfile(exp_dir + '/feature-matrix.dat', path+'/features.dat')
+    shutil.copyfile(exp_dir + '/feature-matrix.dat', path + '/features.dat')
 
     # Copying more useful files to the training data
-    logging.info('Writing features info to "%s"' % (path + '/features-info.dat'))
+    logging.info(
+        'Writing features info to "%s"' % (path + '/features-info.dat'))
     shutil.copyfile(exp_dir + '/feature-info.dat', path + '/features-info.dat')
+
 
 if __name__ == '__main__':
     args = parse_arguments()

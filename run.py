@@ -19,15 +19,15 @@ import matplotlib.pyplot as plt
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
-        description='Generate training data for generalized potential '
-                    'heuristics.')
+        description='Learn a heuristic based on a training data')
     parser.add_argument('-p', '--path', default=None,
                         required=True,
                         help="Path of the directory containing the training "
                              "data. This directory should contain the files "
                              "'features.dat' and 'distances.dat'")
     parser.add_argument('--debug', action='store_true', help='Set DEBUG flag.')
-    parser.add_argument('--plot', action='store_true', help='Plot learning histograms and curves.')
+    parser.add_argument('--plot', action='store_true',
+                        help='Plot learning histograms and curves.')
     parser.add_argument('--epochs', default=5000,
                         help='Number of the epochs for the NN training.')
     parser.add_argument('--batch', default=250,
@@ -88,15 +88,13 @@ def train_nn(model, X, Y, epochs):
     Compile and train neural network
     """
     uv, uc = np.unique(Y, return_counts=True)
-    class_weights = {v: (100./c) for v, c in zip(uv, uc)}
-
-
+    # class_weights = {v: (100./c) for v, c in zip(uv, uc)}
     logging.info('Compiling NN before training')
     model.compile(loss='mse', metrics=["mae"], optimizer='adam')
     logging.info('Training the NN....')
     history = model.fit(X, Y, epochs=epochs, batch_size=args.batch,
                         callbacks=[EarlyStopping(monitor='loss', patience=20)],
-                        )#class_weight=class_weights)
+                        )
     logging.info('Finished NN training.')
 
     return history
@@ -133,7 +131,8 @@ def plot(history, X, Y, epochs):
     ax.plot(mse_loss)
     fig.show()
 
-    # Plot histogram comparing h* values (blue) to the predicated values (orange)
+    # Plot histogram comparing h* values (blue) to the predicated values (
+    # orange)
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.axvline(np.mean(Y))
