@@ -35,7 +35,8 @@ def parse_arguments():
                         help='Batch training size.')
     parser.add_argument('--hidden-layers', default=2, type=int,
                         help='Number of hidden layers.')
-
+    parser.add_argument('--class-weights', action='store_true',
+                        help='Use weighted class on training.')
     args = parser.parse_args()
     if not os.path.isdir(args.path):
         logging.error(
@@ -84,17 +85,18 @@ def define_nn_input_and_output(features, h_star):
     return np.array(clean_features), np.array(clean_h_star)
 
 
-def train_nn(model, X, Y, epochs):
+def train_nn(model, X, Y, args):
     """
     Compile and train neural network
     """
     uv, uc = np.unique(Y, return_counts=True)
-    weights = class_weight.compute_class_weight('balanced',
-                                                      np.unique(Y), Y)
+    weights = None
+    if args.class_weights:
+        weights = class_weight.compute_class_weight('balanced', np.unique(Y), Y)
     logging.info('Compiling NN before training')
     model.compile(loss='mse', metrics=["mae"], optimizer='adam')
     logging.info('Training the NN....')
-    history = model.fit(X, Y, epochs=epochs, batch_size=args.batch,
+    history = model.fit(X, Y, epochs=args.epochs, batch_size=args.batch,
                         callbacks=[EarlyStopping(monitor='loss', patience=50)],
                         class_weight = weights
                         )
@@ -172,6 +174,6 @@ if __name__ == '__main__':
     logging.info('Creating the NN model')
     model = create_nn(args, num_features)
 
-    history = train_nn(model, input_features, output_values, args.epochs)
+    history = train_nn(model, input_features, output_values, args)
     if args.plot:
         plot(history, input_features, output_values, args.epochs)
