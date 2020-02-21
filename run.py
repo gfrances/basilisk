@@ -134,18 +134,21 @@ def plot(history, X, Y, epochs):
     ax.plot(mse_loss)
     fig.show()
 
-    # Plot histogram comparing h* values (blue) to the predicated values (
-    # orange)
+    # Scatter plot comparing h*(X-axis) to the predicted values (Y-axis)
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.axvline(np.mean(Y))
     yp = model.predict(X)
-    min_value = int(min(np.min(Y), np.floor(np.min(yp))))
-    max_value = int(max(np.max(Y), np.ceil(np.max(yp))))
-    bin_number = max_value - min_value
-    bins = np.linspace(min_value, max_value, bin_number)
-    ax.hist(Y, bins, alpha=0.5, label='h*')
-    ax.hist(yp, bins, alpha=0.5, label='predicted')
+    ax.scatter(Y, yp)
+    lims = [
+        np.min([ax.get_xlim(), ax.get_ylim()]),  # min of both axes
+        np.max([ax.get_xlim(), ax.get_ylim()]),  # max of both axes
+    ]
+    ax.plot(lims, lims, 'k-', alpha=0.75, zorder=0)
+    ax.set_aspect('equal')
+    ax.set_xlim(lims)
+    ax.set_ylim(lims)
+    ax.set_xlabel('h*')
+    ax.set_ylabel('Predicted h')
     fig.show()
 
 
