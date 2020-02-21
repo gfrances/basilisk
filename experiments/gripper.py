@@ -44,6 +44,33 @@ def experiment(experiment_name):
         feature_namer=feature_namer,
     )
 
+    experiments["learn"] = dict(
+        lp_max_weight=10,
+        benchmark_dir=benchmark_dir,
+        instances=['test01.pddl',
+                   'test02.pddl',
+                   'test03.pddl',
+                   'test04.pddl',
+                   'test05.pddl',
+                   'test06.pddl',
+                   "prob02.pddl",],
+        test_instances=["prob01.pddl",
+                        "prob03.pddl",
+                        "prob04.pddl",
+                        "prob05.pddl",
+                        "prob06.pddl"],
+        test_domain=domain,
+        # instances="task01.pddl",
+        num_states=100000,  # num_sampled_states=None,  random_seed=12,
+        distance_feature_max_complexity=5,
+        max_concept_size=4, max_concept_grammar_iterations=5,
+        concept_generator=None,
+        # concept_generator=generate_chosen_concepts,
+        # parameter_generator=add_domain_parameters,
+        parameter_generator=None,
+        feature_namer=feature_namer,
+    )
+
     # Experiment used in the paper
     experiments["gripper_std_inc"] = dict(
         lp_max_weight=5,
