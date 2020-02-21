@@ -40,6 +40,7 @@ for an example. Currently we can invoke the configuration `prob01` of the experi
   - `pip` or `pip3`
   - `python-dev`
   - `setuptools`
+  - `sklearn`
   - `tensorflow`
 
 
