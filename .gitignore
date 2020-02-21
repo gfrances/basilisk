@@ -84,3 +84,6 @@ build/
 
 # ignore pycharm configs
 .idea
+
+# ignore files output for training NN
+*.dat
