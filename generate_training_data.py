@@ -3,15 +3,12 @@
 import argparse
 import logging
 import math
-import numpy as np
 import os
 import shutil
 import subprocess
 import sys
-import time
 
 from collections import defaultdict
-import matplotlib.pyplot as plt
 
 
 def parse_arguments():
