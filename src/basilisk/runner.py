@@ -3,8 +3,6 @@ import logging
 
 import cplex
 import math
-import sys
-from sltp.errors import CriticalPipelineError
 from sltp.returncodes import ExitCode
 from tarski.dl import EmpiricalBinaryConcept, ConceptCardinalityFeature
 
