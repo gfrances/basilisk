@@ -70,6 +70,34 @@ def experiment(experiment_name=None):
         feature_namer=feature_namer,)
 
 
+    experiments["handcraft_learn"] = dict(
+        lp_max_weight=5,
+        benchmark_dir=benchmark_dir,
+        instances=['task01.pddl',
+                   'task02.pddl',
+                   'task03.pddl',
+                   'task04.pddl',
+                   'task05.pddl',
+                   'task06.pddl',
+        ],
+        test_instances=[
+        'task06.pddl',
+        'task07.pddl',
+        'task08.pddl',
+        ],
+        test_domain=domain,
+        # This is number of sampled states *per training instance*. In an increm. experiment, they will be processed
+        # in batches, so we can set them high enough.
+        num_states=1000000,
+        distance_feature_max_complexity=5,
+        max_concept_grammar_iterations=3,
+        initial_concept_bound=12, max_concept_bound=12, concept_bound_step=2,
+        batch_refinement_size=10,
+        clean_workspace=False,
+        parameter_generator=None,
+        concept_generator=generate_chosen_concepts,
+        feature_namer=feature_namer,
+    )
 
     parameters = experiments[experiment_name]
     parameters["domain_dir"] = parameters.get("domain_dir", domain_dir)
