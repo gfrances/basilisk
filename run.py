@@ -115,7 +115,7 @@ def create_nn(args, nf):
     for i in range(args.hidden_layers + 1):
         tmp = hidden
         hidden = Concatenate()([hidden, last_hidden])
-        hidden = Dense(nf, kernel_regularizer="l1_l2")(hidden)
+        hidden = Dense(nf*(args.hidden_layers - i + 1), kernel_regularizer="l1_l2")(hidden)
         hidden = LeakyReLU()(hidden)
         last_hidden = tmp
     hidden = Dense(1, kernel_regularizer="l1_l2")(hidden)
@@ -153,6 +153,19 @@ def plot(history, X, Y, epochs):
     ax.set_ylabel('Predicted h')
     fig.show()
 
+    # Plot histogram comparing h* values (blue) to the predicated values (
+    # orange)
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.axvline(np.mean(Y))
+    min_value = int(min(np.min(Y), np.floor(np.min(yp))))
+    max_value = int(max(np.max(Y), np.ceil(np.max(yp))))
+    bin_number = max_value - min_value
+    bins = np.linspace(min_value, max_value, bin_number)
+    ax.hist(Y, bins, alpha=0.5, label='h*')
+    ax.hist(yp, bins, alpha=0.5, label='predicted')
+    fig.legend()
+    fig.show()
 
 if __name__ == '__main__':
     args = parse_arguments()
