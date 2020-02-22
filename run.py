@@ -35,6 +35,11 @@ def parse_arguments():
                         help='Batch training size.')
     parser.add_argument('--hidden-layers', default=2, type=int,
                         help='Number of hidden layers.')
+    parser.add_argument('--neurons-multiplier', default=2, type=int,
+                        help='Multiplier for the number of neurons in the '
+                             'layers of the NN. The number of neurons '
+                             'in each of the hidden layers will be the'
+                             'total number of features * the multiplier.')
     parser.add_argument('--class-weights', action='store_true',
                         help='Use weighted class on training.')
     args = parser.parse_args()
@@ -89,7 +94,6 @@ def train_nn(model, X, Y, args):
     """
     Compile and train neural network
     """
-    uv, uc = np.unique(Y, return_counts=True)
     weights = None
     if args.class_weights:
         weights = class_weight.compute_class_weight('balanced', np.unique(Y), Y)
@@ -98,7 +102,7 @@ def train_nn(model, X, Y, args):
     logging.info('Training the NN....')
     history = model.fit(X, Y, epochs=args.epochs, batch_size=args.batch,
                         callbacks=[EarlyStopping(monitor='loss', patience=50)],
-                        class_weight = weights
+                        class_weight=weights
                         )
     logging.info('Finished NN training.')
 
@@ -115,7 +119,8 @@ def create_nn(args, nf):
     for i in range(args.hidden_layers + 1):
         tmp = hidden
         hidden = Concatenate()([hidden, last_hidden])
-        hidden = Dense(nf*(args.hidden_layers - i + 1), kernel_regularizer="l1_l2")(hidden)
+        hidden = Dense(nf*args.neurons_multiplier,
+                       kernel_regularizer="l1_l2")(hidden)
         hidden = LeakyReLU()(hidden)
         last_hidden = tmp
     hidden = Dense(1, kernel_regularizer="l1_l2")(hidden)
@@ -131,7 +136,7 @@ def plot(history, X, Y, epochs):
     mse_loss = history.history['loss']
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    ax.set_ylim([0, 5])
+    ax.set_ylim([0, 10])
     ax.set_xlim([0, epochs])
     ax.plot(mse_loss)
     fig.show()
@@ -139,7 +144,7 @@ def plot(history, X, Y, epochs):
     # Scatter plot comparing h*(X-axis) to the predicted values (Y-axis)
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    yp = model.predict(X)
+    yp = history.model.predict(X)
     ax.scatter(Y, yp)
     lims = [
         np.min([ax.get_xlim(), ax.get_ylim()]),  # min of both axes
