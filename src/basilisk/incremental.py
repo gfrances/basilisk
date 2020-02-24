@@ -1,12 +1,9 @@
 import itertools
 import logging
 import os
-import shutil
-from collections import defaultdict
 
 import numpy as np
 from basilisk.common import is_alive, has_improving_successor
-from basilisk.runner import ConceptBasedPotentialHeuristic
 from basilisk.steps import PyperplanStep, HeuristicWeightsLPComputation, HeuristicTestingComputation
 from sltp.driver import Experiment, generate_pipeline_from_list, check_int_parameter, InvalidConfigParameter, load, \
     TransitionSamplingStep, run_and_check_output, SubprocessStepRunner, Bunch, save, ConceptGenerationStep, \
@@ -149,7 +146,6 @@ class KnowledgeValidator:
         sample = self.sample
         flaws = set()
         heuristic = abstraction["learned_heuristic"]
-        assert isinstance(heuristic, ConceptBasedPotentialHeuristic)
 
         logging.info("Looking for flaws in heuristic:\n{}".format(heuristic))
 

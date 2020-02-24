@@ -45,8 +45,13 @@ def main():
 
         install_requires=[
             'setuptools',
-            "tarski @ git+ssh://git@github.com/aig-upf/tarski.git@150a396#egg=tarski-dev-0.1.0",
-            "sltp @ git+ssh://git@github.com/aig-upf/features-generalized-planning.git@8f67876#egg=sltp-basilisk",
+            "tarski @ git+https://git@github.com/aig-upf/tarski.git@2eda780#egg=tarski-devel",
+            "sltp @ git+https://git@github.com/aig-upf/sltp.git@6b7f2ab#egg=sltp-for-basilisk",
+            'keras',
+            'numpy',
+            'sklearn',
+            'tensorflow',
+            'matplotlib',
         ],
 
 

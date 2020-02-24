@@ -2,14 +2,10 @@
 
 import argparse
 import logging
-import math
 import matplotlib.pyplot as plt
 import numpy as np
 import os
-import shutil
-import subprocess
 import sys
-import time
 
 from collections import defaultdict
 from keras.models import Model, Sequential
