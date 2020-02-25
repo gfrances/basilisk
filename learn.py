@@ -3,6 +3,7 @@
 import argparse
 import logging
 import matplotlib.pyplot as plt
+import math
 import numpy as np
 import os
 import sys
@@ -12,6 +13,10 @@ from keras.models import Model, Sequential
 from keras.layers import Dense, Input, ReLU, ELU, LeakyReLU, Concatenate
 from keras.callbacks import EarlyStopping
 from sklearn.utils import class_weight
+
+# Global variables for customized loss function
+H_STAR = []
+TRANSITIONS = defaultdict(list)
 
 
 def parse_arguments():
@@ -46,44 +51,64 @@ def parse_arguments():
     return args
 
 
+def compute_h_star(exp_dir):
+    '''
+    Extracts h-star for every state sampled from the files in exp_dir
+    '''
+
+    INFINITY = math.inf
+    dist = defaultdict(lambda: INFINITY)
+    transitions = defaultdict(list)
+
+    with open(exp_dir + '/goal-states.dat') as goal_file:
+        # Read goal states
+        for line in goal_file:
+            goals = list(map(int, line.split()))
+    assert len(goals) > 0
+
+    with open(exp_dir + '/transition-matrix.dat') as goal_file:
+        # Read transition file
+        for line in goal_file:
+            nodes = list(map(int, line.split()))
+            source = nodes[0]
+            dist[source] = INFINITY
+            for v in nodes[1:]:
+                transitions[v].append(source)
+    TRANSITIONS = transitions
+
+    queue = []
+    for g in goals:
+        dist[g] = 0
+        queue.append(g)
+
+    while len(queue) != 0:
+        node = queue.pop(0)
+        d = dist[node]
+        for t in transitions[node]:
+            if dist[t] > d + 1:
+                dist[t] = d + 1
+                queue.append(t)
+
+    H_STAR = dist
+    return dist
+
+
 def read_training_data(path):
-    features_file = path + '/features.dat'
-    features = defaultdict(list)
-    with open(features_file, 'r') as f:
-        logging.info('Reading features from "%s"' % features_file)
-        for line in f:
-            values = line.split()
-            features[int(values[0])] = [int(x) for x in values[1:]]
+    INFINITY = 2147483647
+    features_file = path + '/feature-matrix.io'
+    table = np.loadtxt(features_file)
+    features = table[:, np.all(table != INFINITY, axis=0)]
+    dist = compute_h_star(path)
+    h_star = []
+    final_features = []
+    for i, f in enumerate(features):
+        if not math.isinf(dist[i]):
+            h_star.append(dist[i])
+            final_features.append(f)
 
-    distances_file = path + '/distances.dat'
-    h_star = dict()
-    with open(distances_file, 'r') as f:
-        logging.info('Reading h-star distances from "%s"' % distances_file)
-        for line in f:
-            values = line.split()
-            assert len(values) == 2
-            if values[1] != 'inf':
-                h_star[int(values[0])] = int(values[1])
-            else:
-                # Remove dead-ends from training data
-                features.pop(int(values[0]), None)
-
-    return features, h_star
-
-
-def define_nn_input_and_output(features, h_star):
-    """
-    Organize table of features and h-star values into data structures for Keras
-    """
-
-    # Loop over all states adding the features and the h_star value in the
-    # same order, discarding the state ID of them
-    clean_features = []
-    clean_h_star = []
-    for s, f in features.items():
-        clean_features.append(f)
-        clean_h_star.append(h_star[s])
-    return np.array(clean_features), np.array(clean_h_star)
+    np.savetxt(path + '/training-examples.csv', np.array(final_features), delimiter=',', fmt='%d')
+    np.savetxt(path + '/training-labels.csv', np.array(h_star, dtype=int), delimiter=',', fmt='%d')
+    return np.array(final_features), np.array(h_star)
 
 
 def train_nn(model, X, Y, args):
@@ -97,7 +122,7 @@ def train_nn(model, X, Y, args):
     model.compile(loss='mse', metrics=["mae"], optimizer='adam')
     logging.info('Training the NN....')
     history = model.fit(X, Y, epochs=args.epochs, batch_size=args.batch,
-                        callbacks=[EarlyStopping(monitor='loss', patience=50)],
+                        callbacks=[EarlyStopping(monitor='loss', patience=20)],
                         class_weight=weights
                         )
     logging.info('Finished NN training.')
@@ -115,7 +140,7 @@ def create_nn(args, nf):
     for i in range(args.hidden_layers + 1):
         tmp = hidden
         hidden = Concatenate()([hidden, last_hidden])
-        hidden = Dense(nf*args.neurons_multiplier,
+        hidden = Dense(nf * args.neurons_multiplier,
                        kernel_regularizer="l1_l2")(hidden)
         hidden = LeakyReLU()(hidden)
         last_hidden = tmp
@@ -135,7 +160,7 @@ def plot(history, X, Y, epochs):
     ax.set_ylim([0, 10])
     ax.set_xlim([0, epochs])
     ax.plot(mse_loss)
-    fig.show()
+    plt.show()
 
     # Scatter plot comparing h*(X-axis) to the predicted values (Y-axis)
     fig = plt.figure()
@@ -152,7 +177,7 @@ def plot(history, X, Y, epochs):
     ax.set_ylim(lims)
     ax.set_xlabel('h*')
     ax.set_ylabel('Predicted h')
-    fig.show()
+    plt.show()
 
     # Plot histogram comparing h* values (blue) to the predicated values (
     # orange)
@@ -166,7 +191,18 @@ def plot(history, X, Y, epochs):
     ax.hist(Y, bins, alpha=0.5, label='h*')
     ax.hist(yp, bins, alpha=0.5, label='predicted')
     fig.legend()
-    fig.show()
+    plt.show()
+
+
+def compute_inconsistent_states(i, o):
+    logging.info('Checking for inconsistent input...')
+    for s1, h1 in zip(i, o):
+        for s2, h2 in zip(i, o):
+            if h1 != h2 and np.array_equal(s1, s2):
+                logging.warning("At least one pair of states with different "
+                                "h* value but same feature denotations!")
+                return
+
 
 if __name__ == '__main__':
     args = parse_arguments()
@@ -175,15 +211,15 @@ if __name__ == '__main__':
                         level=logging.DEBUG if args.debug else logging.INFO)
 
     logging.info('Reading training data from %s' % args.path)
-    features, h_star = read_training_data(args.path)
+    input_features, output_values = read_training_data(args.path)
 
     # Set up data for keras
-    logging.info("Setting up input features and output values for NN.")
-    input_features, output_values = define_nn_input_and_output(features, h_star)
     num_training_examples, num_features = input_features.shape
     logging.info(
         'Total number of training examples: %d' % num_training_examples)
     logging.info('Total number of input features: %d' % num_features)
+
+    compute_inconsistent_states(input_features, output_values)
 
     logging.info('Creating the NN model')
     model = create_nn(args, num_features)
