@@ -28,7 +28,7 @@ def import_experiment_file(filename):
     try:
         return importlib.import_module(filename)
     except ImportError:
-        report_and_exit('No script named "{}".py found on current directory'.format(filename))
+        report_and_exit('No script named "{}.py" found on current directory'.format(filename))
 
 
 def report_and_exit(msg):
