@@ -69,7 +69,7 @@ def experiment(experiment_name=None):
     # Experiment used in the paper
     miconic_1_incremental = dict(
         experiment_class=IncrementalExperiment,
-        lp_max_weight=5,
+        lp_max_weight=4,
         benchmark_dir=benchmark_dir,
         instances=[
             's1-0.pddl',
@@ -254,6 +254,7 @@ def generate_chosen_concepts(lang):
 
     obj_t = lang.Object
 
+    passenger = PrimitiveConcept(lang.get("passenger"))
     lift_at = PrimitiveConcept(lang.get("lift-at"))
     boarded = PrimitiveConcept(lang.get("boarded"))
     served = PrimitiveConcept(lang.get("served"))
@@ -261,17 +262,26 @@ def generate_chosen_concepts(lang):
     origin = PrimitiveRole(lang.get("origin"))
     destin = PrimitiveRole(lang.get("destin"))
 
-    M1 = AndConcept(NotConcept(boarded, obj_t), NotConcept(served, obj_t),
-                    "object")
-    M2 = AndConcept(boarded, NotConcept(served, obj_t), "object") # K(m2) = 4
+    # M1 = AndConcept(NotConcept(boarded, obj_t), NotConcept(served, obj_t),
+    #                 "object")
+    # M2 = AndConcept(boarded, NotConcept(served, obj_t), "object") # K(m2) = 4
     M3 = ExistsConcept(origin, lift_at)
     M4 = ExistsConcept(destin, lift_at) # K(M4) = 3
 
-    F1 = AndConcept(M1, M3, "object")
-    F2 = AndConcept(M1, NotConcept(M3, obj_t), "object")
-    F3 = AndConcept(M2, M4, "object")
-    F4 = AndConcept(M2, NotConcept(M4, obj_t), "object")
-    return [], [F1, F2, F3, F4], []  # atoms, concepts, roles
+    # F1 = AndConcept(M1, M3, "object")
+    # F2 = AndConcept(M1, NotConcept(M3, obj_t), "object")
+    # F3 = AndConcept(M2, M4, "object")
+    # F4 = AndConcept(M2, NotConcept(M4, obj_t), "object")
+
+    not_boarded_nor_served = AndConcept(NotConcept(boarded, obj_t), NotConcept(served, obj_t), "object")
+
+    F1 = AndConcept(passenger, served, "object")
+    F2 = AndConcept(passenger, AndConcept(boarded, M4, "object"), "object")
+    F3 = AndConcept(passenger, AndConcept(boarded, ForallConcept(destin, NotConcept(lift_at, obj_t)), "object"), "object")
+    F4 = AndConcept(passenger, AndConcept(not_boarded_nor_served, M3, "object"), "object")
+    F5 = AndConcept(passenger, AndConcept(not_boarded_nor_served, ForallConcept(origin, NotConcept(lift_at, obj_t)), "object"), "object")
+
+    return [], [F1, F2, F3, F4, F5], []  # atoms, concepts, roles
 
 
 def add_domain_parameters(language):
