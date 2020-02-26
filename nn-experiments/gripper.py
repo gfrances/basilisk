@@ -16,7 +16,10 @@ def experiments():
     #
     exps["learn"] = update_dict(
         base,
-        instances=["task01.pddl"],
+        instances=["task01.pddl",
+                   "task02.pddl",
+                   "task03.pddl",
+                   "task04.pddl"],
         test_instances=[],
         test_domain=domain,
         num_tested_states=1000000,

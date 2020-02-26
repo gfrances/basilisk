@@ -219,7 +219,7 @@ if __name__ == '__main__':
         'Total number of training examples: %d' % num_training_examples)
     logging.info('Total number of input features: %d' % num_features)
 
-    compute_inconsistent_states(input_features, output_values)
+    #compute_inconsistent_states(input_features, output_values)
 
     logging.info('Creating the NN model')
     model = create_nn(args, num_features)
