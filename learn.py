@@ -9,10 +9,15 @@ import os
 import sys
 
 from collections import defaultdict
-from keras.models import Model, Sequential
-from keras.layers import Dense, Input, ReLU, ELU, LeakyReLU, Concatenate
+from keras import regularizers
 from keras.callbacks import EarlyStopping
+from keras.layers import Activation, Dense, Dropout, Input, ReLU, ELU, LeakyReLU, Concatenate
+from keras.models import Model, Sequential
+from keras.optimizers import Adam
+from keras.regularizers import l1, l2, l1_l2
+from keras.utils import plot_model
 from sklearn.utils import class_weight
+from sklearn.preprocessing import StandardScaler
 
 # Global variables for customized loss function
 H_STAR = []
@@ -36,7 +41,7 @@ def parse_arguments():
                         help='Batch training size.')
     parser.add_argument('--hidden-layers', default=2, type=int,
                         help='Number of hidden layers.')
-    parser.add_argument('--neurons-multiplier', default=2, type=int,
+    parser.add_argument('--neurons-multiplier', default=1, type=int,
                         help='Multiplier for the number of neurons in the '
                              'layers of the NN. The number of neurons '
                              'in each of the hidden layers will be the'
@@ -119,11 +124,12 @@ def train_nn(model, X, Y, args):
     if args.class_weights:
         weights = class_weight.compute_class_weight('balanced', np.unique(Y), Y)
     logging.info('Compiling NN before training')
-    model.compile(loss='mse', metrics=["mae"], optimizer='adam')
+    adam = Adam(learning_rate=0.01)
+    model.compile(loss='mse', metrics=["mae"], optimizer=adam)
     logging.info('Training the NN....')
     history = model.fit(X, Y, epochs=args.epochs, batch_size=args.batch,
-                        callbacks=[EarlyStopping(monitor='loss', patience=20)],
-                        class_weight=weights
+                        class_weight=weights,
+                        #callbacks=[EarlyStopping(monitor='loss', patience=20)],
                         )
     logging.info('Finished NN training.')
 
@@ -137,22 +143,24 @@ def create_nn(args, nf):
     input_layer = Input(shape=(nf,))
     hidden = input_layer
     last_hidden = input_layer
-    for i in range(args.hidden_layers + 1):
+    for i in range(args.hidden_layers):
         tmp = hidden
         hidden = Concatenate()([hidden, last_hidden])
         hidden = Dense(nf * args.neurons_multiplier,
                        kernel_regularizer="l1_l2")(hidden)
-        hidden = LeakyReLU()(hidden)
+        #hidden = LeakyReLU()(hidden)
         last_hidden = tmp
-    hidden = Dense(1, kernel_regularizer="l1_l2")(hidden)
-    hidden = ELU()(hidden)
+    hidden = Dense(1, kernel_regularizer=l1(0.01))(hidden)
+    hidden = Activation('linear')(hidden)
     return Model(inputs=input_layer, outputs=hidden)
 
 
-def plot(history, X, Y, epochs):
+def plot(history, X, Y, args):
     """
     Produce plots related to the learned heuristic function
     """
+    epochs = args.epochs
+
     # Plot error curve
     mse_loss = history.history['loss']
     fig = plt.figure()
@@ -193,6 +201,17 @@ def plot(history, X, Y, epochs):
     fig.legend()
     plt.show()
 
+    # Plot weights
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.plot(history.model.layers[-2].get_weights()[0])
+    ax.set_xlabel("Feature index")
+    ax.set_ylabel("Weight")
+    ax.set_title(args.batch)
+    plt.show()
+
+    return
+
 
 def compute_inconsistent_states(i, o):
     logging.info('Checking for inconsistent input...')
@@ -223,7 +242,8 @@ if __name__ == '__main__':
 
     logging.info('Creating the NN model')
     model = create_nn(args, num_features)
+    print(model.summary())
 
     history = train_nn(model, input_features, output_values, args)
     if args.plot:
-        plot(history, input_features, output_values, args.epochs)
+        plot(history, input_features, output_values, args)

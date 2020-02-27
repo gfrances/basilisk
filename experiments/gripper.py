@@ -44,16 +44,14 @@ def experiment(experiment_name):
         feature_namer=feature_namer,
     )
 
+
+
     experiments["learn"] = dict(
         lp_max_weight=10,
         benchmark_dir=benchmark_dir,
-        instances=['test01.pddl',
-                   'test02.pddl',
-                   'test03.pddl',
-                   'test04.pddl',
-                   'test05.pddl',
-                   'test06.pddl',
-                   "prob02.pddl",],
+        instances=['testX.pddl',
+                   'testY.pddl',
+                   'testZ.pddl'],
         test_instances=["prob01.pddl",
                         "prob03.pddl",
                         "prob04.pddl",
