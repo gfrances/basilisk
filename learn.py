@@ -46,6 +46,9 @@ def parse_arguments():
                              'layers of the NN. The number of neurons '
                              'in each of the hidden layers will be the'
                              'total number of features * the multiplier.')
+    parser.add_argument('--iterations', default=1, type=int,
+                        help='Number of iterations of the iterative learning'
+                             'to reduce number of used features.')
     parser.add_argument('--class-weights', action='store_true',
                         help='Use weighted class on training.')
     args = parser.parse_args()
@@ -124,7 +127,7 @@ def train_nn(model, X, Y, args):
     if args.class_weights:
         weights = class_weight.compute_class_weight('balanced', np.unique(Y), Y)
     logging.info('Compiling NN before training')
-    adam = Adam(learning_rate=0.01)
+    adam = Adam(learning_rate=0.001)
     model.compile(loss='mse', metrics=["mae"], optimizer=adam)
     logging.info('Training the NN....')
     history = model.fit(X, Y, epochs=args.epochs, batch_size=args.batch,
@@ -143,11 +146,14 @@ def create_nn(args, nf):
     input_layer = Input(shape=(nf,))
     hidden = input_layer
     last_hidden = input_layer
+
+    # L2 was not used because it does not seem to be needed.
+    # L1 alone performed better in the cases tested.
     for i in range(args.hidden_layers):
         tmp = hidden
         hidden = Concatenate()([hidden, last_hidden])
         hidden = Dense(nf * args.neurons_multiplier,
-                       kernel_regularizer="l1_l2")(hidden)
+                       kernel_regularizer=l1(0.01))(hidden)
         #hidden = LeakyReLU()(hidden)
         last_hidden = tmp
     hidden = Dense(1, kernel_regularizer=l1(0.01))(hidden)
@@ -201,6 +207,10 @@ def plot(history, X, Y, args):
     fig.legend()
     plt.show()
 
+    for index, pair in enumerate(zip(Y, yp)):
+        if pair[1] < 0:
+            print(index, pair)
+
     # Plot weights
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -223,6 +233,40 @@ def compute_inconsistent_states(i, o):
                 return
 
 
+def iterative_learn(input_features, output_values):
+    # Set up data for keras
+    num_training_examples, num_features = input_features.shape
+    logging.info(
+        'Total number of training examples: %d' % num_training_examples)
+    logging.info('Total number of input features: %d' % num_features)
+
+    # compute_inconsistent_states(input_features, output_values)
+
+    logging.info('Creating the NN model')
+    model = create_nn(args, num_features)
+    print(model.summary())
+
+    history = train_nn(model, input_features, output_values, args)
+    if args.plot:
+        plot(history, input_features, output_values, args)
+    return history
+
+
+def get_significant_weights(history):
+    lst = []
+    for index, e in enumerate(history.model.layers[-2].get_weights()[0]):
+        if abs(e) > 0.1:
+            lst.append(index)
+    return lst
+
+
+def filter_input(indices, input_features):
+    selection = [False for x in range(input_features.shape[1])]
+    for feat in indices:
+        selection[feat] = True
+    return input_features[:, selection]
+
+
 if __name__ == '__main__':
     args = parse_arguments()
     logging.basicConfig(stream=sys.stdout,
@@ -232,18 +276,13 @@ if __name__ == '__main__':
     logging.info('Reading training data from %s' % args.path)
     input_features, output_values = read_training_data(args.path)
 
-    # Set up data for keras
-    num_training_examples, num_features = input_features.shape
-    logging.info(
-        'Total number of training examples: %d' % num_training_examples)
-    logging.info('Total number of input features: %d' % num_features)
+    # input_features = np.delete(input_features, (39,135,647), axis=0)
+    # output_values = np.delete(output_values, (39, 135, 647), axis=0)
+    # #input_features = np.delete(input_features, (135), axis=1)
+    # #input_features = np.delete(input_features, (647), axis=1)
 
-    #compute_inconsistent_states(input_features, output_values)
-
-    logging.info('Creating the NN model')
-    model = create_nn(args, num_features)
-    print(model.summary())
-
-    history = train_nn(model, input_features, output_values, args)
-    if args.plot:
-        plot(history, input_features, output_values, args)
+    for i in range(args.iterations):
+        history = iterative_learn(input_features, output_values)
+        indices = get_significant_weights(history)
+        logging.info('Useful features: {}'.format(indices))
+        input_features = filter_input(indices, input_features)
