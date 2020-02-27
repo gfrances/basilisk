@@ -110,7 +110,7 @@ def read_training_data(path):
     h_star = []
     final_features = []
     for i, f in enumerate(features):
-        if not math.isinf(dist[i]):
+        if not math.isinf(dist[i]) and dist[i] != 0:
             h_star.append(dist[i])
             final_features.append(f)
 
