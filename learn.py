@@ -39,7 +39,7 @@ def parse_arguments():
                         help='Number of the epochs for the NN training.')
     parser.add_argument('--batch', default=250, type=int,
                         help='Batch training size.')
-    parser.add_argument('--hidden-layers', default=2, type=int,
+    parser.add_argument('--hidden-layers', default=0, type=int,
                         help='Number of hidden layers.')
     parser.add_argument('--neurons-multiplier', default=1, type=int,
                         help='Multiplier for the number of neurons in the '
