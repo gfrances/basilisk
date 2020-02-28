@@ -46,7 +46,7 @@ def main():
         install_requires=[
             'setuptools',
             "tarski @ git+https://git@github.com/aig-upf/tarski.git@2eda780#egg=tarski-devel",
-            "sltp @ git+https://git@github.com/aig-upf/sltp.git@6b7f2ab#egg=sltp-for-basilisk",
+            "sltp @ git+https://git@github.com/aig-upf/sltp.git@7821552#egg=sltp-for-basilisk",
             'keras',
             'numpy',
             'sklearn',
