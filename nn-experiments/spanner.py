@@ -35,7 +35,7 @@ def experiments():
         num_tested_states=10000,
         num_states=10000, max_width=[-1],
         num_sampled_states=None,
-        max_concept_size=8, max_concept_grammar_iterations=3,
+        max_concept_size=10, max_concept_grammar_iterations=3,
         concept_generator=None,
         parameter_generator=None
     )
