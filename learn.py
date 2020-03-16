@@ -19,7 +19,9 @@ from keras.utils import plot_model
 from sklearn.utils import class_weight
 from sklearn.preprocessing import StandardScaler
 
-# Global variables for customized loss function
+# Global variables
+INFINITY = 2147483647 # C++ infinity value
+
 H_STAR = []
 TRANSITIONS = defaultdict(list)
 
@@ -102,21 +104,35 @@ def compute_h_star(exp_dir):
 
 
 def read_training_data(path):
-    INFINITY = 2147483647
-    features_file = path + '/feature-matrix.io'
-    table = np.loadtxt(features_file)
+    """
+    Read the input data and returns a matrix with the feature denotation
+    in every state, the h-star value, and a list of strings representing
+    the features.
+    """
+
+    # First read feature matrix and align it with H*.
+    feature_matrix_file = path + '/feature-matrix.io'
+    table = np.loadtxt(feature_matrix_file)
     features = table[:, np.all(table != INFINITY, axis=0)]
     dist = compute_h_star(path)
     h_star = []
-    final_features = []
+    finite_features_denotations = []
     for i, f in enumerate(features):
         if not math.isinf(dist[i]) and dist[i] != 0:
             h_star.append(dist[i])
-            final_features.append(f)
+            finite_features_denotations.append(f)
 
-    np.savetxt(path + '/training-examples.csv', np.array(final_features), delimiter=',', fmt='%d')
+    # Read the features info to extract the strings representing them
+    feature_info_file = path + '/feature-info.io'
+    with open(feature_info_file) as f:
+        feature_line = f.readline()
+        feature_strings = feature_line.split('\t')
+
+    assert (feature_strings is not None)
+
+    np.savetxt(path + '/training-examples.csv', np.array(finite_features_denotations), delimiter=',', fmt='%d')
     np.savetxt(path + '/training-labels.csv', np.array(h_star, dtype=int), delimiter=',', fmt='%d')
-    return np.array(final_features), np.array(h_star)
+    return np.array(finite_features_denotations), np.array(h_star), np.array(feature_strings)
 
 
 def train_nn(model, X, Y, args):
@@ -260,11 +276,13 @@ def get_significant_weights(history):
     return lst
 
 
-def filter_input(indices, input_features):
+def filter_input(indices, input_features, features_names):
     selection = [False for x in range(input_features.shape[1])]
+    new_feature_names = []
     for feat in indices:
         selection[feat] = True
-    return input_features[:, selection]
+        new_feature_names.append(features_names[feat])
+    return input_features[:, selection], new_feature_names
 
 
 if __name__ == '__main__':
@@ -274,15 +292,17 @@ if __name__ == '__main__':
                         level=logging.DEBUG if args.debug else logging.INFO)
 
     logging.info('Reading training data from %s' % args.path)
-    input_features, output_values = read_training_data(args.path)
-
-    # input_features = np.delete(input_features, (39,135,647), axis=0)
-    # output_values = np.delete(output_values, (39, 135, 647), axis=0)
-    # #input_features = np.delete(input_features, (135), axis=1)
-    # #input_features = np.delete(input_features, (647), axis=1)
+    input_features, output_values, features_names = read_training_data(args.path)
 
     for i in range(args.iterations):
         history = iterative_learn(input_features, output_values)
         indices = get_significant_weights(history)
         logging.info('Useful features: {}'.format(indices))
-        input_features = filter_input(indices, input_features)
+        input_features, features_names = filter_input(indices,
+                                                      input_features,
+                                                      features_names)
+
+
+    print("Features used:")
+    for feature in features_names:
+        print(feature)
