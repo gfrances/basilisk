@@ -9,6 +9,9 @@ import os
 import sys
 
 from collections import defaultdict
+
+from basilisk.runner import ConceptBasedPotentialHeuristic
+from basilisk.tester import import_and_run_pyperplan
 from keras import regularizers
 from keras.callbacks import EarlyStopping
 from keras.layers import Activation, Dense, Dropout, Input, ReLU, ELU, LeakyReLU, Concatenate
@@ -29,11 +32,16 @@ TRANSITIONS = defaultdict(list)
 def parse_arguments():
     parser = argparse.ArgumentParser(
         description='Learn a heuristic based on a training data')
-    parser.add_argument('-p', '--path', default=None,
+    parser.add_argument('-p', '--training-data', default=None,
                         required=True,
                         help="Path of the directory containing the training "
                              "data. This directory should contain the files "
                              "'features.dat' and 'distances.dat'")
+    parser.add_argument('-t', '--test-data', default=None,
+                        required=True,
+                        help="Path of the directory containing the test "
+                             "data. This directory should contain the domain "
+                             "and instances files.")
     parser.add_argument('--debug', action='store_true', help='Set DEBUG flag.')
     parser.add_argument('--plot', action='store_true',
                         help='Plot learning histograms and curves.')
@@ -54,11 +62,18 @@ def parse_arguments():
     parser.add_argument('--class-weights', action='store_true',
                         help='Use weighted class on training.')
     args = parser.parse_args()
-    if not os.path.isdir(args.path):
-        logging.error(
-            'Error: Directory "%s" does not exist.\n' % args.path)
-        sys.exit()
+
+    check_path_exists(args.training_data)
+    check_path_exists(args.test_data)
+
     return args
+
+
+def check_path_exists(path):
+    if not os.path.isdir(path):
+        logging.error(
+            'Error: Directory "%s" does not exist.\n' % path)
+        sys.exit()
 
 
 def compute_h_star(exp_dir):
@@ -269,11 +284,13 @@ def iterative_learn(input_features, output_values):
 
 
 def get_significant_weights(history):
+    significant_weights = []
     lst = []
-    for index, e in enumerate(history.model.layers[-2].get_weights()[0]):
-        if abs(e) > 0.1:
+    for index, w in enumerate(history.model.layers[-2].get_weights()[0]):
+        if abs(w) > 0.1:
+            significant_weights.append(w)
             lst.append(index)
-    return lst
+    return significant_weights, lst
 
 
 def filter_input(indices, input_features, features_names):
@@ -285,24 +302,59 @@ def filter_input(indices, input_features, features_names):
     return input_features[:, selection], new_feature_names
 
 
+def create_potential_heuristic_from_parameters(features, weights):
+    selected_features = [str(f) for f in features]
+    selected_weights = [np.asscalar(w) for w in weights]
+    return ConceptBasedPotentialHeuristic(list(zip(selected_features,
+                                                   selected_weights)))
+
+
+def read_test_instances_list(path):
+    domain = None
+    instances = []
+    for (dirpath, dirnames, filenames) in os.walk(path):
+        for f in filenames:
+            if not f.endswith('.pddl'):
+                continue
+            if 'domain' in f:
+                domain = os.path.join(dirpath, f)
+            else:
+                instances.append(os.path.join(dirpath, f))
+
+    return domain, instances
+
+
 if __name__ == '__main__':
     args = parse_arguments()
     logging.basicConfig(stream=sys.stdout,
                         format="%(levelname)-8s- %(message)s",
                         level=logging.DEBUG if args.debug else logging.INFO)
 
-    logging.info('Reading training data from %s' % args.path)
-    input_features, output_values, features_names = read_training_data(args.path)
+    logging.info('Reading training data from %s' % args.training_data)
+    input_features, output_values, features_names = \
+        read_training_data(args.training_data)
 
+    test_domain, test_instances = read_test_instances_list(args.test_data)
+
+    weights = None
     for i in range(args.iterations):
         history = iterative_learn(input_features, output_values)
-        indices = get_significant_weights(history)
+        weights, indices = get_significant_weights(history)
         logging.info('Useful features: {}'.format(indices))
         input_features, features_names = filter_input(indices,
                                                       input_features,
                                                       features_names)
 
+    assert (weights is not None and len(weights) == len(features_names))
+    print("Weighted features found:")
+    for f, w in zip(features_names, weights):
+        print("{} * {}".format(w, f))
 
-    print("Features used:")
-    for feature in features_names:
-        print(feature)
+    heuristic = create_potential_heuristic_from_parameters(features_names,
+                                                           weights)
+
+    for i in test_instances:
+        logging.info("Solving {}".format(i))
+        import_and_run_pyperplan(test_domain, i, heuristic, None)
+
+    logging.debug('Exiting script.')
