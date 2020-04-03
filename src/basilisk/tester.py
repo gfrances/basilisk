@@ -20,13 +20,14 @@ def run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator,
 
     static_atoms, _ = compute_static_atoms(problem)
 
-    pyerplan_heuristic = create_pyperplan_heuristic(model_factory, static_atoms, heuristic)
+    pyperplan_heuristic = create_pyperplan_heuristic(model_factory, static_atoms, heuristic)
 
     # And now we inject our desired search and heuristic functions
     if gbfs:
-        args.forced_search = pyperplan.search.greedy_best_first_search(heuristic)
+        args.search = "gbf"
+        args.forced_heuristic = pyperplan_heuristic
     else:
-        args.forced_search = create_pyperplan_hill_climbing_with_embedded_heuristic(pyerplan_heuristic)
+        args.forced_search = create_pyperplan_hill_climbing_with_embedded_heuristic(pyperplan_heuristic)
 
     # And run pyperplan!
     pyperplan.main(args)
@@ -43,7 +44,8 @@ def create_pyperplan_heuristic(model_factory, static_atoms, heuristic):
     """ Create a pyperplan-like concept-based heuristic with the given features and weights"""
     def pyperplan_concept_based_heuristic(state):
 
-        translated = translate_state(state)
+        # HACK this 'state.state' breaks the hill climbing function :-)
+        translated = translate_state(state.state)
         translated_with_statics = translated + list(static_atoms)
         model = FeatureModel(model_factory.create_model(translated_with_statics))
 

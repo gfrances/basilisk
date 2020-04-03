@@ -180,7 +180,7 @@ def search_plan(domain_file, problem_file, search, heuristic_class, search_name,
     heuristic = None
 
     if not heuristic_class is None:
-        heuristic = heuristic_class(task)
+        heuristic = heuristic_class
     search_start_time = time.clock()
 
     if search_name == "full":
@@ -267,7 +267,7 @@ def main(args):
         args.domain = os.path.abspath(args.domain)
 
     search = args.forced_search if hasattr(args, "forced_search") else SEARCHES[args.search]
-    heuristic = HEURISTICS[args.heuristic]
+    heuristic = args.forced_heuristic if hasattr(args, "forced_heuristic") else HEURISTICS[args.heuristic]
 
     if args.search in ['bfs', 'ids', 'sat', 'full']:
         heuristic = None

@@ -307,7 +307,7 @@ def filter_input(indices, input_features, features_names):
 
 
 def create_potential_heuristic_from_parameters(features, weights, language):
-    selected_features = [unserialize_feature(language, str(f)) for f in features]
+    selected_features = [unserialize_feature(language, str(f).rstrip('\n')) for f in features]
     selected_weights = [np.asscalar(w) for w in weights]
     return ConceptBasedPotentialHeuristic(list(zip(selected_features,
                                                    selected_weights)))
