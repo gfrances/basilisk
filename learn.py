@@ -22,7 +22,11 @@ from keras.utils import plot_model
 from sklearn.utils import class_weight
 from sklearn.preprocessing import StandardScaler
 
+from sltp.language import parse_pddl
+
 # Global variables
+from sltp.util.serialization import unserialize_feature
+
 INFINITY = 2147483647 # C++ infinity value
 
 H_STAR = []
@@ -302,8 +306,8 @@ def filter_input(indices, input_features, features_names):
     return input_features[:, selection], new_feature_names
 
 
-def create_potential_heuristic_from_parameters(features, weights):
-    selected_features = [str(f) for f in features]
+def create_potential_heuristic_from_parameters(features, weights, language):
+    selected_features = [unserialize_feature(language, str(f)) for f in features]
     selected_weights = [np.asscalar(w) for w in weights]
     return ConceptBasedPotentialHeuristic(list(zip(selected_features,
                                                    selected_weights)))
@@ -322,6 +326,11 @@ def read_test_instances_list(path):
                 instances.append(os.path.join(dirpath, f))
 
     return domain, instances
+
+
+def create_language(domain):
+    _, language, _ = parse_pddl(domain)
+    return language
 
 
 if __name__ == '__main__':
@@ -348,13 +357,17 @@ if __name__ == '__main__':
     assert (weights is not None and len(weights) == len(features_names))
     print("Weighted features found:")
     for f, w in zip(features_names, weights):
-        print("{} * {}".format(w, f))
+        print("{} * {}".format(np.asscalar(w), f))
+
+    language = create_language(test_domain)
 
     heuristic = create_potential_heuristic_from_parameters(features_names,
-                                                           weights)
+                                                           weights,
+                                                           language)
+
 
     for i in test_instances:
         logging.info("Solving {}".format(i))
-        import_and_run_pyperplan(test_domain, i, heuristic, None)
+        import_and_run_pyperplan(test_domain, i, heuristic, None, gbfs=True)
 
     logging.debug('Exiting script.')

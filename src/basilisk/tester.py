@@ -9,7 +9,8 @@ from . import PYPERPLAN_DIR
 from .search import create_pyperplan_hill_climbing_with_embedded_heuristic
 
 
-def run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator):
+def run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator,
+                  gbfs=False):
     # Let's fake a pyperplan command-line arguments object so that
     # we don't have to worry about default parameters. We use "gbf" but will override that next.
     args = pyperplan.parse_args([domain, instance])
@@ -22,16 +23,19 @@ def run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator):
     pyerplan_heuristic = create_pyperplan_heuristic(model_factory, static_atoms, heuristic)
 
     # And now we inject our desired search and heuristic functions
-    args.forced_search = create_pyperplan_hill_climbing_with_embedded_heuristic(pyerplan_heuristic)
+    if gbfs:
+        args.forced_search = pyperplan.search.greedy_best_first_search(heuristic)
+    else:
+        args.forced_search = create_pyperplan_hill_climbing_with_embedded_heuristic(pyerplan_heuristic)
 
     # And run pyperplan!
     pyperplan.main(args)
 
 
-def import_and_run_pyperplan(domain, instance, heuristic, parameter_generator):
+def import_and_run_pyperplan(domain, instance, heuristic, parameter_generator, gbfs=False):
     sys.path.insert(0, PYPERPLAN_DIR)
     import pyperplan
-    run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator)
+    run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator, gbfs)
     sys.path = sys.path[1:]
 
 
