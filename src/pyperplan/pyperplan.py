@@ -267,7 +267,7 @@ def main(args):
         args.domain = os.path.abspath(args.domain)
 
     search = args.forced_search if hasattr(args, "forced_search") else SEARCHES[args.search]
-    heuristic = HEURISTICS[args.heuristic]
+    heuristic = args.forced_heuristic if hasattr(args, "forced_heuristic") else HEURISTICS[args.heuristic]
 
     if args.search in ['bfs', 'ids', 'sat', 'full']:
         heuristic = None

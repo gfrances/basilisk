@@ -19,10 +19,14 @@ def run_pyperplan(pyperplan, domain, instance, heuristic, parameter_generator):
 
     static_atoms, _ = compute_static_atoms(problem)
 
-    pyerplan_heuristic = create_pyperplan_heuristic(model_factory, static_atoms, heuristic)
+    pyperplan_heuristic = create_pyperplan_heuristic(model_factory, static_atoms, heuristic)
 
     # And now we inject our desired search and heuristic functions
-    args.forced_search = create_pyperplan_hill_climbing_with_embedded_heuristic(pyerplan_heuristic)
+    if 0:  # TODO Change this
+        args.forced_search = create_pyperplan_hill_climbing_with_embedded_heuristic(pyperplan_heuristic)
+    else:
+        args.search = "gbf"
+        args.forced_heuristic = pyperplan_heuristic
 
     # And run pyperplan!
     pyperplan.main(args)
