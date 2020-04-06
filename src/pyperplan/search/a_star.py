@@ -144,6 +144,8 @@ def astar_search(task, heuristic, make_open_entry=ordered_node_astar,
         # Only expand the node if its associated cost (g value) is the lowest
         # cost known for this state. Otherwise we already found a cheaper
         # path after creating this node and hence can disregard it.
+        if expansions % 1000 == 0:
+            logging.info("Expanded {} states.".format(expansions))
         if state_cost[pop_state] == pop_node.g:
             expansions += 1
 
