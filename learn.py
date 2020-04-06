@@ -333,6 +333,10 @@ def create_language(domain):
     return language
 
 
+def add_gripper_domain_parameters(language):
+    # Hack for now
+    return [language.constant("roomb", "object")]
+
 if __name__ == '__main__':
     args = parse_arguments()
     logging.basicConfig(stream=sys.stdout,
@@ -368,6 +372,7 @@ if __name__ == '__main__':
 
     for i in test_instances:
         logging.info("Solving {}".format(i))
-        import_and_run_pyperplan(test_domain, i, heuristic, None, gbfs=True)
+        import_and_run_pyperplan(test_domain, i, heuristic,
+                                 add_gripper_domain_parameters, gbfs=True)
 
     logging.debug('Exiting script.')
