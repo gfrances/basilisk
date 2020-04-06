@@ -369,7 +369,7 @@ if __name__ == '__main__':
                                                            weights,
                                                            language)
 
-
+    test_instances.sort()
     for i in test_instances:
         logging.info("Solving {}".format(i))
         import_and_run_pyperplan(test_domain, i, heuristic,
