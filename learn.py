@@ -32,6 +32,8 @@ INFINITY = 2147483647 # C++ infinity value
 H_STAR = []
 TRANSITIONS = defaultdict(list)
 
+VERBOSE_LEVEL = 1
+
 
 def parse_arguments():
     parser = argparse.ArgumentParser(
@@ -65,6 +67,8 @@ def parse_arguments():
                              'to reduce number of used features.')
     parser.add_argument('--class-weights', action='store_true',
                         help='Use weighted class on training.')
+    parser.add_argument('--keras-verbose', default=1, type=int,
+                        help='Keras verbose level (0, 1, or 2).')
     args = parser.parse_args()
 
     check_path_exists(args.training_data)
@@ -167,6 +171,7 @@ def train_nn(model, X, Y, args):
     logging.info('Training the NN....')
     history = model.fit(X, Y, epochs=args.epochs, batch_size=args.batch,
                         class_weight=weights,
+                        verbose=VERBOSE_LEVEL,
                         #callbacks=[EarlyStopping(monitor='loss', patience=20)],
                         )
     logging.info('Finished NN training.')
@@ -349,6 +354,8 @@ if __name__ == '__main__':
 
     test_domain, test_instances = read_test_instances_list(args.test_data)
 
+    VERBOSE_LEVEL = args.keras_verbose
+
     weights = None
     for i in range(args.iterations):
         history = iterative_learn(input_features, output_values)
@@ -373,7 +380,6 @@ if __name__ == '__main__':
     for i in test_instances:
         logging.info("Solving {}".format(i))
         import_and_run_pyperplan(test_domain, i, heuristic,
-                                 None, True)
-#                                 add_gripper_domain_parameters, gbfs=True)
+                                 add_gripper_domain_parameters, gbfs=True)
 
     logging.debug('Exiting script.')
