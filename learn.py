@@ -364,7 +364,7 @@ if __name__ == '__main__':
         new_input_features, features_names = filter_input(indices,
                                                           input_features,
                                                           features_names)
-        if new_input_features == input_features:
+        if len(new_input_features) == len(input_features):
             # Stop iterations if it is not pruning more concepts
             input_features = new_input_features
             break
