@@ -373,6 +373,7 @@ if __name__ == '__main__':
     for i in test_instances:
         logging.info("Solving {}".format(i))
         import_and_run_pyperplan(test_domain, i, heuristic,
-                                 add_gripper_domain_parameters, gbfs=True)
+                                 None, True)
+#                                 add_gripper_domain_parameters, gbfs=True)
 
     logging.debug('Exiting script.')
