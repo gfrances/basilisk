@@ -361,9 +361,14 @@ if __name__ == '__main__':
         history = iterative_learn(input_features, output_values)
         weights, indices = get_significant_weights(history)
         logging.info('Useful features: {}'.format(indices))
-        input_features, features_names = filter_input(indices,
-                                                      input_features,
-                                                      features_names)
+        new_input_features, features_names = filter_input(indices,
+                                                          input_features,
+                                                          features_names)
+        if new_input_features == input_features:
+            # Stop iterations if it is not pruning more concepts
+            input_features = new_input_features
+            break
+        input_features = new_input_features
 
     assert (weights is not None and len(weights) == len(features_names))
     print("Weighted features found:")
