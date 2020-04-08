@@ -1,0 +1,752 @@
+2020-04-07 13:00:15,876 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:15,876 INFO     using search: greedy_best_first_search
+2020-04-07 13:00:15,877 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:00:15,877 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:15,878 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-10-0.pddl
+2020-04-07 13:00:15,878 INFO     5 Predicates parsed
+2020-04-07 13:00:15,879 INFO     4 Actions parsed
+2020-04-07 13:00:15,879 INFO     10 Objects parsed
+2020-04-07 13:00:15,879 INFO     0 Constants parsed
+2020-04-07 13:00:15,879 INFO     Grounding start: blocks-10-0
+2020-04-07 13:00:15,883 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:00:15,883 INFO     Grounding end: blocks-10-0
+2020-04-07 13:00:15,883 INFO     131 Variables created
+2020-04-07 13:00:15,883 INFO     220 Operators created
+2020-04-07 13:00:15,883 INFO     Search start: blocks-10-0
+2020-04-07 13:00:15,884 INFO     Initial h value: 18.000000
+2020-04-07 13:00:18,485 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:00:18,485 INFO     784 Nodes expanded
+2020-04-07 13:00:18,486 INFO     Search end: blocks-10-0
+2020-04-07 13:00:18,486 INFO     Search time: 2.6
+2020-04-07 13:00:18,486 INFO     Plan length: 44
+2020-04-07 13:00:18,492 INFO     Plan correct
+2020-04-07 13:00:18,576 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:18,576 INFO     using search: greedy_best_first_search
+2020-04-07 13:00:18,576 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:00:18,576 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:18,578 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-10-1.pddl
+2020-04-07 13:00:18,579 INFO     5 Predicates parsed
+2020-04-07 13:00:18,580 INFO     4 Actions parsed
+2020-04-07 13:00:18,580 INFO     10 Objects parsed
+2020-04-07 13:00:18,580 INFO     0 Constants parsed
+2020-04-07 13:00:18,580 INFO     Grounding start: blocks-10-1
+2020-04-07 13:00:18,586 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:00:18,587 INFO     Grounding end: blocks-10-1
+2020-04-07 13:00:18,587 INFO     131 Variables created
+2020-04-07 13:00:18,587 INFO     220 Operators created
+2020-04-07 13:00:18,588 INFO     Search start: blocks-10-1
+2020-04-07 13:00:18,589 INFO     Initial h value: 19.000000
+2020-04-07 13:00:31,894 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:00:31,895 INFO     3332 Nodes expanded
+2020-04-07 13:00:31,898 INFO     Search end: blocks-10-1
+2020-04-07 13:00:31,898 INFO     Search time: 1.3e+01
+2020-04-07 13:00:31,898 INFO     Plan length: 64
+2020-04-07 13:00:31,905 INFO     Plan correct
+2020-04-07 13:00:31,968 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:31,968 INFO     using search: greedy_best_first_search
+2020-04-07 13:00:31,968 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:00:31,968 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:31,969 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-10-2.pddl
+2020-04-07 13:00:31,970 INFO     5 Predicates parsed
+2020-04-07 13:00:31,970 INFO     4 Actions parsed
+2020-04-07 13:00:31,971 INFO     10 Objects parsed
+2020-04-07 13:00:31,971 INFO     0 Constants parsed
+2020-04-07 13:00:31,971 INFO     Grounding start: blocks-10-2
+2020-04-07 13:00:31,975 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:00:31,975 INFO     Grounding end: blocks-10-2
+2020-04-07 13:00:31,976 INFO     131 Variables created
+2020-04-07 13:00:31,976 INFO     220 Operators created
+2020-04-07 13:00:31,976 INFO     Search start: blocks-10-2
+2020-04-07 13:00:31,977 INFO     Initial h value: 19.000000
+2020-04-07 13:00:33,599 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:00:33,599 INFO     431 Nodes expanded
+2020-04-07 13:00:33,600 INFO     Search end: blocks-10-2
+2020-04-07 13:00:33,600 INFO     Search time: 1.6
+2020-04-07 13:00:33,600 INFO     Plan length: 48
+2020-04-07 13:00:33,607 INFO     Plan correct
+2020-04-07 13:00:33,670 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:33,670 INFO     using search: greedy_best_first_search
+2020-04-07 13:00:33,670 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:00:33,671 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:33,673 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-11-0.pddl
+2020-04-07 13:00:33,674 INFO     5 Predicates parsed
+2020-04-07 13:00:33,674 INFO     4 Actions parsed
+2020-04-07 13:00:33,674 INFO     11 Objects parsed
+2020-04-07 13:00:33,674 INFO     0 Constants parsed
+2020-04-07 13:00:33,674 INFO     Grounding start: blocks-11-0
+2020-04-07 13:00:33,679 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:00:33,680 INFO     Grounding end: blocks-11-0
+2020-04-07 13:00:33,680 INFO     155 Variables created
+2020-04-07 13:00:33,680 INFO     264 Operators created
+2020-04-07 13:00:33,681 INFO     Search start: blocks-11-0
+2020-04-07 13:00:33,682 INFO     Initial h value: 19.000000
+2020-04-07 13:00:34,416 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:00:34,416 INFO     195 Nodes expanded
+2020-04-07 13:00:34,416 INFO     Search end: blocks-11-0
+2020-04-07 13:00:34,416 INFO     Search time: 0.74
+2020-04-07 13:00:34,417 INFO     Plan length: 50
+2020-04-07 13:00:34,423 INFO     Plan correct
+2020-04-07 13:00:34,503 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:34,504 INFO     using search: greedy_best_first_search
+2020-04-07 13:00:34,504 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:00:34,504 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:34,506 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-11-1.pddl
+2020-04-07 13:00:34,508 INFO     5 Predicates parsed
+2020-04-07 13:00:34,508 INFO     4 Actions parsed
+2020-04-07 13:00:34,508 INFO     11 Objects parsed
+2020-04-07 13:00:34,508 INFO     0 Constants parsed
+2020-04-07 13:00:34,508 INFO     Grounding start: blocks-11-1
+2020-04-07 13:00:34,514 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:00:34,514 INFO     Grounding end: blocks-11-1
+2020-04-07 13:00:34,515 INFO     155 Variables created
+2020-04-07 13:00:34,515 INFO     264 Operators created
+2020-04-07 13:00:34,515 INFO     Search start: blocks-11-1
+2020-04-07 13:00:34,517 INFO     Initial h value: 21.000000
+2020-04-07 13:00:35,924 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:00:35,924 INFO     320 Nodes expanded
+2020-04-07 13:00:35,925 INFO     Search end: blocks-11-1
+2020-04-07 13:00:35,925 INFO     Search time: 1.4
+2020-04-07 13:00:35,925 INFO     Plan length: 66
+2020-04-07 13:00:35,933 INFO     Plan correct
+2020-04-07 13:00:36,019 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:36,019 INFO     using search: greedy_best_first_search
+2020-04-07 13:00:36,020 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:00:36,020 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:36,021 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-11-2.pddl
+2020-04-07 13:00:36,022 INFO     5 Predicates parsed
+2020-04-07 13:00:36,022 INFO     4 Actions parsed
+2020-04-07 13:00:36,022 INFO     11 Objects parsed
+2020-04-07 13:00:36,022 INFO     0 Constants parsed
+2020-04-07 13:00:36,022 INFO     Grounding start: blocks-11-2
+2020-04-07 13:00:36,028 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:00:36,029 INFO     Grounding end: blocks-11-2
+2020-04-07 13:00:36,029 INFO     155 Variables created
+2020-04-07 13:00:36,029 INFO     264 Operators created
+2020-04-07 13:00:36,030 INFO     Search start: blocks-11-2
+2020-04-07 13:00:36,031 INFO     Initial h value: 19.000000
+2020-04-07 13:00:39,048 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:00:39,049 INFO     578 Nodes expanded
+2020-04-07 13:00:39,050 INFO     Search end: blocks-11-2
+2020-04-07 13:00:39,050 INFO     Search time: 3.0
+2020-04-07 13:00:39,051 INFO     Plan length: 72
+2020-04-07 13:00:39,058 INFO     Plan correct
+2020-04-07 13:00:39,125 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:39,125 INFO     using search: greedy_best_first_search
+2020-04-07 13:00:39,125 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:00:39,125 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:00:39,127 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-12-0.pddl
+2020-04-07 13:00:39,128 INFO     5 Predicates parsed
+2020-04-07 13:00:39,128 INFO     4 Actions parsed
+2020-04-07 13:00:39,128 INFO     12 Objects parsed
+2020-04-07 13:00:39,128 INFO     0 Constants parsed
+2020-04-07 13:00:39,128 INFO     Grounding start: blocks-12-0
+2020-04-07 13:00:39,133 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:00:39,134 INFO     Grounding end: blocks-12-0
+2020-04-07 13:00:39,134 INFO     181 Variables created
+2020-04-07 13:00:39,134 INFO     312 Operators created
+2020-04-07 13:00:39,135 INFO     Search start: blocks-12-0
+2020-04-07 13:00:39,136 INFO     Initial h value: 22.000000
+2020-04-07 13:03:52,027 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:03:52,027 INFO     24312 Nodes expanded
+2020-04-07 13:03:52,069 INFO     Search end: blocks-12-0
+2020-04-07 13:03:52,069 INFO     Search time: 1.9e+02
+2020-04-07 13:03:52,070 INFO     Plan length: 104
+2020-04-07 13:03:52,082 INFO     Plan correct
+2020-04-07 13:03:52,165 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:03:52,165 INFO     using search: greedy_best_first_search
+2020-04-07 13:03:52,165 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:03:52,165 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:03:52,167 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-12-1.pddl
+2020-04-07 13:03:52,168 INFO     5 Predicates parsed
+2020-04-07 13:03:52,168 INFO     4 Actions parsed
+2020-04-07 13:03:52,168 INFO     12 Objects parsed
+2020-04-07 13:03:52,168 INFO     0 Constants parsed
+2020-04-07 13:03:52,168 INFO     Grounding start: blocks-12-1
+2020-04-07 13:03:52,175 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:03:52,176 INFO     Grounding end: blocks-12-1
+2020-04-07 13:03:52,176 INFO     181 Variables created
+2020-04-07 13:03:52,176 INFO     312 Operators created
+2020-04-07 13:03:52,177 INFO     Search start: blocks-12-1
+2020-04-07 13:03:52,179 INFO     Initial h value: 22.000000
+2020-04-07 13:03:54,225 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:03:54,226 INFO     331 Nodes expanded
+2020-04-07 13:03:54,226 INFO     Search end: blocks-12-1
+2020-04-07 13:03:54,226 INFO     Search time: 2.0
+2020-04-07 13:03:54,226 INFO     Plan length: 58
+2020-04-07 13:03:54,235 INFO     Plan correct
+2020-04-07 13:03:54,309 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:03:54,309 INFO     using search: greedy_best_first_search
+2020-04-07 13:03:54,309 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:03:54,309 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:03:54,311 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-13-0.pddl
+2020-04-07 13:03:54,312 INFO     5 Predicates parsed
+2020-04-07 13:03:54,312 INFO     4 Actions parsed
+2020-04-07 13:03:54,312 INFO     13 Objects parsed
+2020-04-07 13:03:54,312 INFO     0 Constants parsed
+2020-04-07 13:03:54,312 INFO     Grounding start: blocks-13-0
+2020-04-07 13:03:54,320 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:03:54,320 INFO     Grounding end: blocks-13-0
+2020-04-07 13:03:54,320 INFO     209 Variables created
+2020-04-07 13:03:54,320 INFO     364 Operators created
+2020-04-07 13:03:54,321 INFO     Search start: blocks-13-0
+2020-04-07 13:03:54,323 INFO     Initial h value: 24.000000
+2020-04-07 13:04:01,686 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:04:01,687 INFO     690 Nodes expanded
+2020-04-07 13:04:01,688 INFO     Search end: blocks-13-0
+2020-04-07 13:04:01,688 INFO     Search time: 7.4
+2020-04-07 13:04:01,688 INFO     Plan length: 96
+2020-04-07 13:04:01,697 INFO     Plan correct
+2020-04-07 13:04:01,781 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:04:01,781 INFO     using search: greedy_best_first_search
+2020-04-07 13:04:01,781 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:04:01,781 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:04:01,783 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-13-1.pddl
+2020-04-07 13:04:01,784 INFO     5 Predicates parsed
+2020-04-07 13:04:01,784 INFO     4 Actions parsed
+2020-04-07 13:04:01,784 INFO     13 Objects parsed
+2020-04-07 13:04:01,785 INFO     0 Constants parsed
+2020-04-07 13:04:01,785 INFO     Grounding start: blocks-13-1
+2020-04-07 13:04:01,795 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:04:01,796 INFO     Grounding end: blocks-13-1
+2020-04-07 13:04:01,796 INFO     209 Variables created
+2020-04-07 13:04:01,796 INFO     364 Operators created
+2020-04-07 13:04:01,797 INFO     Search start: blocks-13-1
+2020-04-07 13:04:01,800 INFO     Initial h value: 25.000000
+2020-04-07 13:04:11,851 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:04:11,851 INFO     1143 Nodes expanded
+2020-04-07 13:04:11,853 INFO     Search end: blocks-13-1
+2020-04-07 13:04:11,853 INFO     Search time: 1e+01
+2020-04-07 13:04:11,853 INFO     Plan length: 96
+2020-04-07 13:04:11,865 INFO     Plan correct
+2020-04-07 13:04:11,944 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:04:11,944 INFO     using search: greedy_best_first_search
+2020-04-07 13:04:11,944 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:04:11,944 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:04:11,946 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-14-0.pddl
+2020-04-07 13:04:11,947 INFO     5 Predicates parsed
+2020-04-07 13:04:11,947 INFO     4 Actions parsed
+2020-04-07 13:04:11,947 INFO     14 Objects parsed
+2020-04-07 13:04:11,947 INFO     0 Constants parsed
+2020-04-07 13:04:11,947 INFO     Grounding start: blocks-14-0
+2020-04-07 13:04:11,958 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:04:11,958 INFO     Grounding end: blocks-14-0
+2020-04-07 13:04:11,959 INFO     239 Variables created
+2020-04-07 13:04:11,959 INFO     420 Operators created
+2020-04-07 13:04:11,961 INFO     Search start: blocks-14-0
+2020-04-07 13:04:11,966 INFO     Initial h value: 25.000000
+2020-04-07 13:04:20,299 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:04:20,299 INFO     823 Nodes expanded
+2020-04-07 13:04:20,301 INFO     Search end: blocks-14-0
+2020-04-07 13:04:20,301 INFO     Search time: 8.3
+2020-04-07 13:04:20,301 INFO     Plan length: 84
+2020-04-07 13:04:20,309 INFO     Plan correct
+2020-04-07 13:04:20,386 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:04:20,386 INFO     using search: greedy_best_first_search
+2020-04-07 13:04:20,386 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:04:20,386 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:04:20,388 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-14-1.pddl
+2020-04-07 13:04:20,389 INFO     5 Predicates parsed
+2020-04-07 13:04:20,389 INFO     4 Actions parsed
+2020-04-07 13:04:20,389 INFO     14 Objects parsed
+2020-04-07 13:04:20,389 INFO     0 Constants parsed
+2020-04-07 13:04:20,389 INFO     Grounding start: blocks-14-1
+2020-04-07 13:04:20,398 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:04:20,399 INFO     Grounding end: blocks-14-1
+2020-04-07 13:04:20,399 INFO     239 Variables created
+2020-04-07 13:04:20,399 INFO     420 Operators created
+2020-04-07 13:04:20,400 INFO     Search start: blocks-14-1
+2020-04-07 13:04:20,403 INFO     Initial h value: 27.000000
+2020-04-07 13:04:28,074 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:04:28,074 INFO     678 Nodes expanded
+2020-04-07 13:04:28,076 INFO     Search end: blocks-14-1
+2020-04-07 13:04:28,076 INFO     Search time: 7.7
+2020-04-07 13:04:28,076 INFO     Plan length: 82
+2020-04-07 13:04:28,084 INFO     Plan correct
+2020-04-07 13:04:28,174 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:04:28,175 INFO     using search: greedy_best_first_search
+2020-04-07 13:04:28,175 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:04:28,175 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:04:28,177 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-15-0.pddl
+2020-04-07 13:04:28,178 INFO     5 Predicates parsed
+2020-04-07 13:04:28,178 INFO     4 Actions parsed
+2020-04-07 13:04:28,178 INFO     15 Objects parsed
+2020-04-07 13:04:28,178 INFO     0 Constants parsed
+2020-04-07 13:04:28,178 INFO     Grounding start: blocks-15-0
+2020-04-07 13:04:28,189 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:04:28,189 INFO     Grounding end: blocks-15-0
+2020-04-07 13:04:28,189 INFO     271 Variables created
+2020-04-07 13:04:28,190 INFO     480 Operators created
+2020-04-07 13:04:28,191 INFO     Search start: blocks-15-0
+2020-04-07 13:04:28,194 INFO     Initial h value: 28.000000
+2020-04-07 13:09:34,496 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:09:34,497 INFO     26471 Nodes expanded
+2020-04-07 13:09:34,548 INFO     Search end: blocks-15-0
+2020-04-07 13:09:34,548 INFO     Search time: 3.1e+02
+2020-04-07 13:09:34,549 INFO     Plan length: 158
+2020-04-07 13:09:34,563 INFO     Plan correct
+2020-04-07 13:09:34,640 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:09:34,640 INFO     using search: greedy_best_first_search
+2020-04-07 13:09:34,641 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:09:34,641 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:09:34,642 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-15-1.pddl
+2020-04-07 13:09:34,643 INFO     5 Predicates parsed
+2020-04-07 13:09:34,644 INFO     4 Actions parsed
+2020-04-07 13:09:34,644 INFO     15 Objects parsed
+2020-04-07 13:09:34,644 INFO     0 Constants parsed
+2020-04-07 13:09:34,644 INFO     Grounding start: blocks-15-1
+2020-04-07 13:09:34,653 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:09:34,654 INFO     Grounding end: blocks-15-1
+2020-04-07 13:09:34,654 INFO     271 Variables created
+2020-04-07 13:09:34,654 INFO     480 Operators created
+2020-04-07 13:09:34,655 INFO     Search start: blocks-15-1
+2020-04-07 13:09:34,659 INFO     Initial h value: 28.000000
+2020-04-07 13:10:14,002 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:10:14,002 INFO     3552 Nodes expanded
+2020-04-07 13:10:14,007 INFO     Search end: blocks-15-1
+2020-04-07 13:10:14,007 INFO     Search time: 3.9e+01
+2020-04-07 13:10:14,008 INFO     Plan length: 116
+2020-04-07 13:10:14,016 INFO     Plan correct
+2020-04-07 13:10:14,087 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:10:14,087 INFO     using search: greedy_best_first_search
+2020-04-07 13:10:14,087 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:10:14,087 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:10:14,089 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-16-1.pddl
+2020-04-07 13:10:14,090 INFO     5 Predicates parsed
+2020-04-07 13:10:14,090 INFO     4 Actions parsed
+2020-04-07 13:10:14,090 INFO     16 Objects parsed
+2020-04-07 13:10:14,090 INFO     0 Constants parsed
+2020-04-07 13:10:14,090 INFO     Grounding start: blocks-16-1
+2020-04-07 13:10:14,102 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:10:14,102 INFO     Grounding end: blocks-16-1
+2020-04-07 13:10:14,103 INFO     305 Variables created
+2020-04-07 13:10:14,103 INFO     544 Operators created
+2020-04-07 13:10:14,104 INFO     Search start: blocks-16-1
+2020-04-07 13:10:14,107 INFO     Initial h value: 31.000000
+2020-04-07 13:10:44,444 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:10:44,444 INFO     2541 Nodes expanded
+2020-04-07 13:10:44,449 INFO     Search end: blocks-16-1
+2020-04-07 13:10:44,449 INFO     Search time: 3e+01
+2020-04-07 13:10:44,450 INFO     Plan length: 106
+2020-04-07 13:10:44,458 INFO     Plan correct
+2020-04-07 13:10:44,531 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:10:44,531 INFO     using search: greedy_best_first_search
+2020-04-07 13:10:44,531 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:10:44,531 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:10:44,533 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-16-2.pddl
+2020-04-07 13:10:44,534 INFO     5 Predicates parsed
+2020-04-07 13:10:44,534 INFO     4 Actions parsed
+2020-04-07 13:10:44,534 INFO     16 Objects parsed
+2020-04-07 13:10:44,534 INFO     0 Constants parsed
+2020-04-07 13:10:44,534 INFO     Grounding start: blocks-16-2
+2020-04-07 13:10:44,546 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:10:44,546 INFO     Grounding end: blocks-16-2
+2020-04-07 13:10:44,546 INFO     305 Variables created
+2020-04-07 13:10:44,546 INFO     544 Operators created
+2020-04-07 13:10:44,548 INFO     Search start: blocks-16-2
+2020-04-07 13:10:44,552 INFO     Initial h value: 28.000000
+2020-04-07 13:21:07,622 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:07,622 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:07,623 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:07,623 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:07,623 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-17-0.pddl
+2020-04-07 13:21:07,624 INFO     5 Predicates parsed
+2020-04-07 13:21:07,624 INFO     4 Actions parsed
+2020-04-07 13:21:07,624 INFO     17 Objects parsed
+2020-04-07 13:21:07,624 INFO     0 Constants parsed
+2020-04-07 13:21:07,624 INFO     Grounding start: blocks-17-0
+2020-04-07 13:21:07,632 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:07,632 INFO     Grounding end: blocks-17-0
+2020-04-07 13:21:07,632 INFO     341 Variables created
+2020-04-07 13:21:07,632 INFO     612 Operators created
+2020-04-07 13:21:07,633 INFO     Search start: blocks-17-0
+2020-04-07 13:21:07,635 INFO     Initial h value: 33.000000
+2020-04-07 13:21:08,943 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:08,943 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:08,944 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:08,944 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:08,945 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-4-0.pddl
+2020-04-07 13:21:08,945 INFO     5 Predicates parsed
+2020-04-07 13:21:08,945 INFO     4 Actions parsed
+2020-04-07 13:21:08,945 INFO     4 Objects parsed
+2020-04-07 13:21:08,945 INFO     0 Constants parsed
+2020-04-07 13:21:08,945 INFO     Grounding start: blocks-4-0
+2020-04-07 13:21:08,946 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:08,946 INFO     Grounding end: blocks-4-0
+2020-04-07 13:21:08,946 INFO     29 Variables created
+2020-04-07 13:21:08,946 INFO     40 Operators created
+2020-04-07 13:21:08,946 INFO     Search start: blocks-4-0
+2020-04-07 13:21:08,946 INFO     Initial h value: 6.000000
+2020-04-07 13:21:08,949 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:08,949 INFO     7 Nodes expanded
+2020-04-07 13:21:08,949 INFO     Search end: blocks-4-0
+2020-04-07 13:21:08,949 INFO     Search time: 0.0029
+2020-04-07 13:21:08,949 INFO     Plan length: 6
+2020-04-07 13:21:08,954 INFO     Plan correct
+2020-04-07 13:21:08,999 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,000 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,000 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,000 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,001 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-4-1.pddl
+2020-04-07 13:21:09,001 INFO     5 Predicates parsed
+2020-04-07 13:21:09,001 INFO     4 Actions parsed
+2020-04-07 13:21:09,001 INFO     4 Objects parsed
+2020-04-07 13:21:09,001 INFO     0 Constants parsed
+2020-04-07 13:21:09,001 INFO     Grounding start: blocks-4-1
+2020-04-07 13:21:09,002 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,002 INFO     Grounding end: blocks-4-1
+2020-04-07 13:21:09,002 INFO     29 Variables created
+2020-04-07 13:21:09,002 INFO     40 Operators created
+2020-04-07 13:21:09,002 INFO     Search start: blocks-4-1
+2020-04-07 13:21:09,002 INFO     Initial h value: 6.000000
+2020-04-07 13:21:09,006 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:09,006 INFO     12 Nodes expanded
+2020-04-07 13:21:09,006 INFO     Search end: blocks-4-1
+2020-04-07 13:21:09,006 INFO     Search time: 0.0042
+2020-04-07 13:21:09,006 INFO     Plan length: 10
+2020-04-07 13:21:09,011 INFO     Plan correct
+2020-04-07 13:21:09,058 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,058 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,058 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,058 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,059 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-4-2.pddl
+2020-04-07 13:21:09,060 INFO     5 Predicates parsed
+2020-04-07 13:21:09,060 INFO     4 Actions parsed
+2020-04-07 13:21:09,060 INFO     4 Objects parsed
+2020-04-07 13:21:09,060 INFO     0 Constants parsed
+2020-04-07 13:21:09,060 INFO     Grounding start: blocks-4-2
+2020-04-07 13:21:09,060 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,060 INFO     Grounding end: blocks-4-2
+2020-04-07 13:21:09,061 INFO     29 Variables created
+2020-04-07 13:21:09,061 INFO     40 Operators created
+2020-04-07 13:21:09,061 INFO     Search start: blocks-4-2
+2020-04-07 13:21:09,061 INFO     Initial h value: 6.000000
+2020-04-07 13:21:09,064 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:09,065 INFO     10 Nodes expanded
+2020-04-07 13:21:09,065 INFO     Search end: blocks-4-2
+2020-04-07 13:21:09,065 INFO     Search time: 0.0039
+2020-04-07 13:21:09,065 INFO     Plan length: 6
+2020-04-07 13:21:09,070 INFO     Plan correct
+2020-04-07 13:21:09,118 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,118 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,118 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,118 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,119 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-5-0.pddl
+2020-04-07 13:21:09,119 INFO     5 Predicates parsed
+2020-04-07 13:21:09,119 INFO     4 Actions parsed
+2020-04-07 13:21:09,119 INFO     5 Objects parsed
+2020-04-07 13:21:09,120 INFO     0 Constants parsed
+2020-04-07 13:21:09,120 INFO     Grounding start: blocks-5-0
+2020-04-07 13:21:09,121 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,121 INFO     Grounding end: blocks-5-0
+2020-04-07 13:21:09,121 INFO     41 Variables created
+2020-04-07 13:21:09,121 INFO     60 Operators created
+2020-04-07 13:21:09,121 INFO     Search start: blocks-5-0
+2020-04-07 13:21:09,121 INFO     Initial h value: 8.000000
+2020-04-07 13:21:09,129 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:09,129 INFO     16 Nodes expanded
+2020-04-07 13:21:09,129 INFO     Search end: blocks-5-0
+2020-04-07 13:21:09,129 INFO     Search time: 0.0084
+2020-04-07 13:21:09,129 INFO     Plan length: 12
+2020-04-07 13:21:09,134 INFO     Plan correct
+2020-04-07 13:21:09,181 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,181 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,181 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,181 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,182 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-5-1.pddl
+2020-04-07 13:21:09,183 INFO     5 Predicates parsed
+2020-04-07 13:21:09,183 INFO     4 Actions parsed
+2020-04-07 13:21:09,183 INFO     5 Objects parsed
+2020-04-07 13:21:09,183 INFO     0 Constants parsed
+2020-04-07 13:21:09,183 INFO     Grounding start: blocks-5-1
+2020-04-07 13:21:09,184 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,184 INFO     Grounding end: blocks-5-1
+2020-04-07 13:21:09,184 INFO     41 Variables created
+2020-04-07 13:21:09,184 INFO     60 Operators created
+2020-04-07 13:21:09,184 INFO     Search start: blocks-5-1
+2020-04-07 13:21:09,185 INFO     Initial h value: 7.000000
+2020-04-07 13:21:09,211 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:09,211 INFO     45 Nodes expanded
+2020-04-07 13:21:09,211 INFO     Search end: blocks-5-1
+2020-04-07 13:21:09,211 INFO     Search time: 0.027
+2020-04-07 13:21:09,211 INFO     Plan length: 18
+2020-04-07 13:21:09,216 INFO     Plan correct
+2020-04-07 13:21:09,263 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,263 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,264 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,264 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,265 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-5-2.pddl
+2020-04-07 13:21:09,265 INFO     5 Predicates parsed
+2020-04-07 13:21:09,265 INFO     4 Actions parsed
+2020-04-07 13:21:09,265 INFO     5 Objects parsed
+2020-04-07 13:21:09,265 INFO     0 Constants parsed
+2020-04-07 13:21:09,265 INFO     Grounding start: blocks-5-2
+2020-04-07 13:21:09,266 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,266 INFO     Grounding end: blocks-5-2
+2020-04-07 13:21:09,266 INFO     41 Variables created
+2020-04-07 13:21:09,266 INFO     60 Operators created
+2020-04-07 13:21:09,266 INFO     Search start: blocks-5-2
+2020-04-07 13:21:09,267 INFO     Initial h value: 9.000000
+2020-04-07 13:21:09,288 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:09,288 INFO     36 Nodes expanded
+2020-04-07 13:21:09,288 INFO     Search end: blocks-5-2
+2020-04-07 13:21:09,288 INFO     Search time: 0.022
+2020-04-07 13:21:09,289 INFO     Plan length: 20
+2020-04-07 13:21:09,294 INFO     Plan correct
+2020-04-07 13:21:09,340 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,340 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,340 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,340 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,341 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-6-0.pddl
+2020-04-07 13:21:09,342 INFO     5 Predicates parsed
+2020-04-07 13:21:09,342 INFO     4 Actions parsed
+2020-04-07 13:21:09,342 INFO     6 Objects parsed
+2020-04-07 13:21:09,342 INFO     0 Constants parsed
+2020-04-07 13:21:09,342 INFO     Grounding start: blocks-6-0
+2020-04-07 13:21:09,343 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,343 INFO     Grounding end: blocks-6-0
+2020-04-07 13:21:09,343 INFO     55 Variables created
+2020-04-07 13:21:09,343 INFO     84 Operators created
+2020-04-07 13:21:09,344 INFO     Search start: blocks-6-0
+2020-04-07 13:21:09,344 INFO     Initial h value: 11.000000
+2020-04-07 13:21:09,362 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:09,362 INFO     21 Nodes expanded
+2020-04-07 13:21:09,362 INFO     Search end: blocks-6-0
+2020-04-07 13:21:09,362 INFO     Search time: 0.018
+2020-04-07 13:21:09,362 INFO     Plan length: 12
+2020-04-07 13:21:09,367 INFO     Plan correct
+2020-04-07 13:21:09,414 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,414 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,414 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,414 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,415 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-6-1.pddl
+2020-04-07 13:21:09,416 INFO     5 Predicates parsed
+2020-04-07 13:21:09,416 INFO     4 Actions parsed
+2020-04-07 13:21:09,416 INFO     6 Objects parsed
+2020-04-07 13:21:09,416 INFO     0 Constants parsed
+2020-04-07 13:21:09,416 INFO     Grounding start: blocks-6-1
+2020-04-07 13:21:09,417 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,417 INFO     Grounding end: blocks-6-1
+2020-04-07 13:21:09,417 INFO     55 Variables created
+2020-04-07 13:21:09,417 INFO     84 Operators created
+2020-04-07 13:21:09,418 INFO     Search start: blocks-6-1
+2020-04-07 13:21:09,418 INFO     Initial h value: 10.000000
+2020-04-07 13:21:09,484 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:09,485 INFO     73 Nodes expanded
+2020-04-07 13:21:09,485 INFO     Search end: blocks-6-1
+2020-04-07 13:21:09,485 INFO     Search time: 0.067
+2020-04-07 13:21:09,485 INFO     Plan length: 18
+2020-04-07 13:21:09,490 INFO     Plan correct
+2020-04-07 13:21:09,537 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,537 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,537 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,537 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,538 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-6-2.pddl
+2020-04-07 13:21:09,539 INFO     5 Predicates parsed
+2020-04-07 13:21:09,539 INFO     4 Actions parsed
+2020-04-07 13:21:09,539 INFO     6 Objects parsed
+2020-04-07 13:21:09,539 INFO     0 Constants parsed
+2020-04-07 13:21:09,539 INFO     Grounding start: blocks-6-2
+2020-04-07 13:21:09,540 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,540 INFO     Grounding end: blocks-6-2
+2020-04-07 13:21:09,540 INFO     55 Variables created
+2020-04-07 13:21:09,540 INFO     84 Operators created
+2020-04-07 13:21:09,540 INFO     Search start: blocks-6-2
+2020-04-07 13:21:09,541 INFO     Initial h value: 11.000000
+2020-04-07 13:21:09,640 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,640 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,640 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,640 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,641 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-7-0.pddl
+2020-04-07 13:21:09,642 INFO     5 Predicates parsed
+2020-04-07 13:21:09,642 INFO     4 Actions parsed
+2020-04-07 13:21:09,642 INFO     7 Objects parsed
+2020-04-07 13:21:09,642 INFO     0 Constants parsed
+2020-04-07 13:21:09,642 INFO     Grounding start: blocks-7-0
+2020-04-07 13:21:09,644 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,644 INFO     Grounding end: blocks-7-0
+2020-04-07 13:21:09,644 INFO     71 Variables created
+2020-04-07 13:21:09,644 INFO     112 Operators created
+2020-04-07 13:21:09,644 INFO     Search start: blocks-7-0
+2020-04-07 13:21:09,645 INFO     Initial h value: 13.000000
+2020-04-07 13:21:09,688 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:09,688 INFO     36 Nodes expanded
+2020-04-07 13:21:09,688 INFO     Search end: blocks-7-0
+2020-04-07 13:21:09,688 INFO     Search time: 0.044
+2020-04-07 13:21:09,688 INFO     Plan length: 22
+2020-04-07 13:21:09,693 INFO     Plan correct
+2020-04-07 13:21:09,739 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,739 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,739 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,739 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,740 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-7-1.pddl
+2020-04-07 13:21:09,741 INFO     5 Predicates parsed
+2020-04-07 13:21:09,741 INFO     4 Actions parsed
+2020-04-07 13:21:09,741 INFO     7 Objects parsed
+2020-04-07 13:21:09,741 INFO     0 Constants parsed
+2020-04-07 13:21:09,741 INFO     Grounding start: blocks-7-1
+2020-04-07 13:21:09,743 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,743 INFO     Grounding end: blocks-7-1
+2020-04-07 13:21:09,743 INFO     71 Variables created
+2020-04-07 13:21:09,743 INFO     112 Operators created
+2020-04-07 13:21:09,743 INFO     Search start: blocks-7-1
+2020-04-07 13:21:09,744 INFO     Initial h value: 12.000000
+2020-04-07 13:21:09,815 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:09,815 INFO     60 Nodes expanded
+2020-04-07 13:21:09,815 INFO     Search end: blocks-7-1
+2020-04-07 13:21:09,815 INFO     Search time: 0.072
+2020-04-07 13:21:09,815 INFO     Plan length: 26
+2020-04-07 13:21:09,820 INFO     Plan correct
+2020-04-07 13:21:09,867 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,867 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:09,867 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:09,867 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:09,868 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-7-2.pddl
+2020-04-07 13:21:09,868 INFO     5 Predicates parsed
+2020-04-07 13:21:09,869 INFO     4 Actions parsed
+2020-04-07 13:21:09,869 INFO     7 Objects parsed
+2020-04-07 13:21:09,869 INFO     0 Constants parsed
+2020-04-07 13:21:09,869 INFO     Grounding start: blocks-7-2
+2020-04-07 13:21:09,870 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:09,870 INFO     Grounding end: blocks-7-2
+2020-04-07 13:21:09,871 INFO     71 Variables created
+2020-04-07 13:21:09,871 INFO     112 Operators created
+2020-04-07 13:21:09,871 INFO     Search start: blocks-7-2
+2020-04-07 13:21:09,871 INFO     Initial h value: 12.000000
+2020-04-07 13:21:10,074 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:10,074 INFO     165 Nodes expanded
+2020-04-07 13:21:10,074 INFO     Search end: blocks-7-2
+2020-04-07 13:21:10,074 INFO     Search time: 0.2
+2020-04-07 13:21:10,074 INFO     Plan length: 34
+2020-04-07 13:21:10,079 INFO     Plan correct
+2020-04-07 13:21:10,126 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:10,126 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:10,126 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:10,126 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:10,127 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-8-0.pddl
+2020-04-07 13:21:10,128 INFO     5 Predicates parsed
+2020-04-07 13:21:10,128 INFO     4 Actions parsed
+2020-04-07 13:21:10,128 INFO     8 Objects parsed
+2020-04-07 13:21:10,128 INFO     0 Constants parsed
+2020-04-07 13:21:10,128 INFO     Grounding start: blocks-8-0
+2020-04-07 13:21:10,130 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:10,130 INFO     Grounding end: blocks-8-0
+2020-04-07 13:21:10,130 INFO     89 Variables created
+2020-04-07 13:21:10,130 INFO     144 Operators created
+2020-04-07 13:21:10,131 INFO     Search start: blocks-8-0
+2020-04-07 13:21:10,131 INFO     Initial h value: 13.000000
+2020-04-07 13:21:10,827 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:10,827 INFO     411 Nodes expanded
+2020-04-07 13:21:10,827 INFO     Search end: blocks-8-0
+2020-04-07 13:21:10,827 INFO     Search time: 0.7
+2020-04-07 13:21:10,827 INFO     Plan length: 34
+2020-04-07 13:21:10,833 INFO     Plan correct
+2020-04-07 13:21:10,880 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:10,880 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:10,880 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:10,880 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:10,881 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-8-1.pddl
+2020-04-07 13:21:10,881 INFO     5 Predicates parsed
+2020-04-07 13:21:10,881 INFO     4 Actions parsed
+2020-04-07 13:21:10,882 INFO     8 Objects parsed
+2020-04-07 13:21:10,882 INFO     0 Constants parsed
+2020-04-07 13:21:10,882 INFO     Grounding start: blocks-8-1
+2020-04-07 13:21:10,884 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:10,884 INFO     Grounding end: blocks-8-1
+2020-04-07 13:21:10,884 INFO     89 Variables created
+2020-04-07 13:21:10,884 INFO     144 Operators created
+2020-04-07 13:21:10,884 INFO     Search start: blocks-8-1
+2020-04-07 13:21:10,885 INFO     Initial h value: 13.000000
+2020-04-07 13:21:11,287 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:11,287 INFO     236 Nodes expanded
+2020-04-07 13:21:11,287 INFO     Search end: blocks-8-1
+2020-04-07 13:21:11,287 INFO     Search time: 0.4
+2020-04-07 13:21:11,287 INFO     Plan length: 44
+2020-04-07 13:21:11,292 INFO     Plan correct
+2020-04-07 13:21:11,340 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:11,340 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:11,340 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:11,340 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:11,341 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-8-2.pddl
+2020-04-07 13:21:11,342 INFO     5 Predicates parsed
+2020-04-07 13:21:11,342 INFO     4 Actions parsed
+2020-04-07 13:21:11,342 INFO     8 Objects parsed
+2020-04-07 13:21:11,342 INFO     0 Constants parsed
+2020-04-07 13:21:11,342 INFO     Grounding start: blocks-8-2
+2020-04-07 13:21:11,344 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:11,344 INFO     Grounding end: blocks-8-2
+2020-04-07 13:21:11,344 INFO     89 Variables created
+2020-04-07 13:21:11,344 INFO     144 Operators created
+2020-04-07 13:21:11,345 INFO     Search start: blocks-8-2
+2020-04-07 13:21:11,345 INFO     Initial h value: 14.000000
+2020-04-07 13:21:11,439 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:11,439 INFO     63 Nodes expanded
+2020-04-07 13:21:11,439 INFO     Search end: blocks-8-2
+2020-04-07 13:21:11,439 INFO     Search time: 0.095
+2020-04-07 13:21:11,440 INFO     Plan length: 26
+2020-04-07 13:21:11,445 INFO     Plan correct
+2020-04-07 13:21:11,492 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:11,492 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:11,492 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:11,492 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:11,493 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-9-0.pddl
+2020-04-07 13:21:11,493 INFO     5 Predicates parsed
+2020-04-07 13:21:11,493 INFO     4 Actions parsed
+2020-04-07 13:21:11,493 INFO     9 Objects parsed
+2020-04-07 13:21:11,493 INFO     0 Constants parsed
+2020-04-07 13:21:11,494 INFO     Grounding start: blocks-9-0
+2020-04-07 13:21:11,496 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:11,496 INFO     Grounding end: blocks-9-0
+2020-04-07 13:21:11,496 INFO     109 Variables created
+2020-04-07 13:21:11,496 INFO     180 Operators created
+2020-04-07 13:21:11,497 INFO     Search start: blocks-9-0
+2020-04-07 13:21:11,498 INFO     Initial h value: 16.000000
+2020-04-07 13:21:12,837 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:12,837 INFO     630 Nodes expanded
+2020-04-07 13:21:12,837 INFO     Search end: blocks-9-0
+2020-04-07 13:21:12,837 INFO     Search time: 1.3
+2020-04-07 13:21:12,837 INFO     Plan length: 68
+2020-04-07 13:21:12,842 INFO     Plan correct
+2020-04-07 13:21:12,888 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:12,888 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:12,888 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:12,888 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:12,889 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-9-1.pddl
+2020-04-07 13:21:12,890 INFO     5 Predicates parsed
+2020-04-07 13:21:12,890 INFO     4 Actions parsed
+2020-04-07 13:21:12,890 INFO     9 Objects parsed
+2020-04-07 13:21:12,890 INFO     0 Constants parsed
+2020-04-07 13:21:12,890 INFO     Grounding start: blocks-9-1
+2020-04-07 13:21:12,893 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:12,893 INFO     Grounding end: blocks-9-1
+2020-04-07 13:21:12,893 INFO     109 Variables created
+2020-04-07 13:21:12,893 INFO     180 Operators created
+2020-04-07 13:21:12,893 INFO     Search start: blocks-9-1
+2020-04-07 13:21:12,894 INFO     Initial h value: 16.000000
+2020-04-07 13:21:14,631 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:14,631 INFO     810 Nodes expanded
+2020-04-07 13:21:14,631 INFO     Search end: blocks-9-1
+2020-04-07 13:21:14,632 INFO     Search time: 1.7
+2020-04-07 13:21:14,632 INFO     Plan length: 64
+2020-04-07 13:21:14,637 INFO     Plan correct
+2020-04-07 13:21:14,683 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:14,683 INFO     using search: greedy_best_first_search
+2020-04-07 13:21:14,683 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:21:14,683 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+2020-04-07 13:21:14,684 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-9-2.pddl
+2020-04-07 13:21:14,684 INFO     5 Predicates parsed
+2020-04-07 13:21:14,684 INFO     4 Actions parsed
+2020-04-07 13:21:14,684 INFO     9 Objects parsed
+2020-04-07 13:21:14,684 INFO     0 Constants parsed
+2020-04-07 13:21:14,684 INFO     Grounding start: blocks-9-2
+2020-04-07 13:21:14,687 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:21:14,687 INFO     Grounding end: blocks-9-2
+2020-04-07 13:21:14,687 INFO     109 Variables created
+2020-04-07 13:21:14,687 INFO     180 Operators created
+2020-04-07 13:21:14,688 INFO     Search start: blocks-9-2
+2020-04-07 13:21:14,688 INFO     Initial h value: 17.000000
+2020-04-07 13:21:14,920 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:21:14,920 INFO     114 Nodes expanded
+2020-04-07 13:21:14,920 INFO     Search end: blocks-9-2
+2020-04-07 13:21:14,920 INFO     Search time: 0.23
+2020-04-07 13:21:14,920 INFO     Plan length: 44
+2020-04-07 13:21:14,926 INFO     Plan correct

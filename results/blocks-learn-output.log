@@ -1,0 +1,1189 @@
+INFO    - Reading training data from workspace/blocks
+INFO    - Total number of training examples: 2967
+INFO    - Total number of input features: 5723
+INFO    - Creating the NN model
+Model: "model_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)         (None, 5723)              0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 5724      
+_________________________________________________________________
+activation_1 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 5,724
+Trainable params: 5,724
+Non-trainable params: 0
+_________________________________________________________________
+None
+INFO    - Compiling NN before training
+INFO    - Training the NN....
+INFO    - Finished NN training.
+INFO    - Useful features: [188, 957, 1601, 1657, 1852, 1854, 1986, 2013, 2019, 2739, 2916, 2974, 3038, 3190, 3314, 3484, 3531, 3728, 3864, 4006, 4199, 4230, 4233, 4235, 5166, 5298, 5393, 5501, 5587, 5663]
+INFO    - Total number of training examples: 2967
+INFO    - Total number of input features: 30
+INFO    - Creating the NN model
+Model: "model_2"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_2 (InputLayer)         (None, 30)                0         
+_________________________________________________________________
+dense_2 (Dense)              (None, 1)                 31        
+_________________________________________________________________
+activation_2 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 31
+Trainable params: 31
+Non-trainable params: 0
+_________________________________________________________________
+None
+INFO    - Compiling NN before training
+INFO    - Training the NN....
+INFO    - Finished NN training.
+INFO    - Useful features: [1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 24, 25, 26, 27, 28, 29]
+INFO    - Total number of training examples: 2967
+INFO    - Total number of input features: 26
+INFO    - Creating the NN model
+Model: "model_3"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_3 (InputLayer)         (None, 26)                0         
+_________________________________________________________________
+dense_3 (Dense)              (None, 1)                 27        
+_________________________________________________________________
+activation_3 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 27
+Trainable params: 27
+Non-trainable params: 0
+_________________________________________________________________
+None
+INFO    - Compiling NN before training
+INFO    - Training the NN....
+INFO    - Finished NN training.
+INFO    - Useful features: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+INFO    - Total number of training examples: 2967
+INFO    - Total number of input features: 26
+INFO    - Creating the NN model
+Model: "model_4"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_4 (InputLayer)         (None, 26)                0         
+_________________________________________________________________
+dense_4 (Dense)              (None, 1)                 27        
+_________________________________________________________________
+activation_4 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 27
+Trainable params: 27
+Non-trainable params: 0
+_________________________________________________________________
+None
+INFO    - Compiling NN before training
+INFO    - Training the NN....
+INFO    - Finished NN training.
+INFO    - Useful features: [0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+INFO    - Total number of training examples: 2967
+INFO    - Total number of input features: 25
+INFO    - Creating the NN model
+Model: "model_5"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_5 (InputLayer)         (None, 25)                0         
+_________________________________________________________________
+dense_5 (Dense)              (None, 1)                 26        
+_________________________________________________________________
+activation_5 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 26
+Trainable params: 26
+Non-trainable params: 0
+_________________________________________________________________
+None
+INFO    - Compiling NN before training
+INFO    - Training the NN....
+INFO    - Finished NN training.
+INFO    - Useful features: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+Weighted features found:
+-0.5217975974082947 * Num[And(Forall(Star(on),Equal(on_g,on)),Equal(on_g,on))]
+0.3995577096939087 * Num[Exists(Star(on),Forall(on_g,Equal(Star(on_g),Star(on))))]
+0.38639312982559204 * Num[Exists(on_g,Exists(on_g,Forall(on,Equal(Star(on_g),Star(on)))))]
+0.28274667263031006 * Num[Not(Forall(Star(on),And(Equal(on_g,on),Equal(Inverse(on_g),Inverse(on)))))]
+1.1213743686676025 * Num[Not(Forall(Star(on_g),And(Equal(on_g,on),Equal(Inverse(on_g),Inverse(on)))))]
+0.2151499092578888 * Num[Not(And(Forall(Star(on),Equal(on_g,on)),Equal(on_g,on)))]
+-0.26147639751434326 * Bool[And(Exists(on_g,And(Equal(on_g,on),clear)),holding)]
+-0.8531021475791931 * Bool[And(Exists(on_g,And(Equal(Star(on_g),Star(on)),clear)),holding)]
+-0.39121124148368835 * Num[Exists(on_g,And(Exists(on,Equal(on_g,on)),Equal(Star(on_g),Star(on))))]
+-0.24149058759212494 * Num[Exists(on_g,And(Exists(on_g,Equal(on_g,on)),Equal(Star(on_g),Star(on))))]
+0.31136828660964966 * Num[And(Not(And(Equal(Star(on_g),Star(on)),Equal(Inverse(on_g),Inverse(on)))),Not(clear))]
+0.15108689665794373 * Num[And(Not(Forall(on,Equal(Star(Inverse(on_g)),Star(on)))),Not(Equal(Star(on_g),Star(Inverse(on)))))]
+0.4595579504966736 * Num[And(Not(Exists(on_g,Equal(Star(on_g),Star(Inverse(on))))),Not(ontable))]
+0.27592265605926514 * Num[Exists(Star(on),Forall(on_g,Forall(on_g,<empty>)))]
+-0.3628493845462799 * Num[Exists(on_g,Exists(on_g,Exists(on,ontable)))]
+0.3466985821723938 * Num[Not(Forall(Star(on),Equal(on_g,Inverse(on))))]
+-0.2890080213546753 * Num[Exists(Star(Inverse(on_g)),Exists(on,Equal(Star(Inverse(on_g)),Star(on))))]
+0.14962388575077057 * Num[Exists(Star(on_g),Exists(Star(on),Equal(Star(on_g),Star(on))))]
+-0.41281601786613464 * Num[Exists(Inverse(on_g),Forall(Star(on_g),Equal(on_g,on)))]
+0.3557176887989044 * Num[And(Not(Equal(Star(on_g),Star(on))),Forall(Star(on),Equal(Inverse(on_g),Inverse(on))))]
+-0.23540499806404114 * Num[And(Not(Equal(Star(on_g),Star(Inverse(on)))),Forall(Star(on_g),Equal(on_g,on)))]
+-0.16632698476314545 * Num[And(Forall(on,Equal(Star(Inverse(on_g)),Star(on))),Equal(on_g,Inverse(on)))]
+0.32347333431243896 * Num[And(Not(Equal(Star(on_g),Inverse(on))),Not(ontable))]
+-0.3081720769405365 * Num[And(Forall(on,Equal(on_g,on)),And(Equal(on_g,on),Equal(Inverse(on_g),Inverse(on))))]
+0.38238126039505005 * Num[And(Forall(on_g,Equal(Star(on_g),Star(Inverse(on)))),Forall(on,ontable))]
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-10-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-10-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 10 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-10-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-10-0
+INFO    - 131 Variables created
+INFO    - 220 Operators created
+INFO    - Search start: blocks-10-0
+INFO    - Initial h value: 33.734468
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 35 Nodes expanded
+INFO    - Search end: blocks-10-0
+INFO    - Wall-clock search time: 3.0
+INFO    - Plan length: 34
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-10-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-10-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 10 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-10-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-10-1
+INFO    - 131 Variables created
+INFO    - 220 Operators created
+INFO    - Search start: blocks-10-1
+INFO    - Initial h value: 30.081968
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 33 Nodes expanded
+INFO    - Search end: blocks-10-1
+INFO    - Wall-clock search time: 2.3
+INFO    - Plan length: 32
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-10-2.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-10-2.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 10 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-10-2
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-10-2
+INFO    - 131 Variables created
+INFO    - 220 Operators created
+INFO    - Search start: blocks-10-2
+INFO    - Initial h value: 31.194060
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 35 Nodes expanded
+INFO    - Search end: blocks-10-2
+INFO    - Wall-clock search time: 2.9
+INFO    - Plan length: 34
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-11-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-11-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 11 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-11-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-11-0
+INFO    - 155 Variables created
+INFO    - 264 Operators created
+INFO    - Search start: blocks-11-0
+INFO    - Initial h value: 29.647358
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 33 Nodes expanded
+INFO    - Search end: blocks-11-0
+INFO    - Wall-clock search time: 4.3
+INFO    - Plan length: 32
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-11-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-11-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 11 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-11-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-11-1
+INFO    - 155 Variables created
+INFO    - 264 Operators created
+INFO    - Search start: blocks-11-1
+INFO    - Initial h value: 29.683189
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 31 Nodes expanded
+INFO    - Search end: blocks-11-1
+INFO    - Wall-clock search time: 3.6
+INFO    - Plan length: 30
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-11-2.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-11-2.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 11 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-11-2
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-11-2
+INFO    - 155 Variables created
+INFO    - 264 Operators created
+INFO    - Search start: blocks-11-2
+INFO    - Initial h value: 31.894913
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 41 Nodes expanded
+INFO    - Search end: blocks-11-2
+INFO    - Wall-clock search time: 4.0
+INFO    - Plan length: 36
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-12-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-12-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 12 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-12-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-12-0
+INFO    - 181 Variables created
+INFO    - 312 Operators created
+INFO    - Search start: blocks-12-0
+INFO    - Initial h value: 34.739666
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 47 Nodes expanded
+INFO    - Search end: blocks-12-0
+INFO    - Wall-clock search time: 7.4
+INFO    - Plan length: 40
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-12-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-12-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 12 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-12-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-12-1
+INFO    - 181 Variables created
+INFO    - 312 Operators created
+INFO    - Search start: blocks-12-1
+INFO    - Initial h value: 33.229481
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 40 Nodes expanded
+INFO    - Search end: blocks-12-1
+INFO    - Wall-clock search time: 6.0
+INFO    - Plan length: 36
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-13-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-13-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 13 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-13-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-13-0
+INFO    - 209 Variables created
+INFO    - 364 Operators created
+INFO    - Search start: blocks-13-0
+INFO    - Initial h value: 39.154317
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 43 Nodes expanded
+INFO    - Search end: blocks-13-0
+INFO    - Wall-clock search time: 8.6
+INFO    - Plan length: 42
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-13-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-13-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 13 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-13-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-13-1
+INFO    - 209 Variables created
+INFO    - 364 Operators created
+INFO    - Search start: blocks-13-1
+INFO    - Initial h value: 39.950161
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 72 Nodes expanded
+INFO    - Search end: blocks-13-1
+INFO    - Wall-clock search time: 1.4e+01
+INFO    - Plan length: 44
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-14-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-14-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 14 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-14-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-14-0
+INFO    - 239 Variables created
+INFO    - 420 Operators created
+INFO    - Search start: blocks-14-0
+INFO    - Initial h value: 37.758561
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 55 Nodes expanded
+INFO    - Search end: blocks-14-0
+INFO    - Wall-clock search time: 1.2e+01
+INFO    - Plan length: 42
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-14-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-14-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 14 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-14-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-14-1
+INFO    - 239 Variables created
+INFO    - 420 Operators created
+INFO    - Search start: blocks-14-1
+INFO    - Initial h value: 34.742182
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 70 Nodes expanded
+INFO    - Search end: blocks-14-1
+INFO    - Wall-clock search time: 1.9e+01
+INFO    - Plan length: 40
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-15-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-15-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 15 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-15-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-15-0
+INFO    - 271 Variables created
+INFO    - 480 Operators created
+INFO    - Search start: blocks-15-0
+INFO    - Initial h value: 41.497139
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 75 Nodes expanded
+INFO    - Search end: blocks-15-0
+INFO    - Wall-clock search time: 2.7e+01
+INFO    - Plan length: 42
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-15-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-15-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 15 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-15-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-15-1
+INFO    - 271 Variables created
+INFO    - 480 Operators created
+INFO    - Search start: blocks-15-1
+INFO    - Initial h value: 47.876602
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 89 Nodes expanded
+INFO    - Search end: blocks-15-1
+INFO    - Wall-clock search time: 3e+01
+INFO    - Plan length: 54
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-16-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-16-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 16 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-16-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-16-1
+INFO    - 305 Variables created
+INFO    - 544 Operators created
+INFO    - Search start: blocks-16-1
+INFO    - Initial h value: 47.706478
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 113 Nodes expanded
+INFO    - Search end: blocks-16-1
+INFO    - Wall-clock search time: 5.3e+01
+INFO    - Plan length: 54
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-16-2.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-16-2.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 16 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-16-2
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-16-2
+INFO    - 305 Variables created
+INFO    - 544 Operators created
+INFO    - Search start: blocks-16-2
+INFO    - Initial h value: 53.994344
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 139 Nodes expanded
+INFO    - Search end: blocks-16-2
+INFO    - Wall-clock search time: 5.3e+01
+INFO    - Plan length: 56
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-17-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-17-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 17 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-17-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-17-0
+INFO    - 341 Variables created
+INFO    - 612 Operators created
+INFO    - Search start: blocks-17-0
+INFO    - Initial h value: 46.687480
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 543 Nodes expanded
+INFO    - Search end: blocks-17-0
+INFO    - Wall-clock search time: 2.5e+02
+INFO    - Plan length: 54
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-4-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-4-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 4 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-4-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-4-0
+INFO    - 29 Variables created
+INFO    - 40 Operators created
+INFO    - Search start: blocks-4-0
+INFO    - Initial h value: 5.277929
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 7 Nodes expanded
+INFO    - Search end: blocks-4-0
+INFO    - Wall-clock search time: 0.056
+INFO    - Plan length: 6
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-4-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-4-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 4 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-4-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-4-1
+INFO    - 29 Variables created
+INFO    - 40 Operators created
+INFO    - Search start: blocks-4-1
+INFO    - Initial h value: 9.402400
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 11 Nodes expanded
+INFO    - Search end: blocks-4-1
+INFO    - Wall-clock search time: 0.078
+INFO    - Plan length: 10
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-4-2.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-4-2.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 4 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-4-2
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-4-2
+INFO    - 29 Variables created
+INFO    - 40 Operators created
+INFO    - Search start: blocks-4-2
+INFO    - Initial h value: 5.075317
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 7 Nodes expanded
+INFO    - Search end: blocks-4-2
+INFO    - Wall-clock search time: 0.052
+INFO    - Plan length: 6
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-5-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-5-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 5 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-5-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-5-0
+INFO    - 41 Variables created
+INFO    - 60 Operators created
+INFO    - Search start: blocks-5-0
+INFO    - Initial h value: 11.099739
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 13 Nodes expanded
+INFO    - Search end: blocks-5-0
+INFO    - Wall-clock search time: 0.12
+INFO    - Plan length: 12
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-5-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-5-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 5 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-5-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-5-1
+INFO    - 41 Variables created
+INFO    - 60 Operators created
+INFO    - Search start: blocks-5-1
+INFO    - Initial h value: 9.035184
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 11 Nodes expanded
+INFO    - Search end: blocks-5-1
+INFO    - Wall-clock search time: 0.12
+INFO    - Plan length: 10
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-5-2.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-5-2.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 5 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-5-2
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-5-2
+INFO    - 41 Variables created
+INFO    - 60 Operators created
+INFO    - Search start: blocks-5-2
+INFO    - Initial h value: 15.613653
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 17 Nodes expanded
+INFO    - Search end: blocks-5-2
+INFO    - Wall-clock search time: 0.17
+INFO    - Plan length: 16
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-6-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-6-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 6 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-6-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-6-0
+INFO    - 55 Variables created
+INFO    - 84 Operators created
+INFO    - Search start: blocks-6-0
+INFO    - Initial h value: 12.431006
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 13 Nodes expanded
+INFO    - Search end: blocks-6-0
+INFO    - Wall-clock search time: 0.2
+INFO    - Plan length: 12
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-6-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-6-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 6 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-6-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-6-1
+INFO    - 55 Variables created
+INFO    - 84 Operators created
+INFO    - Search start: blocks-6-1
+INFO    - Initial h value: 9.745613
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 11 Nodes expanded
+INFO    - Search end: blocks-6-1
+INFO    - Wall-clock search time: 0.2
+INFO    - Plan length: 10
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-6-2.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-6-2.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 6 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-6-2
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-6-2
+INFO    - 55 Variables created
+INFO    - 84 Operators created
+INFO    - Search start: blocks-6-2
+INFO    - Initial h value: 18.558307
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 21 Nodes expanded
+INFO    - Search end: blocks-6-2
+INFO    - Wall-clock search time: 0.37
+INFO    - Plan length: 20
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-7-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-7-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 7 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-7-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-7-0
+INFO    - 71 Variables created
+INFO    - 112 Operators created
+INFO    - Search start: blocks-7-0
+INFO    - Initial h value: 20.032720
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 21 Nodes expanded
+INFO    - Search end: blocks-7-0
+INFO    - Wall-clock search time: 0.57
+INFO    - Plan length: 20
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-7-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-7-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 7 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-7-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-7-1
+INFO    - 71 Variables created
+INFO    - 112 Operators created
+INFO    - Search start: blocks-7-1
+INFO    - Initial h value: 19.533251
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 23 Nodes expanded
+INFO    - Search end: blocks-7-1
+INFO    - Wall-clock search time: 0.62
+INFO    - Plan length: 22
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-7-2.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-7-2.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 7 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-7-2
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-7-2
+INFO    - 71 Variables created
+INFO    - 112 Operators created
+INFO    - Search start: blocks-7-2
+INFO    - Initial h value: 19.332857
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 21 Nodes expanded
+INFO    - Search end: blocks-7-2
+INFO    - Wall-clock search time: 0.61
+INFO    - Plan length: 20
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-8-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-8-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 8 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-8-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-8-0
+INFO    - 89 Variables created
+INFO    - 144 Operators created
+INFO    - Search start: blocks-8-0
+INFO    - Initial h value: 18.000370
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 19 Nodes expanded
+INFO    - Search end: blocks-8-0
+INFO    - Wall-clock search time: 0.7
+INFO    - Plan length: 18
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-8-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-8-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 8 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-8-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-8-1
+INFO    - 89 Variables created
+INFO    - 144 Operators created
+INFO    - Search start: blocks-8-1
+INFO    - Initial h value: 18.454081
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 21 Nodes expanded
+INFO    - Search end: blocks-8-1
+INFO    - Wall-clock search time: 0.81
+INFO    - Plan length: 20
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-8-2.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-8-2.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 8 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-8-2
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-8-2
+INFO    - 89 Variables created
+INFO    - 144 Operators created
+INFO    - Search start: blocks-8-2
+INFO    - Initial h value: 15.659511
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 17 Nodes expanded
+INFO    - Search end: blocks-8-2
+INFO    - Wall-clock search time: 0.54
+INFO    - Plan length: 16
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-9-0.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-9-0.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 9 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-9-0
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-9-0
+INFO    - 109 Variables created
+INFO    - 180 Operators created
+INFO    - Search start: blocks-9-0
+INFO    - Initial h value: 29.353097
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 31 Nodes expanded
+INFO    - Search end: blocks-9-0
+INFO    - Wall-clock search time: 1.6
+INFO    - Plan length: 30
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-9-1.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-9-1.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 9 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-9-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-9-1
+INFO    - 109 Variables created
+INFO    - 180 Operators created
+INFO    - Search start: blocks-9-1
+INFO    - Initial h value: 28.752576
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 31 Nodes expanded
+INFO    - Search end: blocks-9-1
+INFO    - Wall-clock search time: 1.1
+INFO    - Plan length: 30
+INFO    - Plan correct
+INFO    - Solving test-benchmarks/blocks/probBLOCKS-9-2.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using goal representation and no domain parameters
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/blocks/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/blocks/probBLOCKS-9-2.pddl
+INFO    - 5 Predicates parsed
+INFO    - 4 Actions parsed
+INFO    - 9 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: blocks-9-2
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: blocks-9-2
+INFO    - 109 Variables created
+INFO    - 180 Operators created
+INFO    - Search start: blocks-9-2
+INFO    - Initial h value: 26.030677
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 28 Nodes expanded
+INFO    - Search end: blocks-9-2
+INFO    - Wall-clock search time: 1.2
+INFO    - Plan length: 26
+INFO    - Plan correct

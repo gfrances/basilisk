@@ -1,0 +1,386 @@
+2020-04-07 13:25:48,203 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,203 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:48,203 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:48,203 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,215 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p01.pddl
+2020-04-07 13:25:48,215 INFO     8 Predicates parsed
+2020-04-07 13:25:48,215 INFO     5 Actions parsed
+2020-04-07 13:25:48,215 INFO     13 Objects parsed
+2020-04-07 13:25:48,215 INFO     0 Constants parsed
+2020-04-07 13:25:48,216 INFO     Grounding start: ztravel-1-2
+2020-04-07 13:25:48,240 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:25:48,240 INFO     Grounding end: ztravel-1-2
+2020-04-07 13:25:48,240 INFO     18 Variables created
+2020-04-07 13:25:48,240 INFO     129 Operators created
+2020-04-07 13:25:48,240 INFO     Search start: ztravel-1-2
+2020-04-07 13:25:48,241 INFO     Initial h value: 1.000000
+2020-04-07 13:25:48,241 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:48,241 INFO     2 Nodes expanded
+2020-04-07 13:25:48,241 INFO     Search end: ztravel-1-2
+2020-04-07 13:25:48,241 INFO     Search time: 0.00073
+2020-04-07 13:25:48,241 INFO     Plan length: 1
+2020-04-07 13:25:48,246 INFO     Plan correct
+2020-04-07 13:25:48,293 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,293 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:48,293 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:48,293 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,295 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p02.pddl
+2020-04-07 13:25:48,296 INFO     8 Predicates parsed
+2020-04-07 13:25:48,296 INFO     5 Actions parsed
+2020-04-07 13:25:48,296 INFO     14 Objects parsed
+2020-04-07 13:25:48,296 INFO     0 Constants parsed
+2020-04-07 13:25:48,296 INFO     Grounding start: ztravel-1-3
+2020-04-07 13:25:48,322 INFO     Relevance analysis removed 4 facts
+2020-04-07 13:25:48,322 INFO     Grounding end: ztravel-1-3
+2020-04-07 13:25:48,322 INFO     22 Variables created
+2020-04-07 13:25:48,322 INFO     129 Operators created
+2020-04-07 13:25:48,322 INFO     Search start: ztravel-1-3
+2020-04-07 13:25:48,322 INFO     Initial h value: 4.000000
+2020-04-07 13:25:48,328 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:48,328 INFO     8 Nodes expanded
+2020-04-07 13:25:48,328 INFO     Search end: ztravel-1-3
+2020-04-07 13:25:48,328 INFO     Search time: 0.0061
+2020-04-07 13:25:48,328 INFO     Plan length: 6
+2020-04-07 13:25:48,333 INFO     Plan correct
+2020-04-07 13:25:48,376 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,376 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:48,376 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:48,377 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,378 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p03.pddl
+2020-04-07 13:25:48,379 INFO     8 Predicates parsed
+2020-04-07 13:25:48,379 INFO     5 Actions parsed
+2020-04-07 13:25:48,379 INFO     16 Objects parsed
+2020-04-07 13:25:48,379 INFO     0 Constants parsed
+2020-04-07 13:25:48,379 INFO     Grounding start: ztravel-2-4
+2020-04-07 13:25:48,421 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:25:48,422 INFO     Grounding end: ztravel-2-4
+2020-04-07 13:25:48,422 INFO     40 Variables created
+2020-04-07 13:25:48,422 INFO     282 Operators created
+2020-04-07 13:25:48,422 INFO     Search start: ztravel-2-4
+2020-04-07 13:25:48,423 INFO     Initial h value: 5.000000
+2020-04-07 13:25:48,474 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:48,475 INFO     8 Nodes expanded
+2020-04-07 13:25:48,475 INFO     Search end: ztravel-2-4
+2020-04-07 13:25:48,475 INFO     Search time: 0.053
+2020-04-07 13:25:48,475 INFO     Plan length: 6
+2020-04-07 13:25:48,480 INFO     Plan correct
+2020-04-07 13:25:48,522 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,522 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:48,522 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:48,522 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,523 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p04.pddl
+2020-04-07 13:25:48,524 INFO     8 Predicates parsed
+2020-04-07 13:25:48,524 INFO     5 Actions parsed
+2020-04-07 13:25:48,524 INFO     17 Objects parsed
+2020-04-07 13:25:48,524 INFO     0 Constants parsed
+2020-04-07 13:25:48,524 INFO     Grounding start: ztravel-2-5
+2020-04-07 13:25:48,576 INFO     Relevance analysis removed 5 facts
+2020-04-07 13:25:48,576 INFO     Grounding end: ztravel-2-5
+2020-04-07 13:25:48,576 INFO     45 Variables created
+2020-04-07 13:25:48,576 INFO     282 Operators created
+2020-04-07 13:25:48,577 INFO     Search start: ztravel-2-5
+2020-04-07 13:25:48,577 INFO     Initial h value: 6.000000
+2020-04-07 13:25:48,611 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:48,611 INFO     12 Nodes expanded
+2020-04-07 13:25:48,611 INFO     Search end: ztravel-2-5
+2020-04-07 13:25:48,611 INFO     Search time: 0.034
+2020-04-07 13:25:48,611 INFO     Plan length: 9
+2020-04-07 13:25:48,615 INFO     Plan correct
+2020-04-07 13:25:48,657 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,657 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:48,657 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:48,657 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,660 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p05.pddl
+2020-04-07 13:25:48,661 INFO     8 Predicates parsed
+2020-04-07 13:25:48,661 INFO     5 Actions parsed
+2020-04-07 13:25:48,661 INFO     17 Objects parsed
+2020-04-07 13:25:48,661 INFO     0 Constants parsed
+2020-04-07 13:25:48,661 INFO     Grounding start: ztravel-2-4
+2020-04-07 13:25:48,739 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:25:48,739 INFO     Grounding end: ztravel-2-4
+2020-04-07 13:25:48,739 INFO     46 Variables created
+2020-04-07 13:25:48,739 INFO     464 Operators created
+2020-04-07 13:25:48,740 INFO     Search start: ztravel-2-4
+2020-04-07 13:25:48,741 INFO     Initial h value: 11.000000
+2020-04-07 13:25:48,834 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:48,834 INFO     14 Nodes expanded
+2020-04-07 13:25:48,834 INFO     Search end: ztravel-2-4
+2020-04-07 13:25:48,834 INFO     Search time: 0.095
+2020-04-07 13:25:48,835 INFO     Plan length: 12
+2020-04-07 13:25:48,839 INFO     Plan correct
+2020-04-07 13:25:48,886 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,886 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:48,886 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:48,886 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:48,887 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p06.pddl
+2020-04-07 13:25:48,888 INFO     8 Predicates parsed
+2020-04-07 13:25:48,888 INFO     5 Actions parsed
+2020-04-07 13:25:48,888 INFO     18 Objects parsed
+2020-04-07 13:25:48,888 INFO     0 Constants parsed
+2020-04-07 13:25:48,888 INFO     Grounding start: ztravel-2-5
+2020-04-07 13:25:48,964 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:25:48,964 INFO     Grounding end: ztravel-2-5
+2020-04-07 13:25:48,964 INFO     52 Variables created
+2020-04-07 13:25:48,964 INFO     480 Operators created
+2020-04-07 13:25:48,965 INFO     Search start: ztravel-2-5
+2020-04-07 13:25:48,965 INFO     Initial h value: 11.000000
+2020-04-07 13:25:49,233 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:49,233 INFO     18 Nodes expanded
+2020-04-07 13:25:49,233 INFO     Search end: ztravel-2-5
+2020-04-07 13:25:49,233 INFO     Search time: 0.27
+2020-04-07 13:25:49,234 INFO     Plan length: 13
+2020-04-07 13:25:49,238 INFO     Plan correct
+2020-04-07 13:25:49,284 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:49,284 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:49,284 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:49,284 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:49,286 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p07.pddl
+2020-04-07 13:25:49,287 INFO     8 Predicates parsed
+2020-04-07 13:25:49,287 INFO     5 Actions parsed
+2020-04-07 13:25:49,287 INFO     19 Objects parsed
+2020-04-07 13:25:49,287 INFO     0 Constants parsed
+2020-04-07 13:25:49,287 INFO     Grounding start: ztravel-2-6
+2020-04-07 13:25:49,356 INFO     Relevance analysis removed 6 facts
+2020-04-07 13:25:49,356 INFO     Grounding end: ztravel-2-6
+2020-04-07 13:25:49,356 INFO     58 Variables created
+2020-04-07 13:25:49,356 INFO     480 Operators created
+2020-04-07 13:25:49,357 INFO     Search start: ztravel-2-6
+2020-04-07 13:25:49,358 INFO     Initial h value: 11.000000
+2020-04-07 13:25:49,507 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:49,507 INFO     27 Nodes expanded
+2020-04-07 13:25:49,507 INFO     Search end: ztravel-2-6
+2020-04-07 13:25:49,507 INFO     Search time: 0.15
+2020-04-07 13:25:49,507 INFO     Plan length: 16
+2020-04-07 13:25:49,512 INFO     Plan correct
+2020-04-07 13:25:49,556 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:49,556 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:49,556 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:49,557 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:49,558 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p08.pddl
+2020-04-07 13:25:49,559 INFO     8 Predicates parsed
+2020-04-07 13:25:49,560 INFO     5 Actions parsed
+2020-04-07 13:25:49,560 INFO     21 Objects parsed
+2020-04-07 13:25:49,560 INFO     0 Constants parsed
+2020-04-07 13:25:49,560 INFO     Grounding start: ztravel-3-6
+2020-04-07 13:25:49,723 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:25:49,723 INFO     Grounding end: ztravel-3-6
+2020-04-07 13:25:49,723 INFO     84 Variables created
+2020-04-07 13:25:49,723 INFO     1095 Operators created
+2020-04-07 13:25:49,725 INFO     Search start: ztravel-3-6
+2020-04-07 13:25:49,727 INFO     Initial h value: 10.000000
+2020-04-07 13:25:50,436 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:50,436 INFO     17 Nodes expanded
+2020-04-07 13:25:50,436 INFO     Search end: ztravel-3-6
+2020-04-07 13:25:50,436 INFO     Search time: 0.71
+2020-04-07 13:25:50,437 INFO     Plan length: 12
+2020-04-07 13:25:50,443 INFO     Plan correct
+2020-04-07 13:25:50,500 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:50,500 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:50,501 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:50,501 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:50,502 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p09.pddl
+2020-04-07 13:25:50,513 INFO     8 Predicates parsed
+2020-04-07 13:25:50,513 INFO     5 Actions parsed
+2020-04-07 13:25:50,513 INFO     22 Objects parsed
+2020-04-07 13:25:50,513 INFO     0 Constants parsed
+2020-04-07 13:25:50,513 INFO     Grounding start: ztravel-3-7
+2020-04-07 13:25:50,689 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:25:50,690 INFO     Grounding end: ztravel-3-7
+2020-04-07 13:25:50,690 INFO     92 Variables created
+2020-04-07 13:25:50,690 INFO     1125 Operators created
+2020-04-07 13:25:50,691 INFO     Search start: ztravel-3-7
+2020-04-07 13:25:50,693 INFO     Initial h value: 18.000000
+2020-04-07 13:25:51,677 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:51,678 INFO     33 Nodes expanded
+2020-04-07 13:25:51,678 INFO     Search end: ztravel-3-7
+2020-04-07 13:25:51,678 INFO     Search time: 0.99
+2020-04-07 13:25:51,678 INFO     Plan length: 24
+2020-04-07 13:25:51,683 INFO     Plan correct
+2020-04-07 13:25:51,730 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:51,730 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:51,730 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:51,730 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:51,732 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p10.pddl
+2020-04-07 13:25:51,733 INFO     8 Predicates parsed
+2020-04-07 13:25:51,733 INFO     5 Actions parsed
+2020-04-07 13:25:51,733 INFO     23 Objects parsed
+2020-04-07 13:25:51,733 INFO     0 Constants parsed
+2020-04-07 13:25:51,733 INFO     Grounding start: ztravel-3-8
+2020-04-07 13:25:51,877 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:25:51,877 INFO     Grounding end: ztravel-3-8
+2020-04-07 13:25:51,877 INFO     100 Variables created
+2020-04-07 13:25:51,877 INFO     1155 Operators created
+2020-04-07 13:25:51,879 INFO     Search start: ztravel-3-8
+2020-04-07 13:25:51,881 INFO     Initial h value: 22.000000
+2020-04-07 13:25:54,522 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:54,522 INFO     63 Nodes expanded
+2020-04-07 13:25:54,523 INFO     Search end: ztravel-3-8
+2020-04-07 13:25:54,523 INFO     Search time: 2.6
+2020-04-07 13:25:54,523 INFO     Plan length: 27
+2020-04-07 13:25:54,530 INFO     Plan correct
+2020-04-07 13:25:54,586 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:54,586 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:54,586 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:54,586 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:54,588 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p11.pddl
+2020-04-07 13:25:54,589 INFO     8 Predicates parsed
+2020-04-07 13:25:54,589 INFO     5 Actions parsed
+2020-04-07 13:25:54,589 INFO     23 Objects parsed
+2020-04-07 13:25:54,589 INFO     0 Constants parsed
+2020-04-07 13:25:54,589 INFO     Grounding start: ztravel-3-7
+2020-04-07 13:25:54,821 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:25:54,822 INFO     Grounding end: ztravel-3-7
+2020-04-07 13:25:54,822 INFO     102 Variables created
+2020-04-07 13:25:54,822 INFO     1548 Operators created
+2020-04-07 13:25:54,824 INFO     Search start: ztravel-3-7
+2020-04-07 13:25:54,829 INFO     Initial h value: 13.000000
+2020-04-07 13:25:56,484 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:25:56,485 INFO     20 Nodes expanded
+2020-04-07 13:25:56,485 INFO     Search end: ztravel-3-7
+2020-04-07 13:25:56,485 INFO     Search time: 1.7
+2020-04-07 13:25:56,486 INFO     Plan length: 17
+2020-04-07 13:25:56,491 INFO     Plan correct
+2020-04-07 13:25:56,537 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:56,537 INFO     using search: greedy_best_first_search
+2020-04-07 13:25:56,537 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:25:56,537 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:25:56,538 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p12.pddl
+2020-04-07 13:25:56,549 INFO     8 Predicates parsed
+2020-04-07 13:25:56,549 INFO     5 Actions parsed
+2020-04-07 13:25:56,549 INFO     24 Objects parsed
+2020-04-07 13:25:56,549 INFO     0 Constants parsed
+2020-04-07 13:25:56,549 INFO     Grounding start: ztravel-3-8
+2020-04-07 13:25:56,775 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:25:56,776 INFO     Grounding end: ztravel-3-8
+2020-04-07 13:25:56,776 INFO     111 Variables created
+2020-04-07 13:25:56,776 INFO     1584 Operators created
+2020-04-07 13:25:56,778 INFO     Search start: ztravel-3-8
+2020-04-07 13:25:56,781 INFO     Initial h value: 19.000000
+2020-04-07 13:26:00,870 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:26:00,870 INFO     31 Nodes expanded
+2020-04-07 13:26:00,870 INFO     Search end: ztravel-3-8
+2020-04-07 13:26:00,870 INFO     Search time: 4.1
+2020-04-07 13:26:00,871 INFO     Plan length: 22
+2020-04-07 13:26:00,879 INFO     Plan correct
+2020-04-07 13:26:00,958 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:26:00,959 INFO     using search: greedy_best_first_search
+2020-04-07 13:26:00,959 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:26:00,959 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:26:00,961 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p13.pddl
+2020-04-07 13:26:00,963 INFO     8 Predicates parsed
+2020-04-07 13:26:00,963 INFO     5 Actions parsed
+2020-04-07 13:26:00,963 INFO     26 Objects parsed
+2020-04-07 13:26:00,963 INFO     0 Constants parsed
+2020-04-07 13:26:00,963 INFO     Grounding start: ztravel-3-10
+2020-04-07 13:26:01,320 INFO     Relevance analysis removed 9 facts
+2020-04-07 13:26:01,322 INFO     Grounding end: ztravel-3-10
+2020-04-07 13:26:01,322 INFO     129 Variables created
+2020-04-07 13:26:01,322 INFO     1620 Operators created
+2020-04-07 13:26:01,325 INFO     Search start: ztravel-3-10
+2020-04-07 13:26:01,330 INFO     Initial h value: 25.000000
+2020-04-07 13:26:08,477 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:26:08,478 INFO     76 Nodes expanded
+2020-04-07 13:26:08,479 INFO     Search end: ztravel-3-10
+2020-04-07 13:26:08,479 INFO     Search time: 7.2
+2020-04-07 13:26:08,480 INFO     Plan length: 31
+2020-04-07 13:26:08,488 INFO     Plan correct
+2020-04-07 13:26:08,541 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:26:08,541 INFO     using search: greedy_best_first_search
+2020-04-07 13:26:08,541 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:26:08,541 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:26:08,543 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p14.pddl
+2020-04-07 13:26:08,545 INFO     8 Predicates parsed
+2020-04-07 13:26:08,545 INFO     5 Actions parsed
+2020-04-07 13:26:08,545 INFO     32 Objects parsed
+2020-04-07 13:26:08,545 INFO     0 Constants parsed
+2020-04-07 13:26:08,545 INFO     Grounding start: ztravel-5-10
+2020-04-07 13:26:09,858 INFO     Relevance analysis removed 15 facts
+2020-04-07 13:26:09,863 INFO     Grounding end: ztravel-5-10
+2020-04-07 13:26:09,863 INFO     235 Variables created
+2020-04-07 13:26:09,863 INFO     6700 Operators created
+2020-04-07 13:26:09,884 INFO     Search start: ztravel-5-10
+2020-04-07 13:26:09,906 INFO     Initial h value: 29.000000
+2020-04-07 13:27:27,840 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:27:27,841 INFO     46 Nodes expanded
+2020-04-07 13:27:27,844 INFO     Search end: ztravel-5-10
+2020-04-07 13:27:27,844 INFO     Search time: 7.8e+01
+2020-04-07 13:27:27,849 INFO     Plan length: 32
+2020-04-07 13:27:27,857 INFO     Plan correct
+2020-04-07 13:27:27,929 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:27:27,929 INFO     using search: greedy_best_first_search
+2020-04-07 13:27:27,930 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:27:27,930 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:27:27,932 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p15.pddl
+2020-04-07 13:27:27,935 INFO     8 Predicates parsed
+2020-04-07 13:27:27,935 INFO     5 Actions parsed
+2020-04-07 13:27:27,935 INFO     39 Objects parsed
+2020-04-07 13:27:27,935 INFO     0 Constants parsed
+2020-04-07 13:27:27,935 INFO     Grounding start: ztravel-5-15
+2020-04-07 13:27:30,481 INFO     Relevance analysis removed 17 facts
+2020-04-07 13:27:30,489 INFO     Grounding end: ztravel-5-15
+2020-04-07 13:27:30,489 INFO     350 Variables created
+2020-04-07 13:27:30,489 INFO     9960 Operators created
+2020-04-07 13:27:30,519 INFO     Search start: ztravel-5-15
+2020-04-07 13:27:30,552 INFO     Initial h value: 33.000000
+2020-04-07 13:29:07,070 INFO     Goal reached. Start extraction of solution.
+2020-04-07 13:29:07,070 INFO     119 Nodes expanded
+2020-04-07 13:29:07,073 INFO     Search end: ztravel-5-15
+2020-04-07 13:29:07,073 INFO     Search time: 9.7e+01
+2020-04-07 13:29:07,080 INFO     Plan length: 49
+2020-04-07 13:29:07,087 INFO     Plan correct
+2020-04-07 13:29:07,150 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:29:07,150 INFO     using search: greedy_best_first_search
+2020-04-07 13:29:07,150 INFO     using heuristic: hFFHeuristic
+2020-04-07 13:29:07,150 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 13:29:07,152 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p16.pddl
+2020-04-07 13:29:07,188 INFO     8 Predicates parsed
+2020-04-07 13:29:07,188 INFO     5 Actions parsed
+2020-04-07 13:29:07,188 INFO     41 Objects parsed
+2020-04-07 13:29:07,188 INFO     0 Constants parsed
+2020-04-07 13:29:07,188 INFO     Grounding start: ztravel-5-15
+2020-04-07 13:29:09,997 INFO     Relevance analysis removed 0 facts
+2020-04-07 13:29:10,006 INFO     Grounding end: ztravel-5-15
+2020-04-07 13:29:10,006 INFO     390 Variables created
+2020-04-07 13:29:10,006 INFO     13300 Operators created
+2020-04-07 13:29:10,061 INFO     Search start: ztravel-5-15
+2020-04-07 13:29:10,102 INFO     Initial h value: 41.000000
+2020-04-07 14:00:35,547 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 14:00:35,547 INFO     using search: greedy_best_first_search
+2020-04-07 14:00:35,547 INFO     using heuristic: hFFHeuristic
+2020-04-07 14:00:35,547 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 14:00:35,549 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p17.pddl
+2020-04-07 14:00:35,560 INFO     8 Predicates parsed
+2020-04-07 14:00:35,560 INFO     5 Actions parsed
+2020-04-07 14:00:35,560 INFO     48 Objects parsed
+2020-04-07 14:00:35,560 INFO     0 Constants parsed
+2020-04-07 14:00:35,560 INFO     Grounding start: ztravel-5-20
+2020-04-07 14:00:36,270 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 14:00:36,271 INFO     using search: greedy_best_first_search
+2020-04-07 14:00:36,271 INFO     using heuristic: hFFHeuristic
+2020-04-07 14:00:36,271 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 14:00:36,272 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p18.pddl
+2020-04-07 14:00:36,274 INFO     8 Predicates parsed
+2020-04-07 14:00:36,275 INFO     5 Actions parsed
+2020-04-07 14:00:36,275 INFO     50 Objects parsed
+2020-04-07 14:00:36,275 INFO     0 Constants parsed
+2020-04-07 14:00:36,275 INFO     Grounding start: ztravel-5-20
+2020-04-07 14:00:36,553 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 14:00:36,553 INFO     using search: greedy_best_first_search
+2020-04-07 14:00:36,553 INFO     using heuristic: hFFHeuristic
+2020-04-07 14:00:36,553 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 14:00:36,554 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p19.pddl
+2020-04-07 14:00:36,557 INFO     8 Predicates parsed
+2020-04-07 14:00:36,557 INFO     5 Actions parsed
+2020-04-07 14:00:36,557 INFO     57 Objects parsed
+2020-04-07 14:00:36,557 INFO     0 Constants parsed
+2020-04-07 14:00:36,557 INFO     Grounding start: ztravel-5-25
+2020-04-07 14:00:36,743 INFO     Found domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 14:00:36,743 INFO     using search: greedy_best_first_search
+2020-04-07 14:00:36,743 INFO     using heuristic: hFFHeuristic
+2020-04-07 14:00:36,743 INFO     Parsing Domain /home/blaas/work/projects/basilisk/benchmarks/zenotravel/domain.pddl
+2020-04-07 14:00:36,745 INFO     Parsing Problem /home/blaas/work/projects/basilisk/benchmarks/zenotravel/p20.pddl
+2020-04-07 14:00:36,747 INFO     8 Predicates parsed
+2020-04-07 14:00:36,747 INFO     5 Actions parsed
+2020-04-07 14:00:36,747 INFO     59 Objects parsed
+2020-04-07 14:00:36,747 INFO     0 Constants parsed
+2020-04-07 14:00:36,747 INFO     Grounding start: ztravel-5-25

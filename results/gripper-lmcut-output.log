@@ -1,0 +1,258 @@
+2020-04-06 20:02:39,515 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:02:39,515 INFO     using search: astar_search
+2020-04-06 20:02:39,515 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:02:39,515 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:02:39,516 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob01.pddl
+2020-04-06 20:02:39,516 INFO     8 Predicates parsed
+2020-04-06 20:02:39,517 INFO     3 Actions parsed
+2020-04-06 20:02:39,517 INFO     9 Objects parsed
+2020-04-06 20:02:39,517 INFO     0 Constants parsed
+2020-04-06 20:02:39,517 INFO     Grounding start: strips-gripper-x-1
+2020-04-06 20:02:39,521 INFO     Relevance analysis removed 16 facts
+2020-04-06 20:02:39,521 INFO     Grounding end: strips-gripper-x-1
+2020-04-06 20:02:39,521 INFO     36 Variables created
+2020-04-06 20:02:39,521 INFO     34 Operators created
+2020-04-06 20:02:39,521 INFO     Search start: strips-gripper-x-1
+2020-04-06 20:02:39,522 INFO     Initial h value: 9.000000
+2020-04-06 20:02:39,700 INFO     Goal reached. Start extraction of solution.
+2020-04-06 20:02:39,700 INFO     87 Nodes expanded
+2020-04-06 20:02:39,700 INFO     Search end: strips-gripper-x-1
+2020-04-06 20:02:39,700 INFO     Search time: 0.18
+2020-04-06 20:02:39,700 INFO     Plan length: 11
+2020-04-06 20:02:39,706 INFO     Plan correct
+2020-04-06 20:02:39,757 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:02:39,758 INFO     using search: astar_search
+2020-04-06 20:02:39,758 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:02:39,758 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:02:39,759 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob02.pddl
+2020-04-06 20:02:39,759 INFO     8 Predicates parsed
+2020-04-06 20:02:39,760 INFO     3 Actions parsed
+2020-04-06 20:02:39,760 INFO     11 Objects parsed
+2020-04-06 20:02:39,760 INFO     0 Constants parsed
+2020-04-06 20:02:39,760 INFO     Grounding start: strips-gripper-x-2
+2020-04-06 20:02:39,766 INFO     Relevance analysis removed 30 facts
+2020-04-06 20:02:39,767 INFO     Grounding end: strips-gripper-x-2
+2020-04-06 20:02:39,767 INFO     60 Variables created
+2020-04-06 20:02:39,767 INFO     66 Operators created
+2020-04-06 20:02:39,767 INFO     Search start: strips-gripper-x-2
+2020-04-06 20:02:39,769 INFO     Initial h value: 10.000000
+2020-04-06 20:02:39,925 INFO     Goal reached. Start extraction of solution.
+2020-04-06 20:02:39,925 INFO     31 Nodes expanded
+2020-04-06 20:02:39,925 INFO     Search end: strips-gripper-x-2
+2020-04-06 20:02:39,925 INFO     Search time: 0.16
+2020-04-06 20:02:39,925 INFO     Plan length: 11
+2020-04-06 20:02:39,931 INFO     Plan correct
+2020-04-06 20:02:39,986 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:02:39,986 INFO     using search: astar_search
+2020-04-06 20:02:39,986 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:02:39,986 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:02:39,987 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob03.pddl
+2020-04-06 20:02:39,988 INFO     8 Predicates parsed
+2020-04-06 20:02:39,988 INFO     3 Actions parsed
+2020-04-06 20:02:39,988 INFO     13 Objects parsed
+2020-04-06 20:02:39,988 INFO     0 Constants parsed
+2020-04-06 20:02:39,988 INFO     Grounding start: strips-gripper-x-3
+2020-04-06 20:02:39,995 INFO     Relevance analysis removed 24 facts
+2020-04-06 20:02:39,996 INFO     Grounding end: strips-gripper-x-3
+2020-04-06 20:02:39,996 INFO     60 Variables created
+2020-04-06 20:02:39,996 INFO     66 Operators created
+2020-04-06 20:02:39,996 INFO     Search start: strips-gripper-x-3
+2020-04-06 20:02:39,999 INFO     Initial h value: 17.000000
+2020-04-06 20:04:00,553 INFO     Goal reached. Start extraction of solution.
+2020-04-06 20:04:00,553 INFO     10434 Nodes expanded
+2020-04-06 20:04:00,556 INFO     Search end: strips-gripper-x-3
+2020-04-06 20:04:00,557 INFO     Search time: 8.1e+01
+2020-04-06 20:04:00,557 INFO     Plan length: 23
+2020-04-06 20:04:00,563 INFO     Plan correct
+2020-04-06 20:04:00,621 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:04:00,621 INFO     using search: astar_search
+2020-04-06 20:04:00,621 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:04:00,621 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:04:00,622 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob04.pddl
+2020-04-06 20:04:00,623 INFO     8 Predicates parsed
+2020-04-06 20:04:00,623 INFO     3 Actions parsed
+2020-04-06 20:04:00,623 INFO     15 Objects parsed
+2020-04-06 20:04:00,623 INFO     0 Constants parsed
+2020-04-06 20:04:00,623 INFO     Grounding start: strips-gripper-x-4
+2020-04-06 20:04:00,632 INFO     Relevance analysis removed 28 facts
+2020-04-06 20:04:00,633 INFO     Grounding end: strips-gripper-x-4
+2020-04-06 20:04:00,633 INFO     72 Variables created
+2020-04-06 20:04:00,633 INFO     82 Operators created
+2020-04-06 20:04:00,633 INFO     Search start: strips-gripper-x-4
+2020-04-06 20:04:00,637 INFO     Initial h value: 21.000000
+2020-04-06 20:16:43,989 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:43,989 INFO     using search: astar_search
+2020-04-06 20:16:43,989 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:43,989 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:43,990 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob05.pddl
+2020-04-06 20:16:43,991 INFO     8 Predicates parsed
+2020-04-06 20:16:43,991 INFO     3 Actions parsed
+2020-04-06 20:16:43,991 INFO     17 Objects parsed
+2020-04-06 20:16:43,991 INFO     0 Constants parsed
+2020-04-06 20:16:43,992 INFO     Grounding start: strips-gripper-x-5
+2020-04-06 20:16:44,001 INFO     Relevance analysis removed 32 facts
+2020-04-06 20:16:44,001 INFO     Grounding end: strips-gripper-x-5
+2020-04-06 20:16:44,001 INFO     84 Variables created
+2020-04-06 20:16:44,001 INFO     98 Operators created
+2020-04-06 20:16:44,001 INFO     Search start: strips-gripper-x-5
+2020-04-06 20:16:44,006 INFO     Initial h value: 25.000000
+2020-04-06 20:16:44,743 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:44,743 INFO     using search: astar_search
+2020-04-06 20:16:44,743 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:44,743 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:44,744 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob06.pddl
+2020-04-06 20:16:44,745 INFO     8 Predicates parsed
+2020-04-06 20:16:44,745 INFO     3 Actions parsed
+2020-04-06 20:16:44,745 INFO     19 Objects parsed
+2020-04-06 20:16:44,745 INFO     0 Constants parsed
+2020-04-06 20:16:44,745 INFO     Grounding start: strips-gripper-x-6
+2020-04-06 20:16:44,756 INFO     Relevance analysis removed 36 facts
+2020-04-06 20:16:44,756 INFO     Grounding end: strips-gripper-x-6
+2020-04-06 20:16:44,756 INFO     96 Variables created
+2020-04-06 20:16:44,756 INFO     114 Operators created
+2020-04-06 20:16:44,756 INFO     Search start: strips-gripper-x-6
+2020-04-06 20:16:44,763 INFO     Initial h value: 29.000000
+2020-04-06 20:16:45,066 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,066 INFO     using search: astar_search
+2020-04-06 20:16:45,066 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:45,066 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,067 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob07.pddl
+2020-04-06 20:16:45,068 INFO     8 Predicates parsed
+2020-04-06 20:16:45,068 INFO     3 Actions parsed
+2020-04-06 20:16:45,068 INFO     21 Objects parsed
+2020-04-06 20:16:45,068 INFO     0 Constants parsed
+2020-04-06 20:16:45,068 INFO     Grounding start: strips-gripper-x-7
+2020-04-06 20:16:45,080 INFO     Relevance analysis removed 40 facts
+2020-04-06 20:16:45,080 INFO     Grounding end: strips-gripper-x-7
+2020-04-06 20:16:45,080 INFO     108 Variables created
+2020-04-06 20:16:45,080 INFO     130 Operators created
+2020-04-06 20:16:45,081 INFO     Search start: strips-gripper-x-7
+2020-04-06 20:16:45,088 INFO     Initial h value: 33.000000
+2020-04-06 20:16:45,207 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,207 INFO     using search: astar_search
+2020-04-06 20:16:45,207 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:45,207 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,208 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob08.pddl
+2020-04-06 20:16:45,209 INFO     8 Predicates parsed
+2020-04-06 20:16:45,209 INFO     3 Actions parsed
+2020-04-06 20:16:45,209 INFO     23 Objects parsed
+2020-04-06 20:16:45,209 INFO     0 Constants parsed
+2020-04-06 20:16:45,209 INFO     Grounding start: strips-gripper-x-8
+2020-04-06 20:16:45,222 INFO     Relevance analysis removed 44 facts
+2020-04-06 20:16:45,223 INFO     Grounding end: strips-gripper-x-8
+2020-04-06 20:16:45,223 INFO     120 Variables created
+2020-04-06 20:16:45,223 INFO     146 Operators created
+2020-04-06 20:16:45,223 INFO     Search start: strips-gripper-x-8
+2020-04-06 20:16:45,234 INFO     Initial h value: 37.000000
+2020-04-06 20:16:45,348 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,348 INFO     using search: astar_search
+2020-04-06 20:16:45,348 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:45,348 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,349 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob09.pddl
+2020-04-06 20:16:45,350 INFO     8 Predicates parsed
+2020-04-06 20:16:45,350 INFO     3 Actions parsed
+2020-04-06 20:16:45,350 INFO     25 Objects parsed
+2020-04-06 20:16:45,350 INFO     0 Constants parsed
+2020-04-06 20:16:45,350 INFO     Grounding start: strips-gripper-x-9
+2020-04-06 20:16:45,364 INFO     Relevance analysis removed 48 facts
+2020-04-06 20:16:45,365 INFO     Grounding end: strips-gripper-x-9
+2020-04-06 20:16:45,365 INFO     132 Variables created
+2020-04-06 20:16:45,365 INFO     162 Operators created
+2020-04-06 20:16:45,365 INFO     Search start: strips-gripper-x-9
+2020-04-06 20:16:45,378 INFO     Initial h value: 40.000000
+2020-04-06 20:16:45,501 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,501 INFO     using search: astar_search
+2020-04-06 20:16:45,501 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:45,501 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,503 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob10.pddl
+2020-04-06 20:16:45,505 INFO     8 Predicates parsed
+2020-04-06 20:16:45,505 INFO     3 Actions parsed
+2020-04-06 20:16:45,505 INFO     27 Objects parsed
+2020-04-06 20:16:45,505 INFO     0 Constants parsed
+2020-04-06 20:16:45,505 INFO     Grounding start: strips-gripper-x-10
+2020-04-06 20:16:45,523 INFO     Relevance analysis removed 52 facts
+2020-04-06 20:16:45,523 INFO     Grounding end: strips-gripper-x-10
+2020-04-06 20:16:45,523 INFO     144 Variables created
+2020-04-06 20:16:45,524 INFO     178 Operators created
+2020-04-06 20:16:45,524 INFO     Search start: strips-gripper-x-10
+2020-04-06 20:16:45,540 INFO     Initial h value: 44.000000
+2020-04-06 20:16:45,636 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,636 INFO     using search: astar_search
+2020-04-06 20:16:45,636 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:45,636 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,637 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob11.pddl
+2020-04-06 20:16:45,639 INFO     8 Predicates parsed
+2020-04-06 20:16:45,639 INFO     3 Actions parsed
+2020-04-06 20:16:45,639 INFO     29 Objects parsed
+2020-04-06 20:16:45,639 INFO     0 Constants parsed
+2020-04-06 20:16:45,639 INFO     Grounding start: strips-gripper-x-11
+2020-04-06 20:16:45,657 INFO     Relevance analysis removed 56 facts
+2020-04-06 20:16:45,657 INFO     Grounding end: strips-gripper-x-11
+2020-04-06 20:16:45,657 INFO     156 Variables created
+2020-04-06 20:16:45,657 INFO     194 Operators created
+2020-04-06 20:16:45,658 INFO     Search start: strips-gripper-x-11
+2020-04-06 20:16:45,677 INFO     Initial h value: 48.000000
+2020-04-06 20:16:45,784 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,784 INFO     using search: astar_search
+2020-04-06 20:16:45,784 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:45,784 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,785 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob12.pddl
+2020-04-06 20:16:45,787 INFO     8 Predicates parsed
+2020-04-06 20:16:45,787 INFO     3 Actions parsed
+2020-04-06 20:16:45,787 INFO     31 Objects parsed
+2020-04-06 20:16:45,787 INFO     0 Constants parsed
+2020-04-06 20:16:45,787 INFO     Grounding start: strips-gripper-x-12
+2020-04-06 20:16:45,807 INFO     Relevance analysis removed 60 facts
+2020-04-06 20:16:45,807 INFO     Grounding end: strips-gripper-x-12
+2020-04-06 20:16:45,807 INFO     168 Variables created
+2020-04-06 20:16:45,808 INFO     210 Operators created
+2020-04-06 20:16:45,808 INFO     Search start: strips-gripper-x-12
+2020-04-06 20:16:45,830 INFO     Initial h value: 53.000000
+2020-04-06 20:16:45,925 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,925 INFO     using search: astar_search
+2020-04-06 20:16:45,925 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:45,925 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:45,926 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob13.pddl
+2020-04-06 20:16:45,928 INFO     8 Predicates parsed
+2020-04-06 20:16:45,928 INFO     3 Actions parsed
+2020-04-06 20:16:45,928 INFO     33 Objects parsed
+2020-04-06 20:16:45,928 INFO     0 Constants parsed
+2020-04-06 20:16:45,928 INFO     Grounding start: strips-gripper-x-13
+2020-04-06 20:16:45,948 INFO     Relevance analysis removed 64 facts
+2020-04-06 20:16:45,949 INFO     Grounding end: strips-gripper-x-13
+2020-04-06 20:16:45,949 INFO     180 Variables created
+2020-04-06 20:16:45,949 INFO     226 Operators created
+2020-04-06 20:16:45,950 INFO     Search start: strips-gripper-x-13
+2020-04-06 20:16:45,975 INFO     Initial h value: 57.000000
+2020-04-06 20:16:46,066 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:46,066 INFO     using search: astar_search
+2020-04-06 20:16:46,066 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:46,066 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:46,067 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob14.pddl
+2020-04-06 20:16:46,069 INFO     8 Predicates parsed
+2020-04-06 20:16:46,069 INFO     3 Actions parsed
+2020-04-06 20:16:46,069 INFO     35 Objects parsed
+2020-04-06 20:16:46,069 INFO     0 Constants parsed
+2020-04-06 20:16:46,069 INFO     Grounding start: strips-gripper-x-14
+2020-04-06 20:16:46,091 INFO     Relevance analysis removed 68 facts
+2020-04-06 20:16:46,092 INFO     Grounding end: strips-gripper-x-14
+2020-04-06 20:16:46,092 INFO     192 Variables created
+2020-04-06 20:16:46,092 INFO     242 Operators created
+2020-04-06 20:16:46,093 INFO     Search start: strips-gripper-x-14
+2020-04-06 20:16:46,121 INFO     Initial h value: 61.000000
+2020-04-06 20:16:46,191 INFO     Found domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:46,191 INFO     using search: astar_search
+2020-04-06 20:16:46,191 INFO     using heuristic: LmCutHeuristic
+2020-04-06 20:16:46,191 INFO     Parsing Domain /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/domain.pddl
+2020-04-06 20:16:46,192 INFO     Parsing Problem /home/blaas/work/projects/basilisk/test-benchmarks/gripper-m/prob15.pddl
+2020-04-06 20:16:46,194 INFO     8 Predicates parsed
+2020-04-06 20:16:46,194 INFO     3 Actions parsed
+2020-04-06 20:16:46,194 INFO     37 Objects parsed
+2020-04-06 20:16:46,194 INFO     0 Constants parsed
+2020-04-06 20:16:46,194 INFO     Grounding start: strips-gripper-x-15
+2020-04-06 20:16:46,218 INFO     Relevance analysis removed 72 facts
+2020-04-06 20:16:46,218 INFO     Grounding end: strips-gripper-x-15
+2020-04-06 20:16:46,218 INFO     204 Variables created
+2020-04-06 20:16:46,218 INFO     258 Operators created
+2020-04-06 20:16:46,219 INFO     Search start: strips-gripper-x-15
+2020-04-06 20:16:46,252 INFO     Initial h value: 65.000000

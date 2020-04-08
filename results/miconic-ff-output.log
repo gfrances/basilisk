@@ -1,0 +1,660 @@
+2020-04-08 13:35:34,848 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:34,848 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:34,848 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:34,848 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:34,849 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task01.pddl
+2020-04-08 13:35:34,849 INFO     8 Predicates parsed
+2020-04-08 13:35:34,849 INFO     4 Actions parsed
+2020-04-08 13:35:34,849 INFO     3 Objects parsed
+2020-04-08 13:35:34,849 INFO     0 Constants parsed
+2020-04-08 13:35:34,849 INFO     Grounding start: mixed-f2-p1-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,851 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:34,851 INFO     Grounding end: mixed-f2-p1-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,851 INFO     4 Variables created
+2020-04-08 13:35:34,852 INFO     4 Operators created
+2020-04-08 13:35:34,852 INFO     Search start: mixed-f2-p1-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,852 INFO     Initial h value: 3.000000
+2020-04-08 13:35:34,852 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:34,852 INFO     5 Nodes expanded
+2020-04-08 13:35:34,852 INFO     Search end: mixed-f2-p1-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,852 INFO     Search time: 0.00041
+2020-04-08 13:35:34,852 INFO     Plan length: 4
+2020-04-08 13:35:34,856 INFO     Plan correct
+2020-04-08 13:35:34,891 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:34,891 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:34,891 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:34,891 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:34,892 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task02.pddl
+2020-04-08 13:35:34,892 INFO     8 Predicates parsed
+2020-04-08 13:35:34,892 INFO     4 Actions parsed
+2020-04-08 13:35:34,892 INFO     6 Objects parsed
+2020-04-08 13:35:34,892 INFO     0 Constants parsed
+2020-04-08 13:35:34,892 INFO     Grounding start: mixed-f4-p2-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,894 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:34,894 INFO     Grounding end: mixed-f4-p2-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,894 INFO     8 Variables created
+2020-04-08 13:35:34,894 INFO     16 Operators created
+2020-04-08 13:35:34,894 INFO     Search start: mixed-f4-p2-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,894 INFO     Initial h value: 7.000000
+2020-04-08 13:35:34,895 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:34,895 INFO     8 Nodes expanded
+2020-04-08 13:35:34,895 INFO     Search end: mixed-f4-p2-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,895 INFO     Search time: 0.0012
+2020-04-08 13:35:34,896 INFO     Plan length: 7
+2020-04-08 13:35:34,900 INFO     Plan correct
+2020-04-08 13:35:34,936 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:34,936 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:34,936 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:34,936 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:34,936 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task03.pddl
+2020-04-08 13:35:34,937 INFO     8 Predicates parsed
+2020-04-08 13:35:34,937 INFO     4 Actions parsed
+2020-04-08 13:35:34,937 INFO     9 Objects parsed
+2020-04-08 13:35:34,937 INFO     0 Constants parsed
+2020-04-08 13:35:34,937 INFO     Grounding start: mixed-f6-p3-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,940 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:34,940 INFO     Grounding end: mixed-f6-p3-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,940 INFO     12 Variables created
+2020-04-08 13:35:34,940 INFO     36 Operators created
+2020-04-08 13:35:34,940 INFO     Search start: mixed-f6-p3-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,940 INFO     Initial h value: 10.000000
+2020-04-08 13:35:34,944 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:34,944 INFO     13 Nodes expanded
+2020-04-08 13:35:34,944 INFO     Search end: mixed-f6-p3-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,944 INFO     Search time: 0.0043
+2020-04-08 13:35:34,944 INFO     Plan length: 10
+2020-04-08 13:35:34,948 INFO     Plan correct
+2020-04-08 13:35:34,985 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:34,985 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:34,985 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:34,985 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:34,986 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task04.pddl
+2020-04-08 13:35:34,986 INFO     8 Predicates parsed
+2020-04-08 13:35:34,986 INFO     4 Actions parsed
+2020-04-08 13:35:34,986 INFO     12 Objects parsed
+2020-04-08 13:35:34,986 INFO     0 Constants parsed
+2020-04-08 13:35:34,986 INFO     Grounding start: mixed-f8-p4-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,990 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:34,990 INFO     Grounding end: mixed-f8-p4-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,990 INFO     16 Variables created
+2020-04-08 13:35:34,990 INFO     64 Operators created
+2020-04-08 13:35:34,990 INFO     Search start: mixed-f8-p4-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:34,991 INFO     Initial h value: 14.000000
+2020-04-08 13:35:35,005 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:35,005 INFO     22 Nodes expanded
+2020-04-08 13:35:35,005 INFO     Search end: mixed-f8-p4-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,005 INFO     Search time: 0.014
+2020-04-08 13:35:35,005 INFO     Plan length: 15
+2020-04-08 13:35:35,009 INFO     Plan correct
+2020-04-08 13:35:35,045 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,045 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:35,045 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:35,045 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,046 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task05.pddl
+2020-04-08 13:35:35,047 INFO     8 Predicates parsed
+2020-04-08 13:35:35,047 INFO     4 Actions parsed
+2020-04-08 13:35:35,047 INFO     15 Objects parsed
+2020-04-08 13:35:35,047 INFO     0 Constants parsed
+2020-04-08 13:35:35,047 INFO     Grounding start: mixed-f10-p5-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,052 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:35,052 INFO     Grounding end: mixed-f10-p5-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,052 INFO     20 Variables created
+2020-04-08 13:35:35,052 INFO     100 Operators created
+2020-04-08 13:35:35,053 INFO     Search start: mixed-f10-p5-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,053 INFO     Initial h value: 17.000000
+2020-04-08 13:35:35,076 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:35,076 INFO     20 Nodes expanded
+2020-04-08 13:35:35,076 INFO     Search end: mixed-f10-p5-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,076 INFO     Search time: 0.024
+2020-04-08 13:35:35,076 INFO     Plan length: 17
+2020-04-08 13:35:35,080 INFO     Plan correct
+2020-04-08 13:35:35,117 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,117 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:35,117 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:35,117 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,118 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task06.pddl
+2020-04-08 13:35:35,119 INFO     8 Predicates parsed
+2020-04-08 13:35:35,119 INFO     4 Actions parsed
+2020-04-08 13:35:35,119 INFO     18 Objects parsed
+2020-04-08 13:35:35,119 INFO     0 Constants parsed
+2020-04-08 13:35:35,119 INFO     Grounding start: mixed-f12-p6-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,126 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:35,126 INFO     Grounding end: mixed-f12-p6-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,126 INFO     24 Variables created
+2020-04-08 13:35:35,126 INFO     144 Operators created
+2020-04-08 13:35:35,126 INFO     Search start: mixed-f12-p6-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,127 INFO     Initial h value: 18.000000
+2020-04-08 13:35:35,183 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:35,183 INFO     28 Nodes expanded
+2020-04-08 13:35:35,183 INFO     Search end: mixed-f12-p6-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,183 INFO     Search time: 0.057
+2020-04-08 13:35:35,183 INFO     Plan length: 22
+2020-04-08 13:35:35,188 INFO     Plan correct
+2020-04-08 13:35:35,224 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,225 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:35,225 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:35,225 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,225 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task07.pddl
+2020-04-08 13:35:35,227 INFO     8 Predicates parsed
+2020-04-08 13:35:35,227 INFO     4 Actions parsed
+2020-04-08 13:35:35,227 INFO     21 Objects parsed
+2020-04-08 13:35:35,227 INFO     0 Constants parsed
+2020-04-08 13:35:35,227 INFO     Grounding start: mixed-f14-p7-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,235 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:35,236 INFO     Grounding end: mixed-f14-p7-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,236 INFO     28 Variables created
+2020-04-08 13:35:35,236 INFO     196 Operators created
+2020-04-08 13:35:35,236 INFO     Search start: mixed-f14-p7-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,236 INFO     Initial h value: 23.000000
+2020-04-08 13:35:35,320 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:35,320 INFO     28 Nodes expanded
+2020-04-08 13:35:35,320 INFO     Search end: mixed-f14-p7-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,320 INFO     Search time: 0.084
+2020-04-08 13:35:35,320 INFO     Plan length: 24
+2020-04-08 13:35:35,324 INFO     Plan correct
+2020-04-08 13:35:35,362 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,362 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:35,362 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:35,362 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,363 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task08.pddl
+2020-04-08 13:35:35,364 INFO     8 Predicates parsed
+2020-04-08 13:35:35,364 INFO     4 Actions parsed
+2020-04-08 13:35:35,364 INFO     24 Objects parsed
+2020-04-08 13:35:35,365 INFO     0 Constants parsed
+2020-04-08 13:35:35,365 INFO     Grounding start: mixed-f16-p8-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,376 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:35,376 INFO     Grounding end: mixed-f16-p8-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,376 INFO     32 Variables created
+2020-04-08 13:35:35,376 INFO     256 Operators created
+2020-04-08 13:35:35,376 INFO     Search start: mixed-f16-p8-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,377 INFO     Initial h value: 27.000000
+2020-04-08 13:35:35,555 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:35,555 INFO     39 Nodes expanded
+2020-04-08 13:35:35,555 INFO     Search end: mixed-f16-p8-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,555 INFO     Search time: 0.18
+2020-04-08 13:35:35,556 INFO     Plan length: 28
+2020-04-08 13:35:35,560 INFO     Plan correct
+2020-04-08 13:35:35,597 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,597 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:35,597 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:35,597 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,598 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task09.pddl
+2020-04-08 13:35:35,600 INFO     8 Predicates parsed
+2020-04-08 13:35:35,600 INFO     4 Actions parsed
+2020-04-08 13:35:35,600 INFO     27 Objects parsed
+2020-04-08 13:35:35,600 INFO     0 Constants parsed
+2020-04-08 13:35:35,600 INFO     Grounding start: mixed-f18-p9-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,614 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:35,614 INFO     Grounding end: mixed-f18-p9-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,614 INFO     36 Variables created
+2020-04-08 13:35:35,614 INFO     324 Operators created
+2020-04-08 13:35:35,614 INFO     Search start: mixed-f18-p9-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,615 INFO     Initial h value: 30.000000
+2020-04-08 13:35:35,923 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:35,923 INFO     51 Nodes expanded
+2020-04-08 13:35:35,923 INFO     Search end: mixed-f18-p9-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,923 INFO     Search time: 0.31
+2020-04-08 13:35:35,923 INFO     Plan length: 33
+2020-04-08 13:35:35,928 INFO     Plan correct
+2020-04-08 13:35:35,966 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,966 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:35,966 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:35,966 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:35,967 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task10.pddl
+2020-04-08 13:35:35,970 INFO     8 Predicates parsed
+2020-04-08 13:35:35,970 INFO     4 Actions parsed
+2020-04-08 13:35:35,970 INFO     30 Objects parsed
+2020-04-08 13:35:35,970 INFO     0 Constants parsed
+2020-04-08 13:35:35,970 INFO     Grounding start: mixed-f20-p10-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,987 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:35,988 INFO     Grounding end: mixed-f20-p10-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,988 INFO     40 Variables created
+2020-04-08 13:35:35,988 INFO     400 Operators created
+2020-04-08 13:35:35,988 INFO     Search start: mixed-f20-p10-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:35,989 INFO     Initial h value: 33.000000
+2020-04-08 13:35:36,495 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:36,495 INFO     62 Nodes expanded
+2020-04-08 13:35:36,495 INFO     Search end: mixed-f20-p10-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:36,495 INFO     Search time: 0.51
+2020-04-08 13:35:36,495 INFO     Plan length: 35
+2020-04-08 13:35:36,500 INFO     Plan correct
+2020-04-08 13:35:36,537 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:36,537 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:36,537 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:36,537 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:36,538 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task11.pddl
+2020-04-08 13:35:36,541 INFO     8 Predicates parsed
+2020-04-08 13:35:36,541 INFO     4 Actions parsed
+2020-04-08 13:35:36,541 INFO     33 Objects parsed
+2020-04-08 13:35:36,541 INFO     0 Constants parsed
+2020-04-08 13:35:36,541 INFO     Grounding start: mixed-f22-p11-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:36,561 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:36,562 INFO     Grounding end: mixed-f22-p11-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:36,562 INFO     44 Variables created
+2020-04-08 13:35:36,562 INFO     484 Operators created
+2020-04-08 13:35:36,562 INFO     Search start: mixed-f22-p11-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:36,563 INFO     Initial h value: 36.000000
+2020-04-08 13:35:37,116 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:37,116 INFO     53 Nodes expanded
+2020-04-08 13:35:37,116 INFO     Search end: mixed-f22-p11-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:37,116 INFO     Search time: 0.55
+2020-04-08 13:35:37,116 INFO     Plan length: 38
+2020-04-08 13:35:37,121 INFO     Plan correct
+2020-04-08 13:35:37,158 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:37,158 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:37,158 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:37,158 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:37,159 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task12.pddl
+2020-04-08 13:35:37,163 INFO     8 Predicates parsed
+2020-04-08 13:35:37,163 INFO     4 Actions parsed
+2020-04-08 13:35:37,163 INFO     36 Objects parsed
+2020-04-08 13:35:37,163 INFO     0 Constants parsed
+2020-04-08 13:35:37,163 INFO     Grounding start: mixed-f24-p12-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:37,186 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:37,187 INFO     Grounding end: mixed-f24-p12-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:37,187 INFO     48 Variables created
+2020-04-08 13:35:37,187 INFO     576 Operators created
+2020-04-08 13:35:37,188 INFO     Search start: mixed-f24-p12-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:37,188 INFO     Initial h value: 40.000000
+2020-04-08 13:35:38,169 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:38,170 INFO     72 Nodes expanded
+2020-04-08 13:35:38,170 INFO     Search end: mixed-f24-p12-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:38,170 INFO     Search time: 0.98
+2020-04-08 13:35:38,170 INFO     Plan length: 44
+2020-04-08 13:35:38,176 INFO     Plan correct
+2020-04-08 13:35:38,215 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:38,215 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:38,215 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:38,215 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:38,216 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task13.pddl
+2020-04-08 13:35:38,220 INFO     8 Predicates parsed
+2020-04-08 13:35:38,220 INFO     4 Actions parsed
+2020-04-08 13:35:38,220 INFO     39 Objects parsed
+2020-04-08 13:35:38,220 INFO     0 Constants parsed
+2020-04-08 13:35:38,220 INFO     Grounding start: mixed-f26-p13-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:38,250 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:38,250 INFO     Grounding end: mixed-f26-p13-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:38,250 INFO     52 Variables created
+2020-04-08 13:35:38,250 INFO     676 Operators created
+2020-04-08 13:35:38,251 INFO     Search start: mixed-f26-p13-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:38,252 INFO     Initial h value: 43.000000
+2020-04-08 13:35:39,682 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:39,682 INFO     79 Nodes expanded
+2020-04-08 13:35:39,682 INFO     Search end: mixed-f26-p13-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:39,682 INFO     Search time: 1.4
+2020-04-08 13:35:39,682 INFO     Plan length: 46
+2020-04-08 13:35:39,687 INFO     Plan correct
+2020-04-08 13:35:39,727 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:39,727 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:39,727 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:39,727 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:39,728 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task14.pddl
+2020-04-08 13:35:39,733 INFO     8 Predicates parsed
+2020-04-08 13:35:39,733 INFO     4 Actions parsed
+2020-04-08 13:35:39,733 INFO     42 Objects parsed
+2020-04-08 13:35:39,733 INFO     0 Constants parsed
+2020-04-08 13:35:39,733 INFO     Grounding start: mixed-f28-p14-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:39,769 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:39,770 INFO     Grounding end: mixed-f28-p14-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:39,770 INFO     56 Variables created
+2020-04-08 13:35:39,770 INFO     784 Operators created
+2020-04-08 13:35:39,770 INFO     Search start: mixed-f28-p14-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:39,771 INFO     Initial h value: 45.000000
+2020-04-08 13:35:41,846 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:41,846 INFO     85 Nodes expanded
+2020-04-08 13:35:41,846 INFO     Search end: mixed-f28-p14-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:41,846 INFO     Search time: 2.1
+2020-04-08 13:35:41,847 INFO     Plan length: 50
+2020-04-08 13:35:41,854 INFO     Plan correct
+2020-04-08 13:35:41,905 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:41,905 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:41,905 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:41,905 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:41,907 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task15.pddl
+2020-04-08 13:35:41,915 INFO     8 Predicates parsed
+2020-04-08 13:35:41,915 INFO     4 Actions parsed
+2020-04-08 13:35:41,915 INFO     45 Objects parsed
+2020-04-08 13:35:41,915 INFO     0 Constants parsed
+2020-04-08 13:35:41,915 INFO     Grounding start: mixed-f30-p15-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:41,975 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:41,975 INFO     Grounding end: mixed-f30-p15-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:41,975 INFO     60 Variables created
+2020-04-08 13:35:41,975 INFO     900 Operators created
+2020-04-08 13:35:41,977 INFO     Search start: mixed-f30-p15-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:41,978 INFO     Initial h value: 46.000000
+2020-04-08 13:35:44,517 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:44,517 INFO     71 Nodes expanded
+2020-04-08 13:35:44,517 INFO     Search end: mixed-f30-p15-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:44,517 INFO     Search time: 2.5
+2020-04-08 13:35:44,517 INFO     Plan length: 51
+2020-04-08 13:35:44,523 INFO     Plan correct
+2020-04-08 13:35:44,564 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:44,564 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:44,564 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:44,564 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:44,565 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task16.pddl
+2020-04-08 13:35:44,590 INFO     8 Predicates parsed
+2020-04-08 13:35:44,590 INFO     4 Actions parsed
+2020-04-08 13:35:44,590 INFO     48 Objects parsed
+2020-04-08 13:35:44,590 INFO     0 Constants parsed
+2020-04-08 13:35:44,590 INFO     Grounding start: mixed-f32-p16-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:44,645 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:44,645 INFO     Grounding end: mixed-f32-p16-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:44,645 INFO     64 Variables created
+2020-04-08 13:35:44,645 INFO     1024 Operators created
+2020-04-08 13:35:44,646 INFO     Search start: mixed-f32-p16-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:44,647 INFO     Initial h value: 53.000000
+2020-04-08 13:35:46,817 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:46,817 INFO     61 Nodes expanded
+2020-04-08 13:35:46,818 INFO     Search end: mixed-f32-p16-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:46,818 INFO     Search time: 2.2
+2020-04-08 13:35:46,818 INFO     Plan length: 55
+2020-04-08 13:35:46,824 INFO     Plan correct
+2020-04-08 13:35:46,868 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:46,868 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:46,869 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:46,869 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:46,870 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task17.pddl
+2020-04-08 13:35:46,887 INFO     8 Predicates parsed
+2020-04-08 13:35:46,887 INFO     4 Actions parsed
+2020-04-08 13:35:46,887 INFO     51 Objects parsed
+2020-04-08 13:35:46,887 INFO     0 Constants parsed
+2020-04-08 13:35:46,887 INFO     Grounding start: mixed-f34-p17-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:46,948 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:46,948 INFO     Grounding end: mixed-f34-p17-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:46,948 INFO     68 Variables created
+2020-04-08 13:35:46,948 INFO     1156 Operators created
+2020-04-08 13:35:46,950 INFO     Search start: mixed-f34-p17-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:46,951 INFO     Initial h value: 55.000000
+2020-04-08 13:35:52,192 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:52,192 INFO     117 Nodes expanded
+2020-04-08 13:35:52,192 INFO     Search end: mixed-f34-p17-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:52,193 INFO     Search time: 5.2
+2020-04-08 13:35:52,193 INFO     Plan length: 64
+2020-04-08 13:35:52,199 INFO     Plan correct
+2020-04-08 13:35:52,239 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:52,239 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:52,239 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:52,239 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:52,240 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task18.pddl
+2020-04-08 13:35:52,258 INFO     8 Predicates parsed
+2020-04-08 13:35:52,258 INFO     4 Actions parsed
+2020-04-08 13:35:52,258 INFO     54 Objects parsed
+2020-04-08 13:35:52,258 INFO     0 Constants parsed
+2020-04-08 13:35:52,258 INFO     Grounding start: mixed-f36-p18-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:52,322 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:52,323 INFO     Grounding end: mixed-f36-p18-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:52,323 INFO     72 Variables created
+2020-04-08 13:35:52,323 INFO     1296 Operators created
+2020-04-08 13:35:52,325 INFO     Search start: mixed-f36-p18-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:52,326 INFO     Initial h value: 59.000000
+2020-04-08 13:35:59,223 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:35:59,224 INFO     115 Nodes expanded
+2020-04-08 13:35:59,224 INFO     Search end: mixed-f36-p18-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:59,224 INFO     Search time: 6.9
+2020-04-08 13:35:59,225 INFO     Plan length: 65
+2020-04-08 13:35:59,231 INFO     Plan correct
+2020-04-08 13:35:59,273 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:59,273 INFO     using search: greedy_best_first_search
+2020-04-08 13:35:59,273 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:35:59,273 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:35:59,274 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task19.pddl
+2020-04-08 13:35:59,304 INFO     8 Predicates parsed
+2020-04-08 13:35:59,304 INFO     4 Actions parsed
+2020-04-08 13:35:59,304 INFO     57 Objects parsed
+2020-04-08 13:35:59,304 INFO     0 Constants parsed
+2020-04-08 13:35:59,305 INFO     Grounding start: mixed-f38-p19-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:59,381 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:35:59,382 INFO     Grounding end: mixed-f38-p19-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:59,382 INFO     76 Variables created
+2020-04-08 13:35:59,382 INFO     1444 Operators created
+2020-04-08 13:35:59,383 INFO     Search start: mixed-f38-p19-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:35:59,385 INFO     Initial h value: 62.000000
+2020-04-08 13:36:07,365 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:36:07,365 INFO     126 Nodes expanded
+2020-04-08 13:36:07,366 INFO     Search end: mixed-f38-p19-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:07,366 INFO     Search time: 8.0
+2020-04-08 13:36:07,367 INFO     Plan length: 68
+2020-04-08 13:36:07,373 INFO     Plan correct
+2020-04-08 13:36:07,415 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:36:07,415 INFO     using search: greedy_best_first_search
+2020-04-08 13:36:07,415 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:36:07,415 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:36:07,416 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task20.pddl
+2020-04-08 13:36:07,447 INFO     8 Predicates parsed
+2020-04-08 13:36:07,447 INFO     4 Actions parsed
+2020-04-08 13:36:07,447 INFO     60 Objects parsed
+2020-04-08 13:36:07,448 INFO     0 Constants parsed
+2020-04-08 13:36:07,448 INFO     Grounding start: mixed-f40-p20-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:07,537 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:36:07,537 INFO     Grounding end: mixed-f40-p20-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:07,537 INFO     80 Variables created
+2020-04-08 13:36:07,537 INFO     1600 Operators created
+2020-04-08 13:36:07,539 INFO     Search start: mixed-f40-p20-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:07,541 INFO     Initial h value: 63.000000
+2020-04-08 13:36:13,160 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:36:13,160 INFO     85 Nodes expanded
+2020-04-08 13:36:13,160 INFO     Search end: mixed-f40-p20-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:13,160 INFO     Search time: 5.6
+2020-04-08 13:36:13,161 INFO     Plan length: 66
+2020-04-08 13:36:13,167 INFO     Plan correct
+2020-04-08 13:36:13,208 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:36:13,208 INFO     using search: greedy_best_first_search
+2020-04-08 13:36:13,208 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:36:13,208 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:36:13,209 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task21.pddl
+2020-04-08 13:36:13,239 INFO     8 Predicates parsed
+2020-04-08 13:36:13,239 INFO     4 Actions parsed
+2020-04-08 13:36:13,239 INFO     63 Objects parsed
+2020-04-08 13:36:13,240 INFO     0 Constants parsed
+2020-04-08 13:36:13,240 INFO     Grounding start: mixed-f42-p21-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:13,335 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:36:13,336 INFO     Grounding end: mixed-f42-p21-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:13,336 INFO     84 Variables created
+2020-04-08 13:36:13,336 INFO     1764 Operators created
+2020-04-08 13:36:13,338 INFO     Search start: mixed-f42-p21-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:13,340 INFO     Initial h value: 69.000000
+2020-04-08 13:36:23,184 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:36:23,184 INFO     108 Nodes expanded
+2020-04-08 13:36:23,185 INFO     Search end: mixed-f42-p21-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:23,185 INFO     Search time: 9.8
+2020-04-08 13:36:23,185 INFO     Plan length: 74
+2020-04-08 13:36:23,192 INFO     Plan correct
+2020-04-08 13:36:23,240 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:36:23,240 INFO     using search: greedy_best_first_search
+2020-04-08 13:36:23,240 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:36:23,240 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:36:23,241 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task22.pddl
+2020-04-08 13:36:23,265 INFO     8 Predicates parsed
+2020-04-08 13:36:23,265 INFO     4 Actions parsed
+2020-04-08 13:36:23,265 INFO     66 Objects parsed
+2020-04-08 13:36:23,265 INFO     0 Constants parsed
+2020-04-08 13:36:23,265 INFO     Grounding start: mixed-f44-p22-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:23,390 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:36:23,391 INFO     Grounding end: mixed-f44-p22-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:23,391 INFO     88 Variables created
+2020-04-08 13:36:23,391 INFO     1936 Operators created
+2020-04-08 13:36:23,394 INFO     Search start: mixed-f44-p22-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:23,397 INFO     Initial h value: 72.000000
+2020-04-08 13:36:36,294 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:36:36,295 INFO     117 Nodes expanded
+2020-04-08 13:36:36,296 INFO     Search end: mixed-f44-p22-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:36,296 INFO     Search time: 1.3e+01
+2020-04-08 13:36:36,297 INFO     Plan length: 76
+2020-04-08 13:36:36,306 INFO     Plan correct
+2020-04-08 13:36:36,366 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:36:36,366 INFO     using search: greedy_best_first_search
+2020-04-08 13:36:36,366 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:36:36,367 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:36:36,368 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task23.pddl
+2020-04-08 13:36:36,398 INFO     8 Predicates parsed
+2020-04-08 13:36:36,398 INFO     4 Actions parsed
+2020-04-08 13:36:36,398 INFO     69 Objects parsed
+2020-04-08 13:36:36,398 INFO     0 Constants parsed
+2020-04-08 13:36:36,398 INFO     Grounding start: mixed-f46-p23-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:36,577 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:36:36,578 INFO     Grounding end: mixed-f46-p23-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:36,578 INFO     92 Variables created
+2020-04-08 13:36:36,578 INFO     2116 Operators created
+2020-04-08 13:36:36,582 INFO     Search start: mixed-f46-p23-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:36:36,586 INFO     Initial h value: 75.000000
+2020-04-08 13:37:03,692 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:37:03,692 INFO     136 Nodes expanded
+2020-04-08 13:37:03,694 INFO     Search end: mixed-f46-p23-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:37:03,694 INFO     Search time: 2.7e+01
+2020-04-08 13:37:03,695 INFO     Plan length: 80
+2020-04-08 13:37:03,707 INFO     Plan correct
+2020-04-08 13:37:03,794 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:37:03,794 INFO     using search: greedy_best_first_search
+2020-04-08 13:37:03,794 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:37:03,794 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:37:03,796 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task24.pddl
+2020-04-08 13:37:03,827 INFO     8 Predicates parsed
+2020-04-08 13:37:03,827 INFO     4 Actions parsed
+2020-04-08 13:37:03,827 INFO     72 Objects parsed
+2020-04-08 13:37:03,827 INFO     0 Constants parsed
+2020-04-08 13:37:03,827 INFO     Grounding start: mixed-f48-p24-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:37:04,081 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:37:04,083 INFO     Grounding end: mixed-f48-p24-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:37:04,083 INFO     96 Variables created
+2020-04-08 13:37:04,083 INFO     2304 Operators created
+2020-04-08 13:37:04,088 INFO     Search start: mixed-f48-p24-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:37:04,093 INFO     Initial h value: 79.000000
+2020-04-08 13:37:42,368 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:37:42,368 INFO     246 Nodes expanded
+2020-04-08 13:37:42,369 INFO     Search end: mixed-f48-p24-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:37:42,369 INFO     Search time: 3.8e+01
+2020-04-08 13:37:42,370 INFO     Plan length: 90
+2020-04-08 13:37:42,379 INFO     Plan correct
+2020-04-08 13:37:42,435 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:37:42,435 INFO     using search: greedy_best_first_search
+2020-04-08 13:37:42,435 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:37:42,436 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:37:42,437 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task25.pddl
+2020-04-08 13:37:42,468 INFO     8 Predicates parsed
+2020-04-08 13:37:42,468 INFO     4 Actions parsed
+2020-04-08 13:37:42,468 INFO     75 Objects parsed
+2020-04-08 13:37:42,468 INFO     0 Constants parsed
+2020-04-08 13:37:42,468 INFO     Grounding start: mixed-f50-p25-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:37:42,656 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:37:42,658 INFO     Grounding end: mixed-f50-p25-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:37:42,658 INFO     100 Variables created
+2020-04-08 13:37:42,658 INFO     2500 Operators created
+2020-04-08 13:37:42,662 INFO     Search start: mixed-f50-p25-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:37:42,666 INFO     Initial h value: 81.000000
+2020-04-08 13:38:07,839 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:38:07,839 INFO     175 Nodes expanded
+2020-04-08 13:38:07,841 INFO     Search end: mixed-f50-p25-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:38:07,841 INFO     Search time: 2.5e+01
+2020-04-08 13:38:07,843 INFO     Plan length: 89
+2020-04-08 13:38:07,851 INFO     Plan correct
+2020-04-08 13:38:07,895 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:38:07,895 INFO     using search: greedy_best_first_search
+2020-04-08 13:38:07,895 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:38:07,895 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:38:07,896 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task26.pddl
+2020-04-08 13:38:07,926 INFO     8 Predicates parsed
+2020-04-08 13:38:07,926 INFO     4 Actions parsed
+2020-04-08 13:38:07,926 INFO     78 Objects parsed
+2020-04-08 13:38:07,926 INFO     0 Constants parsed
+2020-04-08 13:38:07,926 INFO     Grounding start: mixed-f52-p26-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:38:08,126 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:38:08,127 INFO     Grounding end: mixed-f52-p26-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:38:08,127 INFO     104 Variables created
+2020-04-08 13:38:08,128 INFO     2704 Operators created
+2020-04-08 13:38:08,132 INFO     Search start: mixed-f52-p26-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:38:08,135 INFO     Initial h value: 83.000000
+2020-04-08 13:38:34,812 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:38:34,812 INFO     153 Nodes expanded
+2020-04-08 13:38:34,813 INFO     Search end: mixed-f52-p26-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:38:34,813 INFO     Search time: 2.7e+01
+2020-04-08 13:38:34,814 INFO     Plan length: 93
+2020-04-08 13:38:34,821 INFO     Plan correct
+2020-04-08 13:38:34,861 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:38:34,861 INFO     using search: greedy_best_first_search
+2020-04-08 13:38:34,861 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:38:34,861 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:38:34,862 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task27.pddl
+2020-04-08 13:38:34,889 INFO     8 Predicates parsed
+2020-04-08 13:38:34,889 INFO     4 Actions parsed
+2020-04-08 13:38:34,889 INFO     81 Objects parsed
+2020-04-08 13:38:34,889 INFO     0 Constants parsed
+2020-04-08 13:38:34,889 INFO     Grounding start: mixed-f54-p27-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:38:35,079 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:38:35,080 INFO     Grounding end: mixed-f54-p27-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:38:35,081 INFO     108 Variables created
+2020-04-08 13:38:35,081 INFO     2916 Operators created
+2020-04-08 13:38:35,084 INFO     Search start: mixed-f54-p27-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:38:35,087 INFO     Initial h value: 87.000000
+2020-04-08 13:39:14,942 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:39:14,943 INFO     145 Nodes expanded
+2020-04-08 13:39:14,945 INFO     Search end: mixed-f54-p27-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:39:14,945 INFO     Search time: 4e+01
+2020-04-08 13:39:14,949 INFO     Plan length: 96
+2020-04-08 13:39:14,965 INFO     Plan correct
+2020-04-08 13:39:15,071 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:39:15,071 INFO     using search: greedy_best_first_search
+2020-04-08 13:39:15,071 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:39:15,071 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:39:15,074 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task28.pddl
+2020-04-08 13:39:15,134 INFO     8 Predicates parsed
+2020-04-08 13:39:15,135 INFO     4 Actions parsed
+2020-04-08 13:39:15,135 INFO     84 Objects parsed
+2020-04-08 13:39:15,135 INFO     0 Constants parsed
+2020-04-08 13:39:15,135 INFO     Grounding start: mixed-f56-p28-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:39:15,724 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:39:15,727 INFO     Grounding end: mixed-f56-p28-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:39:15,727 INFO     112 Variables created
+2020-04-08 13:39:15,727 INFO     3136 Operators created
+2020-04-08 13:39:15,736 INFO     Search start: mixed-f56-p28-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:39:15,745 INFO     Initial h value: 94.000000
+2020-04-08 13:40:12,766 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:40:12,767 INFO     161 Nodes expanded
+2020-04-08 13:40:12,769 INFO     Search end: mixed-f56-p28-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:40:12,769 INFO     Search time: 5.7e+01
+2020-04-08 13:40:12,771 INFO     Plan length: 101
+2020-04-08 13:40:12,784 INFO     Plan correct
+2020-04-08 13:40:12,861 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:40:12,861 INFO     using search: greedy_best_first_search
+2020-04-08 13:40:12,861 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:40:12,861 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:40:12,863 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task29.pddl
+2020-04-08 13:40:12,911 INFO     8 Predicates parsed
+2020-04-08 13:40:12,911 INFO     4 Actions parsed
+2020-04-08 13:40:12,911 INFO     87 Objects parsed
+2020-04-08 13:40:12,911 INFO     0 Constants parsed
+2020-04-08 13:40:12,911 INFO     Grounding start: mixed-f58-p29-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:40:13,346 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:40:13,348 INFO     Grounding end: mixed-f58-p29-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:40:13,348 INFO     116 Variables created
+2020-04-08 13:40:13,348 INFO     3364 Operators created
+2020-04-08 13:40:13,358 INFO     Search start: mixed-f58-p29-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:40:13,365 INFO     Initial h value: 94.000000
+2020-04-08 13:41:11,091 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:41:11,091 INFO     181 Nodes expanded
+2020-04-08 13:41:11,093 INFO     Search end: mixed-f58-p29-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:41:11,093 INFO     Search time: 5.8e+01
+2020-04-08 13:41:11,095 INFO     Plan length: 103
+2020-04-08 13:41:11,105 INFO     Plan correct
+2020-04-08 13:41:11,161 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:41:11,161 INFO     using search: greedy_best_first_search
+2020-04-08 13:41:11,161 INFO     using heuristic: hFFHeuristic
+2020-04-08 13:41:11,161 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/domain.pddl
+2020-04-08 13:41:11,162 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/miconic/task30.pddl
+2020-04-08 13:41:11,191 INFO     8 Predicates parsed
+2020-04-08 13:41:11,192 INFO     4 Actions parsed
+2020-04-08 13:41:11,192 INFO     90 Objects parsed
+2020-04-08 13:41:11,192 INFO     0 Constants parsed
+2020-04-08 13:41:11,192 INFO     Grounding start: mixed-f60-p30-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:41:11,496 INFO     Relevance analysis removed 0 facts
+2020-04-08 13:41:11,498 INFO     Grounding end: mixed-f60-p30-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:41:11,498 INFO     120 Variables created
+2020-04-08 13:41:11,498 INFO     3600 Operators created
+2020-04-08 13:41:11,503 INFO     Search start: mixed-f60-p30-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:41:11,509 INFO     Initial h value: 95.000000
+2020-04-08 13:42:17,429 INFO     Goal reached. Start extraction of solution.
+2020-04-08 13:42:17,429 INFO     202 Nodes expanded
+2020-04-08 13:42:17,431 INFO     Search end: mixed-f60-p30-u0-v0-g0-a0-n0-a0-b0-n0-f0-r0
+2020-04-08 13:42:17,431 INFO     Search time: 6.6e+01
+2020-04-08 13:42:17,433 INFO     Plan length: 105
+2020-04-08 13:42:17,444 INFO     Plan correct

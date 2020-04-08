@@ -1,0 +1,795 @@
+INFO    - Reading training data from workspace/gripper
+INFO    - Total number of training examples: 13882
+INFO    - Total number of input features: 119
+INFO    - Creating the NN model
+Model: "model_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)         (None, 119)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 120       
+_________________________________________________________________
+activation_1 (Activation)    (None, 1)                 0         
+=================================================================
+Total params: 120
+Trainable params: 120
+Non-trainable params: 0
+_________________________________________________________________
+None
+INFO    - Compiling NN before training
+INFO    - Training the NN....
+INFO    - Finished NN training.
+INFO    - Useful features: [30, 36, 75, 76, 87, 88, 92, 95, 96, 99]
+Weighted features found:
+0.1158781573176384 * Num[Not(Forall(at,And(Not(at-robby),Nominal(roomb))))]
+0.19566717743873596 * Num[Not(And(Forall(carry,<empty>),Forall(at,Nominal(roomb))))]
+0.14536763727664948 * Num[And(Not(Exists(at,And(Not(at-robby),Nominal(roomb)))),ball)]
+0.275176465511322 * Num[And(Forall(at,And(Not(at-robby),Not(Nominal(roomb)))),ball)]
+-0.14285477995872498 * Num[And(Forall(Inverse(at),Exists(at,And(at-robby,Nominal(roomb)))),room)]
+1.0722993612289429 * Num[And(Not(And(Not(Nominal(roomb)),Forall(at,Nominal(roomb)))),Not(at-robby))]
+0.8788947463035583 * Num[And(Not(And(Not(at-robby),Forall(at,Nominal(roomb)))),Not(Nominal(roomb)))]
+-0.13312581181526184 * Num[And(And(Not(ball),Forall(Inverse(at),<empty>)),Forall(Inverse(carry),<empty>))]
+-0.14595596492290497 * Num[Not(And(Not(Exists(at,Nominal(roomb))),Not(And(at-robby,Nominal(roomb)))))]
+0.33340543508529663 * Num[And(Not(Exists(at,Nominal(roomb))),And(Not(free),Not(room)))]
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Solving pyperplan-benchmarks/gripper/task01.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task01.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 8 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-1
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-1
+INFO    - 20 Variables created
+INFO    - 34 Operators created
+INFO    - Search start: strips-gripper-x-1
+INFO    - Initial h value: 12.375012
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 12 Nodes expanded
+INFO    - Search end: strips-gripper-x-1
+INFO    - Wall-clock search time: 0.025
+INFO    - Plan length: 11
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task02.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task02.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 10 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-2
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-2
+INFO    - 28 Variables created
+INFO    - 50 Operators created
+INFO    - Search start: strips-gripper-x-2
+INFO    - Initial h value: 17.858037
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 18 Nodes expanded
+INFO    - Search end: strips-gripper-x-2
+INFO    - Wall-clock search time: 0.054
+INFO    - Plan length: 17
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task03.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task03.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 12 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-3
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-3
+INFO    - 36 Variables created
+INFO    - 66 Operators created
+INFO    - Search start: strips-gripper-x-3
+INFO    - Initial h value: 23.341062
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 24 Nodes expanded
+INFO    - Search end: strips-gripper-x-3
+INFO    - Wall-clock search time: 0.098
+INFO    - Plan length: 23
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task04.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task04.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 14 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-4
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-4
+INFO    - 44 Variables created
+INFO    - 82 Operators created
+INFO    - Search start: strips-gripper-x-4
+INFO    - Initial h value: 28.824087
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 38 Nodes expanded
+INFO    - Search end: strips-gripper-x-4
+INFO    - Wall-clock search time: 0.18
+INFO    - Plan length: 29
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task05.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task05.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 16 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-5
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-5
+INFO    - 52 Variables created
+INFO    - 98 Operators created
+INFO    - Search start: strips-gripper-x-5
+INFO    - Initial h value: 34.307112
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 66 Nodes expanded
+INFO    - Search end: strips-gripper-x-5
+INFO    - Wall-clock search time: 0.33
+INFO    - Plan length: 35
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task06.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task06.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 18 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-6
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-6
+INFO    - 60 Variables created
+INFO    - 114 Operators created
+INFO    - Search start: strips-gripper-x-6
+INFO    - Initial h value: 39.790137
+INFO    - Expanded 0 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 97 Nodes expanded
+INFO    - Search end: strips-gripper-x-6
+INFO    - Wall-clock search time: 0.53
+INFO    - Plan length: 43
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task07.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task07.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 20 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-7
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-7
+INFO    - 68 Variables created
+INFO    - 130 Operators created
+INFO    - Search start: strips-gripper-x-7
+INFO    - Initial h value: 45.273162
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 1659 Nodes expanded
+INFO    - Search end: strips-gripper-x-7
+INFO    - Wall-clock search time: 8.5
+INFO    - Plan length: 61
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task08.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task08.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 22 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-8
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-8
+INFO    - 76 Variables created
+INFO    - 146 Operators created
+INFO    - Search start: strips-gripper-x-8
+INFO    - Initial h value: 50.756187
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 2312 Nodes expanded
+INFO    - Search end: strips-gripper-x-8
+INFO    - Wall-clock search time: 1.4e+01
+INFO    - Plan length: 69
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task09.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task09.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 24 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-9
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-9
+INFO    - 84 Variables created
+INFO    - 162 Operators created
+INFO    - Search start: strips-gripper-x-9
+INFO    - Initial h value: 56.239212
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 3256 Nodes expanded
+INFO    - Search end: strips-gripper-x-9
+INFO    - Wall-clock search time: 2.4e+01
+INFO    - Plan length: 77
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task10.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task10.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 26 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-10
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-10
+INFO    - 92 Variables created
+INFO    - 178 Operators created
+INFO    - Search start: strips-gripper-x-10
+INFO    - Initial h value: 61.722237
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 4550 Nodes expanded
+INFO    - Search end: strips-gripper-x-10
+INFO    - Wall-clock search time: 3.2e+01
+INFO    - Plan length: 85
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task11.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task11.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 28 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-11
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-11
+INFO    - 100 Variables created
+INFO    - 194 Operators created
+INFO    - Search start: strips-gripper-x-11
+INFO    - Initial h value: 67.205262
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Expanded 5000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 5796 Nodes expanded
+INFO    - Search end: strips-gripper-x-11
+INFO    - Wall-clock search time: 4.5e+01
+INFO    - Plan length: 93
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task12.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task12.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 30 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-12
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-12
+INFO    - 108 Variables created
+INFO    - 210 Operators created
+INFO    - Search start: strips-gripper-x-12
+INFO    - Initial h value: 72.688287
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Expanded 5000 states.
+INFO    - Expanded 6000 states.
+INFO    - Expanded 7000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 7250 Nodes expanded
+INFO    - Search end: strips-gripper-x-12
+INFO    - Wall-clock search time: 7.2e+01
+INFO    - Plan length: 101
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task13.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task13.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 32 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-13
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-13
+INFO    - 116 Variables created
+INFO    - 226 Operators created
+INFO    - Search start: strips-gripper-x-13
+INFO    - Initial h value: 78.171312
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Expanded 5000 states.
+INFO    - Expanded 6000 states.
+INFO    - Expanded 7000 states.
+INFO    - Expanded 8000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 8928 Nodes expanded
+INFO    - Search end: strips-gripper-x-13
+INFO    - Wall-clock search time: 8.9e+01
+INFO    - Plan length: 109
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task14.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task14.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 34 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-14
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-14
+INFO    - 124 Variables created
+INFO    - 242 Operators created
+INFO    - Search start: strips-gripper-x-14
+INFO    - Initial h value: 83.654337
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Expanded 5000 states.
+INFO    - Expanded 6000 states.
+INFO    - Expanded 7000 states.
+INFO    - Expanded 8000 states.
+INFO    - Expanded 9000 states.
+INFO    - Expanded 10000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 10846 Nodes expanded
+INFO    - Search end: strips-gripper-x-14
+INFO    - Wall-clock search time: 1.2e+02
+INFO    - Plan length: 117
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task15.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task15.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 36 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-15
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-15
+INFO    - 132 Variables created
+INFO    - 258 Operators created
+INFO    - Search start: strips-gripper-x-15
+INFO    - Initial h value: 89.137362
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Expanded 5000 states.
+INFO    - Expanded 6000 states.
+INFO    - Expanded 7000 states.
+INFO    - Expanded 8000 states.
+INFO    - Expanded 9000 states.
+INFO    - Expanded 10000 states.
+INFO    - Expanded 11000 states.
+INFO    - Expanded 12000 states.
+INFO    - Expanded 13000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 13020 Nodes expanded
+INFO    - Search end: strips-gripper-x-15
+INFO    - Wall-clock search time: 1.6e+02
+INFO    - Plan length: 125
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task16.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task16.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 38 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-16
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-16
+INFO    - 140 Variables created
+INFO    - 274 Operators created
+INFO    - Search start: strips-gripper-x-16
+INFO    - Initial h value: 94.620387
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Expanded 5000 states.
+INFO    - Expanded 6000 states.
+INFO    - Expanded 7000 states.
+INFO    - Expanded 8000 states.
+INFO    - Expanded 9000 states.
+INFO    - Expanded 10000 states.
+INFO    - Expanded 11000 states.
+INFO    - Expanded 12000 states.
+INFO    - Expanded 13000 states.
+INFO    - Expanded 14000 states.
+INFO    - Expanded 15000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 15466 Nodes expanded
+INFO    - Search end: strips-gripper-x-16
+INFO    - Wall-clock search time: 2e+02
+INFO    - Plan length: 133
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task17.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task17.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 40 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-17
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-17
+INFO    - 148 Variables created
+INFO    - 290 Operators created
+INFO    - Search start: strips-gripper-x-17
+INFO    - Initial h value: 100.103412
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Expanded 5000 states.
+INFO    - Expanded 6000 states.
+INFO    - Expanded 7000 states.
+INFO    - Expanded 8000 states.
+INFO    - Expanded 9000 states.
+INFO    - Expanded 10000 states.
+INFO    - Expanded 11000 states.
+INFO    - Expanded 12000 states.
+INFO    - Expanded 13000 states.
+INFO    - Expanded 14000 states.
+INFO    - Expanded 15000 states.
+INFO    - Expanded 16000 states.
+INFO    - Expanded 17000 states.
+INFO    - Expanded 18000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 18200 Nodes expanded
+INFO    - Search end: strips-gripper-x-17
+INFO    - Wall-clock search time: 2.7e+02
+INFO    - Plan length: 141
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task18.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task18.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 42 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-18
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-18
+INFO    - 156 Variables created
+INFO    - 306 Operators created
+INFO    - Search start: strips-gripper-x-18
+INFO    - Initial h value: 105.586437
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Expanded 5000 states.
+INFO    - Expanded 6000 states.
+INFO    - Expanded 7000 states.
+INFO    - Expanded 8000 states.
+INFO    - Expanded 9000 states.
+INFO    - Expanded 10000 states.
+INFO    - Expanded 11000 states.
+INFO    - Expanded 12000 states.
+INFO    - Expanded 13000 states.
+INFO    - Expanded 14000 states.
+INFO    - Expanded 15000 states.
+INFO    - Expanded 16000 states.
+INFO    - Expanded 17000 states.
+INFO    - Expanded 18000 states.
+INFO    - Expanded 19000 states.
+INFO    - Expanded 20000 states.
+INFO    - Expanded 21000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 21238 Nodes expanded
+INFO    - Search end: strips-gripper-x-18
+INFO    - Wall-clock search time: 3.3e+02
+INFO    - Plan length: 149
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task19.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task19.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 44 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-19
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-19
+INFO    - 164 Variables created
+INFO    - 322 Operators created
+INFO    - Search start: strips-gripper-x-19
+INFO    - Initial h value: 111.069462
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Expanded 5000 states.
+INFO    - Expanded 6000 states.
+INFO    - Expanded 7000 states.
+INFO    - Expanded 8000 states.
+INFO    - Expanded 9000 states.
+INFO    - Expanded 10000 states.
+INFO    - Expanded 11000 states.
+INFO    - Expanded 12000 states.
+INFO    - Expanded 13000 states.
+INFO    - Expanded 14000 states.
+INFO    - Expanded 15000 states.
+INFO    - Expanded 16000 states.
+INFO    - Expanded 17000 states.
+INFO    - Expanded 18000 states.
+INFO    - Expanded 19000 states.
+INFO    - Expanded 20000 states.
+INFO    - Expanded 21000 states.
+INFO    - Expanded 22000 states.
+INFO    - Expanded 23000 states.
+INFO    - Expanded 24000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 24596 Nodes expanded
+INFO    - Search end: strips-gripper-x-19
+INFO    - Wall-clock search time: 4.1e+02
+INFO    - Plan length: 157
+INFO    - Plan correct
+INFO    - Solving pyperplan-benchmarks/gripper/task20.pddl
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+ANTLR runtime and generated code versions disagree: 4.8!=4.7.1
+INFO    - Using user-provided domain parameters and ignoring goal representation
+INFO    - using search: greedy_best_first_search
+INFO    - using heuristic: pyperplan_concept_based_heuristic
+INFO    - Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+INFO    - Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task20.pddl
+INFO    - 7 Predicates parsed
+INFO    - 3 Actions parsed
+INFO    - 46 Objects parsed
+INFO    - 0 Constants parsed
+INFO    - Grounding start: strips-gripper-x-20
+INFO    - Relevance analysis removed 0 facts
+INFO    - Grounding end: strips-gripper-x-20
+INFO    - 172 Variables created
+INFO    - 338 Operators created
+INFO    - Search start: strips-gripper-x-20
+INFO    - Initial h value: 116.552488
+INFO    - Expanded 0 states.
+INFO    - Expanded 1000 states.
+INFO    - Expanded 2000 states.
+INFO    - Expanded 3000 states.
+INFO    - Expanded 4000 states.
+INFO    - Expanded 5000 states.
+INFO    - Expanded 6000 states.
+INFO    - Expanded 7000 states.
+INFO    - Expanded 8000 states.
+INFO    - Expanded 9000 states.
+INFO    - Expanded 10000 states.
+INFO    - Expanded 11000 states.
+INFO    - Expanded 12000 states.
+INFO    - Expanded 13000 states.
+INFO    - Expanded 14000 states.
+INFO    - Expanded 15000 states.
+INFO    - Expanded 16000 states.
+INFO    - Expanded 17000 states.
+INFO    - Expanded 18000 states.
+INFO    - Expanded 19000 states.
+INFO    - Expanded 20000 states.
+INFO    - Expanded 21000 states.
+INFO    - Expanded 22000 states.
+INFO    - Expanded 23000 states.
+INFO    - Expanded 24000 states.
+INFO    - Expanded 25000 states.
+INFO    - Expanded 26000 states.
+INFO    - Expanded 27000 states.
+INFO    - Expanded 28000 states.
+INFO    - Goal reached. Start extraction of solution.
+INFO    - 28290 Nodes expanded
+INFO    - Search end: strips-gripper-x-20
+INFO    - Wall-clock search time: 5.2e+02
+INFO    - Plan length: 165
+INFO    - Plan correct

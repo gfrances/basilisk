@@ -1,0 +1,440 @@
+2020-04-07 18:58:02,195 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:02,195 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:02,195 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:02,195 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:02,196 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task01.pddl
+2020-04-07 18:58:02,196 INFO     7 Predicates parsed
+2020-04-07 18:58:02,196 INFO     3 Actions parsed
+2020-04-07 18:58:02,196 INFO     8 Objects parsed
+2020-04-07 18:58:02,196 INFO     0 Constants parsed
+2020-04-07 18:58:02,196 INFO     Grounding start: strips-gripper-x-1
+2020-04-07 18:58:02,199 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:02,199 INFO     Grounding end: strips-gripper-x-1
+2020-04-07 18:58:02,199 INFO     20 Variables created
+2020-04-07 18:58:02,199 INFO     34 Operators created
+2020-04-07 18:58:02,199 INFO     Search start: strips-gripper-x-1
+2020-04-07 18:58:02,199 INFO     Initial h value: 9.000000
+2020-04-07 18:58:02,212 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:02,212 INFO     26 Nodes expanded
+2020-04-07 18:58:02,212 INFO     Search end: strips-gripper-x-1
+2020-04-07 18:58:02,212 INFO     Search time: 0.013
+2020-04-07 18:58:02,212 INFO     Plan length: 13
+2020-04-07 18:58:02,218 INFO     Plan correct
+2020-04-07 18:58:02,268 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:02,268 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:02,268 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:02,268 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:02,269 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task02.pddl
+2020-04-07 18:58:02,270 INFO     7 Predicates parsed
+2020-04-07 18:58:02,270 INFO     3 Actions parsed
+2020-04-07 18:58:02,270 INFO     10 Objects parsed
+2020-04-07 18:58:02,270 INFO     0 Constants parsed
+2020-04-07 18:58:02,270 INFO     Grounding start: strips-gripper-x-2
+2020-04-07 18:58:02,274 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:02,275 INFO     Grounding end: strips-gripper-x-2
+2020-04-07 18:58:02,275 INFO     28 Variables created
+2020-04-07 18:58:02,275 INFO     50 Operators created
+2020-04-07 18:58:02,275 INFO     Search start: strips-gripper-x-2
+2020-04-07 18:58:02,275 INFO     Initial h value: 13.000000
+2020-04-07 18:58:02,319 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:02,319 INFO     54 Nodes expanded
+2020-04-07 18:58:02,319 INFO     Search end: strips-gripper-x-2
+2020-04-07 18:58:02,320 INFO     Search time: 0.045
+2020-04-07 18:58:02,320 INFO     Plan length: 21
+2020-04-07 18:58:02,324 INFO     Plan correct
+2020-04-07 18:58:02,370 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:02,370 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:02,370 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:02,370 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:02,371 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task03.pddl
+2020-04-07 18:58:02,372 INFO     7 Predicates parsed
+2020-04-07 18:58:02,372 INFO     3 Actions parsed
+2020-04-07 18:58:02,372 INFO     12 Objects parsed
+2020-04-07 18:58:02,372 INFO     0 Constants parsed
+2020-04-07 18:58:02,372 INFO     Grounding start: strips-gripper-x-3
+2020-04-07 18:58:02,376 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:02,376 INFO     Grounding end: strips-gripper-x-3
+2020-04-07 18:58:02,376 INFO     36 Variables created
+2020-04-07 18:58:02,376 INFO     66 Operators created
+2020-04-07 18:58:02,376 INFO     Search start: strips-gripper-x-3
+2020-04-07 18:58:02,376 INFO     Initial h value: 17.000000
+2020-04-07 18:58:02,487 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:02,487 INFO     90 Nodes expanded
+2020-04-07 18:58:02,487 INFO     Search end: strips-gripper-x-3
+2020-04-07 18:58:02,487 INFO     Search time: 0.11
+2020-04-07 18:58:02,488 INFO     Plan length: 29
+2020-04-07 18:58:02,493 INFO     Plan correct
+2020-04-07 18:58:02,539 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:02,539 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:02,539 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:02,539 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:02,540 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task04.pddl
+2020-04-07 18:58:02,541 INFO     7 Predicates parsed
+2020-04-07 18:58:02,541 INFO     3 Actions parsed
+2020-04-07 18:58:02,541 INFO     14 Objects parsed
+2020-04-07 18:58:02,541 INFO     0 Constants parsed
+2020-04-07 18:58:02,541 INFO     Grounding start: strips-gripper-x-4
+2020-04-07 18:58:02,546 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:02,546 INFO     Grounding end: strips-gripper-x-4
+2020-04-07 18:58:02,546 INFO     44 Variables created
+2020-04-07 18:58:02,546 INFO     82 Operators created
+2020-04-07 18:58:02,546 INFO     Search start: strips-gripper-x-4
+2020-04-07 18:58:02,546 INFO     Initial h value: 21.000000
+2020-04-07 18:58:02,795 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:02,795 INFO     134 Nodes expanded
+2020-04-07 18:58:02,795 INFO     Search end: strips-gripper-x-4
+2020-04-07 18:58:02,795 INFO     Search time: 0.25
+2020-04-07 18:58:02,795 INFO     Plan length: 37
+2020-04-07 18:58:02,801 INFO     Plan correct
+2020-04-07 18:58:02,846 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:02,846 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:02,846 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:02,846 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:02,847 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task05.pddl
+2020-04-07 18:58:02,857 INFO     7 Predicates parsed
+2020-04-07 18:58:02,857 INFO     3 Actions parsed
+2020-04-07 18:58:02,857 INFO     16 Objects parsed
+2020-04-07 18:58:02,857 INFO     0 Constants parsed
+2020-04-07 18:58:02,857 INFO     Grounding start: strips-gripper-x-5
+2020-04-07 18:58:02,862 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:02,862 INFO     Grounding end: strips-gripper-x-5
+2020-04-07 18:58:02,862 INFO     52 Variables created
+2020-04-07 18:58:02,862 INFO     98 Operators created
+2020-04-07 18:58:02,863 INFO     Search start: strips-gripper-x-5
+2020-04-07 18:58:02,863 INFO     Initial h value: 25.000000
+2020-04-07 18:58:03,335 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:03,335 INFO     186 Nodes expanded
+2020-04-07 18:58:03,335 INFO     Search end: strips-gripper-x-5
+2020-04-07 18:58:03,335 INFO     Search time: 0.47
+2020-04-07 18:58:03,335 INFO     Plan length: 45
+2020-04-07 18:58:03,340 INFO     Plan correct
+2020-04-07 18:58:03,386 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:03,386 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:03,387 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:03,387 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:03,387 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task06.pddl
+2020-04-07 18:58:03,389 INFO     7 Predicates parsed
+2020-04-07 18:58:03,389 INFO     3 Actions parsed
+2020-04-07 18:58:03,389 INFO     18 Objects parsed
+2020-04-07 18:58:03,389 INFO     0 Constants parsed
+2020-04-07 18:58:03,389 INFO     Grounding start: strips-gripper-x-6
+2020-04-07 18:58:03,395 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:03,395 INFO     Grounding end: strips-gripper-x-6
+2020-04-07 18:58:03,395 INFO     60 Variables created
+2020-04-07 18:58:03,395 INFO     114 Operators created
+2020-04-07 18:58:03,395 INFO     Search start: strips-gripper-x-6
+2020-04-07 18:58:03,396 INFO     Initial h value: 29.000000
+2020-04-07 18:58:04,236 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:04,236 INFO     246 Nodes expanded
+2020-04-07 18:58:04,237 INFO     Search end: strips-gripper-x-6
+2020-04-07 18:58:04,237 INFO     Search time: 0.84
+2020-04-07 18:58:04,237 INFO     Plan length: 53
+2020-04-07 18:58:04,242 INFO     Plan correct
+2020-04-07 18:58:04,286 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:04,287 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:04,287 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:04,287 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:04,287 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task07.pddl
+2020-04-07 18:58:04,298 INFO     7 Predicates parsed
+2020-04-07 18:58:04,298 INFO     3 Actions parsed
+2020-04-07 18:58:04,298 INFO     20 Objects parsed
+2020-04-07 18:58:04,298 INFO     0 Constants parsed
+2020-04-07 18:58:04,298 INFO     Grounding start: strips-gripper-x-7
+2020-04-07 18:58:04,305 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:04,305 INFO     Grounding end: strips-gripper-x-7
+2020-04-07 18:58:04,305 INFO     68 Variables created
+2020-04-07 18:58:04,305 INFO     130 Operators created
+2020-04-07 18:58:04,306 INFO     Search start: strips-gripper-x-7
+2020-04-07 18:58:04,306 INFO     Initial h value: 33.000000
+2020-04-07 18:58:05,660 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:05,660 INFO     314 Nodes expanded
+2020-04-07 18:58:05,661 INFO     Search end: strips-gripper-x-7
+2020-04-07 18:58:05,661 INFO     Search time: 1.4
+2020-04-07 18:58:05,661 INFO     Plan length: 61
+2020-04-07 18:58:05,666 INFO     Plan correct
+2020-04-07 18:58:05,720 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:05,720 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:05,720 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:05,720 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:05,721 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task08.pddl
+2020-04-07 18:58:05,732 INFO     7 Predicates parsed
+2020-04-07 18:58:05,732 INFO     3 Actions parsed
+2020-04-07 18:58:05,732 INFO     22 Objects parsed
+2020-04-07 18:58:05,732 INFO     0 Constants parsed
+2020-04-07 18:58:05,732 INFO     Grounding start: strips-gripper-x-8
+2020-04-07 18:58:05,739 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:05,739 INFO     Grounding end: strips-gripper-x-8
+2020-04-07 18:58:05,739 INFO     76 Variables created
+2020-04-07 18:58:05,739 INFO     146 Operators created
+2020-04-07 18:58:05,740 INFO     Search start: strips-gripper-x-8
+2020-04-07 18:58:05,740 INFO     Initial h value: 37.000000
+2020-04-07 18:58:08,019 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:08,019 INFO     390 Nodes expanded
+2020-04-07 18:58:08,021 INFO     Search end: strips-gripper-x-8
+2020-04-07 18:58:08,021 INFO     Search time: 2.3
+2020-04-07 18:58:08,022 INFO     Plan length: 69
+2020-04-07 18:58:08,035 INFO     Plan correct
+2020-04-07 18:58:08,092 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:08,092 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:08,092 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:08,092 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:08,093 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task09.pddl
+2020-04-07 18:58:08,095 INFO     7 Predicates parsed
+2020-04-07 18:58:08,095 INFO     3 Actions parsed
+2020-04-07 18:58:08,095 INFO     24 Objects parsed
+2020-04-07 18:58:08,095 INFO     0 Constants parsed
+2020-04-07 18:58:08,095 INFO     Grounding start: strips-gripper-x-9
+2020-04-07 18:58:08,105 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:08,105 INFO     Grounding end: strips-gripper-x-9
+2020-04-07 18:58:08,105 INFO     84 Variables created
+2020-04-07 18:58:08,106 INFO     162 Operators created
+2020-04-07 18:58:08,106 INFO     Search start: strips-gripper-x-9
+2020-04-07 18:58:08,107 INFO     Initial h value: 41.000000
+2020-04-07 18:58:12,257 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:12,257 INFO     474 Nodes expanded
+2020-04-07 18:58:12,259 INFO     Search end: strips-gripper-x-9
+2020-04-07 18:58:12,260 INFO     Search time: 4.2
+2020-04-07 18:58:12,260 INFO     Plan length: 77
+2020-04-07 18:58:12,267 INFO     Plan correct
+2020-04-07 18:58:12,320 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:12,321 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:12,321 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:12,321 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:12,322 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task10.pddl
+2020-04-07 18:58:12,357 INFO     7 Predicates parsed
+2020-04-07 18:58:12,357 INFO     3 Actions parsed
+2020-04-07 18:58:12,357 INFO     26 Objects parsed
+2020-04-07 18:58:12,357 INFO     0 Constants parsed
+2020-04-07 18:58:12,357 INFO     Grounding start: strips-gripper-x-10
+2020-04-07 18:58:12,368 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:12,368 INFO     Grounding end: strips-gripper-x-10
+2020-04-07 18:58:12,368 INFO     92 Variables created
+2020-04-07 18:58:12,368 INFO     178 Operators created
+2020-04-07 18:58:12,369 INFO     Search start: strips-gripper-x-10
+2020-04-07 18:58:12,369 INFO     Initial h value: 45.000000
+2020-04-07 18:58:17,976 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:17,976 INFO     566 Nodes expanded
+2020-04-07 18:58:17,979 INFO     Search end: strips-gripper-x-10
+2020-04-07 18:58:17,979 INFO     Search time: 5.6
+2020-04-07 18:58:17,979 INFO     Plan length: 85
+2020-04-07 18:58:17,987 INFO     Plan correct
+2020-04-07 18:58:18,041 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:18,041 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:18,042 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:18,042 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:18,043 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task11.pddl
+2020-04-07 18:58:18,078 INFO     7 Predicates parsed
+2020-04-07 18:58:18,078 INFO     3 Actions parsed
+2020-04-07 18:58:18,078 INFO     28 Objects parsed
+2020-04-07 18:58:18,078 INFO     0 Constants parsed
+2020-04-07 18:58:18,078 INFO     Grounding start: strips-gripper-x-11
+2020-04-07 18:58:18,091 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:18,091 INFO     Grounding end: strips-gripper-x-11
+2020-04-07 18:58:18,091 INFO     100 Variables created
+2020-04-07 18:58:18,091 INFO     194 Operators created
+2020-04-07 18:58:18,091 INFO     Search start: strips-gripper-x-11
+2020-04-07 18:58:18,092 INFO     Initial h value: 49.000000
+2020-04-07 18:58:24,813 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:24,813 INFO     666 Nodes expanded
+2020-04-07 18:58:24,817 INFO     Search end: strips-gripper-x-11
+2020-04-07 18:58:24,817 INFO     Search time: 6.7
+2020-04-07 18:58:24,817 INFO     Plan length: 93
+2020-04-07 18:58:24,822 INFO     Plan correct
+2020-04-07 18:58:24,861 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:24,861 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:24,861 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:24,861 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:24,862 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task12.pddl
+2020-04-07 18:58:24,873 INFO     7 Predicates parsed
+2020-04-07 18:58:24,873 INFO     3 Actions parsed
+2020-04-07 18:58:24,873 INFO     30 Objects parsed
+2020-04-07 18:58:24,873 INFO     0 Constants parsed
+2020-04-07 18:58:24,873 INFO     Grounding start: strips-gripper-x-12
+2020-04-07 18:58:24,883 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:24,883 INFO     Grounding end: strips-gripper-x-12
+2020-04-07 18:58:24,883 INFO     108 Variables created
+2020-04-07 18:58:24,883 INFO     210 Operators created
+2020-04-07 18:58:24,884 INFO     Search start: strips-gripper-x-12
+2020-04-07 18:58:24,884 INFO     Initial h value: 53.000000
+2020-04-07 18:58:33,170 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:33,170 INFO     774 Nodes expanded
+2020-04-07 18:58:33,175 INFO     Search end: strips-gripper-x-12
+2020-04-07 18:58:33,175 INFO     Search time: 8.3
+2020-04-07 18:58:33,175 INFO     Plan length: 101
+2020-04-07 18:58:33,181 INFO     Plan correct
+2020-04-07 18:58:33,230 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:33,230 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:33,230 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:33,230 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:33,231 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task13.pddl
+2020-04-07 18:58:33,242 INFO     7 Predicates parsed
+2020-04-07 18:58:33,242 INFO     3 Actions parsed
+2020-04-07 18:58:33,242 INFO     32 Objects parsed
+2020-04-07 18:58:33,243 INFO     0 Constants parsed
+2020-04-07 18:58:33,243 INFO     Grounding start: strips-gripper-x-13
+2020-04-07 18:58:33,255 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:33,256 INFO     Grounding end: strips-gripper-x-13
+2020-04-07 18:58:33,256 INFO     116 Variables created
+2020-04-07 18:58:33,256 INFO     226 Operators created
+2020-04-07 18:58:33,256 INFO     Search start: strips-gripper-x-13
+2020-04-07 18:58:33,257 INFO     Initial h value: 57.000000
+2020-04-07 18:58:47,441 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:58:47,442 INFO     890 Nodes expanded
+2020-04-07 18:58:47,449 INFO     Search end: strips-gripper-x-13
+2020-04-07 18:58:47,449 INFO     Search time: 1.4e+01
+2020-04-07 18:58:47,449 INFO     Plan length: 109
+2020-04-07 18:58:47,456 INFO     Plan correct
+2020-04-07 18:58:47,517 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:47,517 INFO     using search: greedy_best_first_search
+2020-04-07 18:58:47,517 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:58:47,517 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:58:47,518 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task14.pddl
+2020-04-07 18:58:47,530 INFO     7 Predicates parsed
+2020-04-07 18:58:47,530 INFO     3 Actions parsed
+2020-04-07 18:58:47,530 INFO     34 Objects parsed
+2020-04-07 18:58:47,530 INFO     0 Constants parsed
+2020-04-07 18:58:47,530 INFO     Grounding start: strips-gripper-x-14
+2020-04-07 18:58:47,549 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:58:47,549 INFO     Grounding end: strips-gripper-x-14
+2020-04-07 18:58:47,549 INFO     124 Variables created
+2020-04-07 18:58:47,549 INFO     242 Operators created
+2020-04-07 18:58:47,550 INFO     Search start: strips-gripper-x-14
+2020-04-07 18:58:47,551 INFO     Initial h value: 61.000000
+2020-04-07 18:59:08,029 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:59:08,029 INFO     1014 Nodes expanded
+2020-04-07 18:59:08,037 INFO     Search end: strips-gripper-x-14
+2020-04-07 18:59:08,038 INFO     Search time: 2e+01
+2020-04-07 18:59:08,038 INFO     Plan length: 117
+2020-04-07 18:59:08,045 INFO     Plan correct
+2020-04-07 18:59:08,107 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:59:08,107 INFO     using search: greedy_best_first_search
+2020-04-07 18:59:08,107 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:59:08,107 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:59:08,108 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task15.pddl
+2020-04-07 18:59:08,120 INFO     7 Predicates parsed
+2020-04-07 18:59:08,120 INFO     3 Actions parsed
+2020-04-07 18:59:08,120 INFO     36 Objects parsed
+2020-04-07 18:59:08,120 INFO     0 Constants parsed
+2020-04-07 18:59:08,120 INFO     Grounding start: strips-gripper-x-15
+2020-04-07 18:59:08,139 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:59:08,139 INFO     Grounding end: strips-gripper-x-15
+2020-04-07 18:59:08,139 INFO     132 Variables created
+2020-04-07 18:59:08,139 INFO     258 Operators created
+2020-04-07 18:59:08,140 INFO     Search start: strips-gripper-x-15
+2020-04-07 18:59:08,141 INFO     Initial h value: 65.000000
+2020-04-07 18:59:35,248 INFO     Goal reached. Start extraction of solution.
+2020-04-07 18:59:35,248 INFO     1146 Nodes expanded
+2020-04-07 18:59:35,262 INFO     Search end: strips-gripper-x-15
+2020-04-07 18:59:35,262 INFO     Search time: 2.7e+01
+2020-04-07 18:59:35,262 INFO     Plan length: 125
+2020-04-07 18:59:35,271 INFO     Plan correct
+2020-04-07 18:59:35,336 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:59:35,336 INFO     using search: greedy_best_first_search
+2020-04-07 18:59:35,336 INFO     using heuristic: hFFHeuristic
+2020-04-07 18:59:35,336 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 18:59:35,337 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task16.pddl
+2020-04-07 18:59:35,349 INFO     7 Predicates parsed
+2020-04-07 18:59:35,349 INFO     3 Actions parsed
+2020-04-07 18:59:35,349 INFO     38 Objects parsed
+2020-04-07 18:59:35,350 INFO     0 Constants parsed
+2020-04-07 18:59:35,350 INFO     Grounding start: strips-gripper-x-16
+2020-04-07 18:59:35,371 INFO     Relevance analysis removed 0 facts
+2020-04-07 18:59:35,372 INFO     Grounding end: strips-gripper-x-16
+2020-04-07 18:59:35,372 INFO     140 Variables created
+2020-04-07 18:59:35,372 INFO     274 Operators created
+2020-04-07 18:59:35,372 INFO     Search start: strips-gripper-x-16
+2020-04-07 18:59:35,374 INFO     Initial h value: 69.000000
+2020-04-07 19:00:04,523 INFO     Goal reached. Start extraction of solution.
+2020-04-07 19:00:04,523 INFO     1286 Nodes expanded
+2020-04-07 19:00:04,535 INFO     Search end: strips-gripper-x-16
+2020-04-07 19:00:04,535 INFO     Search time: 2.9e+01
+2020-04-07 19:00:04,536 INFO     Plan length: 133
+2020-04-07 19:00:04,543 INFO     Plan correct
+2020-04-07 19:00:04,592 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 19:00:04,592 INFO     using search: greedy_best_first_search
+2020-04-07 19:00:04,592 INFO     using heuristic: hFFHeuristic
+2020-04-07 19:00:04,592 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 19:00:04,593 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task17.pddl
+2020-04-07 19:00:04,605 INFO     7 Predicates parsed
+2020-04-07 19:00:04,605 INFO     3 Actions parsed
+2020-04-07 19:00:04,605 INFO     40 Objects parsed
+2020-04-07 19:00:04,605 INFO     0 Constants parsed
+2020-04-07 19:00:04,605 INFO     Grounding start: strips-gripper-x-17
+2020-04-07 19:00:04,623 INFO     Relevance analysis removed 0 facts
+2020-04-07 19:00:04,623 INFO     Grounding end: strips-gripper-x-17
+2020-04-07 19:00:04,623 INFO     148 Variables created
+2020-04-07 19:00:04,623 INFO     290 Operators created
+2020-04-07 19:00:04,624 INFO     Search start: strips-gripper-x-17
+2020-04-07 19:00:04,625 INFO     Initial h value: 73.000000
+2020-04-07 19:00:37,832 INFO     Goal reached. Start extraction of solution.
+2020-04-07 19:00:37,832 INFO     1434 Nodes expanded
+2020-04-07 19:00:37,850 INFO     Search end: strips-gripper-x-17
+2020-04-07 19:00:37,850 INFO     Search time: 3.3e+01
+2020-04-07 19:00:37,850 INFO     Plan length: 141
+2020-04-07 19:00:37,859 INFO     Plan correct
+2020-04-07 19:00:37,920 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 19:00:37,920 INFO     using search: greedy_best_first_search
+2020-04-07 19:00:37,920 INFO     using heuristic: hFFHeuristic
+2020-04-07 19:00:37,920 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 19:00:37,922 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task18.pddl
+2020-04-07 19:00:37,934 INFO     7 Predicates parsed
+2020-04-07 19:00:37,934 INFO     3 Actions parsed
+2020-04-07 19:00:37,934 INFO     42 Objects parsed
+2020-04-07 19:00:37,934 INFO     0 Constants parsed
+2020-04-07 19:00:37,934 INFO     Grounding start: strips-gripper-x-18
+2020-04-07 19:00:37,959 INFO     Relevance analysis removed 0 facts
+2020-04-07 19:00:37,959 INFO     Grounding end: strips-gripper-x-18
+2020-04-07 19:00:37,959 INFO     156 Variables created
+2020-04-07 19:00:37,959 INFO     306 Operators created
+2020-04-07 19:00:37,960 INFO     Search start: strips-gripper-x-18
+2020-04-07 19:00:37,962 INFO     Initial h value: 77.000000
+2020-04-07 19:01:37,327 INFO     Goal reached. Start extraction of solution.
+2020-04-07 19:01:37,327 INFO     1590 Nodes expanded
+2020-04-07 19:01:37,351 INFO     Search end: strips-gripper-x-18
+2020-04-07 19:01:37,351 INFO     Search time: 5.9e+01
+2020-04-07 19:01:37,352 INFO     Plan length: 149
+2020-04-07 19:01:37,364 INFO     Plan correct
+2020-04-07 19:01:37,439 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 19:01:37,439 INFO     using search: greedy_best_first_search
+2020-04-07 19:01:37,440 INFO     using heuristic: hFFHeuristic
+2020-04-07 19:01:37,440 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 19:01:37,441 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task19.pddl
+2020-04-07 19:01:37,454 INFO     7 Predicates parsed
+2020-04-07 19:01:37,454 INFO     3 Actions parsed
+2020-04-07 19:01:37,454 INFO     44 Objects parsed
+2020-04-07 19:01:37,454 INFO     0 Constants parsed
+2020-04-07 19:01:37,454 INFO     Grounding start: strips-gripper-x-19
+2020-04-07 19:01:37,484 INFO     Relevance analysis removed 0 facts
+2020-04-07 19:01:37,484 INFO     Grounding end: strips-gripper-x-19
+2020-04-07 19:01:37,484 INFO     164 Variables created
+2020-04-07 19:01:37,484 INFO     322 Operators created
+2020-04-07 19:01:37,485 INFO     Search start: strips-gripper-x-19
+2020-04-07 19:01:37,487 INFO     Initial h value: 81.000000
+2020-04-07 19:02:49,618 INFO     Goal reached. Start extraction of solution.
+2020-04-07 19:02:49,618 INFO     1754 Nodes expanded
+2020-04-07 19:02:49,645 INFO     Search end: strips-gripper-x-19
+2020-04-07 19:02:49,646 INFO     Search time: 7.2e+01
+2020-04-07 19:02:49,646 INFO     Plan length: 157
+2020-04-07 19:02:49,658 INFO     Plan correct
+2020-04-07 19:02:49,733 INFO     Found domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 19:02:49,733 INFO     using search: greedy_best_first_search
+2020-04-07 19:02:49,734 INFO     using heuristic: hFFHeuristic
+2020-04-07 19:02:49,734 INFO     Parsing Domain /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/domain.pddl
+2020-04-07 19:02:49,735 INFO     Parsing Problem /home/blaas/work/projects/basilisk/pyperplan-benchmarks/gripper/task20.pddl
+2020-04-07 19:02:49,738 INFO     7 Predicates parsed
+2020-04-07 19:02:49,738 INFO     3 Actions parsed
+2020-04-07 19:02:49,739 INFO     46 Objects parsed
+2020-04-07 19:02:49,739 INFO     0 Constants parsed
+2020-04-07 19:02:49,739 INFO     Grounding start: strips-gripper-x-20
+2020-04-07 19:02:49,771 INFO     Relevance analysis removed 0 facts
+2020-04-07 19:02:49,771 INFO     Grounding end: strips-gripper-x-20
+2020-04-07 19:02:49,771 INFO     172 Variables created
+2020-04-07 19:02:49,771 INFO     338 Operators created
+2020-04-07 19:02:49,773 INFO     Search start: strips-gripper-x-20
+2020-04-07 19:02:49,774 INFO     Initial h value: 85.000000
+2020-04-07 19:04:15,656 INFO     Goal reached. Start extraction of solution.
+2020-04-07 19:04:15,657 INFO     1926 Nodes expanded
+2020-04-07 19:04:15,688 INFO     Search end: strips-gripper-x-20
+2020-04-07 19:04:15,688 INFO     Search time: 8.6e+01
+2020-04-07 19:04:15,689 INFO     Plan length: 165
+2020-04-07 19:04:15,703 INFO     Plan correct
