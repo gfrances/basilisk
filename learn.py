@@ -342,6 +342,7 @@ def add_gripper_domain_parameters(language):
     # Hack for now
     return [language.constant("roomb", "object")]
 
+
 if __name__ == '__main__':
     args = parse_arguments()
     logging.basicConfig(stream=sys.stdout,
@@ -361,14 +362,9 @@ if __name__ == '__main__':
         history = iterative_learn(input_features, output_values)
         weights, indices = get_significant_weights(history)
         logging.info('Useful features: {}'.format(indices))
-        new_input_features, features_names = filter_input(indices,
+        input_features, features_names = filter_input(indices,
                                                           input_features,
                                                           features_names)
-        if len(new_input_features) == len(input_features):
-            # Stop iterations if it is not pruning more concepts
-            input_features = new_input_features
-            break
-        input_features = new_input_features
 
     assert (weights is not None and len(weights) == len(features_names))
     print("Weighted features found:")
@@ -385,6 +381,6 @@ if __name__ == '__main__':
     for i in test_instances:
         logging.info("Solving {}".format(i))
         import_and_run_pyperplan(test_domain, i, heuristic,
-                                 add_gripper_domain_parameters, gbfs=True)
+                                 None, gbfs=True)
 
     logging.debug('Exiting script.')
