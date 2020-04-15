@@ -105,6 +105,10 @@ def parse_arguments():
             args.split_training_data[0] < sum(
                 x for x in args.split_training_data[1:]),
             "SHIFT of --split-training-data has to be less than sum(*_PARTS)")
+
+    check_argument_value(
+        args.hidden_laters == 0,
+        "The feature selection does not work with hidden layers")
     return args
 
 
