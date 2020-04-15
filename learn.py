@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import math
 import numpy as np
 import os
+import random
 import sys
 
 from collections import defaultdict
@@ -48,6 +49,21 @@ def parse_arguments():
                         help="Path of the directory containing the test "
                              "data. This directory should contain the domain "
                              "and instances files.")
+    parser.add_argument('--split-training-data', nargs='*', type=int,
+                        default=None,
+                        help="SHIFT TRAINING_PARTS VALIDATION_PARTS. "
+                             "Splits the loaded training data "
+                             "into training, validation data. The nn is "
+                             "trained on the training "
+                             "data. After each epoch the performance of the "
+                             "nn is evaluated on the validation data. "
+                             "Depending on this evaluation, training "
+                             "parameters can be tuned. "
+                             "*_PARTS defines how many parts of the original "
+                             "training data are given to this split. SHIFT"
+                             "deterministically defines which parts of the "
+                             "data are given to which new data set. SHIFT is"
+                             "a value between 0 and sum(*_PARTS).")
     parser.add_argument('--debug', action='store_true', help='Set DEBUG flag.')
     parser.add_argument('--plot', action='store_true',
                         help='Plot learning histograms and curves.')
@@ -69,12 +85,33 @@ def parse_arguments():
                         help='Use weighted class on training.')
     parser.add_argument('--keras-verbose', default=1, type=int,
                         help='Keras verbose level (0, 1, or 2).')
+    parser.add_argument('--seed', type=int, default=42,
+                        help="set a random seed for python (not for keras)")
     args = parser.parse_args()
+
+    random.seed(args.seed)
 
     check_path_exists(args.training_data)
     check_path_exists(args.test_data)
 
+    if args.split_training_data is not None:
+        check_argument_value(
+            len(args.split_training_data) == 3,
+            "Invalid number of arguments for --split-training-data")
+        check_argument_value(
+            all(x >= 0 for x in args.split_training_data),
+            "All arguments for --split-training-data has to be positive")
+        check_argument_value(
+            args.split_training_data[0] < sum(
+                x for x in args.split_training_data[1:]),
+            "SHIFT of --split-training-data has to be less than sum(*_PARTS)")
     return args
+
+
+def check_argument_value(condition, message):
+    if not condition:
+        logging.error(message)
+        sys.exit()
 
 
 def check_path_exists(path):
@@ -158,10 +195,53 @@ def read_training_data(path):
     return np.array(finite_features_denotations), np.array(h_star), np.array(feature_strings)
 
 
-def train_nn(model, X, Y, args):
+def split_training_data(x, y, args):
+    assert x.shape[0] == y.shape[0]
+    if args.split_training_data is None:
+        return (x, y), None
+    shift = args.split_training_data[0]
+    parts = args.split_training_data[1:]
+    nb_parts = sum(x for x in parts)
+    assert (0 <= shift < nb_parts)
+    assert (all(x >= 0 for x in parts))
+
+    # Define for each data set which folds (aka parts) of the data belong to it
+    start = 0
+    assigned_folds = []
+    for part in parts:
+        assigned_folds.append([(i + start + shift) % nb_parts
+                               for i in range(part)])
+        start += part
+
+    # Distribute the samples (via their index) to each data set
+    indices = np.arange(y.shape[0])
+    random.shuffle(indices)
+    part_length = int(y.shape[0] / nb_parts)
+
+    def _get_start_end(_fold):
+        assert _fold < nb_parts
+        if _fold == nb_parts - 1:
+            return _fold * part_length, y.shape[0]
+        else:
+            return _fold * part_length, (_fold + 1) * part_length
+
+    distributed = []
+    for af in assigned_folds:
+        distributed.append([])
+        for fold in af:
+            start, end = _get_start_end(fold)
+            distributed[-1].append(indices[start:end])
+    distributed = [np.concatenate(d) for d in distributed]
+
+    # Distribute samples with determined indices
+    return [(x[d], y[d]) for d in distributed]
+
+
+def train_nn(model, data_train, data_valid, args):
     """
     Compile and train neural network
     """
+    X, Y = data_train
     weights = None
     if args.class_weights:
         weights = class_weight.compute_class_weight('balanced', np.unique(Y), Y)
@@ -172,6 +252,7 @@ def train_nn(model, X, Y, args):
     history = model.fit(X, Y, epochs=args.epochs, batch_size=args.batch,
                         class_weight=weights,
                         verbose=VERBOSE_LEVEL,
+                        validation_data=data_valid,
                         #callbacks=[EarlyStopping(monitor='loss', patience=20)],
                         )
     logging.info('Finished NN training.')
@@ -273,11 +354,14 @@ def compute_inconsistent_states(i, o):
                 return
 
 
-def iterative_learn(input_features, output_values):
+def iterative_learn(data_train, data_valid):
     # Set up data for keras
-    num_training_examples, num_features = input_features.shape
+    num_training_examples, num_features = data_train[0].shape
+    num_validation_examples = (0 if data_valid is None else len(data_valid[0]))
     logging.info(
         'Total number of training examples: %d' % num_training_examples)
+    logging.info(
+        'Total number of validation examples: %d' % num_validation_examples)
     logging.info('Total number of input features: %d' % num_features)
 
     # compute_inconsistent_states(input_features, output_values)
@@ -286,7 +370,7 @@ def iterative_learn(input_features, output_values):
     model = create_nn(args, num_features)
     print(model.summary())
 
-    history = train_nn(model, input_features, output_values, args)
+    history = train_nn(model, data_train, data_valid, args)
     if args.plot:
         plot(history, input_features, output_values, args)
     return history
@@ -302,13 +386,17 @@ def get_significant_weights(history):
     return significant_weights, lst
 
 
-def filter_input(indices, input_features, features_names):
-    selection = [False for x in range(input_features.shape[1])]
+def filter_input(indices, *data_sets):
+    assert len(data_sets) > 0
+    assert data_sets[0] is not None
+
+    selection = [False for _ in range(data_sets[0][0].shape[1])]
     new_feature_names = []
     for feat in indices:
         selection[feat] = True
         new_feature_names.append(features_names[feat])
-    return input_features[:, selection], new_feature_names
+
+    return [(ds[0][:, selection], ds[1]) for ds in data_sets], new_feature_names
 
 
 def create_potential_heuristic_from_parameters(features, weights, language):
@@ -352,6 +440,8 @@ if __name__ == '__main__':
     logging.info('Reading training data from %s' % args.training_data)
     input_features, output_values, features_names = \
         read_training_data(args.training_data)
+    data_train, data_valid = \
+        split_training_data(input_features, output_values, args)
 
     test_domain, test_instances = read_test_instances_list(args.test_data)
 
@@ -359,12 +449,11 @@ if __name__ == '__main__':
 
     weights = None
     for i in range(args.iterations):
-        history = iterative_learn(input_features, output_values)
+        history = iterative_learn(data_train, data_valid)
         weights, indices = get_significant_weights(history)
         logging.info('Useful features: {}'.format(indices))
-        input_features, features_names = filter_input(indices,
-                                                          input_features,
-                                                          features_names)
+        (data_train, data_valid), features_names = filter_input(
+            indices, data_train, data_valid)
 
     assert (weights is not None and len(weights) == len(features_names))
     print("Weighted features found:")
