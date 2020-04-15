@@ -282,19 +282,24 @@ def create_nn(args, nf):
     return Model(inputs=input_layer, outputs=hidden)
 
 
-def plot(history, X, Y, args):
+def plot(history, data, args):
     """
     Produce plots related to the learned heuristic function
     """
+    X, Y = data
     epochs = args.epochs
 
     # Plot error curve
     mse_loss = history.history['loss']
+    mse_val_loss = history.history.get('val_loss')
     fig = plt.figure()
     ax = fig.add_subplot(111)
     ax.set_ylim([0, 10])
     ax.set_xlim([0, epochs])
-    ax.plot(mse_loss)
+    ax.plot(mse_loss, label="loss")
+    if mse_val_loss is not None:
+        ax.plot(mse_val_loss, label="validation loss")
+    ax.legend()
     plt.show()
 
     # Scatter plot comparing h*(X-axis) to the predicted values (Y-axis)
@@ -372,7 +377,7 @@ def iterative_learn(data_train, data_valid):
 
     history = train_nn(model, data_train, data_valid, args)
     if args.plot:
-        plot(history, input_features, output_values, args)
+        plot(history, data_train, args)
     return history
 
 
@@ -396,7 +401,8 @@ def filter_input(indices, *data_sets):
         selection[feat] = True
         new_feature_names.append(features_names[feat])
 
-    return [(ds[0][:, selection], ds[1]) for ds in data_sets], new_feature_names
+    return [None if ds is None else (ds[0][:, selection], ds[1])
+            for ds in data_sets], new_feature_names
 
 
 def create_potential_heuristic_from_parameters(features, weights, language):
