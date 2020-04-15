@@ -107,7 +107,7 @@ def parse_arguments():
             "SHIFT of --split-training-data has to be less than sum(*_PARTS)")
 
     check_argument_value(
-        args.hidden_laters == 0,
+        args.hidden_layers == 0,
         "The feature selection does not work with hidden layers")
     return args
 
@@ -461,6 +461,10 @@ if __name__ == '__main__':
     for i in range(args.iterations):
         history = iterative_learn(data_train, data_valid)
         weights, indices = get_significant_weights(history)
+        if len(indices) == 0:
+            logging.error("No useful features remaining.")
+            sys.exit()
+
         logging.info('Useful features: {}'.format(indices))
         (data_train, data_valid), features_names = filter_input(
             indices, data_train, data_valid)
