@@ -133,6 +133,9 @@ def generate_experiment(domain_dir, domain, **kwargs):
 
         # Whether to prune features that have infinity denotation *in some state*
         prune_infty_features=True,
+
+        # Max. time in seconds for the concept generation phase. A value of -1 implies no timeout.
+        concept_generation_timeout=-1
     )
 
     parameters = {**defaults, **kwargs}  # Copy defaults, overwrite with user-specified parameters

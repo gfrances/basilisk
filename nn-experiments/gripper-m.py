@@ -2,13 +2,12 @@ from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
 from sltp.util.misc import update_dict
 
 
-
 def experiments():
     domain = "domain.pddl"
     base = dict(
         domain_dir="gripper-m",
         domain=domain,
-        benchmark_dir = BENCHMARK_DIR
+        benchmark_dir=BENCHMARK_DIR
     )
 
     exps = dict()
@@ -25,9 +24,11 @@ def experiments():
         num_states=100000, max_width=[-1],
         num_sampled_states=None,
         complete_only_wrt_optimal=True,
-        max_concept_size=10, max_concept_grammar_iterations=3,
+        max_concept_size=666,
+        concept_generation_timeout=60,  # in seconds
         concept_generator=None, parameter_generator=add_domain_parameters,
-        feature_namer=None )
+        feature_namer=None
+    )
 
     return exps
 
