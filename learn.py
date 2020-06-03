@@ -11,7 +11,6 @@ import sys
 
 from collections import defaultdict
 
-from basilisk.runner import ConceptBasedPotentialHeuristic
 from basilisk.tester import import_and_run_pyperplan
 from keras import regularizers
 from keras.callbacks import EarlyStopping
@@ -22,13 +21,14 @@ from keras.regularizers import l1, l2, l1_l2
 from keras.utils import plot_model
 from sklearn.utils import class_weight
 from sklearn.preprocessing import StandardScaler
+from tarski.dl import ConceptCardinalityFeature, EmpiricalBinaryConcept
 
 from sltp.language import parse_pddl
 
 # Global variables
 from sltp.util.serialization import unserialize_feature
 
-INFINITY = 2147483647 # C++ infinity value
+INFINITY = 2147483647  # C++ infinity value
 
 H_STAR = []
 TRANSITIONS = defaultdict(list)
@@ -363,7 +363,7 @@ def compute_inconsistent_states(i, o):
                 return
 
 
-def iterative_learn(data_train, data_valid):
+def iterative_learn(args, data_train, data_valid):
     # Set up data for keras
     num_training_examples, num_features = data_train[0].shape
     num_validation_examples = (0 if data_valid is None else len(data_valid[0]))
@@ -395,7 +395,7 @@ def get_significant_weights(history):
     return significant_weights, lst
 
 
-def filter_input(indices, *data_sets):
+def filter_input(indices, features_names, *data_sets):
     assert len(data_sets) > 0
     assert data_sets[0] is not None
 
@@ -407,13 +407,6 @@ def filter_input(indices, *data_sets):
 
     return [None if ds is None else (ds[0][:, selection], ds[1])
             for ds in data_sets], new_feature_names
-
-
-def create_potential_heuristic_from_parameters(features, weights, language):
-    selected_features = [unserialize_feature(language, str(f).rstrip('\n')) for f in features]
-    selected_weights = [np.asscalar(w) for w in weights]
-    return ConceptBasedPotentialHeuristic(list(zip(selected_features,
-                                                   selected_weights)))
 
 
 def read_test_instances_list(path):
@@ -441,7 +434,7 @@ def add_gripper_domain_parameters(language):
     return [language.constant("roomb", "object")]
 
 
-if __name__ == '__main__':
+def main():
     args = parse_arguments()
     logging.basicConfig(stream=sys.stdout,
                         format="%(levelname)-8s- %(message)s",
@@ -459,7 +452,7 @@ if __name__ == '__main__':
 
     weights = None
     for i in range(args.iterations):
-        history = iterative_learn(data_train, data_valid)
+        history = iterative_learn(args, data_train, data_valid)
         weights, indices = get_significant_weights(history)
         if len(indices) == 0:
             logging.error("No useful features remaining.")
@@ -467,7 +460,7 @@ if __name__ == '__main__':
 
         logging.info('Useful features: {}'.format(indices))
         (data_train, data_valid), features_names = filter_input(
-            indices, data_train, data_valid)
+            indices, features_names, data_train, data_valid)
 
     assert (weights is not None and len(weights) == len(features_names))
     print("Weighted features found:")
@@ -487,3 +480,37 @@ if __name__ == '__main__':
                                  None, gbfs=True)
 
     logging.debug('Exiting script.')
+
+
+class ConceptBasedPotentialHeuristic:
+    def __init__(self, parameters):
+        def transform(feature):
+            if isinstance(feature, EmpiricalBinaryConcept):
+                return ConceptCardinalityFeature(feature.c)
+            return feature
+
+        self.parameters = [(transform(feature), weight) for feature, weight in parameters]
+
+    def value(self, model):
+        h = 0
+        for feature, weight in self.parameters:
+            denotation = int(model.denotation(feature))
+            delta = weight * denotation
+            # logging.info("\t\tFeature \"{}\": {} = {} * {}".format(feature, delta, weight, denotation))
+            h += delta
+
+        # logging.info("\th(s)={} for state {}".format(h, state))
+        return h
+
+    def __str__(self):
+        return " + ".join("{}·{}".format(weight, feature) for feature, weight in self.parameters)
+
+
+def create_potential_heuristic_from_parameters(features, weights, language):
+    selected_features = [unserialize_feature(language, str(f).rstrip('\n')) for f in features]
+    selected_weights = [np.asscalar(w) for w in weights]
+    return ConceptBasedPotentialHeuristic(list(zip(selected_features, selected_weights)))
+
+
+if __name__ == '__main__':
+    main()
