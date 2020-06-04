@@ -36,10 +36,10 @@ def report_and_exit(msg):
     sys.exit(-1)
 
 
-def do(expid, steps=None, workspace=None, show_steps_only=False):
-    name_parts = expid.split(":")
+def generate_experiment_parameters_from_id(exp_id, workspace=None):
+    name_parts = exp_id.split(":")
     if len(name_parts) != 2:
-        report_and_exit('Wrong experiment ID "{}"'.format(expid))
+        report_and_exit(f'Wrong experiment ID "{exp_id}"')
 
     scriptname, expname = name_parts
     mod = import_experiment_file(scriptname)
@@ -47,20 +47,24 @@ def do(expid, steps=None, workspace=None, show_steps_only=False):
     try:
         experiments = mod.experiments()
     except AttributeError:
-        report_and_exit('Expected method "experiments" not found in script "{}"'.format(expname, scriptname))
+        report_and_exit(f'Expected method "experiments" not found in script "{scriptname}"')
 
     if expname not in experiments:
-        report_and_exit('No experiment named "{}" in current experiment script'.format(expname))
+        report_and_exit(f'No experiment named "{expname}" in current experiment script')
 
     parameters = experiments[expname]
     if workspace is not None:
         parameters["workspace"] = workspace
+    return parameters
 
+
+def do(expid, steps=None, workspace=None, show_steps_only=False):
+    parameters = generate_experiment_parameters_from_id(expid, workspace)
     experiment = generate_experiment(**parameters)
 
     if show_steps_only:
         console.print_hello()
-        print('Experiment with id "{}" is configured with the following steps:'.format(expid))
+        print(f'Experiment with id "{expid}" is configured with the following steps:')
         print(experiment.print_description())
         return
 

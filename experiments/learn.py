@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import argparse
 import logging
@@ -17,31 +17,37 @@ from keras.models import Model, Sequential
 from keras.optimizers import Adam
 from keras.regularizers import l1
 from sklearn.utils import class_weight
+from sltp.util.naming import compute_instance_tag, compute_experiment_tag
+
 from tarski.dl import ConceptCardinalityFeature, EmpiricalBinaryConcept
 
 from sltp.language import parse_pddl
-
-# Global variables
 from sltp.util.serialization import unserialize_feature
 
-INFINITY = 2147483647  # C++ infinity value
 
+# Global variables
+from defaults import merge_parameters_with_defaults
+from run import generate_experiment_parameters_from_id
+
+INFINITY = 2147483647  # C++ infinity value
 H_STAR = []
 TRANSITIONS = defaultdict(list)
-
 VERBOSE_LEVEL = 1
 
 
-def parse_arguments():
+def parse_arguments(argv):
     parser = argparse.ArgumentParser(
         description='Learn a heuristic based on a training data')
+
+    parser.add_argument('exp_id', metavar='domain:experiment', help="The domain and experiment within that domain.")
+
     parser.add_argument('-p', '--training-data', default=None,
-                        required=True,
+                        # required=True,
                         help="Path of the directory containing the training "
                              "data. This directory should contain the files "
                              "'features.dat' and 'distances.dat'")
     parser.add_argument('-t', '--test-data', default=None,
-                        required=True,
+                        # required=True,
                         help="Path of the directory containing the test "
                              "data. This directory should contain the domain "
                              "and instances files.")
@@ -83,12 +89,9 @@ def parse_arguments():
                         help='Keras verbose level (0, 1, or 2).')
     parser.add_argument('--seed', type=int, default=42,
                         help="set a random seed for python (not for keras)")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     random.seed(args.seed)
-
-    check_path_exists(args.training_data)
-    check_path_exists(args.test_data)
 
     if args.split_training_data is not None:
         check_argument_value(
@@ -116,8 +119,7 @@ def check_argument_value(condition, message):
 
 def check_path_exists(path):
     if not os.path.isdir(path):
-        logging.error(
-            'Error: Directory "%s" does not exist.\n' % path)
+        logging.error(f'Error: Directory "{path}" does not exist.\n')
         sys.exit()
 
 
@@ -251,7 +253,7 @@ def train_nn(model, data_train, data_valid, args):
     logging.info('Training the NN....')
     history = model.fit(X, Y, epochs=args.epochs, batch_size=args.batch,
                         class_weight=weights,
-                        verbose=VERBOSE_LEVEL,
+                        verbose=args.keras_verbose,
                         validation_data=data_valid,
                         #callbacks=[EarlyStopping(monitor='loss', patience=20)],
                         )
@@ -405,77 +407,6 @@ def filter_input(indices, features_names, *data_sets):
             for ds in data_sets], new_feature_names
 
 
-def read_test_instances_list(path):
-    domain = None
-    instances = []
-    for (dirpath, dirnames, filenames) in os.walk(path):
-        for f in filenames:
-            if not f.endswith('.pddl'):
-                continue
-            if 'domain' in f:
-                domain = os.path.join(dirpath, f)
-            else:
-                instances.append(os.path.join(dirpath, f))
-
-    return domain, instances
-
-
-def create_language(domain):
-    _, language, _ = parse_pddl(domain)
-    return language
-
-
-def add_gripper_domain_parameters(language):
-    # Hack for now
-    return [language.constant("roomb", "object")]
-
-
-def main():
-    args = parse_arguments()
-    logging.basicConfig(stream=sys.stdout,
-                        format="%(levelname)-8s- %(message)s",
-                        level=logging.DEBUG if args.debug else logging.INFO)
-
-    logging.info('Reading training data from %s' % args.training_data)
-    input_features, output_values, features_names = \
-        read_training_data(args.training_data)
-    data_train, data_valid = \
-        split_training_data(input_features, output_values, args)
-
-    test_domain, test_instances = read_test_instances_list(args.test_data)
-
-    VERBOSE_LEVEL = args.keras_verbose
-
-    weights = None
-    for i in range(args.iterations):
-        history = iterative_learn(args, data_train, data_valid)
-        weights, indices = get_significant_weights(history)
-        if len(indices) == 0:
-            logging.error("No useful features remaining.")
-            sys.exit()
-
-        logging.info('Useful features: {}'.format(indices))
-        (data_train, data_valid), features_names = filter_input(
-            indices, features_names, data_train, data_valid)
-
-    assert weights is not None and len(weights) == len(features_names)
-    print("Weighted features found:")
-    for f, w in zip(features_names, weights):
-        print("{} * {}".format(np.asscalar(w), f))
-
-    # Test the learnt heuristic
-    language = create_language(test_domain)
-    heuristic = create_potential_heuristic_from_parameters(
-        features_names, weights, language)
-
-    test_instances.sort()
-    for i in test_instances:
-        logging.info(f"Solving test instance #{i}")
-        import_and_run_pyperplan(test_domain, i, heuristic, add_gripper_domain_parameters)
-
-    logging.debug('Exiting script.')
-
-
 class ConceptBasedPotentialHeuristic:
     def __init__(self, parameters):
         def transform(feature):
@@ -502,9 +433,56 @@ class ConceptBasedPotentialHeuristic:
 
 def create_potential_heuristic_from_parameters(features, weights, language):
     selected_features = [unserialize_feature(language, str(f).rstrip('\n')) for f in features]
-    selected_weights = [np.asscalar(w) for w in weights]
+    selected_weights = [w.item() for w in weights]
     return ConceptBasedPotentialHeuristic(list(zip(selected_features, selected_weights)))
 
 
+def main(args):
+
+    params = generate_experiment_parameters_from_id(args.exp_id)
+    params = merge_parameters_with_defaults(**params)
+    params["instance_tag"] = compute_instance_tag(**params)
+    training_data = os.path.join(params["workspace"], compute_experiment_tag(**params))
+
+    check_path_exists(training_data)
+
+    input_features, output_values, features_names = read_training_data(training_data)
+    data_train, data_valid = split_training_data(input_features, output_values, args)
+
+    weights = None
+    for inst in range(args.iterations):
+        history = iterative_learn(args, data_train, data_valid)
+        weights, indices = get_significant_weights(history)
+        if len(indices) == 0:
+            logging.error("No useful features remaining.")
+            sys.exit()
+
+        logging.info('Useful features: {}'.format(indices))
+        (data_train, data_valid), features_names = filter_input(
+            indices, features_names, data_train, data_valid)
+
+    assert weights is not None and len(weights) == len(features_names)
+    print("Weighted features found:")
+    for f, w in zip(features_names, weights):
+        print(f"{w.item()} * {f}")
+
+    # Test the learnt heuristic
+    _, language, _ = parse_pddl(params['test_domain'])
+    heuristic = create_potential_heuristic_from_parameters(
+        features_names, weights, language)
+
+    for inst in sorted(params['test_instances']):
+        logging.info(f"Solving test instance '{inst}'")
+        import_and_run_pyperplan(params['test_domain'], inst, heuristic, params['parameter_generator'])
+
+    logging.debug('Exiting script.')
+
+
 if __name__ == '__main__':
-    main()
+    a = parse_arguments(sys.argv[1:])
+
+    logging.basicConfig(stream=sys.stdout,
+                        format="%(levelname)-8s- %(message)s",
+                        level=logging.DEBUG if a.debug else logging.INFO)
+
+    main(a)

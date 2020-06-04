@@ -16,8 +16,7 @@ NN_TRAINING_DATA_PIPELINE = [
 ]
 
 
-def generate_experiment(domain_dir, domain, **kwargs):
-    """ """
+def merge_parameters_with_defaults(domain_dir, domain, **kwargs):
     if "instances" not in kwargs:
         raise RuntimeError("Please specify domain and instance when generating an experiment")
 
@@ -109,7 +108,12 @@ def generate_experiment(domain_dir, domain, **kwargs):
     )
 
     parameters = {**defaults, **kwargs}  # Copy defaults, overwrite with user-specified parameters
-
+    return parameters
+    
+    
+def generate_experiment(domain_dir, domain, **kwargs):
+    """ """
+    parameters = merge_parameters_with_defaults(domain_dir, domain, **kwargs)
     steps, parameters = generate_pipeline_from_list(elements=NN_TRAINING_DATA_PIPELINE, **parameters)
     exp = Experiment(steps, parameters)
     return exp
