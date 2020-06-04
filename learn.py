@@ -12,15 +12,11 @@ import sys
 from collections import defaultdict
 
 from basilisk.tester import import_and_run_pyperplan
-from keras import regularizers
-from keras.callbacks import EarlyStopping
 from keras.layers import Activation, Dense, Dropout, Input, ReLU, ELU, LeakyReLU, Concatenate
 from keras.models import Model, Sequential
 from keras.optimizers import Adam
-from keras.regularizers import l1, l2, l1_l2
-from keras.utils import plot_model
+from keras.regularizers import l1
 from sklearn.utils import class_weight
-from sklearn.preprocessing import StandardScaler
 from tarski.dl import ConceptCardinalityFeature, EmpiricalBinaryConcept
 
 from sltp.language import parse_pddl
@@ -100,7 +96,7 @@ def parse_arguments():
             "Invalid number of arguments for --split-training-data")
         check_argument_value(
             all(x >= 0 for x in args.split_training_data),
-            "All arguments for --split-training-data has to be positive")
+            "All arguments for --split-training-data have to be positive")
         check_argument_value(
             args.split_training_data[0] < sum(
                 x for x in args.split_training_data[1:]),
@@ -389,7 +385,7 @@ def get_significant_weights(history):
     significant_weights = []
     lst = []
     for index, w in enumerate(history.model.layers[-2].get_weights()[0]):
-        if abs(w) > 0.1:
+        if abs(w) > 0.01:
             significant_weights.append(w)
             lst.append(index)
     return significant_weights, lst
@@ -462,22 +458,20 @@ def main():
         (data_train, data_valid), features_names = filter_input(
             indices, features_names, data_train, data_valid)
 
-    assert (weights is not None and len(weights) == len(features_names))
+    assert weights is not None and len(weights) == len(features_names)
     print("Weighted features found:")
     for f, w in zip(features_names, weights):
         print("{} * {}".format(np.asscalar(w), f))
 
+    # Test the learnt heuristic
     language = create_language(test_domain)
-
-    heuristic = create_potential_heuristic_from_parameters(features_names,
-                                                           weights,
-                                                           language)
+    heuristic = create_potential_heuristic_from_parameters(
+        features_names, weights, language)
 
     test_instances.sort()
     for i in test_instances:
-        logging.info("Solving {}".format(i))
-        import_and_run_pyperplan(test_domain, i, heuristic,
-                                 None, gbfs=True)
+        logging.info(f"Solving test instance #{i}")
+        import_and_run_pyperplan(test_domain, i, heuristic, add_gripper_domain_parameters)
 
     logging.debug('Exiting script.')
 

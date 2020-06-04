@@ -3,48 +3,45 @@
 import sys
 
 from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
+from sltp.util.misc import update_dict
 
-from defaults import generate_experiment
-from tarski.dl import PrimitiveRole, NominalConcept, ExistsConcept, NotConcept, UniversalConcept, AndConcept, \
-    ForallConcept, EmptyConcept
-
-
-def experiment(experiment_name=None):
+def experiments():
     domain = "domain.pddl"
-    domain_dir = "blocks"
-    # benchmark_dir = BENCHMARK_DIR
-    benchmark_dir = PYPERPLAN_BENCHMARK_DIR
-    # domain_dir = "gripper"
+    base = dict(
+        domain_dir="blocks",
+        domain=domain,
+        benchmark_dir = PYPERPLAN_BENCHMARK_DIR
+    )
+    exps = dict()
 
-    prob01 = dict(
-        lp_max_weight=10,
-        benchmark_dir=benchmark_dir,
-        instances="task01.pddl",
-        num_states=500, num_sampled_states=None, random_seed=12,
-        max_concept_size=20, max_concept_grammar_iterations=3,
-        concept_generator=None, parameter_generator=add_domain_parameters,
-        feature_namer=feature_namer,)
+    exps['learn'] = update_dict(
+        base,
+        test_domain=domain,
+        instances=['task01.pddl',
+                   'task02.pddl',
+                   'task03.pddl',
+                   'task04.pddl',
+                   'task05.pddl',
+                   'task06.pddl',
+        ],
+        test_instances=['task07.pddl',
+                        'task08.pddl'],
+        #distance_feature_max_complexity=5,
+        num_tested_states=100000,
+        num_states=100000, max_width=[-1],
+        num_sampled_states=None,
+        max_concept_size=7, max_concept_grammar_iterations=3,
+        concept_generator=None,
+        parameter_generator=None
+    )
+
+    return exps
 
 
-
-
-    parameters = {
-        "task01": prob01,
-    }.get(experiment_name or "test")
-
-    return generate_experiment(domain_dir, domain, **parameters)
+def generate_chosen_concepts(lang):
+    """  """
+    return [], [], []  # atoms, concepts, roles
 
 
 def add_domain_parameters(language):
     return []
-
-
-def feature_namer(feature):
-    s = str(feature)
-    return {
-    }.get(s, s)
-
-
-if __name__ == "__main__":
-    exp = experiment(sys.argv[1])
-    exp.run(sys.argv[2:])

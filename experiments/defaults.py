@@ -1,28 +1,23 @@
+
 import os
 
-from basilisk import BENCHMARK_DIR, DOWNWARD_BENCHMARKS_DIR
-from basilisk.steps import PyperplanStep, HeuristicWeightsLPComputation, HeuristicTestingComputation
+from basilisk import BENCHMARK_DIR
 from sltp.driver import Experiment, generate_pipeline_from_list, \
-    ConceptGenerationStep, FeatureMatrixGenerationStep, \
-    TransitionSamplingStep
-# from sltp.driver import CPPFeatureGenerationStep
-from sltp.learn_actions import OptimizationPolicy
+    TransitionSamplingStep, PlannerStep, CPPFeatureGenerationStep
 
+BASEDIR = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
-heuristic_pipeline = [
-    PyperplanStep,
+# The steps necessary to generate the data to train the neural network;
+# h* and feature denotation matrix
+NN_TRAINING_DATA_PIPELINE = [
+    PlannerStep,
     TransitionSamplingStep,
-    ConceptGenerationStep,
-    FeatureMatrixGenerationStep,
-    # CPPFeatureGenerationStep,
-    HeuristicWeightsLPComputation,
-    HeuristicTestingComputation,
+    CPPFeatureGenerationStep,
 ]
 
 
 def generate_experiment(domain_dir, domain, **kwargs):
     """ """
-
     if "instances" not in kwargs:
         raise RuntimeError("Please specify domain and instance when generating an experiment")
 
@@ -37,11 +32,11 @@ def generate_experiment(domain_dir, domain, **kwargs):
         # Location of the FS planner, used to do the state space sampling
         planner_location=os.getenv("FS_PATH", os.path.expanduser("~/projects/code/fs")),
 
+        # The directory where the experiment outputs will be left
+        workspace=os.path.join(BASEDIR, 'workspace'),
+
         # Type of sampling procedure. Only breadth-first search implemented ATM
         driver="bfs",
-
-        # Whether to do IW-like pruning of nodes with novelty higher than the specified (default: -1, no pruning at all)
-        # max_width=-1,
 
         # Whether we are happy to obtain completeness guarantees only with respect to those states
         # that lie in some arbitrary (one) optimal path. Default: False
@@ -78,43 +73,22 @@ def generate_experiment(domain_dir, domain, **kwargs):
         # Default is [], i.e. just run the generation process without enforcing anything
         enforce_features=[],
 
-        # Max. allowed complexity for distance features (default: 0)
+        # Max. allowed complexity for distance and conditional features (default: 0)
         distance_feature_max_complexity=0,
+        cond_feature_max_complexity=0,
 
         # Method to generate domain parameters (goal or otherwise). If None, goal predicates will
         # be used (default: None)
         parameter_generator=None,
 
-        # Use the relaxed (weak) increase semantics
-        relax_numeric_increase=False,
-
         # Optionally, use a method that gives handcrafted names to the features
         # (default: None, which will use their string representation)
         feature_namer=default_feature_namer,
 
-        # What optimization criteria to use in the max-sat problem
-        optimization=OptimizationPolicy.TOTAL_FEATURE_COMPLEXITY,
-        # optimization=OptimizationPolicy.NUM_FEATURES
-
         # Set a random seed for reproducibility (default: 1)
         random_seed=1,
 
-        # The M parameter of the LP formulation (?)
-        lp_max_weight=10,
-
         domain_dir=domain_dir,
-
-        # The selection strategy to be used when marking which transitions are considered as optimal.
-        # - "arbitrary" marks as optimal the transitions in one single path btw initial state
-        #  and (some) goal per instance, chosen arbitrarily.
-        # "- complete" marks the transitions between all optimal paths btw initial state and (some) goal.
-        optimal_selection_strategy="arbitrary",
-
-        # The Experiment class to be used (e.g. standard, or incremental)
-        experiment_class=Experiment,
-
-        # The max. number of states in the Flaw set when validating an incremental abstraction
-        batch_refinement_size=10,
 
         # Whether to clean the (sub-) workspaces used to compute incremental abstractions after finishing.
         clean_workspace=True,
@@ -122,26 +96,22 @@ def generate_experiment(domain_dir, domain, **kwargs):
         # Reduce output to a minimum
         quiet=False,
 
-        # Validate the computed potential heuristic on the same training set by running hill-climbing until a goal
-        validate_learnt_heuristic=True,
-
-        # Whether to take into acount states labeled as unsolvable by whatever planner is being used
-        compute_unsolvable_states=True,
-
-        # Whether to prune features that have denotation > 0 over *all states*
-        prune_positive_features=False,
-
-        # Whether to prune features that have infinity denotation *in some state*
-        prune_infty_features=True,
+        # Some debugging help to print the denotations of all features over all states (expensive!)
+        print_all_denotations=False,
 
         # Max. time in seconds for the concept generation phase. A value of -1 implies no timeout.
-        concept_generation_timeout=-1
+        concept_generation_timeout=-1,
+
+        # Ignore this attributes, they are necessary for SLTP to run without complaining
+        optimal_selection_strategy="arbitrary",
+        create_goal_features_automatically=False,
+        goal_selector=None,
     )
 
     parameters = {**defaults, **kwargs}  # Copy defaults, overwrite with user-specified parameters
 
-    steps, parameters = generate_pipeline_from_list(elements=heuristic_pipeline, **parameters)
-    exp = parameters["experiment_class"](steps, parameters)
+    steps, parameters = generate_pipeline_from_list(elements=NN_TRAINING_DATA_PIPELINE, **parameters)
+    exp = Experiment(steps, parameters)
     return exp
 
 
