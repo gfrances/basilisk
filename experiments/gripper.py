@@ -18,7 +18,7 @@ def experiments():
         instances=['testX.pddl',
                    'testY.pddl',
                    'testZ.pddl'],
-        test_instances=['test06.pddl', 'test07.pddl'],
+        test_instances=[f'prob{i:02}.pddl' for i in range(1, 11)],
         test_domain=domain,
 
         num_states=100000,
