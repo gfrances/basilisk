@@ -1,38 +1,48 @@
 
-# Concept Based Heuristics
+# Basilisk-NN
+
+# Installation
+Whole installation process is yet not fully automatized (sorry!), as some components
+are C++ code that needs to be compiled outside pip. Easiest thing for now is to clone
+manually the SLTP dependency  and to  `pip install -e .` it before running
+`pip install -e .` in this repo.
+Once that is done, some C++ in the SLTP project will need to be compiled, see below.
+The exact commit ID to checkout from SLTP is on the `setup.py` file of this project. 
 
 
+# Running the NN pipeline in Basilisk
+All experiments are in the `experiments` folder.
+All experiments go through a "dispatcher" `run.py` script that reads the particular experiment
+configuration data from a single file. So for instance running `./run.py gripper:sample01`
+will go to python file `gripper.py` and look up there the experiment configuration labeled "sample01".
 
-## Development Notes
+Experiments are currently divided in two main blocks: 
+1. Generation of training data.
+1. Learning of a generalized heuristic.
+
+This is so simply because Augusto is too lazy to install the necessary requirements for the training
+data generation in the cluster, so this way we can generate training data locally, sync with the cluster,
+and trigger the computationally-demanding learning part in the cluster.
+
+The above split is reflected in the existence of two main scripts in the `experiments` directory:
+1. `run.py`: In charge of generating the training data and serializing it to disk.
+1. `learn.py`: Learning the generalized heuristic.
 
 
-## Installation and Usage
+Chech the readme SLTP file at <https://github.com/aig-upf/sltp/tree/integrating-with-tarski>
+for more details on how to install / run the whole thing.
 
-To install in development mode, issue the following command on the root directory of the project:
+So far, we can sample state space (with FS planner) and generate features (with SLTP C++ generator)
+e.g. by running:  
 
-    pip install -e .
+    FS_PATH=/home/frances/projects/code/fs-sltp ./run.py gripper:sample01
+    
+This assume that you have first built the FS planner, which is under $FS_PATH, and 
+also that you have built the C++ feature generator in SLTP, see instructions in readme above.
 
-This should install all the required dependencies.
-
-## Usage
-
-Individual experiments are on the `experiments` folder. See e.g. `experiments/gripper.py`
-for an example. Currently we can invoke the configuration `prob01` of the experiment by issuing:
-
-    experiments/gripper.py prob01 --all
 
 
 ### Software Requirements
-
-* CPLEX (Python API)
-  To install the Python API for CPLEX, go to the directory `/path/to/cplex/python` and run
-
-	```bash
-     python3 setup.py install
-	 ```
-
-  If you use a virtual environment, run the command above inside the virtual environment.
-
 
 * Python 3.6+ with the following dependencies
   - `keras`
