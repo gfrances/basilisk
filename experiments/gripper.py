@@ -2,13 +2,12 @@ from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
 from sltp.util.misc import update_dict
 
 
-
 def experiments():
     domain = "domain.pddl"
     base = dict(
-        domain_dir="gripper",
+        domain_dir="gripper-m",
         domain=domain,
-        benchmark_dir=PYPERPLAN_BENCHMARK_DIR
+        benchmark_dir=BENCHMARK_DIR
     )
 
     exps = dict()
@@ -16,18 +15,32 @@ def experiments():
     #
     exps["learn"] = update_dict(
         base,
-        instances=["task01.pddl",
-                   "task02.pddl",
-                   "task03.pddl"],
-        test_instances=[],
+        instances=['testX.pddl',
+                   'testY.pddl',
+                   'testZ.pddl'],
+        test_instances=['test06.pddl', 'test07.pddl'],
         test_domain=domain,
         num_tested_states=100000,
         num_states=100000, max_width=[-1],
         num_sampled_states=None,
         complete_only_wrt_optimal=True,
-        max_concept_size=10, max_concept_grammar_iterations=3,
-        concept_generator=None, parameter_generator=add_domain_parameters,
-        feature_namer=None )
+        max_concept_size=14,
+        concept_generation_timeout=600,  # in seconds
+        concept_generator=None,
+        parameter_generator=add_domain_parameters,
+        feature_namer=None
+    )
+
+    exps["inequalities"] = update_dict(exps["learn"], domain_dir="gripper-m-ineq")
+
+    exps["learn-original"] = update_dict(
+        exps["learn"],
+        instances=["task01.pddl",
+                   "task02.pddl",
+                   "task03.pddl"],
+        test_instances=['test04.pddl', 'test05.pddl'],
+        domain_dir="gripper",
+        benchmark_dir=PYPERPLAN_BENCHMARK_DIR)
 
     return exps
 

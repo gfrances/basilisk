@@ -11,6 +11,19 @@ The exact commit ID to checkout from SLTP is on the `setup.py` file of this proj
 
 
 ## Running the NN pipeline in Basilisk
+
+### TL; DR: An example Run
+A simple run of the pipeline on the Gripper domain:
+    
+    # Generate training data:
+    .../basilisk/experiments$ ./run.py gripper:learn
+    
+    # Train the NN to learn the heuristic:
+    .../basilisk/experiments$ ./learn.py gripper:learn
+
+
+### The full explanation
+
 All experiments are in the `experiments` folder.
 All experiments go through a "dispatcher" `run.py` script that reads the particular experiment
 configuration data from a single file. So for instance running `./run.py gripper:sample01`
@@ -39,15 +52,6 @@ e.g. by running:
     
 This assume that you have first built the FS planner, which is under $FS_PATH, and 
 also that you have built the C++ feature generator in SLTP, see instructions in readme above.
-
-## Example Run
-A simple run of the pipeline on the Gripper domain:
-    
-    # Generate training data:
-    .../basilisk/experiments$ ./run.py gripper-m:learn
-    
-    # Train the NN to learn the heuristic:
-    .../basilisk/experiments$ ./learn.py gripper-m:learn
 
 
 ## Software Requirements
