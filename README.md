@@ -1,7 +1,7 @@
 
 # Basilisk-NN
 
-# Installation
+## Installation
 Whole installation process is yet not fully automatized (sorry!), as some components
 are C++ code that needs to be compiled outside pip. Easiest thing for now is to clone
 manually the SLTP dependency  and to  `pip install -e .` it before running
@@ -10,7 +10,7 @@ Once that is done, some C++ in the SLTP project will need to be compiled, see be
 The exact commit ID to checkout from SLTP is on the `setup.py` file of this project. 
 
 
-# Running the NN pipeline in Basilisk
+## Running the NN pipeline in Basilisk
 All experiments are in the `experiments` folder.
 All experiments go through a "dispatcher" `run.py` script that reads the particular experiment
 configuration data from a single file. So for instance running `./run.py gripper:sample01`
@@ -40,9 +40,17 @@ e.g. by running:
 This assume that you have first built the FS planner, which is under $FS_PATH, and 
 also that you have built the C++ feature generator in SLTP, see instructions in readme above.
 
+## Example Run
+A simple run of the pipeline on the Gripper domain:
+    
+    # Generate training data:
+    .../basilisk/experiments$ ./run.py gripper-m:learn
+    
+    # Train the NN to learn the heuristic:
+    .../basilisk/experiments$ ./learn.py gripper-m:learn
 
 
-### Software Requirements
+## Software Requirements
 
 * Python 3.6+ with the following dependencies
   - `keras`
