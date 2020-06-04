@@ -32,10 +32,9 @@ def experiments():
                         "prob-15-10-8-1540913795.pddl"],
         test_domain=domain,
         #distance_feature_max_complexity=5,
-        num_tested_states=10000,
-        num_states=10000, max_width=[-1],
+        num_states=10000,
         num_sampled_states=None,
-        max_concept_size=10, max_concept_grammar_iterations=3,
+        max_concept_size=10,
         concept_generator=None,
         parameter_generator=None
     )

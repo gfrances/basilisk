@@ -57,10 +57,6 @@ def merge_parameters_with_defaults(domain_dir, domain, **kwargs):
         # Max. size of the generated concepts (mandatory)
         max_concept_size=10,
 
-        # Max. number of iterations of the concept-generation grammar. Optional. Defaults to infinity,
-        # in which case the limit is set by max_concept_size alone.
-        max_concept_grammar_iterations=2,
-
         # Provide a special, handcrafted method to generate concepts, if desired.
         # This will override the standard concept generation procedure (default: None)
         concept_generator=None,
@@ -100,6 +96,13 @@ def merge_parameters_with_defaults(domain_dir, domain, **kwargs):
 
         # Max. time in seconds for the concept generation phase. A value of -1 implies no timeout.
         concept_generation_timeout=-1,
+
+
+        # We want to keep this to 0, as we don't want to sample states from testing instances
+        num_tested_states=0,
+
+        # Keep this to -1, as we don't want any kind of width-based exploration
+        max_width=[-1],
 
         # Ignore this attributes, they are necessary for SLTP to run without complaining
         optimal_selection_strategy="arbitrary",

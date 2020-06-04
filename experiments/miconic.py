@@ -21,12 +21,11 @@ def experiments():
                    "task03.pddl"],
         test_instances=[],
         test_domain=domain,
-        num_tested_states=100000,
-        num_states=100000, max_width=[-1],
+        num_states=100000,
         num_sampled_states=None,
         complete_only_wrt_optimal=True,
-        max_concept_size=10, max_concept_grammar_iterations=3,
+        max_concept_size=10,
         concept_generator=None, parameter_generator=None,
-        feature_namer=None )
+        feature_namer=None)
 
     return exps

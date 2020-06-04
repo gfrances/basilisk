@@ -13,28 +13,28 @@ def experiments():
     exps = dict()
 
     #
-    exps["learn"] = update_dict(
+    exps["small"] = update_dict(
         base,
         instances=['testX.pddl',
                    'testY.pddl',
                    'testZ.pddl'],
         test_instances=['test06.pddl', 'test07.pddl'],
         test_domain=domain,
-        num_tested_states=100000,
-        num_states=100000, max_width=[-1],
+
+        num_states=100000,
         num_sampled_states=None,
         complete_only_wrt_optimal=True,
-        max_concept_size=14,
+        max_concept_size=10,
         concept_generation_timeout=600,  # in seconds
         concept_generator=None,
         parameter_generator=add_domain_parameters,
         feature_namer=None
     )
 
-    exps["inequalities"] = update_dict(exps["learn"], domain_dir="gripper-m-ineq")
+    exps["inequalities"] = update_dict(exps["small"], domain_dir="gripper-m-ineq")
 
-    exps["learn-original"] = update_dict(
-        exps["learn"],
+    exps["small-original-encoding"] = update_dict(
+        exps["small"],
         instances=["task01.pddl",
                    "task02.pddl",
                    "task03.pddl"],
