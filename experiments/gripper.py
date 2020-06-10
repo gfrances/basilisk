@@ -12,12 +12,10 @@ def experiments():
 
     exps = dict()
 
-    #
     exps["small"] = update_dict(
         base,
         instances=['testX.pddl',
-                   'testY.pddl',
-                   'testZ.pddl'],
+                   'testY.pddl'],
         test_instances=[f'prob{i:02}.pddl' for i in range(1, 11)],
         test_domain=domain,
 
@@ -64,6 +62,8 @@ def feature_namer(feature):
         "card[Exists(at-robby,{roomb})]": "nrobots-at-B",
         "card[Exists(gripper,Exists(at-robby,{roomb}))]": "ngrippers-at-B",
         "card[Exists(carry,Exists(gripper,Exists(at-robby,{roomb})))]": "nballs-carried-in-B",
-        "card[Exists(at,And(Forall(Inverse(at-robby),<empty>), Not({roomb})))]": "nballs-in-some-room-notB-without-any-robot",
-        "bool[And(Exists(Inverse(at),<universe>), And({roomb}, Not(at-robby)))]": "some-ball-in-B-but-robbot-not-in-B",
+        "card[Exists(at,And(Forall(Inverse(at-robby),<empty>), Not({roomb})))]":
+            "nballs-in-some-room-notB-without-any-robot",
+        "bool[And(Exists(Inverse(at),<universe>), And({roomb}, Not(at-robby)))]":
+            "some-ball-in-B-but-robbot-not-in-B",
     }.get(s, s)

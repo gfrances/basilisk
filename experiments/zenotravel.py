@@ -1,19 +1,18 @@
-from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
+from basilisk import PYPERPLAN_BENCHMARK_DIR
 from sltp.util.misc import update_dict
-
 
 
 def experiments():
     domain = "domain.pddl"
     base = dict(
         domain_dir="zenotravel",
-        domain=domain
+        domain=domain,
+        benchmark_dir=PYPERPLAN_BENCHMARK_DIR
     )
 
     exps = dict()
 
-    #
-    exps["learn"] = update_dict(
+    exps["small"] = update_dict(
         base,
         instances=["p01.pddl",
                    "p02.pddl"],

@@ -1,6 +1,5 @@
-from basilisk import PYPERPLAN_BENCHMARK_DIR, BENCHMARK_DIR
+from basilisk import PYPERPLAN_BENCHMARK_DIR
 from sltp.util.misc import update_dict
-
 
 
 def experiments():
@@ -13,19 +12,26 @@ def experiments():
 
     exps = dict()
 
-    #
-    exps["learn"] = update_dict(
+    exps["small"] = update_dict(
         base,
         instances=["task01.pddl",
                    "task02.pddl",
                    "task03.pddl"],
-        test_instances=[],
+        test_instances=[
+            "task10.pddl",
+            "task15.pddl",
+            "task20.pddl",
+            "task25.pddl",
+            "task30.pddl",
+        ],
         test_domain=domain,
         num_states=100000,
         num_sampled_states=None,
         complete_only_wrt_optimal=True,
-        max_concept_size=10,
-        concept_generator=None, parameter_generator=None,
+        max_concept_size=12,
+        concept_generation_timeout=600,  # in seconds
+        concept_generator=None,
+        parameter_generator=None,
         feature_namer=None)
 
     return exps
