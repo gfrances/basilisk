@@ -2,6 +2,8 @@
 
 import argparse
 import logging
+import re
+
 import matplotlib.pyplot as plt
 import math
 import numpy as np
@@ -12,6 +14,7 @@ import sys
 from collections import defaultdict
 
 from basilisk.tester import import_and_run_pyperplan
+from basilisk.utils import stdout_redirected
 from keras.layers import Activation, Dense, Dropout, Input, ReLU, ELU, LeakyReLU, Concatenate
 from keras.models import Model, Sequential
 from keras.optimizers import Adam
@@ -26,13 +29,12 @@ from sltp.util.serialization import unserialize_feature
 
 
 # Global variables
+from tarski.utils import resources
+
 from defaults import merge_parameters_with_defaults
 from run import generate_experiment_parameters_from_id
 
 INFINITY = 2147483647  # C++ infinity value
-H_STAR = []
-TRANSITIONS = defaultdict(list)
-VERBOSE_LEVEL = 1
 
 
 def parse_arguments(argv):
@@ -146,7 +148,6 @@ def compute_h_star(exp_dir):
             dist[source] = INFINITY
             for v in nodes[1:]:
                 transitions[v].append(source)
-    TRANSITIONS = transitions
 
     queue = []
     for g in goals:
@@ -161,7 +162,6 @@ def compute_h_star(exp_dir):
                 dist[t] = d + 1
                 queue.append(t)
 
-    H_STAR = dist
     return dist
 
 
@@ -190,11 +190,13 @@ def read_training_data(path):
         feature_line = f.readline()
         feature_strings = feature_line.split('\t')
 
-    assert (feature_strings is not None)
+    assert feature_strings is not None
 
-    np.savetxt(path + '/training-examples.csv', np.array(finite_features_denotations), delimiter=',', fmt='%d')
-    np.savetxt(path + '/training-labels.csv', np.array(h_star, dtype=int), delimiter=',', fmt='%d')
-    return np.array(finite_features_denotations), np.array(h_star), np.array(feature_strings)
+    feat_den_as_array = np.array(finite_features_denotations)
+    labels = np.array(h_star, dtype=int)
+    np.savetxt(path + '/training-examples.csv', feat_den_as_array, delimiter=',', fmt='%d')
+    np.savetxt(path + '/training-labels.csv', labels, delimiter=',', fmt='%d')
+    return feat_den_as_array, labels, np.array(feature_strings)
 
 
 def split_training_data(x, y, args):
@@ -442,22 +444,25 @@ def main(args):
     params = generate_experiment_parameters_from_id(args.exp_id)
     params = merge_parameters_with_defaults(**params)
     params["instance_tag"] = compute_instance_tag(**params)
-    training_data = os.path.join(params["workspace"], compute_experiment_tag(**params))
+    workspace = os.path.join(params["workspace"], compute_experiment_tag(**params))
 
-    check_path_exists(training_data)
+    check_path_exists(workspace)
 
-    input_features, output_values, features_names = read_training_data(training_data)
+    with resources.timing(f"Loading training data", newline=True):
+        input_features, output_values, features_names = read_training_data(workspace)
+
     data_train, data_valid = split_training_data(input_features, output_values, args)
 
     weights = None
-    for inst in range(args.iterations):
-        history = iterative_learn(args, data_train, data_valid)
+    for i in range(args.iterations):
+        with resources.timing(f"Training NN - Iteration {i+1}/{args.iterations}", newline=True):
+            history = iterative_learn(args, data_train, data_valid)
         weights, indices = get_significant_weights(history)
         if len(indices) == 0:
             logging.error("No useful features remaining.")
             sys.exit()
 
-        logging.info('Useful features: {}'.format(indices))
+        logging.info(f'Found {len(indices)} useful features: {indices}')
         (data_train, data_valid), features_names = filter_input(
             indices, features_names, data_train, data_valid)
 
@@ -471,11 +476,24 @@ def main(args):
     heuristic = create_potential_heuristic_from_parameters(
         features_names, weights, language)
 
+    results = []
     for inst in sorted(params['test_instances']):
-        logging.info(f"Solving test instance '{inst}'")
-        import_and_run_pyperplan(params['test_domain'], inst, heuristic, params['parameter_generator'])
+        pyperplan_output = os.path.join(workspace, f'pyperplan_run_{os.path.basename(inst)[:-5]}.out')
+        with resources.timing(f'Solving test instance "{inst}". Output stored in "{pyperplan_output}"'):
+            with open(pyperplan_output, 'w') as f, stdout_redirected(f):
+                import_and_run_pyperplan(params['test_domain'], inst, heuristic, params['parameter_generator'])
 
-    logging.debug('Exiting script.')
+        with open(pyperplan_output, 'r') as f:
+            filetext = f.read()
+        matches = re.findall(r"(\d+) Nodes expanded", filetext)
+        assert len(matches) == 1
+        expanded = int(matches[0])
+
+        matches = re.findall(r"Plan length: (\d+)", filetext)
+        assert len(matches) == 1
+        planlen = int(matches[0])
+        print(f'Plan length: {planlen}. # expanded: {expanded}')
+        results.append((planlen, expanded))
 
 
 if __name__ == '__main__':
