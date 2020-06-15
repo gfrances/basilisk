@@ -1,0 +1,62 @@
+Bootstrap: docker
+From: ubuntu:focal
+
+%files
+fs /code/fs
+tarski /code/tarski
+sltp /code/sltp
+basilisk /code/basilisk
+
+
+%labels
+MAINTAINER Guillem Francès <guillem.frances@upf.edu>
+
+%post
+apt-get update && DEBIAN_FRONTEND="noninteractive" apt-get install --no-install-recommends -y \
+	build-essential \
+	cmake \
+	ca-certificates \
+	curl \
+	python3 python3-pip python3-dev python3-setuptools \
+	scons \
+	git \
+	pkg-config \
+	libboost-program-options-dev libboost-filesystem-dev libboost-system-dev \
+	libboost-chrono-dev libboost-timer-dev libboost-serialization-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+
+# Set up some environment variables
+BASE_DIR="/code"
+CXX=g++
+
+# Install the wheel module for subsequents pip installs
+pip3 install wheel
+
+mkdir -p $BASE_DIR
+
+# Install & build the FS planner
+cd ${BASE_DIR}/fs && git submodule update --init && python3 ./build.py -p
+
+# Install Tarski
+cd ${BASE_DIR}/tarski && pip3 install -e .
+
+# Install & build SLTP
+SLTP_PATH="${BASE_DIR}/sltp"
+cd $SLTP_PATH && pip3 install -e .
+cd $SLTP_PATH/src/features && cmake . && make -j4 && rm -rf CMakeFiles
+
+# Install Basilisk
+cd ${BASE_DIR}/basilisk && pip3 install -e .
+
+
+%environment
+export BASE_DIR="/code"
+export CXX=g++
+export FS_PATH="${BASE_DIR}/fs"
+export TARSKI_PATH="${BASE_DIR}/tarski"
+export SLTP_PATH="${BASE_DIR}/sltp"
+export BASILISK_PATH="${BASE_DIR}/basilisk"
+
+
+%runscript
