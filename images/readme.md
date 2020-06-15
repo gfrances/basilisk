@@ -1,6 +1,7 @@
 
 # Building a Singularity for Basilisk
-The 
+The `build.sh` script in this directory should be able to fully build
+a Singularity image. You should invoke it from this directory. 
 
 
 
