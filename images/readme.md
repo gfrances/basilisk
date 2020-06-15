@@ -11,7 +11,7 @@ into the Singularity container, and (2) mount a directory with write permission 
 as well, which we'll be used as Basilisk's workspace. This sample call will run the "small" experiment
 from Gripper:
 
-    singularity run  --bind /home/frances/projects/code/basilisk/benchmarks:/code/basilisk/benchmarks \
+    singularity run  --bind /infai/blaas/projects/basilisk/:/code/basilisk/benchmarks \
                      --bind .:/workspace ./basilisk.sif \
                      /code/basilisk/experiments/run.py --workspace /workspace gripper:small 
 
