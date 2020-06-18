@@ -26,8 +26,8 @@ def experiments():
         # distance_feature_max_complexity=5,
         num_states=100000,
         num_sampled_states=None,
-        max_concept_size=8,
-        concept_generation_timeout=600,  # in seconds
+        max_concept_size=50,
+        concept_generation_timeout=1800,  # in seconds
         concept_generator=None,
         parameter_generator=None
     )

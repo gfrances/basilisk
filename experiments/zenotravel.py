@@ -21,8 +21,10 @@ def experiments():
         num_states=1000000,
         num_sampled_states=None,
         complete_only_wrt_optimal=True,
-        max_concept_size=8,
-        concept_generator=None, parameter_generator=None,
+        max_concept_size=50,
+        concept_generator=None,
+        concept_generation_timeout=1800,  # in seconds
+        parameter_generator=None,
         feature_namer=None
     )
 
