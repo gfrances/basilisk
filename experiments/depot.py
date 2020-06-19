@@ -5,7 +5,7 @@ from sltp.util.misc import update_dict
 def experiments():
     domain = "domain.pddl"
     base = dict(
-        domain_dir="blocks",
+        domain_dir="depot",
         domain=domain,
         benchmark_dir=PYPERPLAN_BENCHMARK_DIR
     )
