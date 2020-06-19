@@ -11,10 +11,11 @@ into the Singularity container, and (2) mount a directory with write permission 
 as well, which we'll be used as Basilisk's workspace. This sample call will run the "small" experiment
 from Gripper:
 
-    singularity run  --bind /infai/blaas/projects/basilisk/:/code/basilisk/benchmarks \
+    singularity run  -C --bind /infai/blaas/projects/basilisk/:/code/basilisk/benchmarks \
                      --bind .:/workspace ./basilisk.sif \
                      /code/basilisk/experiments/run.py --workspace /workspace gripper:small 
 
 With the call above, all the output of the pipeline will be left in the current directory, since we're mounting
 that directory as the container's `/workspace` directory. Of course you can change the `--bind` instruction
 to put that somewhere else.
+
