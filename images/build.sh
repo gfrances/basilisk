@@ -38,7 +38,8 @@ git clone --depth 1 -b sltp-lite --single-branch git@github.com:aig-upf/fs-priva
 cd fs && git submodule update --init && cd ..
 
 # Get current version of SLTP (from local directory)
-git clone --depth 1 -b integrating-with-tarski --single-branch git@github.com:aig-upf/sltp.git sltp
+git clone -b master --single-branch git@github.com:aig-upf/sltp.git sltp
+git -C sltp/ checkout 728dc0d
 
 # Copy
 mkdir basilisk
