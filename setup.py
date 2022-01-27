@@ -46,7 +46,7 @@ def main():
         install_requires=[
             'setuptools',
             "tarski @ git+ssh://git@github.com/aig-upf/tarski.git@150a396#egg=tarski-dev-0.1.0",
-            "sltp @ git+ssh://git@github.com/aig-upf/features-generalized-planning.git@8f67876#egg=sltp-basilisk",
+            "sltp @ git+ssh://git@github.com/aig-upf/sltp.git@8f67876#egg=sltp-basilisk",
         ],
 
 
